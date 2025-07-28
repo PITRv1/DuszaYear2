@@ -2,9 +2,9 @@ General stuff for the team:
 - Naming convention:
 So just to keep things organised during development I thought it would be good to have a naming convension to keep scripts and assets consistent throughout the project
 
-Use snake_case for => variable names, function names, file names (such as scenes and scripts and resources)
-Use camelCase for => signal names
-Use PascalCase for => class, singeltons
+1. Use snake_case for => variable names, function names, file names (such as scenes and scripts and resources) \n
+2. Use camelCase for => signal names \n
+3. Use PascalCase for => class, singeltons
 
 
 
