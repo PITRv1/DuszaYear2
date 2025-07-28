@@ -17,4 +17,4 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Singletons/global.gd"
-SignalBus="*res://Singletons/SignalBus.gd"
+SignalBus="*res://Singletons/signal_bus.gd"
