@@ -8,7 +8,10 @@ So just to keep things organised during development I thought it would be good t
 
 
 
-=======================================| Logbook |===========================================
+# | Logbook |
 Increment with a new line if something notable happens
 
 2025.07.28 - Repo created: current game is a Wizard themed card game with mechanics from Buckshot rulett and Liar's bar. 
+
+2025.09.26 - Project idea reworked, project preperations started
+
