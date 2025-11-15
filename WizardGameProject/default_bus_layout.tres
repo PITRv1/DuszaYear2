@@ -1,9 +1,0 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://2l4dxvbxsg1f"]
-
-[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
-resource_name = "Reverb"
-room_size = 0.56
-
-[resource]
-bus/0/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
-bus/0/effect/0/enabled = true

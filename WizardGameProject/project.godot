@@ -10,11 +10,22 @@ config_version=5
 
 [application]
 
-config/name="DuszaProject2"
+config/name="LowLevelNetworking [BAD] [ARCHIVED] [WONT WORK] (WILL WORK!!)"
+run/main_scene="uid://c230wy8dop4gf"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Singletons/global.gd"
-SignalBus="*res://Singletons/signal_bus.gd"
+NetworkHandler="*res://NetworkHandler/network_handler.gd"
+MultiplayerServerGlobals="*res://NetworkHandler/multiplayer_server_globals.gd"
+MultiplayerClientGlobals="*res://NetworkHandler/multiplayer_client_globals.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
