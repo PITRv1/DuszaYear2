@@ -8,6 +8,7 @@ signal on_connected_to_server()
 signal on_disconnected_from_server()
 signal on_client_packet(data : PackedByteArray)
 
+
 var available_peer_ids : Array = range(255, -1, -1) 
 var client_peers : Dictionary[int, ENetPacketPeer]
 var server_peer : ENetPacketPeer
@@ -58,7 +59,9 @@ func _handle_events() -> void:
 	
 
 
-# Peter, I really hope you will se this message. This is Dani from 2025.11.12 20:51, MÁV Nyírség IC. I despise you. YOU'VE MADE ME DO THIS!!!.
+# Peter, I really hope you will se this message. This is Dani from 2025.11.12 20:51, 
+# MÁV Nyírség IC. I despise you. YOU'VE MADE ME DO THIS!!!.
+
 #region Server Functions
 func start_server(ip_address : String = "127.0.0.1", port : int = 42069) -> void:
 	connection = ENetConnection.new()
