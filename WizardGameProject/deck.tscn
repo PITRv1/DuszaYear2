@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn30p8nmfqfqg"]
+
+[ext_resource type="Script" uid="uid://03b7bnamjn5y" path="res://deck.gd" id="1_nxs2u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxs2u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mg3wr"]
+material = SubResource("StandardMaterial3D_nxs2u")
+size = Vector3(0.4, 0.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mg3wr"]
+size = Vector3(0.4, 0.2, 0.2)
+
+[node name="Deck" type="Area3D"]
+collision_layer = 4
+script = ExtResource("1_nxs2u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_mg3wr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mg3wr")
