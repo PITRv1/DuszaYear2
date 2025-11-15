@@ -59,6 +59,6 @@ func initialize_computer_shader() -> void:
 	rd = RenderingServer.get_rendering_device()
 	if not rd : return
 	
-	var glsl_file : RDShaderFile = load("res://assets/materials/shaders/compositor/pixelization_compute.glsl")
+	var glsl_file : RDShaderFile = load("res://_Assets/Shaders/Compositor/pixelization_compute.glsl")
 	shader = rd.shader_create_from_spirv(glsl_file.get_spirv())
 	pipeline = rd.compute_pipeline_create(shader)

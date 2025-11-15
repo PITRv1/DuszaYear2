@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c230wy8dop4gf"]
+[gd_scene load_steps=11 format=3 uid="uid://c230wy8dop4gf"]
 
 [ext_resource type="PackedScene" uid="uid://mw12tnpxeuy1" path="res://NetworkHandler/PlayerSpawner.tscn" id="1_3vi7k"]
 [ext_resource type="PackedScene" uid="uid://ctvoi5v6q42fp" path="res://Player/Player.tscn" id="1_gfjgm"]
 [ext_resource type="PackedScene" uid="uid://cvkvtb25je5tc" path="res://menu.tscn" id="3_3h1ab"]
 [ext_resource type="PackedScene" uid="uid://bn30p8nmfqfqg" path="res://deck.tscn" id="4_7if1s"]
 [ext_resource type="PackedScene" uid="uid://b6alnpuxj02k5" path="res://_Assets/EnvModels/table.glb" id="4_v6avs"]
+[ext_resource type="PackedScene" uid="uid://dtxhr5rh0qy3e" path="res://_Assets/EnvModels/dust_particle_system.tscn" id="6_8qak7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gfjgm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -14,10 +15,28 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 sky_material = SubResource("ProceduralSkyMaterial_gfjgm")
 
 [sub_resource type="Environment" id="Environment_3h1ab"]
-background_mode = 2
+background_energy_multiplier = 0.0
 sky = SubResource("Sky_3vi7k")
-tonemap_mode = 2
+tonemap_mode = 3
+ssao_enabled = true
+sdfgi_enabled = true
 glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(1, 1, 1, 1)
+fog_light_energy = 1.92
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_curve = 5.09825
+fog_depth_begin = 15.0
+fog_depth_end = 80.8
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.134
+volumetric_fog_albedo = Color(1, 0.975, 0.95, 1)
+adjustment_enabled = true
+adjustment_brightness = 0.86
+adjustment_contrast = 1.07
+adjustment_saturation = 1.21
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qak7"]
 vertex_color_use_as_albedo = true
@@ -31,6 +50,7 @@ environment = SubResource("Environment_3h1ab")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
 shadow_enabled = true
 
 [node name="PlayerSpawner" parent="." node_paths=PackedStringArray("look_pos", "seats") instance=ExtResource("1_3vi7k")]
@@ -42,6 +62,7 @@ seats = [NodePath("../Seats/Seat1"), NodePath("../Seats/Seat2"), NodePath("../Se
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55068195, 0)
+visible = false
 material_override = SubResource("StandardMaterial3D_8qak7")
 size = Vector3(16, 0.065, 15)
 
@@ -51,7 +72,7 @@ size = Vector3(16, 0.065, 15)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.002116561, 1.9676175, -0.020711064)
 
 [node name="LookPos" type="Marker3D" parent="Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5506551, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.461977, 0)
 
 [node name="Deck1" parent="Table" instance=ExtResource("4_7if1s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1077297, 0.4)
@@ -79,3 +100,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="Seat4" type="Marker3D" parent="Seats"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="table" parent="." instance=ExtResource("4_v6avs")]
+transform = Transform3D(3.3680158, 0, 0, 0, 3.3680158, 0, 0, 0, 3.3680158, -0.002116561, 0.15924811, -0.020711064)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.958126, 0)
+light_color = Color(1, 0.9853333, 0.89, 1)
+light_energy = 1.973
+light_indirect_energy = 0.513
+shadow_enabled = true
+spot_range = 8.755052
+spot_angle = 51.67903
+
+[node name="DustParticleSystem" parent="." instance=ExtResource("6_8qak7")]
