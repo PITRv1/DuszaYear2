@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dukoapfjnr6k8"]
+
+[ext_resource type="Script" uid="uid://djj0h3pa6tinh" path="res://game_elements/point_card_types/test_point_card.gd" id="1_x6srx"]
+
+[node name="TestPointCard" type="Node"]
+script = ExtResource("1_x6srx")
+value = 1

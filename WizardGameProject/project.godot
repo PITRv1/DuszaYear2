@@ -17,14 +17,27 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-NetworkHandler="*res://NetworkHandler/network_handler.gd"
-MultiplayerServerGlobals="*res://NetworkHandler/multiplayer_server_globals.gd"
-MultiplayerClientGlobals="*res://NetworkHandler/multiplayer_client_globals.gd"
+Global="*res://singletons/global.gd"
+SignalBus="*res://singletons/signal_bus.gd"
+GameData="*res://singletons/game_data.gd"
 
 [display]
 
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://game_elements/": "yellow",
+"res://singletons/": "blue",
+"res://systems/": "teal"
+}
 
 [input]
 

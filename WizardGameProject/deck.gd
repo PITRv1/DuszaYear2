@@ -1,4 +1,4 @@
-class_name Deck extends Area3D
+class_name DeckDEBRECATED extends Area3D
 
 @export var meshinstance : MeshInstance3D
 

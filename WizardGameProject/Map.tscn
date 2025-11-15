@@ -1,11 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c230wy8dop4gf"]
+[gd_scene load_steps=8 format=3 uid="uid://c230wy8dop4gf"]
 
-[ext_resource type="PackedScene" uid="uid://mw12tnpxeuy1" path="res://NetworkHandler/PlayerSpawner.tscn" id="1_3vi7k"]
-[ext_resource type="PackedScene" uid="uid://ctvoi5v6q42fp" path="res://Player/Player.tscn" id="1_gfjgm"]
-[ext_resource type="PackedScene" uid="uid://cvkvtb25je5tc" path="res://menu.tscn" id="3_3h1ab"]
 [ext_resource type="PackedScene" uid="uid://bn30p8nmfqfqg" path="res://deck.tscn" id="4_7if1s"]
-[ext_resource type="PackedScene" uid="uid://b6alnpuxj02k5" path="res://_Assets/EnvModels/table.glb" id="4_v6avs"]
-[ext_resource type="PackedScene" uid="uid://dtxhr5rh0qy3e" path="res://_Assets/EnvModels/dust_particle_system.tscn" id="6_8qak7"]
+[ext_resource type="PackedScene" uid="uid://b6alnpuxj02k5" path="res://assets/models/table.glb" id="4_v6avs"]
+[ext_resource type="PackedScene" uid="uid://dtxhr5rh0qy3e" path="res://assets/particles/dust_particle_system.tscn" id="6_8qak7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gfjgm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -52,13 +49,6 @@ environment = SubResource("Environment_3h1ab")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 visible = false
 shadow_enabled = true
-
-[node name="PlayerSpawner" parent="." node_paths=PackedStringArray("look_pos", "seats") instance=ExtResource("1_3vi7k")]
-player = ExtResource("1_gfjgm")
-look_pos = NodePath("../Table/LookPos")
-seats = [NodePath("../Seats/Seat1"), NodePath("../Seats/Seat2"), NodePath("../Seats/Seat3"), NodePath("../Seats/Seat4")]
-
-[node name="Control" parent="." instance=ExtResource("3_3h1ab")]
 
 [node name="Ground" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55068195, 0)
