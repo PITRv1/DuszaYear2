@@ -1,10 +1,9 @@
 extends Node
 
 @export var player : PackedScene
-@export var player_lobotomized : PackedScene
-@onready var look_pos: Marker3D = $"../LookPos"
 
-@onready var seats : Array[Marker3D] = [$"../Seat1", $"../Seat2", $"../Seat3", $"../Seat4"]
+@export var look_pos: Marker3D
+@export var seats : Array[Marker3D]
 
 func _ready() -> void:
 	NetworkHandler.on_peer_connected.connect(spawn_player_lobotomized)
