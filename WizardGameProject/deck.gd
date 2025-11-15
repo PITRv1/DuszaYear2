@@ -1,8 +1,10 @@
 class_name Deck extends Area3D
 
+@export var meshinstance : MeshInstance3D
 
 func select() -> void:
-	var mesh : StandardMaterial3D = StandardMaterial3D.new()
-	mesh.albedo_color = Color.YELLOW
-	$MeshInstance3D.mesh.material = mesh
+	var material : StandardMaterial3D = StandardMaterial3D.new()
+	material.albedo_color = Color.YELLOW
+	
+	meshinstance.set_surface_override_material(0, material)
 	

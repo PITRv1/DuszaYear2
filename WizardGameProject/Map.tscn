@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c230wy8dop4gf"]
+[gd_scene load_steps=10 format=3 uid="uid://c230wy8dop4gf"]
 
 [ext_resource type="PackedScene" uid="uid://mw12tnpxeuy1" path="res://NetworkHandler/PlayerSpawner.tscn" id="1_3vi7k"]
 [ext_resource type="PackedScene" uid="uid://ctvoi5v6q42fp" path="res://Player/Player.tscn" id="1_gfjgm"]
 [ext_resource type="PackedScene" uid="uid://cvkvtb25je5tc" path="res://menu.tscn" id="3_3h1ab"]
 [ext_resource type="PackedScene" uid="uid://bn30p8nmfqfqg" path="res://deck.tscn" id="4_7if1s"]
+[ext_resource type="PackedScene" uid="uid://b6alnpuxj02k5" path="res://_Assets/EnvModels/table.glb" id="4_v6avs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gfjgm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,8 +19,10 @@ sky = SubResource("Sky_3vi7k")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfjgm"]
-albedo_color = Color(0.36978272, 0.17813435, 0.03870526, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qak7"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.25696966, 0.23768392, 0.25882939, 1)
+subsurf_scatter_enabled = true
 
 [node name="Map" type="Node3D"]
 
@@ -32,31 +35,38 @@ shadow_enabled = true
 
 [node name="PlayerSpawner" parent="." node_paths=PackedStringArray("look_pos", "seats") instance=ExtResource("1_3vi7k")]
 player = ExtResource("1_gfjgm")
-look_pos = NodePath("../Table/CSGBox3D2/LookPos")
+look_pos = NodePath("../Table/LookPos")
 seats = [NodePath("../Seats/Seat1"), NodePath("../Seats/Seat2"), NodePath("../Seats/Seat3"), NodePath("../Seats/Seat4")]
 
 [node name="Control" parent="." instance=ExtResource("3_3h1ab")]
 
 [node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55068195, 0)
+material_override = SubResource("StandardMaterial3D_8qak7")
 size = Vector3(16, 0.065, 15)
 
 [node name="Table" type="Node3D" parent="."]
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498, 0)
-material_override = SubResource("StandardMaterial3D_gfjgm")
-size = Vector3(2.5, 0.8, 2.5)
+[node name="table" parent="Table" instance=ExtResource("4_v6avs")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.002116561, 1.9676175, -0.020711064)
 
-[node name="LookPos" type="Marker3D" parent="Table/CSGBox3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0526551, 0)
+[node name="LookPos" type="Marker3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5506551, 0)
 
-[node name="Deck1" parent="Table/CSGBox3D2" instance=ExtResource("4_7if1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.4)
+[node name="Deck1" parent="Table" instance=ExtResource("4_7if1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1077297, 0.4)
 
-[node name="Deck2" parent="Table/CSGBox3D2" instance=ExtResource("4_7if1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.4)
+[node name="Deck2" parent="Table" instance=ExtResource("4_7if1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1077297, -0.4)
+
+[node name="Deck3" parent="Table" instance=ExtResource("4_7if1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7579031, 2.1077297, -0.021048695)
+
+[node name="Deck4" parent="Table" instance=ExtResource("4_7if1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7433281, 2.1077297, -0.021048695)
 
 [node name="Seats" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2016711, 0)
 
 [node name="Seat1" type="Marker3D" parent="Seats"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
