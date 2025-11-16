@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfh3o72mn10g"]
+
+[ext_resource type="Script" uid="uid://bkcbrfk2l2h4b" path="res://systems/game_element_system/cards/point_cards/actual_point_card.gd" id="1_hl5fm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl5fm"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hl5fm"]
+size = Vector3(0.24633789, 0.36035156, 0.033203125)
+
+[node name="ActualPointCard" type="Node3D"]
+script = ExtResource("1_hl5fm")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(0.243, 0.377, 0.011)
+material = SubResource("StandardMaterial3D_hl5fm")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_hl5fm")
+
+[connection signal="input_event" from="Area3D" to="." method="_on_card_clicked_input_event"]

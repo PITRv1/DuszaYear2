@@ -4,14 +4,14 @@ class_name PointCardDeck extends Node
 
 @export var interaction_area : Area3D
 
-var card_list : Array[BasePointCard]
+var card_list : Array[DummyPointCard]
 
 
 func _ready() -> void:
 	for i in range(size):
-		card_list.append(BasePointCard.new(randi_range(1,9), BasePointCard.PointCardRarities.COMMON ))
+		card_list.append(DummyPointCard.new(randi_range(1,9), randi_range(GameData.PointCardRarities.COMMON, GameData.PointCardRarities.LEGENDARY) ))
 
-func pull_card() -> BasePointCard:
+func pull_card() -> DummyPointCard:
 	if card_list.is_empty(): return
 	
 	return card_list.pop_front()

@@ -17,9 +17,9 @@ Card sys V1:
 	5. Next player's turn comes
 
 	Components needed for the card sys :
-		- dummy card : Is an object with 2 fields -> Contains a value and a rarity  ;; Can not be displayed in the world
+		- dummy card : Is an object with 2 fields -> Contains a value and a rarity  ;; Can not be displayed in the world  DONE
 		- actual card : Is a different class from the dummy card (AND does not extend it); Is diplayed in 3D space; Holds the properties of a given dummycard (Basically the visual extension of a Dummy card)   
-		- draw deck : You can take a dummy cards from this
+		- draw deck : You can take a Dummy Card from this   DONE
 		- static conversion class with 2 functions  1. Convert Dummy -> Actual card; 2. Convert Actual -> card value, effect
 		
 		- a player that : 1. Starts out with 4 cards drawn already from the Draw Deck

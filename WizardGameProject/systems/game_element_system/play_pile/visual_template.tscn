@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjnqdsim5yh6i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewpmr"]
+shading_mode = 0
+albedo_color = Color(0.7333333, 0.68, 1, 1)
+
+[node name="VisualTemplate" type="CSGBox3D"]
+size = Vector3(0.40014648, 0.001, 0.42089844)
+material = SubResource("StandardMaterial3D_ewpmr")

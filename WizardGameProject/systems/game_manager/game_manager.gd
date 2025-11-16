@@ -12,6 +12,7 @@ var current_3d_scene : Node3D
 var point_card_deck : PointCardDeck = null
 var player_spawner : PlayerSpawner = null
 
+
 func _init() -> void:
 	Global.game_manager = self
 
