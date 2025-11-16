@@ -12,7 +12,7 @@ func _ready() -> void:
 		card_list.append(BasePointCard.new(randi_range(1,9), BasePointCard.PointCardRarities.COMMON ))
 
 func pull_card() -> BasePointCard:
-	if not card_list.is_empty(): return
+	if card_list.is_empty(): return
 	
 	return card_list.pop_front()
 

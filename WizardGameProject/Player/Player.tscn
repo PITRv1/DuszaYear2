@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ctvoi5v6q42fp"]
 
-[ext_resource type="Script" uid="uid://do88mw0vlchsj" path="res://Player/main_player_controller.gd" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://do88mw0vlchsj" path="res://player/main_player_controller.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://b4vbnj4gbp07y" path="res://assets/shaders/compositor/pixelization_shader.gd" id="2_tok1r"]
 [ext_resource type="Script" uid="uid://byr61k166msny" path="res://assets/shaders/compositor/quantization_shader.gd" id="3_ddoul"]
 
@@ -50,3 +50,7 @@ mesh = SubResource("CapsuleMesh_l2ndj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_3qydi")
+
+[node name="LeftPlayerHand" type="Node3D" parent="."]
+
+[node name="RightPlayerHand" type="Node3D" parent="."]

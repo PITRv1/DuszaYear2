@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfcaqw4kir8oj" path="res://systems/game_manager/game_manager.gd" id="1_eya3p"]
 [ext_resource type="Resource" uid="uid://4prlqli2ihpf" path="res://systems/game_manager/example_game_settings.tres" id="2_fxq6w"]
-[ext_resource type="PackedScene" uid="uid://c230wy8dop4gf" path="res://Map.tscn" id="3_hmira"]
+[ext_resource type="PackedScene" uid="uid://c230wy8dop4gf" path="res://map.tscn" id="3_hmira"]
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("world_holder")]
 script = ExtResource("1_eya3p")
