@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Woryn"
-run/main_scene="uid://c230wy8dop4gf"
+run/main_scene="uid://bojtg7lfpbus0"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,8 @@ GameData="*res://singletons/game_data.gd"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -38,6 +40,10 @@ folder_colors={
 "res://singletons/": "blue",
 "res://systems/": "teal"
 }
+
+[global_group]
+
+player_seat_position="a group a 3d position markers that are open for the players to sit in"
 
 [input]
 

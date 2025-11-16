@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c230wy8dop4gf"]
+[gd_scene load_steps=9 format=3 uid="uid://c230wy8dop4gf"]
 
-[ext_resource type="PackedScene" uid="uid://bn30p8nmfqfqg" path="res://deck.tscn" id="4_7if1s"]
+[ext_resource type="Script" uid="uid://ct04yy7j1c4cs" path="res://systems/player_setup_system/player_spawner.gd" id="1_3h1ab"]
+[ext_resource type="PackedScene" uid="uid://k121hjb8dh2d" path="res://systems/player_setup_system/player_seat.tscn" id="3_7if1s"]
 [ext_resource type="PackedScene" uid="uid://b6alnpuxj02k5" path="res://assets/models/table.glb" id="4_v6avs"]
+[ext_resource type="PackedScene" uid="uid://duycvd1gyi0pm" path="res://systems/game_element_system/decks/point_deck/point_card_deck.tscn" id="5_v6avs"]
 [ext_resource type="PackedScene" uid="uid://dtxhr5rh0qy3e" path="res://assets/particles/dust_particle_system.tscn" id="6_8qak7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gfjgm"]
@@ -35,26 +37,15 @@ adjustment_brightness = 0.86
 adjustment_contrast = 1.07
 adjustment_saturation = 1.21
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qak7"]
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.25696966, 0.23768392, 0.25882939, 1)
-subsurf_scatter_enabled = true
-
 [node name="Map" type="Node3D"]
+
+[node name="PlayerSpawner" type="Node" parent="." node_paths=PackedStringArray("player_look_pos")]
+script = ExtResource("1_3h1ab")
+player_look_pos = NodePath("../Table/LookPos")
+metadata/_custom_type_script = "uid://ct04yy7j1c4cs"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3h1ab")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-visible = false
-shadow_enabled = true
-
-[node name="Ground" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55068195, 0)
-visible = false
-material_override = SubResource("StandardMaterial3D_8qak7")
-size = Vector3(16, 0.065, 15)
 
 [node name="Table" type="Node3D" parent="."]
 
@@ -62,39 +53,21 @@ size = Vector3(16, 0.065, 15)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.002116561, 1.9676175, -0.020711064)
 
 [node name="LookPos" type="Marker3D" parent="Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.461977, 0)
-
-[node name="Deck1" parent="Table" instance=ExtResource("4_7if1s")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2.1077297, 0.4)
-
-[node name="Deck2" parent="Table" instance=ExtResource("4_7if1s")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2.1077297, -0.4)
-
-[node name="Deck3" parent="Table" instance=ExtResource("4_7if1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7579031, 2.1077297, -0.021048695)
-
-[node name="Deck4" parent="Table" instance=ExtResource("4_7if1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7433281, 2.1077297, -0.021048695)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.396599, 0)
 
 [node name="Seats" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2016711, 0)
 
-[node name="Seat1" type="Marker3D" parent="Seats"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+[node name="PlayerSeat" parent="Seats" groups=["player_seat_position"] instance=ExtResource("3_7if1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.259184)
 
-[node name="Seat2" type="Marker3D" parent="Seats"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+[node name="Environment" type="Node3D" parent="."]
 
-[node name="Seat3" type="Marker3D" parent="Seats"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+[node name="DustParticleSystem" parent="Environment" instance=ExtResource("6_8qak7")]
 
-[node name="Seat4" type="Marker3D" parent="Seats"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+[node name="Lighting" type="Node3D" parent="Environment"]
 
-[node name="table" parent="." instance=ExtResource("4_v6avs")]
-transform = Transform3D(3.3680158, 0, 0, 0, 3.3680158, 0, 0, 0, 3.3680158, -0.002116561, 0.15924811, -0.020711064)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment/Lighting"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.958126, 0)
 light_color = Color(1, 0.9853333, 0.89, 1)
 light_energy = 1.973
@@ -103,4 +76,13 @@ shadow_enabled = true
 spot_range = 8.755052
 spot_angle = 51.67903
 
-[node name="DustParticleSystem" parent="." instance=ExtResource("6_8qak7")]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment/Lighting"]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
+shadow_enabled = true
+
+[node name="Ground" parent="Environment" instance=ExtResource("4_v6avs")]
+transform = Transform3D(3.3680158, 0, 0, 0, 3.3680158, 0, 0, 0, 3.3680158, -0.002116561, 0.15924811, -0.020711064)
+
+[node name="PointDeck" parent="." instance=ExtResource("5_v6avs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003895402, 2.107886, -0.011376023)

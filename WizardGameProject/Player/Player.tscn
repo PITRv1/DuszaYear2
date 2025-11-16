@@ -18,12 +18,13 @@ metadata/_custom_type_script = "uid://b4vbnj4gbp07y"
 [sub_resource type="CompositorEffect" id="CompositorEffect_ddoul"]
 resource_local_to_scene = false
 resource_name = ""
-enabled = true
-effect_callback_type = 4
+enabled = false
+effect_callback_type = 1
+access_resolved_color = false
+access_resolved_depth = false
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("3_ddoul")
-color_depth = 128.0
 metadata/_custom_type_script = "uid://byr61k166msny"
 
 [sub_resource type="Compositor" id="Compositor_vlldt"]

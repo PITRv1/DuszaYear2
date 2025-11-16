@@ -1,0 +1,4 @@
+The table should be something that all players can see.
+
+Whatever is on the table should be visible to all players to avoide confusion.
+Also make the players cards not visible to others but the kind of modifier deck they use should be visible as well as their character
