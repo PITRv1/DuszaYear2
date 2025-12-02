@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dj5r6axdtjkl5"]
 
-[ext_resource type="Script" uid="uid://ckidagfy5j46p" path="res://systems/game_element_system/play_pile/play_pile.gd" id="1_ewpmr"]
+[ext_resource type="Script" uid="uid://ckidagfy5j46p" path="res://systems/game_element_system/Peti stuff/play_pile/play_pile.gd" id="1_ewpmr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ewpmr"]
 size = Vector3(0.38183594, 0.22375488, 0.64819336)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://duycvd1gyi0pm"]
 
-[ext_resource type="Script" uid="uid://b62btypye13e" path="res://systems/game_element_system/decks/point_deck/point_card_deck.gd" id="1_qbe8q"]
+[ext_resource type="Script" uid="uid://b62btypye13e" path="res://systems/game_element_system/Peti stuff/decks/point_deck/point_card_deck.gd" id="1_qbe8q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pp0cy"]
 size = Vector3(0.41308594, 0.12890625, 0.7832031)
