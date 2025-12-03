@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://ct04yy7j1c4cs" path="res://systems/player_setup_system/player_spawner.gd" id="1_3h1ab"]
 [ext_resource type="PackedScene" uid="uid://k121hjb8dh2d" path="res://systems/player_setup_system/player_seat.tscn" id="3_7if1s"]
 [ext_resource type="PackedScene" uid="uid://b6alnpuxj02k5" path="res://assets/models/table.glb" id="4_v6avs"]
-[ext_resource type="PackedScene" uid="uid://duycvd1gyi0pm" path="res://systems/game_element_system/decks/point_deck/point_card_deck.tscn" id="5_v6avs"]
+[ext_resource type="PackedScene" uid="uid://duycvd1gyi0pm" path="res://systems/game_element_system/Peti stuff/decks/point_deck/point_card_deck.tscn" id="5_v6avs"]
 [ext_resource type="PackedScene" uid="uid://dtxhr5rh0qy3e" path="res://assets/particles/dust_particle_system.tscn" id="6_8qak7"]
-[ext_resource type="PackedScene" uid="uid://dj5r6axdtjkl5" path="res://systems/game_element_system/play_pile/play_pile.tscn" id="6_iw27f"]
+[ext_resource type="PackedScene" uid="uid://dj5r6axdtjkl5" path="res://systems/game_element_system/Peti stuff/play_pile/play_pile.tscn" id="6_iw27f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gfjgm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

@@ -23,9 +23,25 @@ var rarity : RARITIES :
 var _default_value : int
 var _default_rarity : RARITIES
 
+
 func _ready() -> void:
 	_default_value = value
 	_default_rarity = rarity
+	
+
+func randomize_properties() -> void:
+	randomize_rarity()
+	randomize_value()
+	
+	print(self, " --> ", value, " with ", rarity)
+	
+
+func randomize_rarity() -> void:
+	rarity = [0,0,0,0,0,1,1,2,3].pick_random() as RARITIES
+	
+
+func randomize_value() -> void:
+	value = randi_range(1, 9)
 	
 
 func add_modifier(modifier : ModifierCardInterface) -> bool:
