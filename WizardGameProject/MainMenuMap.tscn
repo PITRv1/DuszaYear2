@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsftpkiy7jpfw"]
+
+[ext_resource type="PackedScene" uid="uid://c8i67xj5e4w5w" path="res://_Assets/MainMenuAssets/MainMenuEnvironment.glb" id="1_f1luv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3wknm"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_3vi7k"]
+sky_material = SubResource("ProceduralSkyMaterial_3wknm")
+
+[sub_resource type="Environment" id="Environment_ramob"]
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_3vi7k")
+tonemap_mode = 3
+ssao_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(1, 1, 1, 1)
+fog_light_energy = 1.92
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_curve = 5.09825
+fog_depth_begin = 0.0
+fog_depth_end = 80.8
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.134
+volumetric_fog_albedo = Color(1, 0.975, 0.95, 1)
+adjustment_enabled = true
+adjustment_brightness = 0.86
+adjustment_contrast = 1.07
+adjustment_saturation = 1.21
+
+[node name="MainMenuMap" type="Node3D"]
+
+[node name="MainMenuEnvironment" parent="." instance=ExtResource("1_f1luv")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ramob")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, -7.707554e-09, 0.99610597, 0.088164136, 8.708235e-08, 0.088164136, -0.99610597, 4.2275496, 3.0082934, -8.062782)
+
+[editable path="MainMenuEnvironment"]
