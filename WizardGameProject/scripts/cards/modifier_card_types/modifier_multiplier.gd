@@ -1,12 +1,12 @@
-class_name ModifierCardmultiplier extends ModifierCardInterface
+class_name ModifierCardMultiplier extends ModifierCardInterface
 
 
-var amount : int = 1
+var amount : int = 2
 
 func apply_card_modifier(card : PointCard) -> void:
 	card.value *= amount
 	
 
 func randomize_properties() -> void:
-	amount = randi_range(1, 6)
+	amount = randi_range(2, 6)
 	
