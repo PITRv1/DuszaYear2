@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bn3kesq6i3xx1"]
+
+[ext_resource type="PackedScene" uid="uid://bsmhtjbj3u28f" path="res://assets/maps/TestInsideVisual.glb" id="1_h1mf3"]
+[ext_resource type="PackedScene" uid="uid://b6alnpuxj02k5" path="res://assets/models/table.glb" id="2_2q8av"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rljj2"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_w5o25"]
+sky_material = SubResource("ProceduralSkyMaterial_rljj2")
+
+[sub_resource type="Environment" id="Environment_nmv1c"]
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_w5o25")
+tonemap_mode = 3
+ssao_enabled = true
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(1, 1, 1, 1)
+fog_light_energy = 1.92
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_curve = 5.09825
+fog_depth_begin = 15.0
+fog_depth_end = 80.8
+volumetric_fog_density = 0.134
+volumetric_fog_albedo = Color(1, 0.975, 0.95, 1)
+adjustment_enabled = true
+adjustment_brightness = 0.86
+adjustment_contrast = 1.07
+adjustment_saturation = 1.21
+
+[node name="PlayAreaVisualDemo" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nmv1c")
+
+[node name="TestInsideVisual" parent="." instance=ExtResource("1_h1mf3")]
+
+[node name="table" parent="." instance=ExtResource("2_2q8av")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8320389, 0)
+
+[node name="Light" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 8.766479, 0)
+light_color = Color(1, 0.972, 0.86, 1)
+light_energy = 2.362
+shadow_enabled = true
+spot_range = 14.375496
+spot_angle = 47.433617
