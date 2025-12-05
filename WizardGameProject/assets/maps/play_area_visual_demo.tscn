@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bn3kesq6i3xx1"]
+[gd_scene load_steps=7 format=3 uid="uid://bn3kesq6i3xx1"]
 
 [ext_resource type="PackedScene" uid="uid://bsmhtjbj3u28f" path="res://assets/maps/TestInsideVisual.glb" id="1_h1mf3"]
 [ext_resource type="PackedScene" uid="uid://b6alnpuxj02k5" path="res://assets/models/table.glb" id="2_2q8av"]
+[ext_resource type="Script" uid="uid://byagkyrsajpab" path="res://scripts/class_selector.gd" id="3_2q8av"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rljj2"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -51,3 +52,59 @@ light_energy = 2.362
 shadow_enabled = true
 spot_range = 14.375496
 spot_angle = 47.433617
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9985263, 0.054270517, 0, -0.054270517, 0.9985263, 0, 4.5580215, 6.498004)
+
+[node name="ClassSelector" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_2q8av")
+
+[node name="title" type="Label" parent="ClassSelector"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.0
+offset_top = 19.0
+offset_right = 164.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Class selector"
+horizontal_alignment = 1
+
+[node name="Classes" type="HBoxContainer" parent="ClassSelector"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Thief" type="Button" parent="ClassSelector/Classes"]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Thief"
+
+[node name="Magicer" type="Button" parent="ClassSelector/Classes"]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Magicer"
+
+[connection signal="pressed" from="ClassSelector/Classes/Thief" to="ClassSelector" method="_on_thief_pressed"]
+[connection signal="pressed" from="ClassSelector/Classes/Magicer" to="ClassSelector" method="_on_magicer_pressed"]

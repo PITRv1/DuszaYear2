@@ -10,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_86cbw")
 
 [node name="title" type="Label" parent="."]
 layout_mode = 1
@@ -37,7 +38,6 @@ offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
-script = ExtResource("1_86cbw")
 
 [node name="PLAY" type="Button" parent="Menu"]
 layout_mode = 2
@@ -49,5 +49,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
 
-[connection signal="pressed" from="Menu/PLAY" to="Menu" method="_on_play_pressed"]
-[connection signal="pressed" from="Menu/EXIT" to="Menu" method="_on_exit_pressed"]
+[connection signal="pressed" from="Menu/PLAY" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Menu/EXIT" to="." method="_on_exit_pressed"]

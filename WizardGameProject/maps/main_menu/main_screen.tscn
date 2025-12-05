@@ -7,14 +7,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("press_to_start:position")
+tracks/0/path = NodePath("press_to_start:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(417, 579)]
+"values": [Vector2(319, 42)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("press_to_start:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(800.5, 1038)]
 }
 
 [sub_resource type="Animation" id="Animation_f1luv"]
@@ -23,14 +35,26 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("press_to_start:position")
+tracks/0/path = NodePath("press_to_start:size")
 tracks/0/interp = 2
-tracks/0/loop_wrap = false
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(417, 579), Vector2(417, 595), Vector2(417, 579)]
+"values": [Vector2(319, 42), Vector2(319, 42)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("press_to_start:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(800.5, 1038), Vector2(801, 1015)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ramob"]
@@ -67,10 +91,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -159.0
-offset_top = -69.0
-offset_right = 160.0
-offset_bottom = -27.0
+offset_left = -159.5
+offset_top = -42.0
+offset_right = 159.5
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(0, 0.325)
