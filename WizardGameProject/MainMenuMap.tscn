@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://bsftpkiy7jpfw"]
 
-[ext_resource type="PackedScene" uid="uid://c8i67xj5e4w5w" path="res://_Assets/MainMenuAssets/MainMenuEnvironment.glb" id="1_f1luv"]
-[ext_resource type="Script" uid="uid://b517allv0c5ay" path="res://scripts/main_screen.gd" id="2_3wknm"]
-[ext_resource type="PackedScene" uid="uid://ulrkcvrjw6a" path="res://MainMenu/main_screen.tscn" id="3_n2hbv"]
-[ext_resource type="PackedScene" uid="uid://cqabda6hq2b16" path="res://MainMenu/main_menu_screen.tscn" id="4_10dnv"]
+[ext_resource type="PackedScene" uid="uid://c8i67xj5e4w5w" path="res://assets/MainMenuAssets/MainMenuEnvironment.glb" id="1_f1luv"]
+[ext_resource type="Script" uid="uid://b517allv0c5ay" path="res://scripts/main_menu/main_screen.gd" id="2_3wknm"]
+[ext_resource type="PackedScene" uid="uid://ulrkcvrjw6a" path="res://maps/main_menu/main_screen.tscn" id="3_n2hbv"]
+[ext_resource type="PackedScene" uid="uid://cqabda6hq2b16" path="res://maps/main_menu/main_menu_screen.tscn" id="4_10dnv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3wknm"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

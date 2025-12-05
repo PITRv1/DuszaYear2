@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctvoi5v6q42fp"]
+[gd_scene load_steps=10 format=3 uid="uid://ctvoi5v6q42fp"]
 
 [ext_resource type="Script" uid="uid://do88mw0vlchsj" path="res://player/main_player_controller.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://b4vbnj4gbp07y" path="res://assets/shaders/compositor/pixelization_shader.gd" id="2_tok1r"]
 [ext_resource type="Script" uid="uid://byr61k166msny" path="res://assets/shaders/compositor/quantization_shader.gd" id="3_ddoul"]
+[ext_resource type="PackedScene" uid="uid://k8mdb14a7ynn" path="res://testing/test_scene.tscn" id="4_83hs8"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_tok1r"]
 resource_local_to_scene = false
@@ -43,18 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.487175, 0)
 compositor = SubResource("Compositor_vlldt")
 current = true
 
-[node name="LeftPlayerHand" type="Node3D" parent="Camera3D"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.715, -0.325, -0.644)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Camera3D/LeftPlayerHand"]
-visible = false
-size = Vector3(0.1, 0.1, 0.1)
-
-[node name="RightPlayerHand" type="Node3D" parent="Camera3D"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.487175, 0)
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_l2ndj")
@@ -62,3 +51,5 @@ mesh = SubResource("CapsuleMesh_l2ndj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_3qydi")
+
+[node name="Node" parent="." instance=ExtResource("4_83hs8")]
