@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://6tsyj1d8lfi8"]
+[gd_scene load_steps=11 format=3 uid="uid://6tsyj1d8lfi8"]
 
 [ext_resource type="Script" uid="uid://ct04yy7j1c4cs" path="res://systems/player_setup_system/player_spawner.gd" id="1_3h1ab"]
+[ext_resource type="Script" uid="uid://cmavaacnqov6o" path="res://map.gd" id="1_urblq"]
 [ext_resource type="PackedScene" uid="uid://k121hjb8dh2d" path="res://systems/player_setup_system/player_seat.tscn" id="3_7if1s"]
+[ext_resource type="PackedScene" uid="uid://bojtg7lfpbus0" path="res://systems/game_manager/game_manager.tscn" id="3_71pa8"]
 [ext_resource type="PackedScene" uid="uid://b6alnpuxj02k5" path="res://assets/models/table.glb" id="4_v6avs"]
+[ext_resource type="PackedScene" uid="uid://ctvoi5v6q42fp" path="res://player/Player.tscn" id="6_05x41"]
 [ext_resource type="PackedScene" uid="uid://dtxhr5rh0qy3e" path="res://assets/particles/dust_particle_system.tscn" id="6_8qak7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gfjgm"]
@@ -37,11 +40,15 @@ adjustment_contrast = 1.07
 adjustment_saturation = 1.21
 
 [node name="Map" type="Node3D"]
+script = ExtResource("1_urblq")
 
 [node name="PlayerSpawner" type="Node" parent="." node_paths=PackedStringArray("player_look_pos")]
 script = ExtResource("1_3h1ab")
 player_look_pos = NodePath("../Table/LookPos")
 metadata/_custom_type_script = "uid://ct04yy7j1c4cs"
+
+[node name="GameManager" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_71pa8")]
+player = NodePath("../Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_3h1ab")
@@ -59,6 +66,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2016711, 0)
 
 [node name="PlayerSeat" parent="Seats" groups=["player_seat_position"] instance=ExtResource("3_7if1s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.259184)
+
+[node name="Player" parent="." instance=ExtResource("6_05x41")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, -2)
 
 [node name="Environment" type="Node3D" parent="."]
 

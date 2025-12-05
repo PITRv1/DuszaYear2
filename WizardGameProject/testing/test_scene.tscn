@@ -1,42 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://k8mdb14a7ynn"]
+[gd_scene load_steps=3 format=3 uid="uid://k8mdb14a7ynn"]
 
 [ext_resource type="Script" uid="uid://vejcrxl6ixwp" path="res://testing/test_scene.gd" id="1_gfo2m"]
-[ext_resource type="PackedScene" uid="uid://b3ba3kvxu32wq" path="res://assets/ui/pointcard/pointcard.tscn" id="2_qd2h8"]
-[ext_resource type="PackedScene" uid="uid://cuc2ctua7ggmd" path="res://assets/ui/modifiercard/modifiercard.tscn" id="3_xraay"]
+[ext_resource type="PackedScene" uid="uid://ulpdv1uuoo86" path="res://assets/ui/player_ui/player_ui.tscn" id="4_q3vq8"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_gfo2m")
-ui_point_card_scene = ExtResource("2_qd2h8")
-ui_modifier_card_scene = ExtResource("3_xraay")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-alignment = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="PointCards" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="ModifierCards" type="HBoxContainer" parent="Control/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
+[node name="Control" parent="." instance=ExtResource("4_q3vq8")]

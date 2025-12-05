@@ -1,5 +1,6 @@
 class_name PlayerClass extends Node
 
+
 var point_cards : Array[PointCard] = []
 var modif_cards : Array[ModifierCardInterface] = []
 var chosen_class : PlayerPlayableClassInterface
@@ -15,7 +16,6 @@ func pull_card_from_deck(deck : DeckInterface) -> bool:
 	if deck is PointCardDeck:
 		if len(point_cards) == 4: return false
 		point_cards.append(deck.draw_card())
-		
 	elif deck is ModifierCardDeck:
 		if len(modif_cards) == 4: return false
 		modif_cards.append(deck.draw_card())
