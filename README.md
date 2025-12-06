@@ -15,3 +15,4 @@ Increment with a new line if something notable happens
 
 2025.09.26 - Project idea reworked, project preperations started
 
+2025.12.06 - Dani made the backend for the secound time for the műhely and he didn't sleep sh#t
