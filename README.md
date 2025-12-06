@@ -6,6 +6,8 @@ So just to keep things organised during development I thought it would be good t
 2. Use camelCase for => signal names
 3. Use PascalCase for => class, singeltons
 
+Trello:
+    https://trello.com/b/anyCp2yv/woryn
 
 
 # | Logbook |
