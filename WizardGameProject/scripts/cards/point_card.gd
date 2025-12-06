@@ -62,9 +62,7 @@ func remove_modifier(modifier : ModifierCardInterface) -> void:
 	
 
 func reapply_modifiers() -> void:
-	print(value, " ", _default_value)
 	value = _default_value
-	print(value)
 	rarity = _default_rarity
 	
 	for modifier : ModifierCardInterface in modifiers:

@@ -1,8 +1,11 @@
 class_name PlayPile extends Node
 
 var total_value : int = 0
-var current_card : PointCard
+var current_card : PointCard = PointCard.new()
 var modif_cards : Array[CardInterface] = []
+
+func _ready() -> void:
+	current_card.value = 1
 
 func next_turn() -> void:
 	for card : ModifierCardInterface in modif_cards:

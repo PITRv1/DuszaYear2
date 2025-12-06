@@ -34,10 +34,15 @@ func add_card_to_ui(card : CardInterface):
 	else: 
 		var ui_card : UIModifierCard = create_modifier_card_ui(card)
 		ui_card.selected.connect(handle_card_selection)
-		
+		print(ui_card)
 		modifiercard_container.add_child(ui_card)
 		player_class.modif_cards.append(card)
 		
+
+func remove_card_from_ui(card : UIPointCard) -> void:
+	if pointcard_container.get_children().has(card):
+		pointcard_container.remove_child(card)
+	
 
 func create_point_card_ui(card : PointCard) -> UIPointCard:
 	var ui_point_card_instance : UIPointCard = ui_point_card.instantiate()

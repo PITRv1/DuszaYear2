@@ -47,6 +47,9 @@ folder_colors={
 [global_group]
 
 player_seat_position="a group a 3d position markers that are open for the players to sit in"
+play_pile=""
+point_deck=""
+modif_deck=""
 
 [input]
 

@@ -12,6 +12,7 @@ func decrease_cooldown()  -> void:
 	chosen_class.passive_cooldown -= 1
 	
 
+
 func pull_card_from_deck(deck : DeckInterface) -> bool:
 	if deck is PointCardDeck:
 		if len(point_cards) == 4: return false
