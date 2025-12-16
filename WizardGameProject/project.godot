@@ -12,15 +12,19 @@ config_version=5
 
 config/name="Woryn"
 run/main_scene="uid://6tsyj1d8lfi8"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalBus="*res://singletons/signal_bus.gd"
+Globals="*res://singletons/globals.cs"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -35,7 +39,7 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://UI/": "teal",
+"res://UI/": "pink",
 "res://assets/": "red",
 "res://game_elements/": "yellow",
 "res://maps/": "orange",
