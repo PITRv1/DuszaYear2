@@ -30,19 +30,19 @@ public abstract class PlayerClass : PlayerClassInterface
             if (PointCardList.Count==4){ return false; }
             else
             {
-                PointCardList.Add(deck.drawcard()); 
-            }
+                PointCardList.Add(deck.Drawcard()); //still little confused how this sh works tbh
+            }                                       //i mean the interface and abstract classes
         }else if(deck is ModifierCardDeck)
         {
             if (ModifCardList.Count==4){ return false; }
             else
             {
-                ModifCardList.Add(deck.drawcard());
+                ModifCardList.Add(deck.Drawcard());
             }
         }
         return true;
     }
-    public bool AddModifierCard(PointCard pointCard, ModifierCardInterface modifCard)
+    public bool AddModifierCard(PointCard pointCard, ModifierCard modifCard)
     {
     var result = pointCard.AddModifier(modifCard);
 	
@@ -50,7 +50,7 @@ public abstract class PlayerClass : PlayerClassInterface
 	
 	return result;
     }
-    public void RemoveModifierCard(PointCard pointCard, ModifierCardInterface modifCard)
+    public void RemoveModifierCard(PointCard pointCard, ModifierCard modifCard)
     {
         pointCard.RemoveModifier(modifCard);
     }
