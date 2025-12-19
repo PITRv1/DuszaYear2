@@ -16,6 +16,30 @@ public partial class PointCard : Node, CardInterface
 		ModifierList = new List<ModifierCard>();
 	}
 
+	public PointCard(int pointValue)
+	{
+		PointValue = pointValue;
+		SetCardRarity(PointValue);
+		ModifierList = new List<ModifierCard>();
+	}
+
+	private void SetCardRarity(int num)
+	{
+		switch (num)
+		{
+			case 1:
+				CardRarity = CardRaritiesEnum.LEGENDARY;
+				return;
+			case 2:
+			case 3:
+				CardRarity = CardRaritiesEnum.RARE;
+				return;
+			default:
+				CardRarity = CardRaritiesEnum.COMMON;
+				return;
+		}
+	}
+
 	public bool AddModifier(ModifierCard card)
 	{
 		return false;

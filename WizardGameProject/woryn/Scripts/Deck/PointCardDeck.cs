@@ -1,41 +1,41 @@
 using Godot;
 using System.Collections.Generic;
+using System.ComponentModel;
 
-public partial class PointCardDeck : DeckInterface
+public partial class PointCardDeck : Node
 {
-    //[ExportRange(1, 9, 1)]
-    public int CardTypes { get; set; } = 9;
+    List<PointCard> pointCards;
 
-    //[ExportRange(1, 9, 1)]
-    public int CardsPerType { get; set; } = 3;
-
-    public override void GenerateDeck()
+    // private int MaxNumber = 9; For later use
+    private int NumberOfCards = 36;
+    
+    public PointCardDeck()
     {
-        Cards.Clear();
+        pointCards = new List<PointCard>();
+    }
 
-        for (int pointCardNum = 1; pointCardNum <= CardTypes; pointCardNum++)
+    public void GenerateDeck()
+    {
+        pointCards.Clear();
+
+        for (int i = 0; i < NumberOfCards; i++)
         {
-            for (int i = 0; i < CardsPerType; i++)
-            {
-                //PointCard pointCard = new PointCard{PointValue = pointCardNum}; a set ugye privát szóval nem lehet beállítani szoo ikd
-
-                pointCard.RandomizeRarity();
-                Cards.Add(pointCard);
-            }
+            pointCards.Add(new PointCard(i % 4 + 1));
         }
 
         ShuffleCards();
     }
 
+    // Medve made this, I hope it works
     private void ShuffleCards()
     {
-        var rng = new RandomNumberGenerator();
+        var rng = new RandomNumberGenerator(); 
         rng.Randomize();
 
-        for (int i = Cards.Count - 1; i > 0; i--)
+        for (int i = pointCards.Count - 1; i > 0; i--)
         {
             int j = rng.RandiRange(0, i);
-            (Cards[i], Cards[j]) = (Cards[j], Cards[i]);
+            (pointCards[i], pointCards[j]) = (pointCards[j], pointCards[i]);
         }
     }
 }

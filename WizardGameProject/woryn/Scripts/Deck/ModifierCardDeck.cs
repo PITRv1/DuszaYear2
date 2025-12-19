@@ -1,11 +1,11 @@
 using Godot;
 
-public partial class ModifierCardDeck : DeckInterface
+public partial class ModifierCardDeck
 {
     [Export]
     public int Amount { get; set; } = 28;
 
-    public override void GenerateDeck()
+    public void GenerateDeck()
     {
         Cards.Clear();
 
