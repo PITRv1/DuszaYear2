@@ -5,8 +5,6 @@ using System.Data;
 
 public partial class NetworkHandler : Node
 {
-    /* ================= SIGNALS ================= */
-
     [Signal] public delegate void OnPeerConnectedEventHandler(int peerId);
     [Signal] public delegate void OnPeerDisconnectedEventHandler(int peerId);
     [Signal] public delegate void OnServerPacketEventHandler(int peerId, byte[] data);
@@ -15,7 +13,6 @@ public partial class NetworkHandler : Node
     [Signal] public delegate void OnDisconnectedFromServerEventHandler();
     [Signal] public delegate void OnClientPacketEventHandler(byte[] data);
 
-    /* ================= STATE ================= */
 
     private Stack<int> _availablePeerIds = new();
     private Dictionary<int, ENetPacketPeer> _clientPeers = new();
@@ -25,78 +22,76 @@ public partial class NetworkHandler : Node
 
     private bool _isServer = false;
 
-    /* ================= LIFECYCLE ================= */
 
     public override void _Ready()
     {
-        // Fill available IDs: 255 → 0
+        Global.networkHandler = this;
+
         for (int i = 255; i >= 0; i--)
             _availablePeerIds.Push(i);
+
+        GD.Print("Network Handler ready!");
     }
 
     public override void _Process(double delta)
     {
         if (_connection == null) return;
-
         HandleEvents();
     }
-
-    /* ================= EVENT HANDLING ================= */
 
     private void HandleEvents()
     {
         Godot.Collections.Array packetEvent = _connection.Service();
         int netEvent = (int)packetEvent[0];
 
-        while (netEvent != (int)ENetConnection.EventType.None)
+        if (netEvent == (int)ENetConnection.EventType.None) return;
+        
+        ENetPacketPeer Peer = (ENetPacketPeer)packetEvent[1];
+        if (!_isServer) GD.Print(Peer);
+
+        switch (netEvent)
         {
-            ENetPacketPeer Peer = (ENetPacketPeer)packetEvent[1];
+            case (int)ENetConnection.EventType.Error:
+                GD.PushWarning("NetworkHandler: Error occurred");
+                break;
 
-            switch (netEvent)
-            {
-                case (int)ENetConnection.EventType.Error:
-                    GD.PushWarning("NetworkHandler: Error occurred");
-                    break;
+            case (int)ENetConnection.EventType.Connect:
+                if (_isServer)
+                    PeerConnected(Peer);
+                else
+                    ConnectedToServer();
+                break;
 
-                case (int)ENetConnection.EventType.Connect:
-                    if (_isServer)
-                        PeerConnected(Peer);
-                    else
-                        ConnectedToServer();
-                    break;
+            case (int)ENetConnection.EventType.Disconnect:
+                if (_isServer)
+                    PeerDisconnected(Peer);
+                else
+                {
+                    DisconnectedFromServer();
+                    return;
+                }
+                break;
 
-                case (int)ENetConnection.EventType.Disconnect:
-                    if (_isServer)
-                        PeerDisconnected(Peer);
-                    else
-                    {
-                        DisconnectedFromServer();
-                        return;
-                    }
-                    break;
-
-                case (int)ENetConnection.EventType.Receive:
-                    if (_isServer)
-                    {
-                        int peerId = (int)Peer.GetMeta("id");
-                        EmitSignal(SignalName.OnServerPacket, peerId, Peer.GetPacket());
-                    }
-                    else
-                    {
-                        EmitSignal(SignalName.OnClientPacket, Peer.GetPacket());
-                    }
-                    break;
-            }
+            case (int)ENetConnection.EventType.Receive:
+                if (_isServer)
+                {
+                    int peerId = (int)Peer.GetMeta("id");
+                    EmitSignal(SignalName.OnServerPacket, peerId, Peer.GetPacket());
+                }
+                else
+                {
+                    EmitSignal(SignalName.OnClientPacket, Peer.GetPacket());
+                }
+                break;
         }
+        
     }
 
-    /* ================= SERVER ================= */
-
-    public void StartServer(string ipAddress = "127.0.0.1", int port = 42069)
+    public void StartServer(string ipAddress = "127.0.0.1", int port = 6767)
     {
         _connection = new ENetConnection();
         Error error = _connection.CreateHostBound(ipAddress, port);
-
+        
         if (error != Error.Ok)
         {
             GD.PrintErr("Server failed to start: ", error);
@@ -129,9 +124,7 @@ public partial class NetworkHandler : Node
         EmitSignal(SignalName.OnPeerDisconnected, peerId);
     }
 
-    /* ================= CLIENT ================= */
-
-    public void StartClient(string ipAddress = "127.0.0.1", int port = 42069)
+    public void StartClient(string ipAddress = "127.0.0.1", int port = 6767)
     {
         _connection = new ENetConnection();
         Error error = _connection.CreateHost(1);
@@ -142,6 +135,8 @@ public partial class NetworkHandler : Node
             _connection = null;
             return;
         }
+
+        GD.Print($"Snikers -> {_connection}");
 
         _serverPeer = _connection.ConnectToHost(ipAddress, port);
         GD.Print("Client connecting...");
