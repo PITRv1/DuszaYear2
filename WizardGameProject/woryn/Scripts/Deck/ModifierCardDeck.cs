@@ -8,6 +8,11 @@ public partial class ModifierCardDeck : Node
     [Export]
     public int Amount { get; set; } = 28;
 
+    public ModifierCardDeck()
+    {
+        modifierCards = new List<ModifierCard>();
+    }
+
     public void GenerateDeck()
     {
         modifierCards.Clear();
@@ -18,6 +23,14 @@ public partial class ModifierCardDeck : Node
             modifierCard.RandomizeProperties();
 
             modifierCards.Add(modifierCard);
+        }
+    }
+
+    public void PrintCards()
+    {
+        foreach (ModifierCard pointCard in modifierCards)
+        {
+            GD.PrintRaw(pointCard.Name + " ");
         }
     }
 }

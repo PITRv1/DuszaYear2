@@ -20,7 +20,7 @@ public partial class PointCardDeck : Node
 
         for (int i = 0; i < NumberOfCards; i++)
         {
-            pointCards.Add(new PointCard(i % 4 + 1));
+            pointCards.Add(new PointCard(i / 4 + 1));
         }
 
         ShuffleCards();
@@ -37,5 +37,17 @@ public partial class PointCardDeck : Node
             int j = rng.RandiRange(0, i);
             (pointCards[i], pointCards[j]) = (pointCards[j], pointCards[i]);
         }
+    }
+
+    public void PrintCards()
+    {
+        string points = "";
+        int buh = 0;
+        foreach (PointCard pointCard in pointCards)
+        {
+            points += pointCard.PointValue + " ";
+            buh++;
+        }
+        GD.Print(points + " " + buh);
     }
 }

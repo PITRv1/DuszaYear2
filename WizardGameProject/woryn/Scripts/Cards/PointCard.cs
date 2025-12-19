@@ -1,13 +1,14 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 public partial class PointCard : Node, CardInterface
 {
 	public string CardName { get; private set; }
 	public int PointValue { get; private set; }
 	public CardRaritiesEnum CardRarity { get; private set; }
-	private List<ModifierCard> ModifierList;
+	public List<ModifierCard> ModifierList;
 	public PointCard(string cardName, int pointValue, CardRaritiesEnum cardRarity)
 	{
 		CardName = cardName;
@@ -21,6 +22,11 @@ public partial class PointCard : Node, CardInterface
 		PointValue = pointValue;
 		SetCardRarity(PointValue);
 		ModifierList = new List<ModifierCard>();
+	}
+
+	public PointCard()
+	{
+		
 	}
 
 	private void SetCardRarity(int num)

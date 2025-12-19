@@ -5,4 +5,17 @@ using System.Reflection.Metadata.Ecma335;
 public  abstract partial class ModifierCard : Node, CardInterface
 {
 	public string CardName { get; private set; }
+
+	public int TurnsUntilActivation;
+
+
+	public void ApplyDeckModifier(PlayPile playPile)
+	{
+		
+	}
+
+	public void ActivateEffect()
+	{
+		
+	}
 }

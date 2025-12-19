@@ -5,13 +5,13 @@ public partial class PlayPile : Node
 {
     public int TotalValue { get; private set; } = 0;
 
-    public PointCard CurrentCard { get; private set; } = new PointCard();
+    public PointCard CurrentCard { get; private set; }
 
     private readonly List<CardInterface> modifierCards = new();
 
     public override void _Ready()
     {
-        CurrentCard.Value = 1;
+        CurrentCard = new PointCard(1);
     }
 
     public void NextTurn()
@@ -40,21 +40,21 @@ public partial class PlayPile : Node
 
     public bool AddCard(PointCard card)
     {
-        if (CurrentCard.Value > card.Value)
+        if (CurrentCard.PointValue > card.PointValue)
             return false;
 
         CurrentCard = card;
-        TotalValue += card.Value;
+        TotalValue += card.PointValue;
 
         
-        for (int i = card.Modifiers.Count - 1; i >= 0; i--)
+        for (int i = card.ModifierList.Count - 1; i >= 0; i--)
         {
-            if (card.Modifiers[i] is not ModifierCard modifier)
+            if (card.ModifierList[i] is not ModifierCard modifier)
                 continue;
 
             modifierCards.Add(modifier);
             modifier.ApplyDeckModifier(this);
-            card.Modifiers.RemoveAt(i);
+            card.ModifierList.RemoveAt(i);
         }
 
         return true;
