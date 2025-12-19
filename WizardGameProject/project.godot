@@ -11,21 +11,63 @@ config_version=5
 [application]
 
 config/name="Woryn"
+<<<<<<< Updated upstream:WizardGameProject/project.godot
 run/main_scene="uid://c230wy8dop4gf"
 config/features=PackedStringArray("4.5", "Forward Plus")
+=======
+run/main_scene="uid://k8mdb14a7ynn"
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+>>>>>>> Stashed changes:WizardGameProject/OLDCODE/project.godot
 config/icon="res://icon.svg"
 
 [autoload]
 
+<<<<<<< Updated upstream:WizardGameProject/project.godot
 NetworkHandler="*res://NetworkHandler/network_handler.gd"
 MultiplayerServerGlobals="*res://NetworkHandler/multiplayer_server_globals.gd"
 MultiplayerClientGlobals="*res://NetworkHandler/multiplayer_client_globals.gd"
+=======
+SignalBus="*res://singletons/signal_bus.gd"
+NetworkHandler="*res://systems/network_handler/NetworkHandler.cs"
+>>>>>>> Stashed changes:WizardGameProject/OLDCODE/project.godot
 
 [display]
 
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+<<<<<<< Updated upstream:WizardGameProject/project.godot
+=======
+[dotnet]
+
+project/assembly_name="Woryn"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://game_elements/": "yellow",
+"res://maps/": "orange",
+"res://player/": "yellow",
+"res://scripts/": "green",
+"res://singletons/": "blue",
+"res://systems/": "teal",
+"res://testing/": "purple",
+"res://ui/": "pink"
+}
+
+[global_group]
+
+player_seat_position="a group a 3d position markers that are open for the players to sit in"
+play_pile=""
+point_deck=""
+modif_deck=""
+
+>>>>>>> Stashed changes:WizardGameProject/OLDCODE/project.godot
 [input]
 
 left_click={
