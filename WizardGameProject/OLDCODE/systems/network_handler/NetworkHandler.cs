@@ -27,7 +27,6 @@ public partial class NetworkHandler : Node
     {
         Global.networkHandler = this;
 
-
         for (int i = 255; i >= 0; i--)
             _availablePeerIds.Push(i);
 
@@ -39,8 +38,6 @@ public partial class NetworkHandler : Node
         if (_connection == null) return;
         HandleEvents();
     }
-
-
 
     private void HandleEvents()
     {
@@ -90,10 +87,6 @@ public partial class NetworkHandler : Node
         
     }
 
-
-
- // Server
-
     public void StartServer(string ipAddress = "127.0.0.1", int port = 6767)
     {
         _connection = new ENetConnection();
@@ -130,9 +123,6 @@ public partial class NetworkHandler : Node
         GD.Print("Client ", peerId, " disconnected");
         EmitSignal(SignalName.OnPeerDisconnected, peerId);
     }
-
-
-    // Client
 
     public void StartClient(string ipAddress = "127.0.0.1", int port = 6767)
     {

@@ -8,14 +8,12 @@ public partial class MultiPlayerServerGlobals : Node
 
     public override void _Ready()
     {
-        NetworkHandler network = GetNode<NetworkHandler>("/root/NetworkHandler");
+        NetworkHandler network = Global.networkHandler;
 
         network.OnPeerConnected += OnPeerConnected;
         network.OnPeerDisconnected += OnPeerDisconnected;
         network.OnServerPacket += OnServerPacket;
     }
-
-    /* ================= EVENTS ================= */
 
     private void OnPeerConnected(int peerId)
     {

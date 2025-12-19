@@ -7,13 +7,13 @@ public partial class TestUIMultiPlayer : Control
 
     public void Host()
     {
-        Globals.networkHandler.StartServer();
+        Global.networkHandler.StartServer();
         Visible = false;
     }
     
     public void Join()
     {
-        Globals.networkHandler.StartClient();
+        Global.networkHandler.StartClient();
         GetTree().ChangeSceneToPacked(scene);
     }
 }

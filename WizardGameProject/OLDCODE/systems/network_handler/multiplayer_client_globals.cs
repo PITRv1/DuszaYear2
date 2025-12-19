@@ -3,28 +3,19 @@ using System.Collections.Generic;
 
 public partial class MultiplayerClientGlobals : Node
 {
-    /* ================= SIGNALS ================= */
+    [Signal] public delegate void HandleLocalIdAssignmentEventHandler(int localId);
 
-    [Signal]
-    public delegate void HandleLocalIdAssignmentEventHandler(int localId);
-
-    [Signal]
-    public delegate void HandleRemoteIdAssignmentEventHandler(int remoteId);
-
-
-    /* ================= STATE ================= */
+    [Signal] public delegate void HandleRemoteIdAssignmentEventHandler(int remoteId);
 
     private int _id = -1;
     private List<int> _remoteIds = new();
 
-    /* ================= LIFECYCLE ================= */
 
     public override void _Ready()
     {
         Globals.networkHandler.OnClientPacket += OnClientPacket;
     }
 
-    /* ================= PACKET HANDLING ================= */
 
     private void OnClientPacket(byte[] data)
     {
@@ -47,11 +38,9 @@ public partial class MultiplayerClientGlobals : Node
         }
     }
 
-    /* ================= ID MANAGEMENT ================= */
-
     private void ManageIds(IDAssignment idAssignment)
     {
-        // First assignment (local client ID)
+        // local client ID
         if (_id == -1)
         {
             _id = idAssignment.Id;
@@ -67,7 +56,7 @@ public partial class MultiplayerClientGlobals : Node
                 EmitSignal(SignalName.HandleRemoteIdAssignment, remoteId);
             }
         }
-        // Subsequent assignments (new remote peers)
+        // new remote peers
         else
         {
             _remoteIds.Add(idAssignment.Id);
