@@ -26,6 +26,19 @@ public partial class ModifierCardDeck : Node
         }
     }
 
+    public ModifierCard[] PullCards(int count)
+    {
+        ModifierCard[] cards = new ModifierCard[count];
+
+        for (int i = 0; i < count; i++)
+        {
+            cards[i] = modifierCards[0];
+            modifierCards.RemoveAt(0);
+        }
+
+        return cards;
+    }
+
     public void PrintCards()
     {
         foreach (ModifierCard pointCard in modifierCards)

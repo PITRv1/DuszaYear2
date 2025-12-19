@@ -1,7 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-public abstract class PlayerClass
+public partial class PlayerClass : Node
 {
     public List<PointCard> PointCardList { get; }
     public List<ModifierCard> ModifCardList { get; }

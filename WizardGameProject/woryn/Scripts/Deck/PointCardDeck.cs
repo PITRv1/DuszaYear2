@@ -39,6 +39,19 @@ public partial class PointCardDeck : Node
         }
     }
 
+    public PointCard[] PullCards(int count)
+    {
+        PointCard[] cards = new PointCard[count];
+
+        for (int i = 0; i < count; i++)
+        {
+            cards[i] = pointCards[0];
+            pointCards.RemoveAt(0);
+        }
+
+        return cards;
+    }
+
     public void PrintCards()
     {
         string points = "";
