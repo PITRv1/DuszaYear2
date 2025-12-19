@@ -1,22 +1,11 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-public abstract class PlayerClass : PlayerClassInterface
+public abstract class PlayerClass
 {
-    public string ClassName { get; private set;}
-    public byte ActiveCooldown { get; private set;}
-    public byte PassiveCooldown { get; private set;}
-    public void UseActive()
-    {
-        
-    }
-    public void UsePassive()
-    {
-        
-    }
     public List<PointCard> PointCardList { get; }
-    public List<ModifierCard> ModifCardList { get;}
-    public PlayerPlayableClassInterface ChoosenClass {get;}
+    public List<ModifierCard> ModifCardList { get; }
+    public PlayerClassInterface ChoosenClass { get; }
     public string EffectStatus {get;}
     public void DecreaseCooldown()
     {
@@ -27,28 +16,28 @@ public abstract class PlayerClass : PlayerClassInterface
     {
         if (deck is PointCardDeck)
         {
-            if (PointCardList.Count==4){ return false; }
+            if (PointCardList.Count == 4)
+                return false;
             else
-            {
-                PointCardList.Add(deck.Drawcard()); //still little confused how this sh works tbh
-            }                                       //i mean the interface and abstract classes
-        }else if(deck is ModifierCardDeck)
+                PointCardList.Add(deck.Drawcard() as PointCard);
+        }
+        else if (deck is ModifierCardDeck)
         {
-            if (ModifCardList.Count==4){ return false; }
+            if (ModifCardList.Count==4)
+                return false;
             else
-            {
-                ModifCardList.Add(deck.Drawcard());
-            }
+                ModifCardList.Add(deck.Drawcard() as ModifierCard);
         }
         return true;
     }
     public bool AddModifierCard(PointCard pointCard, ModifierCard modifCard)
     {
-    var result = pointCard.AddModifier(modifCard);
-	
-	if (result) { ModifCardList.Remove(modifCard); }
-	
-	return result;
+        bool result = pointCard.AddModifier(modifCard);
+        
+        if (result)
+            ModifCardList.Remove(modifCard);
+        
+        return result;
     }
     public void RemoveModifierCard(PointCard pointCard, ModifierCard modifCard)
     {
