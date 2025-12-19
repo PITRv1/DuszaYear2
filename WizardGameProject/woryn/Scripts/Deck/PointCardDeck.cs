@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 public partial class PointCardDeck : Node
 {
-    List<PointCard> pointCards;
+    private List<PointCard> pointCards;
 
     // private int MaxNumber = 9; For later use
     private int NumberOfCards = 36;
@@ -12,6 +12,11 @@ public partial class PointCardDeck : Node
     public PointCardDeck()
     {
         pointCards = new List<PointCard>();
+    }
+
+    public int GetCount()
+    {
+        return pointCards.Count;
     }
 
     public void GenerateDeck()
