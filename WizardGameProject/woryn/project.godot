@@ -14,6 +14,11 @@ config/name="Woryn"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Singletons/Global.cs"
+NetworkHandler="*res://Systems/network_handler/NetworkHandler.cs"
+
 [dotnet]
 
 project/assembly_name="Woryn"

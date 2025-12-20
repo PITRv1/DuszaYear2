@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public static partial class Global
+public partial class Global : Node
 {
     public static NetworkHandler networkHandler;
 }

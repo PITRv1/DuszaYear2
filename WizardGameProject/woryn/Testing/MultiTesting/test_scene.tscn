@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://k8mdb14a7ynn"]
 
-[ext_resource type="Script" uid="uid://2noh4at2078t" path="res://testing/TestUIMultiPlayer.cs" id="1_gfo2m"]
-[ext_resource type="PackedScene" uid="uid://6tsyj1d8lfi8" path="res://Map.tscn" id="2_qd2h8"]
+[ext_resource type="Script" uid="uid://2noh4at2078t" path="res://Testing/MultiTesting/TestUIMultiPlayer.cs" id="1_gfo2m"]
+[ext_resource type="PackedScene" uid="uid://bwxvw3uq5xem6" path="res://Testing/RoundTestScene.tscn" id="2_exy0l"]
 
 [node name="Node" type="Node"]
 
@@ -28,7 +28,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 20
 script = ExtResource("1_gfo2m")
-scene = ExtResource("2_qd2h8")
+scene = ExtResource("2_exy0l")
 
 [node name="Host" type="Button" parent="Control/Center/Container/Buttons"]
 custom_minimum_size = Vector2(300, 50)
