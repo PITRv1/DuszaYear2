@@ -14,8 +14,7 @@ public partial class PacketInfo : Node
 
     public byte[] Encode()
     {
-        byte[] data = new byte[1];
-        data[0] = (byte)PacketType;
+        byte[] data = [(byte)PacketType];
         return data;
     }
 

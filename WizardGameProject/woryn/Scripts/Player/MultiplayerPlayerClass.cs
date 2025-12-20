@@ -25,9 +25,9 @@ public partial class MultiplayerPlayerClass : Node
 
     private void Remote(int id)
     {
-        ids.Append(id);
+        ids.Add(id);
 
-        GD.Print(ID, " --> ", id);
+        GD.Print(ID, $" -- ({ids.Count}) -> ", id);
     }
 
 }
