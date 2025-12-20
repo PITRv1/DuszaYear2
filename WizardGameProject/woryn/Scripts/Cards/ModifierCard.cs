@@ -2,20 +2,30 @@ using Godot;
 using System;
 using System.Reflection.Metadata.Ecma335;
 
-public  abstract partial class ModifierCard : Node, CardInterface
+public enum ModifierCardType
 {
-	public string CardName { get; private set; }
+	NONE,
+	MULTIPLIER,
+}
 
-	public int TurnsUntilActivation;
-
-
-	public void ApplyDeckModifier(PlayPile playPile)
+public static class ModifierCardTypeConverter
+{
+	public static ModifierCardType ClassToType(ModifierCard card)
 	{
-		
+		return card switch
+		{
+			ModifierCardMultiplier => ModifierCardType.MULTIPLIER,
+			_ => ModifierCardType.NONE
+		};
 	}
+}
 
-	public void ActivateEffect()
-	{
-		
-	}
+public interface ModifierCard
+{
+	public string CardName { get; }
+	public bool IsCardModifier { get; }
+	public int TurnsUntilActivation { get; }
+	public void ApplyDeckModifier(PlayPile playPile);
+	public void ActivateEffect();
+	public int Calculate(int value);
 }

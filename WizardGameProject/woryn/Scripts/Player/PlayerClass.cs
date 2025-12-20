@@ -16,13 +16,15 @@ public partial class PlayerClass : Node
 
     public void AddCardToPointCards(PointCard card)
     {
-        if (PointCardList.Count == 4) return;
+        if (PointCardList.Count == 4)
+            return;
         PointCardList.Append(card);
     }
 
     public void AddCardToModifierCards(ModifierCard card)
     {
-        if (ModifCardList.Count == 4) return;
+        if (ModifCardList.Count == 4)
+            return;
         ModifCardList.Append(card);
     }
 
