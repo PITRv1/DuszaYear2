@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://1tvmqvajxg62"]
+[gd_scene load_steps=3 format=3 uid="uid://1tvmqvajxg62"]
 
-[ext_resource type="Script" uid="uid://yt6v27eq83pb" path="res://Scripts/Player/MultiplayerPlayerClass.cs" id="1_jwek8"]
+[ext_resource type="PackedScene" uid="uid://bxs0hn6508qbt" path="res://Testing/MultiTesting/multiplayer_player.tscn" id="1_jwek8"]
+[ext_resource type="PackedScene" uid="uid://bbw1vql4v1iy8" path="res://Scenes/TurnManager.tscn" id="2_m1nd3"]
 
 [node name="Test" type="Control"]
 layout_mode = 3
@@ -10,5 +11,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Node" type="Node" parent="."]
-script = ExtResource("1_jwek8")
+[node name="MultiplayerPlayer" parent="." instance=ExtResource("1_jwek8")]
+
+[node name="DeckDown" type="Button" parent="."]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 521.0
+offset_right = 1134.0
+offset_bottom = 620.0
+text = "DeckDown
+"
+
+[node name="TurnManager" parent="." instance=ExtResource("2_m1nd3")]
+
+[node name="GetCards7" type="Button" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 464.0
+offset_right = 219.0
+offset_bottom = 616.0
+text = "GET CARDS"
+
+[connection signal="pressed" from="DeckDown" to="TurnManager" method="EndRound"]
+[connection signal="pressed" from="GetCards7" to="TurnManager" method="PickUpCards"]

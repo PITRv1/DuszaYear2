@@ -20,7 +20,7 @@ public interface ModifierCard
 {
 	public string CardName { get; }
 	public bool IsCardModifier { get; }
-	public int TurnsUntilActivation { get; }
+	public int TurnsUntilActivation { get; set; }
 	public MODIFIER_TYPES ModifierType { get; }
 	public void ApplyDeckModifier(PlayPile playPile);
 	public void ActivateEffect();

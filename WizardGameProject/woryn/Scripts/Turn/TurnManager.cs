@@ -6,12 +6,34 @@ public partial class TurnManager : Node
 {
 	private int currentMaxValue = 0;
 	private int pointCardValue;
-	private List<ModifierCard> modifierCards;
+	private List<ModifierCard> modifierCardsPlayed;
+	private ModifierCardDeck modifierCardDeck;
+	private PointCardDeck pointCardDeck;
+	private int currentPlayer;
+	private int playerCount = 2;
+	private MultiplayerPlayerClass[] players;
 
 	public override void _Ready()
 	{
-		modifierCards = new List<ModifierCard>();
+		modifierCardsPlayed = new List<ModifierCard>();
+
+		modifierCardDeck = new ModifierCardDeck();
+		pointCardDeck = new PointCardDeck();
+		
+		modifierCardDeck.GenerateDeck();
+		pointCardDeck.GenerateDeck();
 		GD.Print("APPLE");
+	}
+
+	private void GeneratePlayers()
+	{
+		
+	}
+
+	private void GetRandomPlayer()
+	{
+		RandomNumberGenerator rng = new RandomNumberGenerator();
+		currentPlayer = rng.RandiRange(0, playerCount);
 	}
 
 	public void SetPointCardValue(int value)
@@ -21,12 +43,12 @@ public partial class TurnManager : Node
 
 	public void AddCardToModifierCards(ModifierCard card)
 	{
-		modifierCards.Add(card);
+		modifierCardsPlayed.Add(card);
 	}
 
 	public void RemoveFromModifierCards(ModifierCard card)
 	{
-		modifierCards.Remove(card);
+		modifierCardsPlayed.Remove(card);
 	}
 
 	private int CalculateCardValue()
@@ -35,10 +57,23 @@ public partial class TurnManager : Node
 
 		value = pointCardValue;
 
-		foreach (ModifierCard modifierCard in modifierCards)
+		foreach (ModifierCard modifierCard in modifierCardsPlayed)
 			value = modifierCard.Calculate(value);
 
 		return value;
+	}
+
+	public void PickUpCards()
+	{
+		int count = 4 < pointCardDeck.GetCount() ? 4 : pointCardDeck.GetCount();
+		// ModifierCard[] modifierCards = modifierCardDeck.PullCards(4);
+		PointCard[] pointCards = pointCardDeck.PullCards(count);
+
+		foreach (PointCard pointCard in pointCards)
+		{
+			GD.Print(pointCard.PointValue);
+		}
+		pointCardDeck.PrintCards();
 	}
 
 	public void EndRound()
@@ -46,6 +81,7 @@ public partial class TurnManager : Node
 		if (currentMaxValue < CalculateCardValue())
 		{
 			currentMaxValue = CalculateCardValue();
+			GD.Print("LMAOO");
 		}
 		else
 		{

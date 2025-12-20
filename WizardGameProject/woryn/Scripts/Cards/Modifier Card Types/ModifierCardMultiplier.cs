@@ -10,7 +10,7 @@ public partial class ModifierCardMultiplier : ModifierCard
 
     public bool IsCardModifier { get; } = true;
 
-    public int TurnsUntilActivation => 0;
+    public int TurnsUntilActivation { get; set; } = 0;
 
     public void ActivateEffect()
     {

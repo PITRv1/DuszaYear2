@@ -39,11 +39,11 @@ public partial class ModifierCardDeck : Node
         return cards;
     }
 
-    public void PrintCards()
-    {
-        foreach (ModifierCard pointCard in modifierCards)
-        {
-            GD.PrintRaw(pointCard.Name + " ");
-        }
-    }
+    // public void PrintCards()
+    // {
+    //     foreach (ModifierCard pointCard in modifierCards)
+    //     {
+    //         GD.PrintRaw(pointCard.Name + " ");
+    //     }
+    // }
 }
