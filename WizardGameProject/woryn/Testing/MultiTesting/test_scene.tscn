@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://k8mdb14a7ynn"]
 
 [ext_resource type="Script" uid="uid://2noh4at2078t" path="res://Testing/MultiTesting/TestUIMultiPlayer.cs" id="1_gfo2m"]
-[ext_resource type="PackedScene" uid="uid://bwxvw3uq5xem6" path="res://Testing/RoundTestScene.tscn" id="2_exy0l"]
+[ext_resource type="PackedScene" uid="uid://1tvmqvajxg62" path="res://Testing/MultiTesting/test.tscn" id="2_exy0l"]
 
 [node name="Node" type="Node"]
 

@@ -58,9 +58,14 @@ public partial class IDAssignment : PacketInfo
         Id = data[1];
         RemoteIds.Clear();
 
-        for (int i = 2; i < data.Length; i++)
+        for (int i = 1; i < data.Length; i++)
         {
             RemoteIds.Add(data[i]);
         }
+    }
+
+    public new void Broadcast(ENetConnection server)
+    {
+        server.Broadcast(0, Encode(), (int)Flag);
     }
 }

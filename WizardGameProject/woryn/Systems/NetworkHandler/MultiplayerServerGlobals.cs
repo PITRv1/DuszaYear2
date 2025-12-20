@@ -1,28 +1,30 @@
 using Godot;
 using System.Collections.Generic;
 
-public partial class MultiPlayerServerGlobals : Node
+public partial class MultiplayerServerGlobals : Node
 {
-    private List<int> _peerIds = new();
+    public MultiplayerServerGlobals()
+    {
+        Global.multiplayerServerGlobals = this;
+    }
 
+    private List<int> _peerIds = new();
 
     public override void _Ready()
     {
-        NetworkHandler network = GetNode<NetworkHandler>("/root/NetworkHandler");
+        NetworkHandler network = Global.networkHandler;
 
         network.OnPeerConnected += OnPeerConnected;
         network.OnPeerDisconnected += OnPeerDisconnected;
         network.OnServerPacket += OnServerPacket;
     }
 
-    /* ================= EVENTS ================= */
-
     private void OnPeerConnected(int peerId)
     {
         _peerIds.Add(peerId);
 
         IDAssignment
-            .Create(peerId, new List<int>(_peerIds))
+            .Create(peerId, _peerIds)
             .Broadcast(Global.networkHandler._connection);
     }
 

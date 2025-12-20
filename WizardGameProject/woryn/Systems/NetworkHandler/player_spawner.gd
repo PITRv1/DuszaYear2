@@ -19,16 +19,17 @@ func spawn_player_lobotomized(id : int):
 	seats[id].call_deferred("add_child", mesh_instance)
 	
 
-func spawn_player(id: int) -> void:
-	var player_instance : Player = player.instantiate()
-	player_instance.owner_id = id
-	player_instance.name = str(id)
-	player_instance.table_pos = look_pos.global_position
+func spawn_player(_id: int) -> void:
+	# var player_instance : PlayerClass = player.instantiate()
+	# player_instance.owner_id = id
+	# player_instance.name = str(id)
+	# player_instance.table_pos = look_pos.global_position
 	
-	seats[id].add_child(player_instance)
+	# seats[id].add_child(player_instance)
 	
-	await player_instance.ready
-	await player_instance.camera.ready
+	# await player_instance.ready
+	# await player_instance.camera.ready
 	
-	player_instance.camera.current = true
+	# player_instance.camera.current = true
+	pass
 	

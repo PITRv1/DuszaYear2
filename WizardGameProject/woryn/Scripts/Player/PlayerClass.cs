@@ -1,35 +1,31 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 public partial class PlayerClass : Node
 {
     public List<PointCard> PointCardList { get; }
     public List<ModifierCard> ModifCardList { get; }
     public PlayerClassInterface ChoosenClass { get; }
-    public string EffectStatus {get;}
+    public string EffectStatus { get; }
     public void DecreaseCooldown()
     {
         ChoosenClass.ActiveCooldown--;
         ChoosenClass.PassiveCooldown--;
     }
-    public bool PullCardFromDeck(DeckInterface deck)
+
+    public void AddCardToPointCards(PointCard card)
     {
-        // if (deck is PointCardDeck)
-        // {
-        //     if (PointCardList.Count == 4)
-        //         return false;
-        //     else
-        //         PointCardList.Add(deck.Drawcard() as PointCard);
-        // }
-        // else if (deck is ModifierCardDeck)
-        // {
-        //     if (ModifCardList.Count==4)
-        //         return false;
-        //     else
-        //         ModifCardList.Add(deck.Drawcard() as ModifierCard);
-        // }
-        return true;
+        if (PointCardList.Count == 4) return;
+        PointCardList.Append(card);
     }
+
+    public void AddCardToModifierCards(ModifierCard card)
+    {
+        if (ModifCardList.Count == 4) return;
+        ModifCardList.Append(card);
+    }
+
     public bool AddModifierCard(PointCard pointCard, ModifierCard modifCard)
     {
         bool result = pointCard.AddModifier(modifCard);

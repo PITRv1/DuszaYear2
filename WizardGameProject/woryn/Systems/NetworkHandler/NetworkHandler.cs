@@ -5,6 +5,11 @@ using System.Data;
 
 public partial class NetworkHandler : Node
 {
+    public NetworkHandler()
+    {
+        Global.networkHandler = this;
+    }
+
     [Signal] public delegate void OnPeerConnectedEventHandler(int peerId);
     [Signal] public delegate void OnPeerDisconnectedEventHandler(int peerId);
     [Signal] public delegate void OnServerPacketEventHandler(int peerId, byte[] data);
@@ -25,8 +30,6 @@ public partial class NetworkHandler : Node
 
     public override void _Ready()
     {
-        Global.networkHandler = this;
-
         for (int i = 255; i >= 0; i--)
             _availablePeerIds.Push(i);
 
@@ -47,7 +50,6 @@ public partial class NetworkHandler : Node
         if (netEvent == (int)ENetConnection.EventType.None) return;
         
         ENetPacketPeer Peer = (ENetPacketPeer)packetEvent[1];
-        if (!_isServer) GD.Print(Peer);
 
         switch (netEvent)
         {
@@ -66,10 +68,8 @@ public partial class NetworkHandler : Node
                 if (_isServer)
                     PeerDisconnected(Peer);
                 else
-                {
+                
                     DisconnectedFromServer();
-                    return;
-                }
                 break;
 
             case (int)ENetConnection.EventType.Receive:
@@ -79,9 +79,7 @@ public partial class NetworkHandler : Node
                     EmitSignal(SignalName.OnServerPacket, peerId, Peer.GetPacket());
                 }
                 else
-                {
                     EmitSignal(SignalName.OnClientPacket, Peer.GetPacket());
-                }
                 break;
         }
         
@@ -135,8 +133,6 @@ public partial class NetworkHandler : Node
             _connection = null;
             return;
         }
-
-        GD.Print($"Snikers -> {_connection}");
 
         _serverPeer = _connection.ConnectToHost(ipAddress, port);
         GD.Print("Client connecting...");
