@@ -24,19 +24,13 @@ public partial class MultiplayerClientGlobals : Node
 
     private void OnClientPacket(byte[] data)
     {
-        PacketInfo.PACKET_TYPE packetType =
-            (PacketInfo.PACKET_TYPE)data[0];
+        PACKET_TYPES packetType =(PACKET_TYPES)data[0];
 
         switch (packetType)
         {
-            case PacketInfo.PACKET_TYPE.ID_ASSIGNMENT:
+            case PACKET_TYPES.ID_ASSIGNMENT:
                 ManageIds(IDAssignment.CreateFromData(data));
                 break;
-
-            case PacketInfo.PACKET_TYPE.PLAYER_POSITION:
-                GD.PushError($"Player position is unhandled due to dani kukáing it.");
-                break;
-
             default:
                 GD.PushError($"Packet type with index {(int)packetType} unhandled!");
                 break;
@@ -46,7 +40,7 @@ public partial class MultiplayerClientGlobals : Node
 
     private void ManageIds(IDAssignment idAssignment)
     {
-        // First assignment (local client ID)
+        // local client ID
         if (_id == -1)
         {
             _id = idAssignment.Id;
@@ -62,7 +56,7 @@ public partial class MultiplayerClientGlobals : Node
                 EmitSignal(SignalName.HandleRemoteIdAssignment, remoteId);
             }
         }
-        // Subsequent assignments (new remote peers)
+        // new remote peers
         else
         {
             _remoteIds.Add(idAssignment.Id);

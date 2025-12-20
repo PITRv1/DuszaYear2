@@ -1,16 +1,10 @@
 using Godot;
 using System;
 
-public partial class PacketInfo : Node
+public abstract partial class PacketInfo : Node
 {
-    public enum PACKET_TYPE
-    {
-        ID_ASSIGNMENT = 0,
-        PLAYER_POSITION = 1,
-    }
-
-    public PACKET_TYPE PacketType;
-    public long Flag;
+    public PACKET_TYPES PacketType;
+    public long Flag = ENetPacketPeer.FlagReliable;
 
     public byte[] Encode()
     {
@@ -20,7 +14,7 @@ public partial class PacketInfo : Node
 
     public void Decode(byte[] data)
     {
-        PacketType = (PACKET_TYPE)data[0];
+        PacketType = (PACKET_TYPES)data[0];
     }
 
     public void Send(ENetPacketPeer target)

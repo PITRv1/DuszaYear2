@@ -1,9 +1,9 @@
 using Godot;
 using System;
-using System.Security.Cryptography.X509Certificates;
 
 public partial class ModifierCardMultiplier : ModifierCard
 {
+	public MODIFIER_TYPES ModifierType => MODIFIER_TYPES.MULTIPLIER;
 	public int Amount { get; private set; } = 2;
 
     public string CardName { get; } = "Faszom tudja";
@@ -22,7 +22,7 @@ public partial class ModifierCardMultiplier : ModifierCard
         throw new NotImplementedException();
     }
 
-    public void RandomizeProperties()
+	public void RandomizeProperties()
 	{
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		Amount = rng.RandiRange(2, 6);
@@ -32,4 +32,10 @@ public partial class ModifierCardMultiplier : ModifierCard
 	{
 		return value * Amount;
 	}
+
+    public byte PacketValue()
+    {
+        throw new NotImplementedException();
+    }
+
 }

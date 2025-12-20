@@ -35,12 +35,11 @@ public partial class MultiplayerServerGlobals : Node
 
     private void OnServerPacket(int peerId, byte[] data)
     {
-        switch ((PacketInfo.PACKET_TYPE)data[0])
+        switch ((PACKET_TYPES)data[0])
         {
-            case PacketInfo.PACKET_TYPE.PLAYER_POSITION:
-                GD.PushError($"Player position is unhandled due to dani kukáing it.");
+            case PACKET_TYPES.TURN_DATA:
+                GD.PushError("Dani has no idea how we should handle this kind of packet.");
                 break;
-
             default:
                 GD.PushError($"Packet type with index {data[0]} unhandled");
                 break;
