@@ -1,4 +1,10 @@
-[gd_scene load_steps=0 format=3 uid="uid://cegma4u4cusqc"]
+[gd_scene load_steps=6 format=3 uid="uid://cegma4u4cusqc"]
+
+[ext_resource type="Script" uid="uid://bejvkqsrkeapr" path="res://UI/MainMenu/Buttons.cs" id="1_8fkdr"]
+[ext_resource type="PackedScene" uid="uid://bb3padfqjdkm3" path="res://UI/Singleplayer/Singleplayer.tscn" id="2_4elqj"]
+[ext_resource type="PackedScene" uid="uid://be6l3tabm2s5j" path="res://UI/Multiplayer/Multiplayer.tscn" id="3_ri767"]
+[ext_resource type="PackedScene" uid="uid://d10vs074rfp2w" path="res://UI/Settings/Settings.tscn" id="4_a712v"]
+[ext_resource type="PackedScene" uid="uid://bdeg6vwo3wgd4" path="res://UI/Credits/Credits.tscn" id="5_1dhmk"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -20,7 +26,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 100
 text = "WORYN"
 
-[node name="Buttons" type="VBoxContainer" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="." node_paths=PackedStringArray("singleplayer", "multiplayer", "settings", "credits", "exit")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33072916
@@ -34,6 +40,16 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
+script = ExtResource("1_8fkdr")
+singleplayer = NodePath("SINGLEPLAYER")
+multiplayer = NodePath("MULITPLAYER")
+settings = NodePath("SETTINGS")
+credits = NodePath("CREDITS")
+exit = NodePath("EXIT")
+singleplayerScene = ExtResource("2_4elqj")
+multiplayerScene = ExtResource("3_ri767")
+settingsScene = ExtResource("4_a712v")
+creditsScene = ExtResource("5_1dhmk")
 metadata/_edit_use_anchors_ = true
 
 [node name="SINGLEPLAYER" type="Button" parent="Buttons"]
@@ -60,3 +76,9 @@ text = "CREDITS"
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
+
+[connection signal="pressed" from="Buttons/SINGLEPLAYER" to="Buttons" method="OnSingleplayerPressed"]
+[connection signal="pressed" from="Buttons/MULITPLAYER" to="Buttons" method="OnMultiplayerPressed"]
+[connection signal="pressed" from="Buttons/SETTINGS" to="Buttons" method="OnSettingsPressed"]
+[connection signal="pressed" from="Buttons/CREDITS" to="Buttons" method="OnCreditsPressed"]
+[connection signal="pressed" from="Buttons/EXIT" to="Buttons" method="OnExitPressed"]

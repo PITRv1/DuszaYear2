@@ -1,4 +1,6 @@
-[gd_scene load_steps=0 format=3 uid="uid://d10vs074rfp2w"]
+[gd_scene load_steps=2 format=3 uid="uid://d10vs074rfp2w"]
+
+[ext_resource type="Script" uid="uid://cgv0fdv7slgxj" path="res://UI/Back.cs" id="1_tgyht"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -42,45 +44,45 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/separation = 80
 
-[node name="MusicLabel" type="Label" parent="container/Sound"]
+[node name="Music" type="VBoxContainer" parent="container/Sound"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="container/Sound/Music"]
 layout_mode = 2
 text = "Music"
 
-[node name="Music" type="HSlider" parent="container/Sound/MusicLabel"]
-layout_mode = 0
-offset_top = 63.0
-offset_right = 102.0
-offset_bottom = 79.0
+[node name="Music" type="HSlider" parent="container/Sound/Music"]
+layout_mode = 2
 
-[node name="MusicPercent" type="Label" parent="container/Sound"]
+[node name="MusicPercent" type="Label" parent="container/Sound/Music"]
 layout_mode = 2
 text = "100%"
 
-[node name="MasterLabel" type="Label" parent="container/Sound"]
+[node name="Master" type="VBoxContainer" parent="container/Sound"]
+layout_mode = 2
+
+[node name="MasterLabel" type="Label" parent="container/Sound/Master"]
 layout_mode = 2
 text = "Main Volume"
 
-[node name="Master" type="HSlider" parent="container/Sound/MasterLabel"]
-layout_mode = 0
-offset_top = 63.0
-offset_right = 100.0
-offset_bottom = 79.0
+[node name="Master" type="HSlider" parent="container/Sound/Master"]
+layout_mode = 2
 
-[node name="MasterPercent" type="Label" parent="container/Sound"]
+[node name="MasterPercent" type="Label" parent="container/Sound/Master"]
 layout_mode = 2
 text = "100%"
 
-[node name="SFXLabel" type="Label" parent="container/Sound"]
+[node name="SFX" type="VBoxContainer" parent="container/Sound"]
+layout_mode = 2
+
+[node name="SFXLabel" type="Label" parent="container/Sound/SFX"]
 layout_mode = 2
 text = "SFX"
 
-[node name="SFX" type="HSlider" parent="container/Sound/SFXLabel"]
-layout_mode = 0
-offset_top = 63.0
-offset_right = 102.0
-offset_bottom = 79.0
+[node name="SFX" type="HSlider" parent="container/Sound/SFX"]
+layout_mode = 2
 
-[node name="SFXPercent" type="Label" parent="container/Sound"]
+[node name="SFXPercent" type="Label" parent="container/Sound/SFX"]
 layout_mode = 2
 text = "100%"
 
@@ -89,15 +91,15 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_constants/separation = 80
 
-[node name="ResolutionLabel" type="Label" parent="container/Screen"]
+[node name="Resolution" type="VBoxContainer" parent="container/Screen"]
+layout_mode = 2
+
+[node name="ResolutionLabel" type="Label" parent="container/Screen/Resolution"]
 layout_mode = 2
 text = "Resolution"
 
-[node name="Resolution" type="OptionButton" parent="container/Screen/ResolutionLabel"]
-layout_mode = 0
-offset_top = 27.0
-offset_right = 32.0
-offset_bottom = 47.0
+[node name="Resolution" type="OptionButton" parent="container/Screen/Resolution"]
+layout_mode = 2
 selected = 2
 item_count = 5
 popup/item_0/text = "3480x2160"
@@ -111,15 +113,15 @@ popup/item_3/id = 3
 popup/item_4/text = "640x480"
 popup/item_4/id = 4
 
-[node name="WindowModeLabel" type="Label" parent="container/Screen"]
+[node name="Window Mode" type="VBoxContainer" parent="container/Screen"]
+layout_mode = 2
+
+[node name="WindowModeLabel" type="Label" parent="container/Screen/Window Mode"]
 layout_mode = 2
 text = "Window mode"
 
-[node name="WindowMode" type="OptionButton" parent="container/Screen/WindowModeLabel"]
-layout_mode = 0
-offset_top = 27.0
-offset_right = 83.0
-offset_bottom = 47.0
+[node name="WindowMode" type="OptionButton" parent="container/Screen/Window Mode"]
+layout_mode = 2
 selected = 2
 item_count = 3
 popup/item_0/text = "Fullscreen"
@@ -133,25 +135,27 @@ popup/item_2/id = 2
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="ShadersText" type="Label" parent="container/Shaders"]
+[node name="Shader" type="VBoxContainer" parent="container/Shaders"]
+layout_mode = 2
+
+[node name="ShadersText" type="Label" parent="container/Shaders/Shader"]
 layout_mode = 2
 text = "Shaders"
 
-[node name="Shaders" type="CheckBox" parent="container/Shaders"]
+[node name="Shaders" type="CheckBox" parent="container/Shaders/Shader"]
 layout_mode = 2
 
 [node name="Back" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.8559028
-anchor_top = 0.83950615
-anchor_right = 0.9461806
-anchor_bottom = 0.9243827
-offset_left = -4.0
-offset_top = -8.0
-offset_right = 4.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -63.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "BACK"
-metadata/_edit_use_anchors_ = true
+script = ExtResource("1_tgyht")
+
+[connection signal="pressed" from="Back" to="Back" method="OnBackPressed"]
