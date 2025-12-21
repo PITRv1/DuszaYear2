@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 public partial class TurnInfoPacket : PacketInfo
 {
-	public int PlayerId;
-	public int PointCardValue;
-	public List<ModifierCard> ModifierCards;
-	
+	public int CurrentPlayerId;
+	public int CurrentRound;
+	public int MaxValue;
+	public int CurrentPointValue;
+
 	public TurnInfoPacket()
 	{
 		PacketType = PACKET_TYPES.TURN_INFO;
-		ModifierCards = new List<ModifierCard>();
 	}
 
 	public new byte[] Encode()
@@ -19,15 +19,13 @@ public partial class TurnInfoPacket : PacketInfo
         List<byte> data = new List<byte>();
 
 		data.Add((byte)PacketType);
-		data.AddRange(BitConverter.GetBytes(PlayerId));
+		data.AddRange(BitConverter.GetBytes(CurrentPlayerId));
 
-		data.AddRange(BitConverter.GetBytes(PointCardValue));
+		data.AddRange(BitConverter.GetBytes(CurrentRound));
 
-		data.Add((byte)ModifierCards.Count);
-		foreach (ModifierCard card in ModifierCards)
-		{
-			data.Add((byte)ModifierCardTypeConverter.ClassToType(card));
-		}
+		data.AddRange(BitConverter.GetBytes(MaxValue));
+
+		data.AddRange(BitConverter.GetBytes(CurrentPointValue));
 
 		return data.ToArray();
     }
@@ -37,22 +35,16 @@ public partial class TurnInfoPacket : PacketInfo
 		TurnInfoPacket packet = new TurnInfoPacket();
 		int index = 1;
 
-		packet.PlayerId = BitConverter.ToInt32(data, index);
+		packet.CurrentPlayerId = BitConverter.ToInt32(data, index);
 		index += 4;
 
-		packet.PointCardValue = BitConverter.ToInt32(data, index);
+		packet.CurrentRound = BitConverter.ToInt32(data, index);
 		index += 4;
 
-		int modifierCount = data[index];
-		index += 1;
+		packet.MaxValue = BitConverter.ToInt32(data, index);
+		index += 4;
 
-		packet.ModifierCards = new List<ModifierCard>();
-		for (int i = 0; i < modifierCount; i++)
-		{
-			MODIFIER_TYPES modifierType = (MODIFIER_TYPES)data[index];
-			index += 4;
-			packet.ModifierCards.Add(ModifierCardTypeConverter.TypeToClass(modifierType));
-		}
+		packet.CurrentPointValue = BitConverter.ToInt32(data, index);
 
 		return packet;
 	}

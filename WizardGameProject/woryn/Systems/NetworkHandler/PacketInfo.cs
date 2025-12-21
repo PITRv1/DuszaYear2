@@ -1,12 +1,12 @@
 using Godot;
 using System;
 
-public abstract partial class PacketInfo
+public abstract class PacketInfo
 {
     public PACKET_TYPES PacketType;
     public long Flag = ENetPacketPeer.FlagReliable;
 
-    public byte[] Encode()
+    public virtual byte[] Encode()
     {
         byte[] data = [(byte)PacketType];
         return data;

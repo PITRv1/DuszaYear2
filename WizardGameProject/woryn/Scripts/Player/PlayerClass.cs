@@ -2,12 +2,23 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-public partial class PlayerClass : Node
+public partial class PlayerClass
 {
     public List<PointCard> PointCardList { get; }
     public List<ModifierCard> ModifCardList { get; }
     public PlayerClassInterface ChoosenClass { get; }
+    public MultiplayerPlayerClass parent;
+
+    private PointCard chosenPointCard;
+    private List<ModifierCard> chosenModifierCard;
+
     public string EffectStatus { get; }
+    
+    public PlayerClass()
+    {
+        PointCardList = new List<PointCard>();
+        ModifCardList = new List<ModifierCard>();
+    }
     public void DecreaseCooldown()
     {
         ChoosenClass.ActiveCooldown--;
@@ -37,13 +48,41 @@ public partial class PlayerClass : Node
         
         return result;
     }
+
     public void RemoveModifierCard(PointCard pointCard, ModifierCard modifCard)
     {
         pointCard.RemoveModifier(modifCard);
     }
+
     public void PlayCard(PointCard card, PlayPile playpile)
     {
         PointCardList.Remove(card);
         playpile.AddCard(card);
+    }
+
+    public void ProccessTurnInfoPacket(byte[] data)
+    {
+        TurnInfoPacket packet = TurnInfoPacket.CreateFromData(data);
+    }
+
+    public void ProccessPickUpAnswer(byte[] data)
+    {
+        PickUpCardAnswer packet = PickUpCardAnswer.CreateFromData(data);
+        if (packet.PointCards.Length == 0)
+            return;
+        PointCardList.AddRange(packet.PointCards);
+        ModifCardList.AddRange(packet.ModifierCards);
+
+        foreach (PointCard card in PointCardList)
+        {
+            parent.AddPointToContainer(card.PointValue);
+        }
+
+        GD.Print("BRIHER");
+    }
+
+    public bool CanEndTurn()
+    {
+        return chosenPointCard == null;
     }
 }

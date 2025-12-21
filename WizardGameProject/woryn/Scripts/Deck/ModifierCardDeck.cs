@@ -1,7 +1,7 @@
 using Godot;
 using System.Collections.Generic;
 
-public partial class ModifierCardDeck : Node
+public partial class ModifierCardDeck
 {
     List<ModifierCard> modifierCards;
 
@@ -28,6 +28,8 @@ public partial class ModifierCardDeck : Node
 
     public ModifierCard[] PullCards(int count)
     {
+        count = 4 - count;
+
         ModifierCard[] cards = new ModifierCard[count];
 
         for (int i = 0; i < count; i++)

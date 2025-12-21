@@ -3,4 +3,7 @@ public enum PACKET_TYPES
     ID_ASSIGNMENT = 0,
     TURN_DATA = 1,
     TURN_INFO = 2,
+    PICK_UP_CARD_REQUEST = 3,
+    PICK_UP_CARD_ANSWER = 4,
+    END_TURN_REQUEST = 5,
 }

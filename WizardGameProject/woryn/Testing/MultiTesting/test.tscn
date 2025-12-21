@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://1tvmqvajxg62"]
 
 [ext_resource type="PackedScene" uid="uid://bxs0hn6508qbt" path="res://Testing/MultiTesting/multiplayer_player.tscn" id="1_jwek8"]
-[ext_resource type="PackedScene" uid="uid://bbw1vql4v1iy8" path="res://Scenes/TurnManager.tscn" id="2_m1nd3"]
+[ext_resource type="PackedScene" uid="uid://ca8e052nny7l5" path="res://Testing/MultiTesting/TestPointCardUI.tscn" id="2_m1nd3"]
 
 [node name="Test" type="Control"]
 layout_mode = 3
@@ -11,7 +11,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MultiplayerPlayer" parent="." instance=ExtResource("1_jwek8")]
+[node name="MultiplayerPlayer" parent="." node_paths=PackedStringArray("pointCards", "modifCards") instance=ExtResource("1_jwek8")]
+pointCards = NodePath("../PointCards")
+modifCards = NodePath("../ModifCards")
+pointCardUI = ExtResource("2_m1nd3")
 
 [node name="DeckDown" type="Button" parent="."]
 layout_mode = 0
@@ -22,8 +25,6 @@ offset_bottom = 620.0
 text = "DeckDown
 "
 
-[node name="TurnManager" parent="." instance=ExtResource("2_m1nd3")]
-
 [node name="GetCards7" type="Button" parent="."]
 layout_mode = 0
 offset_left = 41.0
@@ -32,5 +33,19 @@ offset_right = 219.0
 offset_bottom = 616.0
 text = "GET CARDS"
 
+[node name="PointCards" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 23.0
+offset_right = 98.0
+offset_bottom = 63.0
+
+[node name="ModifCards" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 222.0
+offset_right = 127.0
+offset_bottom = 262.0
+
 [connection signal="pressed" from="DeckDown" to="MultiplayerPlayer" method="PlayCard"]
-[connection signal="pressed" from="GetCards7" to="TurnManager" method="PickUpCards"]
+[connection signal="pressed" from="GetCards7" to="MultiplayerPlayer" method="PickUpCards"]

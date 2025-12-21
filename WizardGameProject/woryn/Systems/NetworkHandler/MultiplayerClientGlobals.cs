@@ -13,6 +13,10 @@ public partial class MultiplayerClientGlobals : Node
 
     [Signal]
     public delegate void HandleRemoteIdAssignmentEventHandler(int remoteId);
+    [Signal]
+    public delegate void HandleTurnInfoEventHandler(byte[] data);
+    [Signal]
+    public delegate void HandlePickUpCardAnswerEventHandler(byte[] data);
 
     private int _id = -1;
     private List<int> _remoteIds = new();
@@ -32,6 +36,10 @@ public partial class MultiplayerClientGlobals : Node
                 ManageIds(IDAssignment.CreateFromData(data));
                 break;
             case PACKET_TYPES.TURN_INFO:
+                EmitSignal("HandleTurnInfo", data);
+                break;
+            case PACKET_TYPES.PICK_UP_CARD_ANSWER:
+                EmitSignal("HandlePickUpCardAnswer", data);
                 break;
             default:
                 GD.PushError($"Packet type with index {(int)packetType} unhandled!");

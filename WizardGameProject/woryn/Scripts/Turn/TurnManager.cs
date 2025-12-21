@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class TurnManager : Node
+public partial class TurnManager
 {
 	private int currentMaxValue = 0;
 	private int pointCardValue;
@@ -11,10 +11,11 @@ public partial class TurnManager : Node
 	private PointCardDeck pointCardDeck;
 	private int currentPlayer;
 	private int playerCount = 2;
-	private List<MultiplayerPlayerClass> players;
+	private Dictionary<int, MultiplayerPlayerClass> players;
 
-	public override void _Ready()
+	public TurnManager()
 	{
+		GD.Print("yo??");
 		modifierCardsPlayed = new List<ModifierCard>();
 
 		modifierCardDeck = new ModifierCardDeck();
@@ -22,13 +23,15 @@ public partial class TurnManager : Node
 		
 		modifierCardDeck.GenerateDeck();
 		pointCardDeck.GenerateDeck();
+
 		
-		Global.turnManagerInstance = this;
+		// Global.turnManagerInstance = this;
+		PrepareGame();
 	}
 
-	private void GeneratePlayers()
+	public void PrepareGame()
 	{
-		
+		GetRandomPlayer();
 	}
 
 	public void AddToMultiplayerList(int id)
@@ -39,8 +42,8 @@ public partial class TurnManager : Node
 			ID = id,
 		};
 		if (players == null)
-			players = new List<MultiplayerPlayerClass>();
-		players.Add(newPlayer);
+			players = new Dictionary<int, MultiplayerPlayerClass>();
+		players.Add(id, newPlayer);
 	}
 
 	private void GetRandomPlayer()
@@ -76,17 +79,36 @@ public partial class TurnManager : Node
 		return value;
 	}
 
-	public void PickUpCards()
+	public void PickUpCards(int id)
 	{
-		int count = 4 < pointCardDeck.GetCount() ? 4 : pointCardDeck.GetCount();
-		// ModifierCard[] modifierCards = modifierCardDeck.PullCards(4);
-		PointCard[] pointCards = pointCardDeck.PullCards(count);
-
-		foreach (PointCard pointCard in pointCards)
+		if (currentPlayer != id)
 		{
-			GD.Print(pointCard.PointValue);
+			GD.Print("NOT YOUR TURN");
+			return;
 		}
+
+		PlayerClass playerClass = players[id].playerClass;
+		PointCard[] pointCards;
+		ModifierCard[] modifierCards;
+
 		pointCardDeck.PrintCards();
+
+		pointCards = pointCardDeck.PullCards(playerClass.PointCardList.Count);
+		modifierCards = modifierCardDeck.PullCards(playerClass.ModifCardList.Count);
+
+		playerClass.PointCardList.AddRange(pointCards);
+		playerClass.ModifCardList.AddRange(modifierCards);
+
+		PickUpCardAnswer packet = new PickUpCardAnswer
+		{
+			PointCards = pointCards,
+			ModifierCards = modifierCards,
+		};
+
+		Global.networkHandler._clientPeers.TryGetValue(id, out var peer);
+
+		if (peer != null)
+			packet.Send(peer);
 	}
 
 	public void EndRound()
@@ -115,9 +137,9 @@ public partial class TurnManager : Node
 
 		};
 
-		foreach (var player in players)
+		foreach (int player in players.Keys)
 		{
-			Global.networkHandler._clientPeers.TryGetValue(player.ID, out var peer);
+			Global.networkHandler._clientPeers.TryGetValue(player, out var peer);
 			if (peer != null)
 			{
 				packet.Send(peer);

@@ -49,6 +49,9 @@ public partial class MultiplayerServerGlobals : Node
                 TurnInfoPacket turnPacket = TurnInfoPacket.CreateFromData(data);
                 Global.turnManagerInstance.ProccessTurnInfo(turnPacket);
                 break;
+            case PACKET_TYPES.PICK_UP_CARD_REQUEST:
+                Global.turnManagerInstance.PickUpCards(peerId);
+                break;
             default:
                 GD.PushError($"Packet type with index {data[0]} unhandled");
                 break;
