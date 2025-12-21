@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://d10vs074rfp2w"]
-
-[ext_resource type="Script" uid="uid://cgv0fdv7slgxj" path="res://UI/Back.cs" id="1_tgyht"]
+[gd_scene format=3 uid="uid://d10vs074rfp2w"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -144,18 +142,3 @@ text = "Shaders"
 
 [node name="Shaders" type="CheckBox" parent="container/Shaders/Shader"]
 layout_mode = 2
-
-[node name="Back" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -63.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 40
-text = "BACK"
-script = ExtResource("1_tgyht")
-
-[connection signal="pressed" from="Back" to="Back" method="OnBackPressed"]

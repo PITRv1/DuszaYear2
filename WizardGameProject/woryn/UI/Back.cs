@@ -3,18 +3,30 @@ using System;
 
 public partial class Back : Button
 {
-	public override void _Ready()
-	{ 
-	}
+    [Export] Control singleplayerScene;
+    [Export] Control multiplayerScene;
+    [Export] Control settingsScene;
+    [Export] Control creditsScene;
+    [Export] Control mainMenuScene;
 
-	public void OnBackPressed()
-	{
+    [Export] Button back;
 
-		GetTree().ChangeSceneToFile(@"res://UI/MainMenu/MainMenu.tscn");
+    [Export] PackedScene mainMenuPacked;
+
+    [Export] Node3D parent;
+
+
+    public void OnBackPressed()
+    {
+
+        singleplayerScene.Visible = false;
+        multiplayerScene.Visible = false;
+        settingsScene.Visible = false;
+        creditsScene.Visible = false;
+        mainMenuScene.Visible = true;
+
+        back.Visible = false;
 
     }
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
+
 }

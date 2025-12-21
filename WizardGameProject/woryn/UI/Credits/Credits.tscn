@@ -1,7 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdeg6vwo3wgd4"]
-
-[ext_resource type="Script" uid="uid://cgv0fdv7slgxj" path="res://UI/Back.cs" id="1_cnn6j"]
-[ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/MainMenu/MainMenu.tscn" id="2_f65ie"]
+[gd_scene format=3 uid="uid://bdeg6vwo3wgd4"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -43,19 +40,3 @@ theme_override_font_sizes/font_size = 100
 text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Back" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -63.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 40
-text = "BACK"
-script = ExtResource("1_cnn6j")
-mainMenuScene = ExtResource("2_f65ie")
-
-[connection signal="pressed" from="Back" to="Back" method="OnBackPressed"]

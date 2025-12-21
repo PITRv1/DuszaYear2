@@ -1,0 +1,288 @@
+[gd_scene load_steps=16 format=3 uid="uid://b56xfex8vjqku"]
+
+[ext_resource type="PackedScene" uid="uid://c076pdwrupy0v" path="res://3D Menu/MainMenuEnvironment.glb" id="1_7h66l"]
+[ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/MainMenu/MainMenu.tscn" id="2_7gnwx"]
+[ext_resource type="Script" uid="uid://c62o1jhnktnw7" path="res://3D Menu/MainScreen.cs" id="2_fuqgq"]
+[ext_resource type="PackedScene" uid="uid://bb3padfqjdkm3" path="res://UI/Singleplayer/Singleplayer.tscn" id="3_chjf5"]
+[ext_resource type="PackedScene" uid="uid://be6l3tabm2s5j" path="res://UI/Multiplayer/Multiplayer.tscn" id="4_f6pqu"]
+[ext_resource type="PackedScene" uid="uid://d10vs074rfp2w" path="res://UI/Settings/Settings.tscn" id="5_fuqgq"]
+[ext_resource type="PackedScene" uid="uid://bdeg6vwo3wgd4" path="res://UI/Credits/Credits.tscn" id="6_6wokr"]
+[ext_resource type="Script" uid="uid://cgv0fdv7slgxj" path="res://UI/Back.cs" id="7_f6pqu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7h66l"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_7gnwx"]
+sky_material = SubResource("ProceduralSkyMaterial_7h66l")
+
+[sub_resource type="Environment" id="Environment_g7crl"]
+background_mode = 1
+sky = SubResource("Sky_7gnwx")
+ambient_light_source = 2
+ambient_light_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
+tonemap_mode = 2
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.17365536, 0.19234264, 0.22142029, 1)
+fog_light_energy = 0.2
+fog_density = 1.0
+fog_depth_curve = 1.7411025
+volumetric_fog_density = 0.0714
+volumetric_fog_albedo = Color(0.556953, 0.556953, 0.556953, 1)
+volumetric_fog_gi_inject = 11.25
+volumetric_fog_detail_spread = 6.0
+volumetric_fog_sky_affect = 0.271
+
+[sub_resource type="Curve3D" id="Curve3D_7h66l"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.19095516, 0.021412373, -0.3629799, 0, 0, 0, 0, 0, 0, -0.5637741, -1.3331432, -8.083626, 0, 0, 0, 0, 0, 0, -0.006275177, -1.5648069, -10.170225, 0, 0, 0, 0, 0, 0, 0.56539536, -1.8023591, -12.30986, 0, 0, 0, 0, 0, 0, 1.9922886, -2.1192784, -13.866293, 0, 0, 0, 0, 0, 0, 3.4676218, -2.4469557, -15.475559, 0, 0, 0, 0, 0, 0, 5.292123, -2.5092354, -16.891685, 0, 0, 0, 0, 0, 0, 7.4181485, -2.581809, -18.541847, 0, 0, 0, 0, 0, 0, 8.894455, -2.5669823, -19.681278, 0, 0, 0, 0, 0, 0, 10.620761, -2.5496454, -21.01366, 0, 0, 0, 0, 0, 0, 11.674281, -2.4583874, -22.450626, 0, 0, 0, 0, 0, 0, 11.901228, -2.34381, -24.254778, 0, 0, 0, 0, 0, 0, 12.010873, -1.9173679, -28.93359, 0, 0, 0, 0, 0, 0, 12.307144, 0.42367887, -49.57707),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 14
+
+[sub_resource type="Animation" id="Animation_g7crl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path3D/PathFollow3D/Camera3D:fov")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [48.9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path3D/PathFollow3D/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.029670598, -0.04886922, -0.008726646)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path3D/PathFollow3D:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenu:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainScreen:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7gnwx"]
+resource_name = "intro"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path3D/PathFollow3D/Camera3D:fov")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [48.9, 40.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path3D/PathFollow3D/Camera3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.029670598, -0.04886922, -0.008726646), Vector3(0, 0.85695666, 0.06981317)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path3D/PathFollow3D:progress_ratio")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainMenu:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainScreen:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fkh0"]
+_data = {
+&"RESET": SubResource("Animation_g7crl"),
+&"intro": SubResource("Animation_7gnwx")
+}
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g7crl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_energy = 0.667
+light_specular = 0.0
+shadow_enabled = true
+sky_mode = 1
+
+[node name="MainMenuEnvironment" parent="." instance=ExtResource("1_7h66l")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.29791665, 0, 0.9503615)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(-1, 0, -8.742278e-08, -8.584115e-09, 0.9951676, 0.09819083, 8.7000316e-08, 0.09819083, -0.9951676, 13.353, 9.739, -30.902)
+curve = SubResource("Curve3D_7h66l")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.9999887, 0, 0, 0, 0.99998707, 0, 0, 0, 0.9999854, -0.19095516, 0.021412373, -0.3629799)
+rotation_mode = 0
+tilt_enabled = false
+
+[node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(0.9987887, 0.007267029, -0.048828747, -0.008722764, 0.9995282, -0.029666536, 0.04858972, 0.03005618, 0.9983763, 0.17323303, -0.08526707, 0.3624611)
+fov = 48.9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3fkh0")
+}
+
+[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("animPlayer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_fuqgq")
+animPlayer = NodePath("../AnimationPlayer")
+
+[node name="Title" type="Label" parent="MainScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "WORYN"
+horizontal_alignment = 1
+
+[node name="Start" type="Label" parent="MainScreen"]
+modulate = Color(0.3735591, 0.6251079, 0.6558228, 1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "PRESS ANY KEY TO START"
+horizontal_alignment = 1
+
+[node name="MainMenu" parent="." node_paths=PackedStringArray("back", "singleplayerScene", "multiplayerScene", "settingsScene", "creditsScene", "mainMenuScene") instance=ExtResource("2_7gnwx")]
+visible = false
+back = NodePath("../Back")
+singleplayerScene = NodePath("../SinglePlayer")
+multiplayerScene = NodePath("../Multiplayer")
+settingsScene = NodePath("../Settings")
+creditsScene = NodePath("../Credits")
+mainMenuScene = NodePath(".")
+
+[node name="SinglePlayer" parent="." instance=ExtResource("3_chjf5")]
+visible = false
+
+[node name="Multiplayer" parent="." instance=ExtResource("4_f6pqu")]
+visible = false
+
+[node name="Settings" parent="." instance=ExtResource("5_fuqgq")]
+visible = false
+
+[node name="Credits" parent="." instance=ExtResource("6_6wokr")]
+visible = false
+
+[node name="Back" type="Button" parent="." node_paths=PackedStringArray("singleplayerScene", "multiplayerScene", "settingsScene", "creditsScene", "mainMenuScene", "back", "parent")]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "MAIN MENU"
+script = ExtResource("7_f6pqu")
+singleplayerScene = NodePath("../SinglePlayer")
+multiplayerScene = NodePath("../Multiplayer")
+settingsScene = NodePath("../Settings")
+creditsScene = NodePath("../Credits")
+mainMenuScene = NodePath("../MainMenu")
+back = NodePath(".")
+mainMenuPacked = ExtResource("2_7gnwx")
+parent = NodePath("..")
+
+[connection signal="pressed" from="Back" to="Back" method="OnBackPressed"]

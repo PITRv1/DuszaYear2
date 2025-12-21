@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://be6l3tabm2s5j"]
+[gd_scene load_steps=3 format=3 uid="uid://be6l3tabm2s5j"]
 
-[ext_resource type="Script" uid="uid://cgv0fdv7slgxj" path="res://UI/Back.cs" id="1_7ga0r"]
 [ext_resource type="Script" uid="uid://gsf0ufqx1d78" path="res://UI/Multiplayer/MultiType.cs" id="1_sg7kr"]
 [ext_resource type="ButtonGroup" uid="uid://c8lhp1s2lwvyu" path="res://UI/Multiplayer/MultiGameTypeButtonGroup.tres" id="4_f40x6"]
 
@@ -21,7 +20,7 @@ offset_left = -31.0
 offset_right = 31.0
 offset_bottom = 23.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 80
 text = "Multiplayer"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -57,19 +56,6 @@ text = "Host"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Join"
-
-[node name="Back" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -63.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 40
-text = "BACK"
-script = ExtResource("1_7ga0r")
 
 [node name="Host" type="VBoxContainer" parent="."]
 visible = false
@@ -148,6 +134,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Create the game"
 
+[node name="BackToSelectAction" type="Button" parent="Host"]
+layout_mode = 2
+text = "BACK"
+
 [node name="PlayersList" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
@@ -169,5 +159,5 @@ grow_vertical = 2
 
 [connection signal="pressed" from="MultiType/HOST" to="MultiType" method="OnHostPressed"]
 [connection signal="pressed" from="MultiType/JOIN" to="MultiType" method="OnJoinPressed"]
-[connection signal="pressed" from="Back" to="Back" method="OnBackPressed"]
 [connection signal="pressed" from="Host/Create" to="MultiType" method="OnCreatePressed"]
+[connection signal="pressed" from="Host/BackToSelectAction" to="MultiType" method="OnBackPressed"]

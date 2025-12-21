@@ -1,18 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cegma4u4cusqc"]
+[gd_scene load_steps=2 format=3 uid="uid://cegma4u4cusqc"]
 
 [ext_resource type="Script" uid="uid://bejvkqsrkeapr" path="res://UI/MainMenu/Buttons.cs" id="1_8fkdr"]
-[ext_resource type="PackedScene" uid="uid://bb3padfqjdkm3" path="res://UI/Singleplayer/Singleplayer.tscn" id="2_4elqj"]
-[ext_resource type="PackedScene" uid="uid://be6l3tabm2s5j" path="res://UI/Multiplayer/Multiplayer.tscn" id="3_ri767"]
-[ext_resource type="PackedScene" uid="uid://d10vs074rfp2w" path="res://UI/Settings/Settings.tscn" id="4_a712v"]
-[ext_resource type="PackedScene" uid="uid://bdeg6vwo3wgd4" path="res://UI/Credits/Credits.tscn" id="5_1dhmk"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("singleplayer", "multiplayer", "settings", "credits", "exit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8fkdr")
+singleplayer = NodePath("Buttons/SINGLEPLAYER")
+multiplayer = NodePath("Buttons/MULTIPLAYER")
+settings = NodePath("Buttons/SETTINGS")
+credits = NodePath("Buttons/CREDITS")
+exit = NodePath("Buttons/EXIT")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -26,7 +28,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 100
 text = "WORYN"
 
-[node name="Buttons" type="VBoxContainer" parent="." node_paths=PackedStringArray("singleplayer", "multiplayer", "settings", "credits", "exit")]
+[node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33072916
@@ -40,16 +42,6 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
-script = ExtResource("1_8fkdr")
-singleplayer = NodePath("SINGLEPLAYER")
-multiplayer = NodePath("MULITPLAYER")
-settings = NodePath("SETTINGS")
-credits = NodePath("CREDITS")
-exit = NodePath("EXIT")
-singleplayerScene = ExtResource("2_4elqj")
-multiplayerScene = ExtResource("3_ri767")
-settingsScene = ExtResource("4_a712v")
-creditsScene = ExtResource("5_1dhmk")
 metadata/_edit_use_anchors_ = true
 
 [node name="SINGLEPLAYER" type="Button" parent="Buttons"]
@@ -57,10 +49,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "SINGLEPLAYER"
 
-[node name="MULITPLAYER" type="Button" parent="Buttons"]
+[node name="MULTIPLAYER" type="Button" parent="Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "MULITPLAYER"
+text = "MULTIPLAYER"
 
 [node name="SETTINGS" type="Button" parent="Buttons"]
 layout_mode = 2
@@ -77,8 +69,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
 
-[connection signal="pressed" from="Buttons/SINGLEPLAYER" to="Buttons" method="OnSingleplayerPressed"]
-[connection signal="pressed" from="Buttons/MULITPLAYER" to="Buttons" method="OnMultiplayerPressed"]
-[connection signal="pressed" from="Buttons/SETTINGS" to="Buttons" method="OnSettingsPressed"]
-[connection signal="pressed" from="Buttons/CREDITS" to="Buttons" method="OnCreditsPressed"]
-[connection signal="pressed" from="Buttons/EXIT" to="Buttons" method="OnExitPressed"]
+[connection signal="pressed" from="Buttons/SINGLEPLAYER" to="." method="OnSingleplayerPressed"]
+[connection signal="pressed" from="Buttons/MULTIPLAYER" to="." method="OnMultiplayerPressed"]
+[connection signal="pressed" from="Buttons/SETTINGS" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="Buttons/CREDITS" to="." method="OnCreditsPressed"]
+[connection signal="pressed" from="Buttons/EXIT" to="." method="OnExitPressed"]

@@ -21,9 +21,15 @@ public partial class MultiType : HBoxContainer
 	{
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+
 	public override void _Process(double delta)
 	{
+	}
+	private void OnBackPressed()
+	{
+        hostButton.Visible = true;
+        joinButton.Visible = true;
+		hostMenu.Visible = false;
 	}
 
 	private void OnJoinPressed()

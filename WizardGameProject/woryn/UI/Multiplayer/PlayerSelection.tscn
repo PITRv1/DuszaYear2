@@ -40,12 +40,6 @@ theme_override_font_sizes/font_size = 40
 text = "START THE GAME"
 script = ExtResource("1_obg5i")
 
-[node name="Back" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "MAIN MENU"
-script = ExtResource("1_obg5i")
-
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -60,5 +54,3 @@ offset_bottom = 127.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.23753911, 0.23753914, 0.23753911, 1)
-
-[connection signal="pressed" from="VBoxContainer/Back" to="VBoxContainer/Back" method="OnBackPressed"]
