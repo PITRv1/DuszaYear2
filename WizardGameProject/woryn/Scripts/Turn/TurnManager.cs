@@ -11,7 +11,7 @@ public partial class TurnManager : Node
 	private PointCardDeck pointCardDeck;
 	private int currentPlayer;
 	private int playerCount = 2;
-	private MultiplayerPlayerClass[] players;
+	private List<MultiplayerPlayerClass> players;
 
 	public override void _Ready()
 	{
@@ -22,12 +22,25 @@ public partial class TurnManager : Node
 		
 		modifierCardDeck.GenerateDeck();
 		pointCardDeck.GenerateDeck();
-		GD.Print("APPLE");
+		
+		Global.turnManagerInstance = this;
 	}
 
 	private void GeneratePlayers()
 	{
 		
+	}
+
+	public void AddToMultiplayerList(int id)
+	{
+		GD.Print("BWA");
+		MultiplayerPlayerClass newPlayer = new MultiplayerPlayerClass
+		{
+			ID = id,
+		};
+		if (players == null)
+			players = new List<MultiplayerPlayerClass>();
+		players.Add(newPlayer);
 	}
 
 	private void GetRandomPlayer()
@@ -89,4 +102,27 @@ public partial class TurnManager : Node
 			currentMaxValue = 0;
 		}
 	}
+
+	public void ProccessTurnInfo(TurnInfoPacket packet)
+	{
+		BroadcastCurrentTurn();
+	}
+
+    private void BroadcastCurrentTurn()
+	{
+		TurnInfoPacket packet = new TurnInfoPacket
+		{
+
+		};
+
+		foreach (var player in players)
+		{
+			Global.networkHandler._clientPeers.TryGetValue(player.ID, out var peer);
+			if (peer != null)
+			{
+				packet.Send(peer);
+			}
+		}
+	}
+
 }

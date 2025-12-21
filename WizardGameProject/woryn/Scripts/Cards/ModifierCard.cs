@@ -14,6 +14,15 @@ public static class ModifierCardTypeConverter
 		};
 	}
 
+	public static ModifierCard TypeToClass(MODIFIER_TYPES card)
+	{
+		return card switch
+		{
+			MODIFIER_TYPES.MULTIPLIER => new ModifierCardMultiplier(),
+			_ => null
+		};
+	}
+
 }
 
 public interface ModifierCard

@@ -31,6 +31,8 @@ public partial class MultiplayerClientGlobals : Node
             case PACKET_TYPES.ID_ASSIGNMENT:
                 ManageIds(IDAssignment.CreateFromData(data));
                 break;
+            case PACKET_TYPES.TURN_INFO:
+                break;
             default:
                 GD.PushError($"Packet type with index {(int)packetType} unhandled!");
                 break;

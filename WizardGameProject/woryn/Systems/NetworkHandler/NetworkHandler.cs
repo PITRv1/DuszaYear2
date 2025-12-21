@@ -20,9 +20,9 @@ public partial class NetworkHandler : Node
 
 
     private Stack<int> _availablePeerIds = new();
-    private Dictionary<int, ENetPacketPeer> _clientPeers = new();
+    public Dictionary<int, ENetPacketPeer> _clientPeers = new();
 
-    private ENetPacketPeer _serverPeer;
+    public ENetPacketPeer _serverPeer;
     public ENetConnection _connection;
 
     private bool _isServer = false;

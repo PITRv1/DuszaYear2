@@ -32,5 +32,5 @@ offset_right = 219.0
 offset_bottom = 616.0
 text = "GET CARDS"
 
-[connection signal="pressed" from="DeckDown" to="TurnManager" method="EndRound"]
+[connection signal="pressed" from="DeckDown" to="MultiplayerPlayer" method="PlayCard"]
 [connection signal="pressed" from="GetCards7" to="TurnManager" method="PickUpCards"]

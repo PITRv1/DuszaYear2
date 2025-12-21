@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public abstract partial class PacketInfo : Node
+public abstract partial class PacketInfo
 {
     public PACKET_TYPES PacketType;
     public long Flag = ENetPacketPeer.FlagReliable;

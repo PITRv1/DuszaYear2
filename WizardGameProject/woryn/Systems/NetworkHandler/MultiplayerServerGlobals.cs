@@ -26,6 +26,9 @@ public partial class MultiplayerServerGlobals : Node
         IDAssignment
             .Create(peerId, _peerIds)
             .Broadcast(Global.networkHandler._connection);
+        if (Global.turnManagerInstance == null)
+            Global.turnManagerInstance = new TurnManager();
+        Global.turnManagerInstance.AddToMultiplayerList(peerId);
     }
 
     private void OnPeerDisconnected(int peerId)
@@ -39,6 +42,12 @@ public partial class MultiplayerServerGlobals : Node
         {
             case PACKET_TYPES.TURN_DATA:
                 GD.PushError("Dani has no idea how we should handle this kind of packet.");
+                break;
+            case PACKET_TYPES.TURN_INFO:
+                if (Global.turnManagerInstance == null)
+                    Global.turnManagerInstance = new TurnManager();
+                TurnInfoPacket turnPacket = TurnInfoPacket.CreateFromData(data);
+                Global.turnManagerInstance.ProccessTurnInfo(turnPacket);
                 break;
             default:
                 GD.PushError($"Packet type with index {data[0]} unhandled");
