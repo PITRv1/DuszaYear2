@@ -12,6 +12,7 @@ public partial class MultiplayerPlayerClass : Node
     [Export] HBoxContainer pointCards;
     [Export] HBoxContainer modifCards;
     [Export] PackedScene pointCardUI;
+    [Export] PackedScene modifierCardUI;
     
     public override void _Ready()
     {
@@ -32,15 +33,11 @@ public partial class MultiplayerPlayerClass : Node
     private void Local(int id)
     {
         ID = id;
-
-        GD.Print("Local id set to: ", id);
     }
 
     private void Remote(int id)
     {
         ids.Add(id);
-
-        GD.Print(ID, $" -- ({ids.Count}) -> ", id);
     }
 
     public void PlayCard()
@@ -66,10 +63,28 @@ public partial class MultiplayerPlayerClass : Node
         Global.networkHandler._serverPeer?.Send(0, packet.Encode(), (int)ENetPacketPeer.FlagReliable);
     }
 
-    public void AddPointToContainer(int pointValue)
+    public void AddPointToContainer(PointCard pointCard)
     {
         TestPointCardUi test = pointCardUI.Instantiate() as TestPointCardUi;
-        test.text.Text = pointValue.ToString();
+        test.text.Text = pointCard.PointValue.ToString();
+        test.pointCard = pointCard;
+        test.playerClass = playerClass;
         pointCards.AddChild(test);
+    }
+
+    public void AddModifierToContainer(ModifierCard card)
+    {
+        TestModifierCardUi test = modifierCardUI.Instantiate() as TestModifierCardUi;
+
+        switch (card.ModifierType)
+        {
+            case MODIFIER_TYPES.MULTIPLIER:
+                test.text.Text = $"{(card as ModifierCardMultiplier).Amount}";
+                test.modifierCard = card;
+                test.playerClass = playerClass;
+                break;
+        }
+
+        modifCards.AddChild(test);
     }
 }

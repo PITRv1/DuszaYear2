@@ -9,8 +9,8 @@ public partial class PlayerClass
     public PlayerClassInterface ChoosenClass { get; }
     public MultiplayerPlayerClass parent;
 
-    private PointCard chosenPointCard;
-    private List<ModifierCard> chosenModifierCards;
+    public PointCard chosenPointCard;
+    public List<ModifierCard> chosenModifierCards = new();
 
     public string EffectStatus { get; }
     
@@ -68,14 +68,20 @@ public partial class PlayerClass
     public void ProccessPickUpAnswer(byte[] data)
     {
         PickUpCardAnswer packet = PickUpCardAnswer.CreateFromData(data);
-        if (packet.PointCards.Length == 0)
-            return;
+
+        if (packet.PointCards.Length == 0) return;
+
         PointCardList.AddRange(packet.PointCards);
         ModifCardList.AddRange(packet.ModifierCards);
 
         foreach (PointCard card in PointCardList)
         {
-            parent.AddPointToContainer(card.PointValue);
+            parent.AddPointToContainer(card);
+        }
+
+        foreach (ModifierCard card in ModifCardList)
+        {
+            parent.AddModifierToContainer(card);
         }
 
         GD.Print("BRIHER");
