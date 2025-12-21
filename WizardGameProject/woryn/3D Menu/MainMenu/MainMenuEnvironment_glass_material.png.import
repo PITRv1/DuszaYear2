@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mlnsnub6e5o"
-path.s3tc="res://.godot/imported/MainMenuEnvironment_thumb.jpg-bb8f6761bc6df435b0a814b5db440321.s3tc.ctex"
+uid="uid://c6qcy6pkribu8"
+path.s3tc="res://.godot/imported/MainMenuEnvironment_glass_material.png-d443e19c084f51b2472d6e4e53cb0a48.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "eb96c90c57314da0bcb54fea488760d2"
+"md5": "210f5ce05e81d38a52257104906660e8"
 }
 
 [deps]
 
-source_file="res://3D Menu/MainMenuEnvironment_thumb.jpg"
-dest_files=["res://.godot/imported/MainMenuEnvironment_thumb.jpg-bb8f6761bc6df435b0a814b5db440321.s3tc.ctex"]
+source_file="res://3D Menu/MainMenu/MainMenuEnvironment_glass_material.png"
+dest_files=["res://.godot/imported/MainMenuEnvironment_glass_material.png-d443e19c084f51b2472d6e4e53cb0a48.s3tc.ctex"]
 
 [params]
 

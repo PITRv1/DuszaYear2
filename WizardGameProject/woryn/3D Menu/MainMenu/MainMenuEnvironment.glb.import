@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c076pdwrupy0v"
-path="res://.godot/imported/MainMenuEnvironment.glb-e8bf4cd7ed97a62133f909e66dc0285a.scn"
+path="res://.godot/imported/MainMenuEnvironment.glb-48f6f09ff78d3e72e92283b0783329f7.scn"
 
 [deps]
 
-source_file="res://3D Menu/MainMenuEnvironment.glb"
-dest_files=["res://.godot/imported/MainMenuEnvironment.glb-e8bf4cd7ed97a62133f909e66dc0285a.scn"]
+source_file="res://3D Menu/MainMenu/MainMenuEnvironment.glb"
+dest_files=["res://.godot/imported/MainMenuEnvironment.glb-48f6f09ff78d3e72e92283b0783329f7.scn"]
 
 [params]
 

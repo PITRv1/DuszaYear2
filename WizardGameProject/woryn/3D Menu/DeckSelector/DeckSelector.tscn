@@ -1,0 +1,152 @@
+[gd_scene load_steps=2 format=3 uid="uid://smtqx0lfpxl7"]
+
+[ext_resource type="Script" uid="uid://dfk57ro64kv7p" path="res://3D Menu/DeckSelector/DeckSelector.cs" id="1_57dk6"]
+
+[node name="DeckSelector" type="Control" node_paths=PackedStringArray("mDeck1", "mDeck2", "mDeck3", "mDeck4", "container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_57dk6")
+mDeck1 = NodePath("CenterContainer/HBoxContainer/MDeck1")
+mDeck2 = NodePath("CenterContainer/HBoxContainer/MDeck2")
+mDeck3 = NodePath("CenterContainer/HBoxContainer/MDeck3")
+mDeck4 = NodePath("CenterContainer/HBoxContainer/MDeck4")
+container = NodePath("CenterContainer/HBoxContainer")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Select your modifier deck"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="MDeck1" type="Button" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 2
+
+[node name="Type" type="Label" parent="CenterContainer/HBoxContainer/MDeck1"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Damage heavy"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="CenterContainer/HBoxContainer/MDeck1"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is the description
+of a modifier deck."
+horizontal_alignment = 1
+
+[node name="MDeck2" type="Button" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 2
+
+[node name="Type" type="Label" parent="CenterContainer/HBoxContainer/MDeck2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Damage heavy"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="CenterContainer/HBoxContainer/MDeck2"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is the description
+of a modifier deck."
+horizontal_alignment = 1
+
+[node name="MDeck3" type="Button" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 2
+
+[node name="Type" type="Label" parent="CenterContainer/HBoxContainer/MDeck3"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Damage heavy"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="CenterContainer/HBoxContainer/MDeck3"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is the description
+of a modifier deck."
+horizontal_alignment = 1
+
+[node name="MDeck4" type="Button" parent="CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 350)
+layout_mode = 2
+
+[node name="Type" type="Label" parent="CenterContainer/HBoxContainer/MDeck4"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Damage heavy"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="CenterContainer/HBoxContainer/MDeck4"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "This is the description
+of a modifier deck."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/MDeck1" to="." method="OnMDeck1Pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/MDeck2" to="." method="OnMDeck2Pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/MDeck3" to="." method="OnMDeck3Pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/MDeck4" to="." method="OnMDeck4Pressed"]

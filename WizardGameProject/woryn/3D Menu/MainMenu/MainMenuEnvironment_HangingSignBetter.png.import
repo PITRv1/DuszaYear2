@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwq5pwxrft5hh"
-path.s3tc="res://.godot/imported/MainMenuEnvironment_wood_texture.png-bad4d06108d187eb5a4f7ca936ff6319.s3tc.ctex"
+uid="uid://cet6rs8yxbmct"
+path.s3tc="res://.godot/imported/MainMenuEnvironment_HangingSignBetter.png-9c684adc00b090ff3a70dbd755ce78fc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "e65b3d87bdcdd08cad5d6fa6c9e2eed0"
+"md5": "f0fe0e0db54c98f29aefabb4a70860d2"
 }
 
 [deps]
 
-source_file="res://3D Menu/MainMenuEnvironment_wood_texture.png"
-dest_files=["res://.godot/imported/MainMenuEnvironment_wood_texture.png-bad4d06108d187eb5a4f7ca936ff6319.s3tc.ctex"]
+source_file="res://3D Menu/MainMenu/MainMenuEnvironment_HangingSignBetter.png"
+dest_files=["res://.godot/imported/MainMenuEnvironment_HangingSignBetter.png-9c684adc00b090ff3a70dbd755ce78fc.s3tc.ctex"]
 
 [params]
 

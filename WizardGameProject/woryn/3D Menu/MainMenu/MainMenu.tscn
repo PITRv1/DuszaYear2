@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://b56xfex8vjqku"]
 
-[ext_resource type="PackedScene" uid="uid://c076pdwrupy0v" path="res://3D Menu/MainMenuEnvironment.glb" id="1_7h66l"]
+[ext_resource type="PackedScene" uid="uid://c076pdwrupy0v" path="res://3D Menu/MainMenu/MainMenuEnvironment.glb" id="1_7h66l"]
 [ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/MainMenu/MainMenu.tscn" id="2_7gnwx"]
-[ext_resource type="Script" uid="uid://c62o1jhnktnw7" path="res://3D Menu/MainScreen.cs" id="2_fuqgq"]
+[ext_resource type="Script" uid="uid://c62o1jhnktnw7" path="res://3D Menu/MainMenu/MainScreen.cs" id="2_fuqgq"]
 [ext_resource type="PackedScene" uid="uid://bb3padfqjdkm3" path="res://UI/Singleplayer/Singleplayer.tscn" id="3_chjf5"]
 [ext_resource type="PackedScene" uid="uid://be6l3tabm2s5j" path="res://UI/Multiplayer/Multiplayer.tscn" id="4_f6pqu"]
 [ext_resource type="PackedScene" uid="uid://d10vs074rfp2w" path="res://UI/Settings/Settings.tscn" id="5_fuqgq"]

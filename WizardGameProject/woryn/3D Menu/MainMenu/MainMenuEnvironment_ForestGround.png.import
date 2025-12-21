@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6qcy6pkribu8"
-path.s3tc="res://.godot/imported/MainMenuEnvironment_glass_material.png-b33f21feaca77ce876bf95b15a0d9ff4.s3tc.ctex"
+uid="uid://bkt0ywgcybhi8"
+path.s3tc="res://.godot/imported/MainMenuEnvironment_ForestGround.png-dab68cc0e3f00ce72a8c7f36ed02ef18.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "210f5ce05e81d38a52257104906660e8"
+"md5": "02cd267d74add39ca76a3ac7d7f0ce1b"
 }
 
 [deps]
 
-source_file="res://3D Menu/MainMenuEnvironment_glass_material.png"
-dest_files=["res://.godot/imported/MainMenuEnvironment_glass_material.png-b33f21feaca77ce876bf95b15a0d9ff4.s3tc.ctex"]
+source_file="res://3D Menu/MainMenu/MainMenuEnvironment_ForestGround.png"
+dest_files=["res://.godot/imported/MainMenuEnvironment_ForestGround.png-dab68cc0e3f00ce72a8c7f36ed02ef18.s3tc.ctex"]
 
 [params]
 
