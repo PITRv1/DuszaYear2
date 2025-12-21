@@ -17,6 +17,9 @@ public partial class MultiplayerServerGlobals : Node
         network.OnPeerConnected += OnPeerConnected;
         network.OnPeerDisconnected += OnPeerDisconnected;
         network.OnServerPacket += OnServerPacket;
+
+        if (Global.turnManagerInstance == null)
+            Global.turnManagerInstance = new TurnManager();
     }
 
     private void OnPeerConnected(int peerId)
@@ -26,8 +29,10 @@ public partial class MultiplayerServerGlobals : Node
         IDAssignment
             .Create(peerId, _peerIds)
             .Broadcast(Global.networkHandler._connection);
+
         if (Global.turnManagerInstance == null)
             Global.turnManagerInstance = new TurnManager();
+        
         Global.turnManagerInstance.AddToMultiplayerList(peerId);
     }
 

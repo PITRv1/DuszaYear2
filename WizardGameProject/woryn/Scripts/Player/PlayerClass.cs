@@ -10,7 +10,7 @@ public partial class PlayerClass
     public MultiplayerPlayerClass parent;
 
     private PointCard chosenPointCard;
-    private List<ModifierCard> chosenModifierCard;
+    private List<ModifierCard> chosenModifierCards;
 
     public string EffectStatus { get; }
     
