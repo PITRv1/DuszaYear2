@@ -12,6 +12,7 @@ public partial class TurnManager
 	private int currentPlayer;
 	private int playerCount = 2;
 	private int CurrentRound = 1;
+	private bool CanEndRound = false;
 	private Dictionary<int, MultiplayerPlayerClass> players;
 
 	public TurnManager()
@@ -83,6 +84,8 @@ public partial class TurnManager
 			GD.Print("NOT YOUR TURN");
 			return;
 		}
+
+		CanEndRound = true;
 
 		PlayerClass playerClass = players[id].playerClass;
 		PointCard[] pointCards;
@@ -184,6 +187,9 @@ public partial class TurnManager
 		if (currentPlayer != packet.SenderId)
 			return;
 
+		if (!CanEndRound)
+			return;
+
 		PlayerClass currPlayer = players[currentPlayer].playerClass;
 
 		PointCard pointCard = packet.PointCard;
@@ -193,9 +199,16 @@ public partial class TurnManager
 		if (currPlayer.PointCardList[packet.PointCardIndex].PointValue != pointCard.PointValue)
 			return;
 
+		GD.Print("MODIF CARD INDEXES: " + packet.ModifCardIndexes.Length);
+		GD.Print("MODIF CARDs: " + modifierCards.Length);
+		GD.Print("PLAYER MODIF CARDs: " + currPlayer.ModifCardList.Count);
+
 		for (int i = 0; i < modifierCards.Length; i++)
+		{
+			GD.Print("BUH: " + packet.ModifCardIndexes[i]);
 			if (currPlayer.ModifCardList[packet.ModifCardIndexes[i]].ModifierType != modifierCards[i].ModifierType)
 				return;
+		}
 
 		currPlayer.PointCardList.RemoveAt(packet.PointCardIndex);
 
@@ -207,6 +220,8 @@ public partial class TurnManager
 		{
 			currPlayer.ModifCardList.RemoveAt(index);			
 		}
+
+		CanEndRound = false;
 
 		StartNewTurn(pointCard, modifierCards);
 	}

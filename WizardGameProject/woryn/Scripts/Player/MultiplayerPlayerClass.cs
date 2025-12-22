@@ -76,17 +76,13 @@ public partial class MultiplayerPlayerClass : Node
             return;
         pointCards.RemoveChild(pointCards.GetChild(playerClass.PointCardList.IndexOf(playerClass.chosenPointCard)));
         playerClass.PointCardList.Remove(playerClass.chosenPointCard);
-        
+
+        List<int> modifIndexes = new List<int>();
+
         foreach (ModifierCard card in playerClass.chosenModifierCards)
         {
+            modifIndexes.Add(playerClass.ModifCardList.IndexOf(card));
             playerClass.ModifCardList.Remove(card);
-        }
-
-        List<byte> modifIndexes = new List<byte>();
-
-        foreach (ModifierCard card in playerClass.chosenModifierCards)
-        {
-            modifIndexes.Add((byte)playerClass.ModifCardList.IndexOf(card));
         }
 
         modifIndexes.Sort();
@@ -94,8 +90,11 @@ public partial class MultiplayerPlayerClass : Node
 
         foreach (int index in modifIndexes)
         {
-            modifCards.RemoveChild(pointCards.GetChild(index));
+            modifCards.RemoveChild(modifCards.GetChild(index));
         }
+
+        playerClass.chosenModifierCards.Clear();
+        playerClass.chosenPointCard = null;
     }
 
     public void PickUpCards()
