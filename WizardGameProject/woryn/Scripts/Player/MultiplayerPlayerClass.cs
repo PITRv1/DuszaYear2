@@ -13,6 +13,7 @@ public partial class MultiplayerPlayerClass : Node
     [Export] HBoxContainer modifCards;
     [Export] PackedScene pointCardUI;
     [Export] PackedScene modifierCardUI;
+    [Export] Label maxPoints;
     
     public override void _Ready()
     {
@@ -40,17 +41,61 @@ public partial class MultiplayerPlayerClass : Node
         ids.Add(id);
     }
 
+    public void SetMaxPoints(int points)
+    {
+        maxPoints.Text = points.ToString();
+    }
+
     public void PlayCard()
     {
-        if (!playerClass.CanEndTurn())
+        if (playerClass.CanEndTurn())
             return;
+
+        List<byte> modifIndexes = new List<byte>();
+
+        foreach (ModifierCard card in playerClass.chosenModifierCards)
+        {
+            modifIndexes.Add((byte)playerClass.ModifCardList.IndexOf(card));
+        }
+
         EndTurnRequest packet = new EndTurnRequest
         {
-            PointCards = playerClass.PointCardList.ToArray(),
-            ModifierCards = playerClass.ModifCardList.ToArray(),
+            SenderId = ID,
+            PointCard = playerClass.chosenPointCard,
+            PointCardIndex = playerClass.PointCardList.IndexOf(playerClass.chosenPointCard),
+            ModifierCards = playerClass.chosenModifierCards.ToArray(),
+            ModifCardIndexes = modifIndexes.ToArray()
         };
 
         Global.networkHandler._serverPeer?.Send(0, packet.Encode(), (int)ENetPacketPeer.FlagReliable);
+    }
+
+    public void RemoveSelectedCards(int lastPlayer)
+    {
+        if (lastPlayer != ID)
+            return;
+        pointCards.RemoveChild(pointCards.GetChild(playerClass.PointCardList.IndexOf(playerClass.chosenPointCard)));
+        playerClass.PointCardList.Remove(playerClass.chosenPointCard);
+        
+        foreach (ModifierCard card in playerClass.chosenModifierCards)
+        {
+            playerClass.ModifCardList.Remove(card);
+        }
+
+        List<byte> modifIndexes = new List<byte>();
+
+        foreach (ModifierCard card in playerClass.chosenModifierCards)
+        {
+            modifIndexes.Add((byte)playerClass.ModifCardList.IndexOf(card));
+        }
+
+        modifIndexes.Sort();
+        modifIndexes.Reverse();
+
+        foreach (int index in modifIndexes)
+        {
+            modifCards.RemoveChild(pointCards.GetChild(index));
+        }
     }
 
     public void PickUpCards()

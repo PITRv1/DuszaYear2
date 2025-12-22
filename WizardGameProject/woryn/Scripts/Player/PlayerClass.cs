@@ -8,6 +8,7 @@ public partial class PlayerClass
     public List<ModifierCard> ModifCardList { get; }
     public PlayerClassInterface ChoosenClass { get; }
     public MultiplayerPlayerClass parent;
+    public int Points { get; set; }
 
     public PointCard chosenPointCard;
     public List<ModifierCard> chosenModifierCards = new();
@@ -63,6 +64,9 @@ public partial class PlayerClass
     public void ProccessTurnInfoPacket(byte[] data)
     {
         TurnInfoPacket packet = TurnInfoPacket.CreateFromData(data);
+        Points = packet.CurrentPointValue;
+        parent.SetMaxPoints(packet.MaxValue);
+        parent.RemoveSelectedCards(packet.LastPlayer);
     }
 
     public void ProccessPickUpAnswer(byte[] data)
@@ -74,12 +78,12 @@ public partial class PlayerClass
         PointCardList.AddRange(packet.PointCards);
         ModifCardList.AddRange(packet.ModifierCards);
 
-        foreach (PointCard card in PointCardList)
+        foreach (PointCard card in packet.PointCards)
         {
             parent.AddPointToContainer(card);
         }
 
-        foreach (ModifierCard card in ModifCardList)
+        foreach (ModifierCard card in packet.ModifierCards)
         {
             parent.AddModifierToContainer(card);
         }

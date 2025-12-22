@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public partial class TurnInfoPacket : PacketInfo
 {
+	public int LastPlayer;
 	public int CurrentPlayerId;
 	public int CurrentRound;
 	public int MaxValue;
@@ -14,11 +15,14 @@ public partial class TurnInfoPacket : PacketInfo
 		PacketType = PACKET_TYPES.TURN_INFO;
 	}
 
-	public new byte[] Encode()
+	public override byte[] Encode()
     {
         List<byte> data = new List<byte>();
 
 		data.Add((byte)PacketType);
+
+		data.AddRange(BitConverter.GetBytes(LastPlayer));
+
 		data.AddRange(BitConverter.GetBytes(CurrentPlayerId));
 
 		data.AddRange(BitConverter.GetBytes(CurrentRound));
@@ -34,6 +38,9 @@ public partial class TurnInfoPacket : PacketInfo
 	{
 		TurnInfoPacket packet = new TurnInfoPacket();
 		int index = 1;
+
+		packet.LastPlayer = BitConverter.ToInt32(data, index);
+		index += 4;
 
 		packet.CurrentPlayerId = BitConverter.ToInt32(data, index);
 		index += 4;

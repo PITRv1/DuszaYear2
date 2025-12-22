@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 
 public static class ModifierCardTypeConverter
@@ -21,6 +22,18 @@ public static class ModifierCardTypeConverter
 			MODIFIER_TYPES.MULTIPLIER => new ModifierCardMultiplier(),
 			_ => null
 		};
+	}
+
+	public static List<MODIFIER_TYPES> ClassListToTypeList(List<ModifierCard> cards)
+	{
+		List<MODIFIER_TYPES> types = new List<MODIFIER_TYPES>();
+
+		foreach (ModifierCard card in cards)
+		{
+			types.Add(ClassToType(card));
+		}
+
+		return types;
 	}
 
 }

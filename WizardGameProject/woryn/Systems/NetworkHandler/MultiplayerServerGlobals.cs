@@ -52,10 +52,13 @@ public partial class MultiplayerServerGlobals : Node
                 if (Global.turnManagerInstance == null)
                     Global.turnManagerInstance = new TurnManager();
                 TurnInfoPacket turnPacket = TurnInfoPacket.CreateFromData(data);
-                Global.turnManagerInstance.ProccessTurnInfo(turnPacket);
+                // Global.turnManagerInstance.ProccessTurnInfo(turnPacket);
                 break;
             case PACKET_TYPES.PICK_UP_CARD_REQUEST:
                 Global.turnManagerInstance.PickUpCards(peerId);
+                break;
+            case PACKET_TYPES.END_TURN_REQUEST:
+                Global.turnManagerInstance.ProccessEndGameRequest(data);
                 break;
             default:
                 GD.PushError($"Packet type with index {data[0]} unhandled");

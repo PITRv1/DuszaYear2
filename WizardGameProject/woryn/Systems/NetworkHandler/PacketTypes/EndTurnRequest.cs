@@ -4,8 +4,11 @@ using System.Collections.Generic;
 
 public partial class EndTurnRequest : PacketInfo
 {
-	public PointCard[] PointCards;
+	public int SenderId;
+	public PointCard PointCard;
+	public int PointCardIndex;
 	public ModifierCard[] ModifierCards;
+	public byte[] ModifCardIndexes;
 	public EndTurnRequest()
 	{
 		PacketType = PACKET_TYPES.END_TURN_REQUEST;
@@ -17,17 +20,17 @@ public partial class EndTurnRequest : PacketInfo
 
 		data.Add((byte)PacketType);
 
-		data.Add((byte)PointCards.Length);
+		data.AddRange(BitConverter.GetBytes(SenderId));
 
-		foreach (PointCard card in PointCards)
-		{
-			data.AddRange(BitConverter.GetBytes(card.PointValue));
-		}
+		data.AddRange(BitConverter.GetBytes(PointCard.PointValue));
+
+		data.AddRange(BitConverter.GetBytes(PointCardIndex));
 
 		data.Add((byte)ModifierCards.Length);
-		foreach (ModifierCard card in ModifierCards)
+		for (int i = 0; i < ModifierCards.Length; i++)
 		{
-			data.Add((byte)ModifierCardTypeConverter.ClassToType(card));
+			data.Add((byte)ModifierCardTypeConverter.ClassToType(ModifierCards[i]));
+			data.Add(ModifCardIndexes[i]);
 		}
 
 		return data.ToArray();
@@ -38,26 +41,28 @@ public partial class EndTurnRequest : PacketInfo
 		EndTurnRequest packet = new EndTurnRequest();
 		int index = 1;
 
-		int PointCardsLength = data[index];
-		index += 1;
+		packet.SenderId = BitConverter.ToInt32(data, index);
+		index += 4;
 
-		packet.PointCards = new PointCard[PointCardsLength];
-		for (int i = 0; i < PointCardsLength; i++)
-		{
-			int pointValue = BitConverter.ToInt32(data, index);
-			index += 4;
-			packet.PointCards[i] = new PointCard(pointValue);
-		}
+		packet.PointCard = new PointCard(BitConverter.ToInt32(data, index));
+		index += 4;
+
+		packet.PointCardIndex = BitConverter.ToInt32(data, index); 
+		index += 4;
 
 		int modifierLength = data[index];
 		index += 1;
 
 		packet.ModifierCards = new ModifierCard[modifierLength];
+		packet.ModifCardIndexes = new byte[modifierLength];
 		for (int i = 0; i < modifierLength; i++)
 		{
 			MODIFIER_TYPES modifierType = (MODIFIER_TYPES)data[index];
 			index += 1;
 			packet.ModifierCards[i] = ModifierCardTypeConverter.TypeToClass(modifierType);
+
+			packet.ModifCardIndexes[i] = data[index];
+			index += 1;
 		}
 
 		return packet;
