@@ -99,6 +99,13 @@ public partial class TurnManager
 		playerClass.PointCardList.AddRange(pointCards);
 		playerClass.ModifCardList.AddRange(modifierCards);
 
+		PlayerClass currPlayer = players[currentPlayer].playerClass;
+
+		GD.Print("whyada");
+
+		if (CalculateCardValue(GetCardListValues(currPlayer.PointCardList).Max(), currPlayer.ModifCardList.ToArray()) <= currentMaxValue)
+			GD.Print("It's over");
+
 		PickUpCardAnswer packet = new PickUpCardAnswer
 		{
 			PointCards = pointCards,
@@ -148,14 +155,14 @@ public partial class TurnManager
 		return values;
 	}
 
-	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards)
+	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards, int value)
 	{
 		int lastPlayer = currentPlayer;
 		currentPlayer++;
 		if (playerCount - 1 < currentPlayer)
 			currentPlayer = 0;
 
-		currentMaxValue = CalculateCardValue(pointCard.PointValue, modifierCards);
+		currentMaxValue = value;
 
 		foreach (int player in players.Keys)
 		{
@@ -190,6 +197,7 @@ public partial class TurnManager
 		if (!CanEndRound)
 			return;
 
+
 		PlayerClass currPlayer = players[currentPlayer].playerClass;
 
 		PointCard pointCard = packet.PointCard;
@@ -197,6 +205,11 @@ public partial class TurnManager
 
 		GD.Print(packet.PointCardIndex + " " + currPlayer.PointCardList.Count);
 		if (currPlayer.PointCardList[packet.PointCardIndex].PointValue != pointCard.PointValue)
+			return;
+
+		int turnValue = CalculateCardValue(pointCard.PointValue, modifierCards);
+
+		if (turnValue <= currentMaxValue)
 			return;
 
 		GD.Print("MODIF CARD INDEXES: " + packet.ModifCardIndexes.Length);
@@ -223,7 +236,7 @@ public partial class TurnManager
 
 		CanEndRound = false;
 
-		StartNewTurn(pointCard, modifierCards);
+		StartNewTurn(pointCard, modifierCards, turnValue);
 	}
 
 }
