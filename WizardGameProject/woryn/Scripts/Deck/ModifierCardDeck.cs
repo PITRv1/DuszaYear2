@@ -1,7 +1,7 @@
 using Godot;
 using System.Collections.Generic;
 
-public partial class ModifierCardDeck : Node
+public partial class ModifierCardDeck
 {
     List<ModifierCard> modifierCards;
 
@@ -28,8 +28,15 @@ public partial class ModifierCardDeck : Node
 
     public ModifierCard[] PullCards(int count)
     {
-        ModifierCard[] cards = new ModifierCard[count];
+        if (modifierCards.Count == 0)
+            return [];
 
+        count = 4 - count;
+
+        count = modifierCards.Count < count ? modifierCards.Count : count;
+
+        ModifierCard[] cards = new ModifierCard[count];
+        GD.Print("IM SO COFNXUSED: " + modifierCards.Count);
         for (int i = 0; i < count; i++)
         {
             cards[i] = modifierCards[0];
@@ -39,11 +46,11 @@ public partial class ModifierCardDeck : Node
         return cards;
     }
 
-    public void PrintCards()
-    {
-        foreach (ModifierCard pointCard in modifierCards)
-        {
-            GD.PrintRaw(pointCard.Name + " ");
-        }
-    }
+    // public void PrintCards()
+    // {
+    //     foreach (ModifierCard pointCard in modifierCards)
+    //     {
+    //         GD.PrintRaw(pointCard.Name + " ");
+    //     }
+    // }
 }

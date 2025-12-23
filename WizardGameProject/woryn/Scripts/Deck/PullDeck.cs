@@ -19,15 +19,7 @@ public partial class PullDeck : Button
     public override void _Pressed()
     {
 		GD.Print("Pressed");
-		int count = 4 < pointCardDeck.GetCount() ? 4 : pointCardDeck.GetCount();
-		// ModifierCard[] modifierCards = modifierCardDeck.PullCards(4);
-		PointCard[] pointCards = pointCardDeck.PullCards(count);
-
-		foreach (PointCard pointCard in pointCards)
-		{
-			GD.Print(pointCard.PointValue);
-		}
-		pointCardDeck.PrintCards();
+		
     }  
 
 

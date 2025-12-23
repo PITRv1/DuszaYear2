@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://1tvmqvajxg62"]
+
+[ext_resource type="PackedScene" uid="uid://bxs0hn6508qbt" path="res://Testing/MultiTesting/multiplayer_player.tscn" id="1_jwek8"]
+[ext_resource type="PackedScene" uid="uid://ca8e052nny7l5" path="res://Testing/MultiTesting/TestPointCardUI.tscn" id="2_m1nd3"]
+[ext_resource type="PackedScene" uid="uid://dv8riud1qttrs" path="res://Testing/MultiTesting/TestModifierCardUI.tscn" id="3_murls"]
+
+[node name="Test" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MultiplayerPlayer" parent="." node_paths=PackedStringArray("pointCards", "modifCards", "maxPoints", "points", "throwDeckValue") instance=ExtResource("1_jwek8")]
+pointCards = NodePath("../VBoxContainer/CardContainers/PointCards")
+modifCards = NodePath("../VBoxContainer/CardContainers/ModifCards")
+pointCardUI = ExtResource("2_m1nd3")
+modifierCardUI = ExtResource("3_murls")
+maxPoints = NodePath("../MaxValue")
+points = NodePath("../Points")
+throwDeckValue = NodePath("../ThrowDeckValue")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="CardContainers" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PointCards" type="HBoxContainer" parent="VBoxContainer/CardContainers"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ModifCards" type="HBoxContainer" parent="VBoxContainer/CardContainers"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="GetCards" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Get cards"
+
+[node name="DeckDown" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Play card(s)
+"
+
+[node name="MaxValue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1004.0
+offset_top = 201.0
+offset_right = 1120.0
+offset_bottom = 327.0
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Points" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1012.0
+offset_top = 380.0
+offset_right = 1128.0
+offset_bottom = 506.0
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThrowDeckValue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 427.0
+offset_right = 633.0
+offset_bottom = 553.0
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/GetCards" to="MultiplayerPlayer" method="PickUpCards"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/DeckDown" to="MultiplayerPlayer" method="PlayCard"]

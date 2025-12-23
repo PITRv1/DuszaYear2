@@ -2,12 +2,12 @@ using Godot;
 using System.Collections.Generic;
 using System.ComponentModel;
 
-public partial class PointCardDeck : Node
+public partial class PointCardDeck
 {
     private List<PointCard> pointCards;
 
     // private int MaxNumber = 9; For later use
-    private int NumberOfCards = 36;
+    private int NumberOfCards = 16;
     
     public PointCardDeck()
     {
@@ -46,6 +46,10 @@ public partial class PointCardDeck : Node
 
     public PointCard[] PullCards(int count)
     {
+        count = 4 - count;
+
+        count = pointCards.Count < count ? pointCards.Count : count;
+
         PointCard[] cards = new PointCard[count];
 
         for (int i = 0; i < count; i++)

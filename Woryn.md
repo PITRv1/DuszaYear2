@@ -28,13 +28,13 @@ Medve: Death Sleeping and programming
 
 **UI:**
 
-&nbsp;Dani, Peti and Ábel
+ Dani, Peti and Ábel
 
 
 
 **Programming:**
 
-&nbsp;Máté, Medve, Dani
+ Máté, Medve, Dani
 
 
 
@@ -42,35 +42,41 @@ Medve: Death Sleeping and programming
 
 
 
-###### &nbsp;Week 1:
+######  Week 1:
 
-&nbsp;	- Make a single playable round
+ 	- Make a single playable round
 
-&nbsp;	- Main Menu UI
+ 	- Main Menu UI
 
-&nbsp;	- Lobby UI
-
-
-
-&nbsp;Description:
-
-&nbsp;	Don't need to overwork ourselves, let's just have a bit of a slower more chill weeks, it's been a lot lately
-
-&nbsp;	Don't need to make the UI look good, make it work, making it look cool can come after that
-
-&nbsp;	Make it so the player(s) can go to the first round end state, with mock variables (this includes the ability to play cards and abilities)
-
-&nbsp;	Make Player Class
-
-&nbsp;	Make Class class (The classes are gonna derive from here)
-
-&nbsp;	Make Card Class
-
-&nbsp;	Make Ability Class (Derives from Card class)
+ 	- Lobby UI
 
 
 
-&nbsp;Review:	
+ Description:
+
+ 	Don't need to overwork ourselves, let's just have a bit of a slower more chill weeks, it's been a lot lately
+
+ 	Don't need to make the UI look good, make it work, making it look cool can come after that
+
+ 	Make it so the player(s) can go to the first round end state, with mock variables (this includes the ability to play cards and abilities)
+
+ 	Make Player Class
+
+ 	Make Class class (The classes are gonna derive from here)
+
+ 	Make Card Class
+
+ 	Make Ability Class (Derives from Card class)
 
 
+
+ Review:
+
+&nbsp;	Literally nothing got done
+
+
+
+###### &nbsp;Week 2:
+
+&nbsp;	
 

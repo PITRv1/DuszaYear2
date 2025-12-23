@@ -7,7 +7,7 @@ public partial class PlayPile : Node
 
     public PointCard CurrentCard { get; private set; }
 
-    private readonly List<CardInterface> modifierCards = new();
+    private readonly List<ModifierCard> modifierCards = new();
 
     public override void _Ready()
     {
