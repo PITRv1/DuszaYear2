@@ -28,7 +28,7 @@ public partial class MultiplayerServerGlobals : Node
 
         IDAssignment
             .Create(peerId, _peerIds)
-            .Broadcast(Global.networkHandler._connection);
+            .Broadcast(Global.networkHandler.ServerConnection);
 
         if (Global.turnManagerInstance == null)
             Global.turnManagerInstance = new TurnManager();
@@ -61,7 +61,7 @@ public partial class MultiplayerServerGlobals : Node
                 Global.turnManagerInstance.ProccessEndGameRequest(data);
                 break;
             default:
-                GD.PushError($"Packet type with index {data[0]} unhandled");
+                GD.PushError($"Packet type with index {(PACKET_TYPES)data[0]} unhandled");
                 break;
         }
     }

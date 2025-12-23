@@ -5,10 +5,13 @@ public partial class TestUIMultiPlayer : Control
 {   
     [Export] PackedScene scene;
 
-    public void Host()
+    public async void Host()
     {
         Global.networkHandler.StartServer();
-        Visible = false;
+        // await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
+        Global.networkHandler.StartClient();
+        GetTree().ChangeSceneToPacked(scene);
+        // Visible = false;
     }
     
     public void Join()
