@@ -7,38 +7,41 @@ public partial class TurnManager
 {
 	private int currentMaxValue = 0;
 	// private List<ModifierCard> modifierCardsPlayed;
-	private ModifierCardDeck modifierCardDeck;
 	private PointCardDeck pointCardDeck;
 	private int currentPlayer;
 	private int playerCount = 2;
 	private int CurrentRound = 1;
-	private bool CanEndRound = false;
 	private Dictionary<int, MultiplayerPlayerClass> players;
 
-	public TurnManager()
+	public TurnManager(List<int> playerIds)
 	{
-		GD.Print("yo??");
-		// modifierCardsPlayed = new List<ModifierCard>();
+		foreach (int id in playerIds)
+		{
+			AddToMultiplayerList(id);
+		}
 
-		modifierCardDeck = new ModifierCardDeck();
+		playerCount = playerIds.Count;
+
 		pointCardDeck = new PointCardDeck();
 		
-		modifierCardDeck.GenerateDeck();
 		pointCardDeck.GenerateDeck();
-
 		
-		// Global.turnManagerInstance = this;
-		PrepareGame();
+		Global.turnManagerInstance = this;
 	}
 
 	public void PrepareGame()
 	{
 		GetRandomPlayer();
+
+		foreach (int player in players.Keys)
+		{
+			GD.Print("bruhererr " + player);
+			DealCards(player);
+		}
 	}
 
 	public void AddToMultiplayerList(int id)
 	{
-		GD.Print("BWA");
 		MultiplayerPlayerClass newPlayer = new MultiplayerPlayerClass
 		{
 			ID = id,
@@ -77,6 +80,34 @@ public partial class TurnManager
 		return value;
 	}
 
+	public void DealCards(int id)
+	{
+		PlayerClass playerClass = players[id].playerClass;
+		PointCard[] pointCards;
+		ModifierCard[] modifierCards;
+
+		pointCardDeck.PrintCards();
+
+		pointCards = pointCardDeck.PullCards(playerClass.PointCardList.Count);
+		modifierCards = playerClass.modifierCardDeck.PullCards(playerClass.ModifCardList.Count);
+
+		playerClass.PointCardList.AddRange(pointCards);
+		playerClass.ModifCardList.AddRange(modifierCards);
+
+		PickUpCardAnswer packet = new PickUpCardAnswer
+		{
+			PointCards = pointCards,
+			ModifierCards = modifierCards,
+		};
+
+		Global.networkHandler._clientPeers.TryGetValue(id, out var peer);
+
+		if (peer != null)
+		{
+			packet.Send(peer);
+		}
+	}
+
 	public void PickUpCards(int id)
 	{
 		if (currentPlayer != id)
@@ -85,8 +116,6 @@ public partial class TurnManager
 			return;
 		}
 
-		CanEndRound = true;
-
 		PlayerClass playerClass = players[id].playerClass;
 		PointCard[] pointCards;
 		ModifierCard[] modifierCards;
@@ -94,7 +123,7 @@ public partial class TurnManager
 		pointCardDeck.PrintCards();
 
 		pointCards = pointCardDeck.PullCards(playerClass.PointCardList.Count);
-		modifierCards = modifierCardDeck.PullCards(playerClass.ModifCardList.Count);
+		modifierCards = playerClass.modifierCardDeck.PullCards(playerClass.ModifCardList.Count);
 
 		playerClass.PointCardList.AddRange(pointCards);
 		playerClass.ModifCardList.AddRange(modifierCards);
@@ -187,9 +216,6 @@ public partial class TurnManager
 		if (currentPlayer != packet.SenderId)
 			return;
 
-		if (!CanEndRound)
-			return;
-
 		PlayerClass currPlayer = players[currentPlayer].playerClass;
 
 		PointCard pointCard = packet.PointCard;
@@ -199,6 +225,9 @@ public partial class TurnManager
 		if (currPlayer.PointCardList[packet.PointCardIndex].PointValue != pointCard.PointValue)
 			return;
 
+		if (CalculateCardValue(pointCard.PointValue, modifierCards) <= currentMaxValue)
+			return;
+		
 		GD.Print("MODIF CARD INDEXES: " + packet.ModifCardIndexes.Length);
 		GD.Print("MODIF CARDs: " + modifierCards.Length);
 		GD.Print("PLAYER MODIF CARDs: " + currPlayer.ModifCardList.Count);
@@ -221,7 +250,7 @@ public partial class TurnManager
 			currPlayer.ModifCardList.RemoveAt(index);			
 		}
 
-		CanEndRound = false;
+		PickUpCards(currentPlayer);
 
 		StartNewTurn(pointCard, modifierCards);
 	}

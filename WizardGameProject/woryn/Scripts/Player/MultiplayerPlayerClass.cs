@@ -7,7 +7,7 @@ public partial class MultiplayerPlayerClass : Node
 {
     public PlayerClass playerClass;
     public int ID;
-    List<int> ids = new();
+    // List<int> ids = new();
 
     [Export] HBoxContainer pointCards;
     [Export] HBoxContainer modifCards;
@@ -17,12 +17,14 @@ public partial class MultiplayerPlayerClass : Node
     
     public override void _Ready()
     {
-        Global.multiplayerClientGlobals.HandleLocalIdAssignment += Local;
-        Global.multiplayerClientGlobals.HandleRemoteIdAssignment += Remote;
-        Global.networkHandler.OnPeerConnected += Remote;
-
+        ID = Global.multiplayerClientGlobals._id;
         Global.multiplayerClientGlobals.HandleTurnInfo += playerClass.ProccessTurnInfoPacket;
         Global.multiplayerClientGlobals.HandlePickUpCardAnswer += playerClass.ProccessPickUpAnswer;
+        Global.multiplayerClientGlobals.HandlePickUpCardAnswer += Burger;
+
+        ClientReady packet = new ClientReady();
+
+        Global.networkHandler._serverPeer?.Send(0, packet.Encode(), (int)ENetPacketPeer.FlagReliable);
     }
 
     public MultiplayerPlayerClass()
@@ -36,9 +38,14 @@ public partial class MultiplayerPlayerClass : Node
         ID = id;
     }
 
-    private void Remote(int id)
+    // private void Remote(int id)
+    // {
+    //     ids.Add(id);
+    // }
+
+    private void Burger(byte[] data)
     {
-        ids.Add(id);
+        GD.Print("i hate");
     }
 
     public void SetMaxPoints(int points)

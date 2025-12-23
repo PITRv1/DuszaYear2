@@ -9,6 +9,7 @@ public partial class MultiplayerServerGlobals : Node
     }
 
     private List<int> _peerIds = new();
+    private HashSet<int> _readyPlayers = new();
 
     public override void _Ready()
     {
@@ -17,9 +18,6 @@ public partial class MultiplayerServerGlobals : Node
         network.OnPeerConnected += OnPeerConnected;
         network.OnPeerDisconnected += OnPeerDisconnected;
         network.OnServerPacket += OnServerPacket;
-
-        if (Global.turnManagerInstance == null)
-            Global.turnManagerInstance = new TurnManager();
     }
 
     private void OnPeerConnected(int peerId)
@@ -30,10 +28,10 @@ public partial class MultiplayerServerGlobals : Node
             .Create(peerId, _peerIds)
             .Broadcast(Global.networkHandler.ServerConnection);
 
-        if (Global.turnManagerInstance == null)
-            Global.turnManagerInstance = new TurnManager();
-        
-        Global.turnManagerInstance.AddToMultiplayerList(peerId);
+        if (Global.lobbyManagerInstance == null)
+            Global.lobbyManagerInstance = new LobbyManager();
+
+        Global.lobbyManagerInstance.AddToMultiplayerList(peerId);
     }
 
     private void OnPeerDisconnected(int peerId)
@@ -45,12 +43,22 @@ public partial class MultiplayerServerGlobals : Node
     {
         switch ((PACKET_TYPES)data[0])
         {
+            case PACKET_TYPES.START_GAME:
+                if (peerId != 0)
+                    return;
+                Global.turnManagerInstance = new TurnManager(_peerIds);
+                Global.lobbyManagerInstance.StartGameRequest(data);
+                break;
+            case PACKET_TYPES.CLIENT_READY:
+                _readyPlayers.Add(peerId);
+
+                if (_readyPlayers.Count == _peerIds.Count)
+                    Global.turnManagerInstance.PrepareGame();
+                break;
             case PACKET_TYPES.TURN_DATA:
                 GD.PushError("Dani has no idea how we should handle this kind of packet.");
                 break;
             case PACKET_TYPES.TURN_INFO:
-                if (Global.turnManagerInstance == null)
-                    Global.turnManagerInstance = new TurnManager();
                 TurnInfoPacket turnPacket = TurnInfoPacket.CreateFromData(data);
                 // Global.turnManagerInstance.ProccessTurnInfo(turnPacket);
                 break;

@@ -7,6 +7,7 @@ public partial class PlayerClass
     public List<PointCard> PointCardList { get; }
     public List<ModifierCard> ModifCardList { get; }
     public PlayerClassInterface ChoosenClass { get; }
+    public ModifierCardDeck modifierCardDeck { get; }
     public MultiplayerPlayerClass parent;
     public int Points { get; set; }
 
@@ -19,6 +20,9 @@ public partial class PlayerClass
     {
         PointCardList = new List<PointCard>();
         ModifCardList = new List<ModifierCard>();
+
+        modifierCardDeck = new ModifierCardDeck();
+        modifierCardDeck.GenerateDeck();
     }
     public void DecreaseCooldown()
     {
@@ -71,8 +75,8 @@ public partial class PlayerClass
 
     public void ProccessPickUpAnswer(byte[] data)
     {
+        GD.Print("why");
         PickUpCardAnswer packet = PickUpCardAnswer.CreateFromData(data);
-
         if (packet.PointCards.Length == 0) return;
 
         PointCardList.AddRange(packet.PointCards);

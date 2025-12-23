@@ -31,7 +31,7 @@ public partial class ModifierCardDeck
         count = 4 - count;
 
         ModifierCard[] cards = new ModifierCard[count];
-
+        GD.Print(modifierCards.Count);
         for (int i = 0; i < count; i++)
         {
             cards[i] = modifierCards[0];

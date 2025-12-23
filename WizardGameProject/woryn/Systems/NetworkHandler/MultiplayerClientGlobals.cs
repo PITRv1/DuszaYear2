@@ -17,8 +17,12 @@ public partial class MultiplayerClientGlobals : Node
     public delegate void HandleTurnInfoEventHandler(byte[] data);
     [Signal]
     public delegate void HandlePickUpCardAnswerEventHandler(byte[] data);
+    [Signal]
+    public delegate void NewPlayerEventHandler(byte[] data);
+    [Signal]
+    public delegate void StartGameEventHandler();
 
-    private int _id = -1;
+    public int _id = -1;
     private List<int> _remoteIds = new();
 
     public override void _Ready()
@@ -35,10 +39,17 @@ public partial class MultiplayerClientGlobals : Node
             case PACKET_TYPES.ID_ASSIGNMENT:
                 ManageIds(IDAssignment.CreateFromData(data));
                 break;
+            case PACKET_TYPES.START_GAME:
+                EmitSignal("StartGame");
+                break;
+            case PACKET_TYPES.NEW_PLAYER:
+                EmitSignal("NewPlayer", data);
+                break;
             case PACKET_TYPES.TURN_INFO:
                 EmitSignal("HandleTurnInfo", data);
                 break;
             case PACKET_TYPES.PICK_UP_CARD_ANSWER:
+                GD.Print("so this prints");
                 EmitSignal("HandlePickUpCardAnswer", data);
                 break;
             default:

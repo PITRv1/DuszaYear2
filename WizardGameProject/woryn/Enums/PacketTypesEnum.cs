@@ -6,4 +6,7 @@ public enum PACKET_TYPES
     PICK_UP_CARD_REQUEST = 3,
     PICK_UP_CARD_ANSWER = 4,
     END_TURN_REQUEST = 5,
+    NEW_PLAYER = 6,
+    START_GAME = 7,
+    CLIENT_READY = 8,
 }
