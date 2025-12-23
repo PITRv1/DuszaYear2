@@ -80,7 +80,6 @@ public partial class TurnManager
 			GD.Print("PLEASE SPEED: " + modifierCard.Amount);
 			value = modifierCard.Calculate(value);
 		}
-			
 
 		return value;
 	}
@@ -191,6 +190,11 @@ public partial class TurnManager
 		return false;
 	}
 
+	private void GoToShopScene()
+	{
+		
+	}
+
 	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards, int value)
 	{
 		int lastPlayer = currentPlayer;
@@ -205,8 +209,10 @@ public partial class TurnManager
 			players[lastPlayer].playerClass.Points += ThrowDeckValue;
 			ThrowDeckValue = 0;
 			currentMaxValue = 0;
+			return;
 		}
-		else if (CalculateCardValue(GetCardListValues(players[currentPlayer].playerClass.PointCardList).Max(), players[currentPlayer].playerClass.ModifCardList.ToArray()) <= value)
+
+		if (CalculateCardValue(GetCardListValues(players[currentPlayer].playerClass.PointCardList).Max(), players[currentPlayer].playerClass.ModifCardList.ToArray()) <= value)
 		{
 			GD.Print("It's over");
 			ThrowDeckValue += value;
