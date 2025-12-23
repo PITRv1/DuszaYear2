@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-public partial class PlayerClass
+public class PlayerClass
 {
     public List<PointCard> PointCardList { get; }
     public List<ModifierCard> ModifCardList { get; }
@@ -77,7 +77,7 @@ public partial class PlayerClass
     {
         GD.Print("why");
         PickUpCardAnswer packet = PickUpCardAnswer.CreateFromData(data);
-        if (packet.PointCards.Length == 0) return;
+        // if (packet.PointCards.Length == 0) return;
 
         PointCardList.AddRange(packet.PointCards);
         ModifCardList.AddRange(packet.ModifierCards);
@@ -89,6 +89,7 @@ public partial class PlayerClass
 
         foreach (ModifierCard card in packet.ModifierCards)
         {
+            GD.Print("MEDEWDEDEDVE");
             parent.AddModifierToContainer(card);
         }
 

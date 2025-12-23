@@ -4,7 +4,7 @@ using System;
 public partial class ModifierCardMultiplier : ModifierCard
 {
 	public MODIFIER_TYPES ModifierType => MODIFIER_TYPES.MULTIPLIER;
-	public int Amount { get; private set; } = 2;
+	public int Amount { get; set; } = 2;
 
     public string CardName { get; } = "Faszom tudja";
 
@@ -26,6 +26,7 @@ public partial class ModifierCardMultiplier : ModifierCard
 	{
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		// Amount = rng.RandiRange(2, 6);
+        Amount = 1;
 	}
 
 	public int Calculate(int value)

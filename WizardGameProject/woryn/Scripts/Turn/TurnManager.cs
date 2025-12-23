@@ -75,8 +75,12 @@ public partial class TurnManager
 
 	private int CalculateCardValue(int value, ModifierCard[] cards)
 	{
-		foreach (ModifierCard modifierCard in cards)
+		foreach (ModifierCardMultiplier modifierCard in cards)
+		{
+			GD.Print("PLEASE SPEED: " + modifierCard.Amount);
 			value = modifierCard.Calculate(value);
+		}
+			
 
 		return value;
 	}
@@ -129,8 +133,6 @@ public partial class TurnManager
 		playerClass.PointCardList.AddRange(pointCards);
 		playerClass.ModifCardList.AddRange(modifierCards);
 
-		PlayerClass currPlayer = players[currentPlayer].playerClass;
-		
 		PickUpCardAnswer packet = new PickUpCardAnswer
 		{
 			PointCards = pointCards,
@@ -177,12 +179,17 @@ public partial class TurnManager
 			values.Add(card.PointValue);
 		}
 
-		GD.Print("VALES: " + values.Max());
-
 		return values;
 	}
 
+	private bool DoPlayersHaveCards()
+	{
+		foreach (MultiplayerPlayerClass player in players.Values)
+			if (player.playerClass.PointCardList.Count > 0)
+				return true;
 
+		return false;
+	}
 
 	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards, int value)
 	{
@@ -191,9 +198,15 @@ public partial class TurnManager
 		if (playerCount - 1 < currentPlayer)
 			currentPlayer = 0;
 
-		GD.Print("HERE: " + CalculateCardValue(GetCardListValues(players[currentPlayer].playerClass.PointCardList).Max(), players[currentPlayer].playerClass.ModifCardList.ToArray()) + " -- " + currentMaxValue);
-		
-		if (CalculateCardValue(GetCardListValues(players[currentPlayer].playerClass.PointCardList).Max(), players[currentPlayer].playerClass.ModifCardList.ToArray()) <= value)
+		if (pointCardDeck.GetCount() == 0 && !DoPlayersHaveCards())
+		{
+			GD.Print("Super over");
+			ThrowDeckValue += value;
+			players[lastPlayer].playerClass.Points += ThrowDeckValue;
+			ThrowDeckValue = 0;
+			currentMaxValue = 0;
+		}
+		else if (CalculateCardValue(GetCardListValues(players[currentPlayer].playerClass.PointCardList).Max(), players[currentPlayer].playerClass.ModifCardList.ToArray()) <= value)
 		{
 			GD.Print("It's over");
 			ThrowDeckValue += value;
@@ -246,24 +259,25 @@ public partial class TurnManager
 		GD.Print(packet.PointCardIndex + " " + currPlayer.PointCardList.Count);
 		if (currPlayer.PointCardList[packet.PointCardIndex].PointValue != pointCard.PointValue)
 			return;
-		
-		int turnValue = CalculateCardValue(pointCard.PointValue, modifierCards);
-
-		if (turnValue <= currentMaxValue)
-			return;
-
-		
 
 		GD.Print("MODIF CARD INDEXES: " + packet.ModifCardIndexes.Length);
 		GD.Print("MODIF CARDs: " + modifierCards.Length);
 		GD.Print("PLAYER MODIF CARDs: " + currPlayer.ModifCardList.Count);
+
+		List<ModifierCard> usedCards = new List<ModifierCard>();
 
 		for (int i = 0; i < modifierCards.Length; i++)
 		{
 			GD.Print("BUH: " + packet.ModifCardIndexes[i]);
 			if (currPlayer.ModifCardList[packet.ModifCardIndexes[i]].ModifierType != modifierCards[i].ModifierType)
 				return;
+			usedCards.Add(currPlayer.ModifCardList[packet.ModifCardIndexes[i]]);
 		}
+
+		int turnValue = CalculateCardValue(pointCard.PointValue, usedCards.ToArray());
+
+		if (turnValue <= currentMaxValue)
+			return;
 
 		currPlayer.PointCardList.RemoveAt(packet.PointCardIndex);
 
