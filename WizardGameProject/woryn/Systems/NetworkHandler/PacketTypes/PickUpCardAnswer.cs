@@ -6,6 +6,8 @@ public partial class PickUpCardAnswer : PacketInfo
 {
 	public PointCard[] PointCards;
 	public ModifierCard[] ModifierCards;
+	byte isWinner;
+	// int newMaxPoints;
 	public PickUpCardAnswer()
 	{
 		PacketType = PACKET_TYPES.PICK_UP_CARD_ANSWER;
