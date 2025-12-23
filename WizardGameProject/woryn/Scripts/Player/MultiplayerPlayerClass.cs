@@ -14,6 +14,8 @@ public partial class MultiplayerPlayerClass : Node
     [Export] PackedScene pointCardUI;
     [Export] PackedScene modifierCardUI;
     [Export] Label maxPoints;
+    [Export] Label points;
+    [Export] Label throwDeckValue;
     
     public override void _Ready()
     {
@@ -48,9 +50,11 @@ public partial class MultiplayerPlayerClass : Node
         GD.Print("i hate");
     }
 
-    public void SetMaxPoints(int points)
+    public void SetUI(int mPoints, int plrPoints, int throwValue)
     {
-        maxPoints.Text = points.ToString();
+        maxPoints.Text = mPoints.ToString();
+        points.Text = plrPoints.ToString();
+        throwDeckValue.Text = throwValue.ToString();
     }
 
     public void PlayCard()

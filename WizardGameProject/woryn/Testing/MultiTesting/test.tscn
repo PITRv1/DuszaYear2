@@ -12,12 +12,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MultiplayerPlayer" parent="." node_paths=PackedStringArray("pointCards", "modifCards", "maxPoints") instance=ExtResource("1_jwek8")]
+[node name="MultiplayerPlayer" parent="." node_paths=PackedStringArray("pointCards", "modifCards", "maxPoints", "points", "throwDeckValue") instance=ExtResource("1_jwek8")]
 pointCards = NodePath("../VBoxContainer/CardContainers/PointCards")
 modifCards = NodePath("../VBoxContainer/CardContainers/ModifCards")
 pointCardUI = ExtResource("2_m1nd3")
 modifierCardUI = ExtResource("3_murls")
-maxPoints = NodePath("../Label")
+maxPoints = NodePath("../MaxValue")
+points = NodePath("../Points")
+throwDeckValue = NodePath("../ThrowDeckValue")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -57,12 +59,34 @@ size_flags_horizontal = 3
 text = "Play card(s)
 "
 
-[node name="Label" type="Label" parent="."]
+[node name="MaxValue" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1004.0
 offset_top = 201.0
 offset_right = 1120.0
 offset_bottom = 327.0
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Points" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1012.0
+offset_top = 380.0
+offset_right = 1128.0
+offset_bottom = 506.0
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ThrowDeckValue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 427.0
+offset_right = 633.0
+offset_bottom = 553.0
 theme_override_font_sizes/font_size = 48
 text = "0"
 horizontal_alignment = 1

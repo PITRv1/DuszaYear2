@@ -48,6 +48,8 @@ public partial class PointCardDeck
     {
         count = 4 - count;
 
+        count = pointCards.Count < count ? pointCards.Count : count;
+
         PointCard[] cards = new PointCard[count];
 
         for (int i = 0; i < count; i++)

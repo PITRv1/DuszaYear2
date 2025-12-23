@@ -12,6 +12,7 @@ public partial class TurnManager
 	private int playerCount = 2;
 	private int CurrentRound = 1;
 	private Dictionary<int, MultiplayerPlayerClass> players;
+	private int ThrowDeckValue = 0;
 
 	public TurnManager(List<int> playerIds)
 	{
@@ -129,12 +130,7 @@ public partial class TurnManager
 		playerClass.ModifCardList.AddRange(modifierCards);
 
 		PlayerClass currPlayer = players[currentPlayer].playerClass;
-
-		GD.Print("whyada");
-
-		if (CalculateCardValue(GetCardListValues(currPlayer.PointCardList).Max(), currPlayer.ModifCardList.ToArray()) <= currentMaxValue)
-			GD.Print("It's over");
-
+		
 		PickUpCardAnswer packet = new PickUpCardAnswer
 		{
 			PointCards = pointCards,
@@ -181,8 +177,12 @@ public partial class TurnManager
 			values.Add(card.PointValue);
 		}
 
+		GD.Print("VALES: " + values.Max());
+
 		return values;
 	}
+
+
 
 	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards, int value)
 	{
@@ -191,7 +191,21 @@ public partial class TurnManager
 		if (playerCount - 1 < currentPlayer)
 			currentPlayer = 0;
 
-		currentMaxValue = value;
+		GD.Print("HERE: " + CalculateCardValue(GetCardListValues(players[currentPlayer].playerClass.PointCardList).Max(), players[currentPlayer].playerClass.ModifCardList.ToArray()) + " -- " + currentMaxValue);
+		
+		if (CalculateCardValue(GetCardListValues(players[currentPlayer].playerClass.PointCardList).Max(), players[currentPlayer].playerClass.ModifCardList.ToArray()) <= value)
+		{
+			GD.Print("It's over");
+			ThrowDeckValue += value;
+			players[lastPlayer].playerClass.Points += ThrowDeckValue;
+			ThrowDeckValue = 0;
+			currentMaxValue = 0;
+		}
+		else
+		{
+			ThrowDeckValue += value;
+			currentMaxValue = value;
+		}
 
 		foreach (int player in players.Keys)
 		{
@@ -202,7 +216,8 @@ public partial class TurnManager
 				CurrentPlayerId = currentPlayer,
 				CurrentRound = CurrentRound,
 				MaxValue = currentMaxValue,
-				CurrentPointValue = players[player].playerClass.Points
+				CurrentPointValue = players[player].playerClass.Points,
+				ThrowDeckValue = ThrowDeckValue
 			};
 
 			Global.networkHandler._clientPeers.TryGetValue(player, out var peer);
@@ -236,6 +251,8 @@ public partial class TurnManager
 
 		if (turnValue <= currentMaxValue)
 			return;
+
+		
 
 		GD.Print("MODIF CARD INDEXES: " + packet.ModifCardIndexes.Length);
 		GD.Print("MODIF CARDs: " + modifierCards.Length);

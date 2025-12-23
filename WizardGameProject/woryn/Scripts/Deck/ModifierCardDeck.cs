@@ -28,7 +28,12 @@ public partial class ModifierCardDeck
 
     public ModifierCard[] PullCards(int count)
     {
+        if (modifierCards.Count == 0)
+            return [];
+
         count = 4 - count;
+
+        count = modifierCards.Count < count ? modifierCards.Count : count;
 
         ModifierCard[] cards = new ModifierCard[count];
         GD.Print(modifierCards.Count);

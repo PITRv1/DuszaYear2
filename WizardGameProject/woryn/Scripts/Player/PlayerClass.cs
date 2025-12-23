@@ -9,7 +9,7 @@ public partial class PlayerClass
     public PlayerClassInterface ChoosenClass { get; }
     public ModifierCardDeck modifierCardDeck { get; }
     public MultiplayerPlayerClass parent;
-    public int Points { get; set; }
+    public int Points { get; set; } = 0;
 
     public PointCard chosenPointCard;
     public List<ModifierCard> chosenModifierCards = new();
@@ -69,7 +69,7 @@ public partial class PlayerClass
     {
         TurnInfoPacket packet = TurnInfoPacket.CreateFromData(data);
         Points = packet.CurrentPointValue;
-        parent.SetMaxPoints(packet.MaxValue);
+        parent.SetUI(packet.MaxValue, packet.CurrentPointValue, packet.ThrowDeckValue);
         parent.RemoveSelectedCards(packet.LastPlayer);
     }
 

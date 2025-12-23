@@ -8,6 +8,7 @@ public partial class TurnInfoPacket : PacketInfo
 	public int CurrentPlayerId;
 	public int CurrentRound;
 	public int MaxValue;
+	public int ThrowDeckValue;
 	public int CurrentPointValue;
 
 	public TurnInfoPacket()
@@ -29,6 +30,8 @@ public partial class TurnInfoPacket : PacketInfo
 
 		data.AddRange(BitConverter.GetBytes(MaxValue));
 
+		data.AddRange(BitConverter.GetBytes(ThrowDeckValue));
+
 		data.AddRange(BitConverter.GetBytes(CurrentPointValue));
 
 		return data.ToArray();
@@ -49,6 +52,9 @@ public partial class TurnInfoPacket : PacketInfo
 		index += 4;
 
 		packet.MaxValue = BitConverter.ToInt32(data, index);
+		index += 4;
+
+		packet.ThrowDeckValue = BitConverter.ToInt32(data, index);
 		index += 4;
 
 		packet.CurrentPointValue = BitConverter.ToInt32(data, index);
