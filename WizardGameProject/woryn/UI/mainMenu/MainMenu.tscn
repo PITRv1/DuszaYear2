@@ -1,12 +1,20 @@
-[gd_scene load_steps=0 format=3 uid="uid://cegma4u4cusqc"]
+[gd_scene load_steps=2 format=3 uid="uid://cegma4u4cusqc"]
 
-[node name="MainMenu" type="Control"]
+[ext_resource type="Script" uid="uid://bejvkqsrkeapr" path="res://UI/MainMenu/Buttons.cs" id="1_8fkdr"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("singleplayer", "multiplayer", "settings", "credits", "exit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8fkdr")
+singleplayer = NodePath("Buttons/SINGLEPLAYER")
+multiplayer = NodePath("Buttons/MULTIPLAYER")
+settings = NodePath("Buttons/SETTINGS")
+credits = NodePath("Buttons/CREDITS")
+exit = NodePath("Buttons/EXIT")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -41,10 +49,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "SINGLEPLAYER"
 
-[node name="MULITPLAYER" type="Button" parent="Buttons"]
+[node name="MULTIPLAYER" type="Button" parent="Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "MULITPLAYER"
+text = "MULTIPLAYER"
 
 [node name="SETTINGS" type="Button" parent="Buttons"]
 layout_mode = 2
@@ -60,3 +68,9 @@ text = "CREDITS"
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
+
+[connection signal="pressed" from="Buttons/SINGLEPLAYER" to="." method="OnSingleplayerPressed"]
+[connection signal="pressed" from="Buttons/MULTIPLAYER" to="." method="OnMultiplayerPressed"]
+[connection signal="pressed" from="Buttons/SETTINGS" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="Buttons/CREDITS" to="." method="OnCreditsPressed"]
+[connection signal="pressed" from="Buttons/EXIT" to="." method="OnExitPressed"]
