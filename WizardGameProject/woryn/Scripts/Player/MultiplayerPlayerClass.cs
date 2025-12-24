@@ -16,6 +16,7 @@ public partial class MultiplayerPlayerClass : Node
     [Export] Label maxPoints;
     [Export] Label points;
     [Export] Label throwDeckValue;
+    [Export] PackedScene shopScene;
     
     public override void _Ready()
     {
@@ -23,6 +24,8 @@ public partial class MultiplayerPlayerClass : Node
         Global.multiplayerClientGlobals.HandleTurnInfo += playerClass.ProccessTurnInfoPacket;
         Global.multiplayerClientGlobals.HandlePickUpCardAnswer += playerClass.ProccessPickUpAnswer;
         Global.multiplayerClientGlobals.HandlePickUpCardAnswer += Burger;
+
+        Global.multiplayerClientGlobals.ShopScene += GoToShop;
 
         ClientReady packet = new ClientReady();
 
@@ -38,6 +41,11 @@ public partial class MultiplayerPlayerClass : Node
     private void Local(int id)
     {
         ID = id;
+    }
+
+    private void GoToShop()
+    {
+		GetTree().ChangeSceneToPacked(shopScene);
     }
 
     // private void Remote(int id)

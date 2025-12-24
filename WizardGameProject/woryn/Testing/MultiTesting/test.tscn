@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://1tvmqvajxg62"]
+[gd_scene load_steps=5 format=3 uid="uid://1tvmqvajxg62"]
 
 [ext_resource type="PackedScene" uid="uid://bxs0hn6508qbt" path="res://Testing/MultiTesting/multiplayer_player.tscn" id="1_jwek8"]
 [ext_resource type="PackedScene" uid="uid://ca8e052nny7l5" path="res://Testing/MultiTesting/TestPointCardUI.tscn" id="2_m1nd3"]
 [ext_resource type="PackedScene" uid="uid://dv8riud1qttrs" path="res://Testing/MultiTesting/TestModifierCardUI.tscn" id="3_murls"]
+[ext_resource type="PackedScene" uid="uid://c26ljvsefjnl6" path="res://Testing/ShopTestScene/PublicShopTest.tscn" id="4_0e0ea"]
 
 [node name="Test" type="Control"]
 layout_mode = 3
@@ -20,6 +21,7 @@ modifierCardUI = ExtResource("3_murls")
 maxPoints = NodePath("../MaxValue")
 points = NodePath("../Points")
 throwDeckValue = NodePath("../ThrowDeckValue")
+shopScene = ExtResource("4_0e0ea")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

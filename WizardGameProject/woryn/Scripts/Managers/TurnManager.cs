@@ -8,11 +8,12 @@ public partial class TurnManager
 	private int currentMaxValue = 0;
 	// private List<ModifierCard> modifierCardsPlayed;
 	private PointCardDeck pointCardDeck;
-	private int currentPlayer;
-	private int playerCount = 2;
+	private int currentPlayer = 0;
+	private int playerCount = 3;
 	private int CurrentRound = 1;
 	private Dictionary<int, MultiplayerPlayerClass> players;
 	private int ThrowDeckValue = 0;
+	// private bool RoundOver
 
 	public TurnManager(List<int> playerIds)
 	{
@@ -28,6 +29,11 @@ public partial class TurnManager
 		pointCardDeck.GenerateDeck();
 		
 		Global.turnManagerInstance = this;
+	}
+
+	public int[] GetPlayerIds()
+	{
+		return players.Keys.ToArray();
 	}
 
 	public void PrepareGame()
@@ -55,7 +61,7 @@ public partial class TurnManager
 	private void GetRandomPlayer()
 	{
 		RandomNumberGenerator rng = new RandomNumberGenerator();
-		currentPlayer = rng.RandiRange(0, playerCount - 1);
+		// currentPlayer = rng.RandiRange(0, playerCount - 1);
 	}
 
 	// public void SetPointCardValue(int value)
@@ -192,7 +198,19 @@ public partial class TurnManager
 
 	private void GoToShopScene()
 	{
-		
+		if (Global.shopManager == null)
+			Global.shopManager = new ShopManager();
+
+		ShopSceneChange packet = new ShopSceneChange();
+
+		foreach (int player in players.Keys)
+		{
+			Global.networkHandler._clientPeers.TryGetValue(player, out var peer);
+			if (peer != null)
+			{
+				packet.Send(peer);
+			}
+		}
 	}
 
 	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards, int value)
@@ -209,6 +227,7 @@ public partial class TurnManager
 			players[lastPlayer].playerClass.Points += ThrowDeckValue;
 			ThrowDeckValue = 0;
 			currentMaxValue = 0;
+			GoToShopScene();
 			return;
 		}
 
