@@ -2,6 +2,8 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+// Once I left a way too rude alert in a code which got unnoticed and went into production. In 5 mins I was in the
+// management office. ALWAYS keep prints meaningful and nice. If you get used to this habit, you will save future yourself.
 public partial class LobbyManager
 {
 	private List<byte> players;

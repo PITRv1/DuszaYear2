@@ -8,6 +8,7 @@ public partial class MultiplayerServerGlobals : Node
         Global.multiplayerServerGlobals = this;
     }
 
+    // must be readonly lists
     private List<int> _peerIds = new();
     private HashSet<int> _readyPlayers = new();
 
@@ -47,16 +48,17 @@ public partial class MultiplayerServerGlobals : Node
             case PACKET_TYPES.START_GAME:
                 if (peerId != 0)
                     return;
-                if (Global.turnManagerInstance == null)
+                if (Global.turnManagerInstance == null) // brackets or not brackets, that's the question :) Linter/formatter solves it.
                     Global.turnManagerInstance = new TurnManager(_peerIds);
                 Global.lobbyManagerInstance.StartGameRequest(data);
                 break;
             case PACKET_TYPES.CLIENT_READY:
                 _readyPlayers.Add(peerId);
-                if (_readyPlayers.Count == _peerIds.Count)
+                if (_readyPlayers.Count == _peerIds.Count) // brackets or not brackets, that's the question :) Linter/formatter solves it.
                     Global.turnManagerInstance.PrepareGame();
                 break;
             case PACKET_TYPES.TURN_DATA:
+                // Then put here a TODO. Always put TODO there with a clean comment, because then you can look after it
                 GD.PushError("Dani has no idea how we should handle this kind of packet.");
                 break;
             case PACKET_TYPES.TURN_INFO:

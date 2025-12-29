@@ -11,6 +11,8 @@ public partial class TurnManager
 	private int currentPlayer = 0;
 	private int playerCount = 3;
 	private int CurrentRound = 1;
+	// Dictionaries, maps must always be final and initialized here.
+	// Because if you call this before you do it, that's a potentional error.
 	private Dictionary<int, MultiplayerPlayerClass> players;
 	private int ThrowDeckValue = 0;
 	// private bool RoundOver
@@ -231,6 +233,8 @@ public partial class TurnManager
 			return;
 		}
 
+		// this is a way too long if condition
+		// you must outsource GetCardListValues and CalculateCardValue into separated vars
 		if (CalculateCardValue(GetCardListValues(players[currentPlayer].playerClass.PointCardList).Max(), players[currentPlayer].playerClass.ModifCardList.ToArray()) <= value)
 		{
 			GD.Print("It's over");

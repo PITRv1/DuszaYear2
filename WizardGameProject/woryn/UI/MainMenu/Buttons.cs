@@ -19,6 +19,13 @@ public partial class Buttons : Control
 
     private Control[] scenes;
 
+    // This is used only in class, thus must be private. The naming is confusing.
+    // "Hider" is an adjective, methods are almost always verbs, like "Hide". Also, would be good
+    // to know what will be hidden? Methods must talk to you by their names, you should not guess what it does.
+    // 
+    // For hide1-3, you can use [C# params](https://www.geeksforgeeks.org/c-sharp/c-sharp-params/)
+    // And instead calling them hide1-3, you can use a more talkative variable name like:
+    // params Control[] scenesToHide
     public void Hider(Control showable, Control hide1, Control hide2, Control hide3)
     {
         showable.Visible = true;

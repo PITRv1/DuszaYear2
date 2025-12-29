@@ -70,6 +70,12 @@ public partial class MultiplayerPlayerClass : Node
         if (playerClass.CanEndTurn())
             return;
 
+        // For the foreach below, start using mappers:
+        //using System.Linq; <- learn it, collections, streams, map-reduce is an essential for c# and for other languages
+        //var modifIndexes = playerClass.chosenModifierCards
+            //.Select(card => (byte)playerClass.ModifCardList.IndexOf(card))
+            //.ToList();
+
         List<byte> modifIndexes = new List<byte>();
 
         foreach (ModifierCard card in playerClass.chosenModifierCards)
@@ -146,6 +152,7 @@ public partial class MultiplayerPlayerClass : Node
                 test.modifierCard = card;
                 test.playerClass = playerClass;
                 break;
+                // Always have a default case with an error or a comment if you intentionally not handling other cases.
         }
 
         modifCards.AddChild(test);

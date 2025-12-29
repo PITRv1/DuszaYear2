@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+// Apply my comments from the ClassSelectorMenu
 public partial class DeckSelector : Control
 {
 	[Export] Button mDeck1;

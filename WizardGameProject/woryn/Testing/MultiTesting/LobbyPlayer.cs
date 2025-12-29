@@ -6,6 +6,7 @@ using System.Linq;
 public partial class LobbyPlayer : Node
 {
     public int ID;
+		// must be readonly list
     List<int> ids = new();
 
 	[Export] PackedScene lobbyPlayer;

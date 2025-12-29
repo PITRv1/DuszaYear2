@@ -27,6 +27,7 @@ public partial class MultiplayerClientGlobals : Node
     public delegate void ShopSceneEventHandler();
 
     public int _id = -1;
+    // must be readonly
     public List<int> _remoteIds = new();
 
     public override void _Ready()
@@ -44,6 +45,8 @@ public partial class MultiplayerClientGlobals : Node
                 ManageIds(IDAssignment.CreateFromData(data));
                 break;
             case PACKET_TYPES.START_GAME:
+                // Is that possible you put these signal names into its own class as a public static var?
+                // So if you change the class name, you change there its signal name as well.
                 EmitSignal("StartGame");
                 break;
             case PACKET_TYPES.NEW_PLAYER:
@@ -53,7 +56,7 @@ public partial class MultiplayerClientGlobals : Node
                 EmitSignal("HandleTurnInfo", data);
                 break;
             case PACKET_TYPES.PICK_UP_CARD_ANSWER:
-                GD.Print("so this prints");
+                GD.Print("so this prints"); // So this is a dead code that smells as sh_t
                 EmitSignal("HandlePickUpCardAnswer", data);
                 break;
             case PACKET_TYPES.CURSOR_UPDATE:
@@ -87,6 +90,8 @@ public partial class MultiplayerClientGlobals : Node
             }
         }
         // new remote peers
+        // you need no else block here. Just do a return at the and of the if part, and then remove the else {} and leave its code 
+        // as it is
         else
         {
             _remoteIds.Add(idAssignment.Id);
