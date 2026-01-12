@@ -1,13 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://b56xfex8vjqku"]
+[gd_scene load_steps=33 format=4 uid="uid://b56xfex8vjqku"]
 
 [ext_resource type="PackedScene" uid="uid://c076pdwrupy0v" path="res://3D Menu/MainMenu/MainMenuEnvironment.glb" id="1_7h66l"]
 [ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/MainMenu/MainMenu.tscn" id="2_7gnwx"]
 [ext_resource type="Script" uid="uid://c62o1jhnktnw7" path="res://3D Menu/MainMenu/MainScreen.cs" id="2_fuqgq"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_mt8kt"]
 [ext_resource type="PackedScene" uid="uid://bb3padfqjdkm3" path="res://UI/Singleplayer/Singleplayer.tscn" id="3_chjf5"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_m2pmq"]
+[ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="4_3bfbn"]
 [ext_resource type="PackedScene" uid="uid://be6l3tabm2s5j" path="res://UI/Multiplayer/Multiplayer.tscn" id="4_f6pqu"]
+[ext_resource type="Texture2D" uid="uid://50ndtlojfy3o" path="res://Assets/textures/test/Petha_1m x 1m Pink.png" id="5_8fo0s"]
 [ext_resource type="PackedScene" uid="uid://d10vs074rfp2w" path="res://UI/Settings/Settings.tscn" id="5_fuqgq"]
+[ext_resource type="Texture2D" uid="uid://m4biqduy7kin" path="res://Assets/textures/test/Petha_1m x 1m Black.png" id="6_4i2lh"]
 [ext_resource type="PackedScene" uid="uid://bdeg6vwo3wgd4" path="res://UI/Credits/Credits.tscn" id="6_6wokr"]
 [ext_resource type="Script" uid="uid://cgv0fdv7slgxj" path="res://UI/Back.cs" id="7_f6pqu"]
+[ext_resource type="Texture2D" uid="uid://chahme31xbfvc" path="res://Assets/textures/test/Petha_1m x 1m Green.png" id="7_sidbl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7h66l"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -35,6 +41,95 @@ volumetric_fog_albedo = Color(0.556953, 0.556953, 0.556953, 1)
 volumetric_fog_gi_inject = 11.25
 volumetric_fog_detail_spread = 6.0
 volumetric_fog_sky_affect = 0.271
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0are8"]
+albedo_texture = ExtResource("4_3bfbn")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w5o0e"]
+albedo_texture = ExtResource("5_8fo0s")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0ejy"]
+albedo_texture = ExtResource("6_4i2lh")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srp1p"]
+albedo_texture = ExtResource("7_sidbl")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2p70u"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -8, 1, 2, 1),
+"attribute_data": PackedByteArray("AAAAAAAAgL8AAAA/AACAvwAAAD8AAAAAAAAAAAAAAAAAAFDAAAAAAAAAcMAAAAAAAABwwAAAgL8AAFDAAACAvwAAUEAAAAA/AABQQAAAAAAAAHBAAAAAAAAAcEAAAAA/AABQwAAAAD8AAHDAAAAAPwAAcMAAAAAAAABQwAAAAAAAAFBAAACAvwAAcEAAAIC/AABwQAAAAAAAAFBAAAAAAAAAAAAAAAAAAAAAvwAAAAAAAAC/AACAvwAAAAAAAIC/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": SubResource("StandardMaterial3D_0are8"),
+"name": "__TB_empty",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAAEAAAADBAACAvwAAAEAAAADBAACAvwAAAAAAAADBAAAAAAAAAAAAAADBAACAvwAAAAAAAODAAACAvwAAAAAAAADBAACAvwAAAEAAAADBAACAvwAAAEAAAODAAACAvwAAAAAAAODAAAAAAAAAAAAAAODAAAAAAAAAAAAAAADBAACAvwAAAAAAAADBAACAvwAAAEAAAODAAACAvwAAAEAAAADBAAAAAAAAAEAAAADBAAAAAAAAAEAAAODAAAAAAAAAAEAAAODAAAAAAAAAAEAAAADBAAAAAAAAAAAAAADBAAAAAAAAAAAAAODAAAAAAAAAAAAAAODAAACAvwAAAAAAAODAAACAvwAAAEAAAODAAAAAAAAAAEAAAODA/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+}, {
+"aabb": AABB(-94, -0.75, -14.5, 219, 0.75, 12),
+"attribute_data": PackedByteArray("AAD5wAAAgLwAAL1AAACAvAAAvUAAAAA9AAD5wAAAAD0AAGC/AAAAPQAAcL8AAAA9AABwvwAAgLwAAGC/AACAvAAAYD8AAL1AAABgPwAA+cAAAHA/AAD5wAAAcD8AAL1AAABgvwAAvUAAAHC/AAC9QAAAcL8AAPnAAABgvwAA+cAAAGA/AACAvAAAcD8AAIC8AABwPwAAAD0AAGA/AAAAPQAA+UAAAAA9AAC9wAAAAD0AAL3AAACAvAAA+UAAAIC8AAD5wAAAgLwAAL1AAACAvAAAvUAAAAA9AAD5wAAAAD0AAEC+AAAAPQAAgL4AAAA9AACAvgAAgLwAAEC+AACAvAAAQD4AAL1AAABAPgAA+cAAAIA+AAD5wAAAgD4AAL1AAABAvgAAvUAAAIC+AAC9QAAAgL4AAPnAAABAvgAA+cAAAEA+AACAvAAAgD4AAIC8AACAPgAAAD0AAEA+AAAAPQAA+UAAAAA9AAC9wAAAAD0AAL3AAACAvAAA+UAAAIC8"),
+"format": 34359742487,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKAAqACsALAAtAC4ALAAuAC8A"),
+"material": SubResource("StandardMaterial3D_w5o0e"),
+"name": "test/Petha_1m x 1m Pink",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("AAD6QgAAAAAAAGjBAAC8wgAAAAAAAGjBAAC8wgAAQL8AAGjBAAD6QgAAQL8AAGjBAAC8wgAAQL8AAFjBAAC8wgAAQL8AAGjBAAC8wgAAAAAAAGjBAAC8wgAAAAAAAFjBAAC8wgAAQL8AAFjBAAD6QgAAQL8AAFjBAAD6QgAAQL8AAGjBAAC8wgAAQL8AAGjBAAC8wgAAAAAAAFjBAAC8wgAAAAAAAGjBAAD6QgAAAAAAAGjBAAD6QgAAAAAAAFjBAAD6QgAAAAAAAFjBAAD6QgAAAAAAAGjBAAD6QgAAQL8AAGjBAAD6QgAAQL8AAFjBAAD6QgAAQL8AAFjBAAC8wgAAQL8AAFjBAAC8wgAAAAAAAFjBAAD6QgAAAAAAAFjBAAD6QgAAAAAAAGDAAAC8wgAAAAAAAGDAAAC8wgAAQL8AAGDAAAD6QgAAQL8AAGDAAAC8wgAAQL8AACDAAAC8wgAAQL8AAGDAAAC8wgAAAAAAAGDAAAC8wgAAAAAAACDAAAC8wgAAQL8AACDAAAD6QgAAQL8AACDAAAD6QgAAQL8AAGDAAAC8wgAAQL8AAGDAAAC8wgAAAAAAACDAAAC8wgAAAAAAAGDAAAD6QgAAAAAAAGDAAAD6QgAAAAAAACDAAAD6QgAAAAAAACDAAAD6QgAAAAAAAGDAAAD6QgAAQL8AAGDAAAD6QgAAQL8AACDAAAD6QgAAQL8AACDAAAC8wgAAQL8AACDAAAC8wgAAAAAAACDAAAD6QgAAAAAAACDA/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+}, {
+"aabb": AABB(-94, -0.75, -13.5, 219, 0.5, 10),
+"attribute_data": PackedByteArray("AAD5wAAAAAAAAL1AAAAAAAAAvUAAAAA9AAD5wAAAAD0AAIC+AAAAPQAAYL8AAAA9AABgvwAAAAAAAIC+AAAAAAAAgD4AAL1AAACAPgAA+cAAAGA/AAD5wAAAYD8AAL1AAACAvgAAvUAAAGC/AAC9QAAAYL8AAPnAAACAvgAA+cAAAIA+AAAAAAAAYD8AAAAAAABgPwAAAD0AAIA+AAAAPQAA+UAAAAA9AAC9wAAAAD0AAL3AAAAAAAAA+UAAAAAA"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": SubResource("StandardMaterial3D_u0ejy"),
+"name": "test/Petha_1m x 1m Black",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD6QgAAgL4AAFjBAAC8wgAAgL4AAFjBAAC8wgAAQL8AAFjBAAD6QgAAQL8AAFjBAAC8wgAAQL8AAGDAAAC8wgAAQL8AAFjBAAC8wgAAgL4AAFjBAAC8wgAAgL4AAGDAAAC8wgAAQL8AAGDAAAD6QgAAQL8AAGDAAAD6QgAAQL8AAFjBAAC8wgAAQL8AAFjBAAC8wgAAgL4AAGDAAAC8wgAAgL4AAFjBAAD6QgAAgL4AAFjBAAD6QgAAgL4AAGDAAAD6QgAAgL4AAGDAAAD6QgAAgL4AAFjBAAD6QgAAQL8AAFjBAAD6QgAAQL8AAGDAAAD6QgAAQL8AAGDAAAC8wgAAQL8AAGDAAAC8wgAAgL4AAGDAAAD6QgAAgL4AAGDA/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+}, {
+"aabb": AABB(-28, -0.5, -29, 58.5, 0.5, 54),
+"attribute_data": PackedByteArray("AACYvwAAAAAAAKw/AAAAAAAArD8AAAA9AACYvwAAAD0AAGi/AAAAPQAA6L8AAAA9AADovwAAAAAAAGi/AAAAAAAAaD8AAKw/AABoPwAAmL8AAOg/AACYvwAA6D8AAKw/AABovwAArD8AAOi/AACsPwAA6L8AAJi/AABovwAAmL8AAGg/AAAAAAAA6D8AAAAAAADoPwAAAD0AAGg/AAAAPQAAmD8AAAA9AACsvwAAAD0AAKy/AAAAAAAAmD8AAAAAAADwvwAAAAAAAOQ/AAAAAAAA5D8AAAA9AADwvwAAAD0AAPQ/AAAAPQAAQD4AAAA9AABAPgAAAAAAAPQ/AAAAAAAA9L8AAOQ/AAD0vwAA8L8AAEC+AADwvwAAQL4AAOQ/AAD0PwAA5D8AAEA+AADkPwAAQD4AAPC/AAD0PwAA8L8AAPS/AAAAAAAAQL4AAAAAAABAvgAAAD0AAPS/AAAAPQAA8D8AAAA9AADkvwAAAD0AAOS/AAAAAAAA8D8AAAAA"),
+"format": 34359742487,
+"index_count": 72,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKAAqACsALAAtAC4ALAAuAC8A"),
+"material": SubResource("StandardMaterial3D_srp1p"),
+"name": "test/Petha_1m x 1m Green",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("AACYQQAAAAAAAOjBAACswQAAAAAAAOjBAACswQAAAL8AAOjBAACYQQAAAL8AAOjBAACswQAAAL8AAGjBAACswQAAAL8AAOjBAACswQAAAAAAAOjBAACswQAAAAAAAGjBAACswQAAAL8AAGjBAACYQQAAAL8AAGjBAACYQQAAAL8AAOjBAACswQAAAL8AAOjBAACswQAAAAAAAGjBAACswQAAAAAAAOjBAACYQQAAAAAAAOjBAACYQQAAAAAAAGjBAACYQQAAAAAAAGjBAACYQQAAAAAAAOjBAACYQQAAAL8AAOjBAACYQQAAAL8AAGjBAACYQQAAAL8AAGjBAACswQAAAL8AAGjBAACswQAAAAAAAGjBAACYQQAAAAAAAGjBAAD0QQAAAAAAACDAAADgwQAAAAAAACDAAADgwQAAAL8AACDAAAD0QQAAAL8AACDAAADgwQAAAL8AAMhBAADgwQAAAL8AACDAAADgwQAAAAAAACDAAADgwQAAAAAAAMhBAADgwQAAAL8AAMhBAAD0QQAAAL8AAMhBAAD0QQAAAL8AACDAAADgwQAAAL8AACDAAADgwQAAAAAAAMhBAADgwQAAAAAAACDAAAD0QQAAAAAAACDAAAD0QQAAAAAAAMhBAAD0QQAAAAAAAMhBAAD0QQAAAAAAACDAAAD0QQAAAL8AACDAAAD0QQAAAL8AAMhBAAD0QQAAAL8AAMhBAADgwQAAAL8AAMhBAADgwQAAAAAAAMhBAAD0QQAAAAAAAMhB/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7uqga"]
+points = PackedVector3Array(0, 2, -7, 0, 0, -7, -1, 2, -7, -1, 0, -7, 0, 2, -8, 0, 0, -8, -1, 2, -8, -1, 0, -8)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hqkfp"]
+points = PackedVector3Array(125, 0, -13.5, 125, -0.75, -13.5, -94, 0, -13.5, -94, -0.75, -13.5, 125, 0, -14.5, 125, -0.75, -14.5, -94, 0, -14.5, -94, -0.75, -14.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6dmpw"]
+points = PackedVector3Array(125, -0.25, -3.5, 125, -0.75, -3.5, -94, -0.25, -3.5, -94, -0.75, -3.5, 125, -0.25, -13.5, 125, -0.75, -13.5, -94, -0.25, -13.5, -94, -0.75, -13.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ctpc2"]
+points = PackedVector3Array(125, 0, -2.5, 125, -0.75, -2.5, -94, 0, -2.5, -94, -0.75, -2.5, 125, 0, -3.5, 125, -0.75, -3.5, -94, 0, -3.5, -94, -0.75, -3.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8oofd"]
+points = PackedVector3Array(19, 0, -14.5, 19, -0.5, -14.5, -21.5, 0, -14.5, -21.5, -0.5, -14.5, 19, 0, -29, 19, -0.5, -29, -21.5, 0, -29, -21.5, -0.5, -29)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_saho3"]
+points = PackedVector3Array(30.5, 0, 25, 30.5, -0.5, 25, -28, 0, 25, -28, -0.5, 25, 30.5, 0, -2.5, 30.5, -0.5, -2.5, -28, 0, -2.5, -28, -0.5, -2.5)
 
 [sub_resource type="Curve3D" id="Curve3D_7h66l"]
 bake_interval = 0.01
@@ -191,6 +286,37 @@ sky_mode = 1
 
 [node name="MainMenuEnvironment" parent="." instance=ExtResource("1_7h66l")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.29791665, 0, 0.9503615)
+visible = false
+
+[node name="FuncGodotMap" type="Node3D" parent="."]
+script = ExtResource("2_mt8kt")
+local_map_file = "uid://brxdyipdqn21t"
+map_settings = ExtResource("3_m2pmq")
+metadata/_custom_type_script = "uid://cwu5cf7a0awcd"
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap"]
+collision_mask = 0
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn"]
+mesh = SubResource("ArrayMesh_2p70u")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_7uqga")
+
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_hqkfp")
+
+[node name="entity_0_brush_2_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_6dmpw")
+
+[node name="entity_0_brush_3_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_ctpc2")
+
+[node name="entity_0_brush_4_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_8oofd")
+
+[node name="entity_0_brush_5_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_saho3")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(-1, 0, -8.742278e-08, -8.584115e-09, 0.9951676, 0.09819083, 8.7000316e-08, 0.09819083, -0.9951676, 13.353, 9.739, -30.902)
