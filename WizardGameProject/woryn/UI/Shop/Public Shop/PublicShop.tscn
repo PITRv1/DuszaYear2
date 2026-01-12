@@ -1,0 +1,584 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7u8guxg4td0b"]
+
+[ext_resource type="Script" uid="uid://dthm2lri1j1c" path="res://UI/Shop/Public Shop/PublicShop.cs" id="1_f6bil"]
+
+[sub_resource type="Theme" id="Theme_x8t4j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6bil"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color(0.32915828, 0.32915843, 0.32915837, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gubnd"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.7162962, 0.71629626, 0.7162961, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Animation" id="Animation_f6bil"]
+resource_name = "shopLoad"
+length = 6.0
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.70000005, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -85), Vector2(0, 18), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(176, -585), Vector2(176, 74)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row1/Item1:visible")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row1/Item2:visible")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5, 2.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row1/Item3:visible")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.5, 2.4285715),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row1/Item4:visible")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.5, 2.7142856),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row2/Item1:visible")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.5, 3.4285715),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row2/Item2:visible")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.5, 3.7142856),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row2/Item3:visible")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.5, 3.857143),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row2/Item4:visible")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.5, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("NEXT:position")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(4.714286, 5, 5.285714),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(526, 657), Vector2(526, 585), Vector2(526, 591)]
+}
+
+[sub_resource type="Animation" id="Animation_gubnd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -85)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -585)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row1/Item1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row1/Item2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row1/Item3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row1/Item4:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row2/Item1:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row2/Item2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row2/Item3:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CenterContainer/CenterContainer/VBoxContainer/Row2/Item4:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("NEXT:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(526, 657)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p2nfc"]
+_data = {
+&"RESET": SubResource("Animation_gubnd"),
+&"shopLoad": SubResource("Animation_f6bil")
+}
+
+[node name="PublicShop" type="Control" node_paths=PackedStringArray("publicShopTimer", "publicShopTimerLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f6bil")
+publicShopTimer = NodePath("Timer")
+publicShopTimerLabel = NodePath("Title/Timer")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -909.0
+offset_right = 224.0
+offset_bottom = -408.99994
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(800, 500)
+layout_mode = 2
+color = Color(0.06666667, 0.101960786, 0.16470589, 0.68235296)
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/ColorRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/ColorRect/ColorRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 5.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Row1" type="HBoxContainer" parent="CenterContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Item1" type="VBoxContainer" parent="CenterContainer/CenterContainer/VBoxContainer/Row1"]
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/CenterContainer/VBoxContainer/Row1/Item1"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme = SubResource("Theme_x8t4j")
+
+[node name="Label" type="Label" parent="CenterContainer/CenterContainer/VBoxContainer/Row1/Item1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 1"
+horizontal_alignment = 1
+
+[node name="Item2" type="VBoxContainer" parent="CenterContainer/CenterContainer/VBoxContainer/Row1"]
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/CenterContainer/VBoxContainer/Row1/Item2"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/CenterContainer/VBoxContainer/Row1/Item2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 2"
+horizontal_alignment = 1
+
+[node name="Item3" type="VBoxContainer" parent="CenterContainer/CenterContainer/VBoxContainer/Row1"]
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/CenterContainer/VBoxContainer/Row1/Item3"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/CenterContainer/VBoxContainer/Row1/Item3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 3"
+horizontal_alignment = 1
+
+[node name="Item4" type="VBoxContainer" parent="CenterContainer/CenterContainer/VBoxContainer/Row1"]
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/CenterContainer/VBoxContainer/Row1/Item4"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/CenterContainer/VBoxContainer/Row1/Item4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 4"
+horizontal_alignment = 1
+
+[node name="Row2" type="HBoxContainer" parent="CenterContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Item1" type="VBoxContainer" parent="CenterContainer/CenterContainer/VBoxContainer/Row2"]
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/CenterContainer/VBoxContainer/Row2/Item1"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme = SubResource("Theme_x8t4j")
+
+[node name="Label" type="Label" parent="CenterContainer/CenterContainer/VBoxContainer/Row2/Item1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 1"
+horizontal_alignment = 1
+
+[node name="Item2" type="VBoxContainer" parent="CenterContainer/CenterContainer/VBoxContainer/Row2"]
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/CenterContainer/VBoxContainer/Row2/Item2"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/CenterContainer/VBoxContainer/Row2/Item2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 2"
+horizontal_alignment = 1
+
+[node name="Item3" type="VBoxContainer" parent="CenterContainer/CenterContainer/VBoxContainer/Row2"]
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/CenterContainer/VBoxContainer/Row2/Item3"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/CenterContainer/VBoxContainer/Row2/Item3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 3"
+horizontal_alignment = 1
+
+[node name="Item4" type="VBoxContainer" parent="CenterContainer/CenterContainer/VBoxContainer/Row2"]
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/CenterContainer/VBoxContainer/Row2/Item4"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/CenterContainer/VBoxContainer/Row2/Item4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 4"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -85.0
+offset_bottom = -2.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.14272314, 0.2083157, 0.38844857, 1)
+theme_override_colors/font_outline_color = Color(0.67068946, 0.6706895, 0.6706893, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 31
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6bil")
+text = "PUBLIC SHOP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Label" parent="Title"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -136.0
+offset_bottom = 83.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.5267932, 1.2153015e-06, 3.85046e-07, 1)
+theme_override_font_sizes/font_size = 40
+text = "-----"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Title/Timer"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7137255, 0.7137255, 0.7137255, 0.36862746)
+
+[node name="NEXT" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 9.0
+offset_right = 50.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.6955033, 0.69550306, 0.6955031, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_gubnd")
+text = "NEXT"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_p2nfc")
+}
+autoplay = "shopLoad"
+
+[connection signal="pressed" from="NEXT" to="." method="OnNextButtonPressed"]
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]

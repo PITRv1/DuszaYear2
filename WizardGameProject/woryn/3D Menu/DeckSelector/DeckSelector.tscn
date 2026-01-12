@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://smtqx0lfpxl7"]
+[gd_scene load_steps=3 format=3 uid="uid://smtqx0lfpxl7"]
 
 [ext_resource type="Script" uid="uid://dfk57ro64kv7p" path="res://3D Menu/DeckSelector/DeckSelector.cs" id="1_57dk6"]
+[ext_resource type="Theme" uid="uid://bl2inu1shpipu" path="res://3D Menu/DeckSelector/DeckSelector.tres" id="2_0242j"]
 
 [node name="DeckSelector" type="Control" node_paths=PackedStringArray("mDeck1", "mDeck2", "mDeck3", "mDeck4", "container")]
 layout_mode = 3
@@ -41,6 +42,7 @@ theme_override_constants/separation = 18
 [node name="MDeck1" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 350)
 layout_mode = 2
+theme = ExtResource("2_0242j")
 
 [node name="Type" type="Label" parent="CenterContainer/HBoxContainer/MDeck1"]
 layout_mode = 1
@@ -68,6 +70,7 @@ horizontal_alignment = 1
 [node name="MDeck2" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 350)
 layout_mode = 2
+theme = ExtResource("2_0242j")
 
 [node name="Type" type="Label" parent="CenterContainer/HBoxContainer/MDeck2"]
 layout_mode = 1
@@ -95,6 +98,7 @@ horizontal_alignment = 1
 [node name="MDeck3" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 350)
 layout_mode = 2
+theme = ExtResource("2_0242j")
 
 [node name="Type" type="Label" parent="CenterContainer/HBoxContainer/MDeck3"]
 layout_mode = 1
@@ -122,6 +126,7 @@ horizontal_alignment = 1
 [node name="MDeck4" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 350)
 layout_mode = 2
+theme = ExtResource("2_0242j")
 
 [node name="Type" type="Label" parent="CenterContainer/HBoxContainer/MDeck4"]
 layout_mode = 1
