@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://dsm13aj54ggim"]
+
+[ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/MainMenu/MainMenu.tscn" id="1_fneqp"]
+[ext_resource type="PackedScene" uid="uid://bdeg6vwo3wgd4" path="res://UI/Credits/Credits.tscn" id="2_whw3k"]
+[ext_resource type="PackedScene" uid="uid://d10vs074rfp2w" path="res://UI/Settings/Settings.tscn" id="3_sm0ek"]
+[ext_resource type="PackedScene" uid="uid://bb3padfqjdkm3" path="res://UI/Singleplayer/Singleplayer.tscn" id="4_cbguq"]
+[ext_resource type="PackedScene" uid="uid://be6l3tabm2s5j" path="res://UI/Multiplayer/Multiplayer.tscn" id="5_e8sh6"]
+[ext_resource type="Theme" uid="uid://i7vf1nfeexfk" path="res://Assets/UI/Themes/Default.tres" id="6_whw3k"]
+[ext_resource type="Texture2D" uid="uid://cxn8hk2mjf50x" path="res://Assets/UI/NineRect/card.png" id="7_sm0ek"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_fneqp"]
+
+[node name="CombinedUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_whw3k")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
+modulate = Color(0.24231142, 2.1959656e-07, 5.4147094e-08, 0.41960785)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_sm0ek")
+patch_margin_left = 17
+patch_margin_top = 17
+patch_margin_right = 17
+patch_margin_bottom = 17
+
+[node name="MainMenu" parent="." instance=ExtResource("1_fneqp")]
+layout_mode = 1
+
+[node name="Credits" parent="." instance=ExtResource("2_whw3k")]
+visible = false
+layout_mode = 1
+
+[node name="Settings" parent="." instance=ExtResource("3_sm0ek")]
+visible = false
+layout_mode = 1
+theme = ExtResource("6_whw3k")
+
+[node name="SinglePlayer" parent="." instance=ExtResource("4_cbguq")]
+visible = false
+layout_mode = 1
+
+[node name="Multiplayer" parent="." instance=ExtResource("5_e8sh6")]
+visible = false
+layout_mode = 1
+
+[node name="MultiType" parent="Multiplayer" index="1"]
+optionGroup = SubResource("ButtonGroup_fneqp")
+
+[node name="Host" parent="Multiplayer" index="2"]
+theme = ExtResource("6_whw3k")
+
+[node name="Lan" parent="Multiplayer/Host/GameType/Types" index="0"]
+button_group = SubResource("ButtonGroup_fneqp")
+
+[node name="Private" parent="Multiplayer/Host/GameType/Types" index="1"]
+button_group = SubResource("ButtonGroup_fneqp")
+
+[node name="Public" parent="Multiplayer/Host/GameType/Types" index="2"]
+button_group = SubResource("ButtonGroup_fneqp")
+
+[editable path="Multiplayer"]

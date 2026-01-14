@@ -20,12 +20,15 @@ offset_left = -31.0
 offset_right = 31.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 80
 text = "Multiplayer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MultiType" type="HBoxContainer" parent="." node_paths=PackedStringArray("hostButton", "joinButton", "hostMenu", "gameNameText", "numberOfPlayersValue")]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -40,25 +43,24 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 script = ExtResource("1_sg7kr")
-hostButton = NodePath("HOST")
-joinButton = NodePath("JOIN")
+hostButton = NodePath("Host")
+joinButton = NodePath("Join")
 hostMenu = NodePath("../Host")
-gameNameText = NodePath("../Host/Name/TextEdit")
+gameNameText = NodePath("")
 numberOfPlayersValue = NodePath("../Host/Players/Players")
 optionGroup = ExtResource("4_f40x6")
 
-[node name="HOST" type="Button" parent="MultiType"]
+[node name="Host" type="Button" parent="MultiType"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Host"
 
-[node name="JOIN" type="Button" parent="MultiType"]
+[node name="Join" type="Button" parent="MultiType"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Join"
 
 [node name="Host" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -81,7 +83,7 @@ layout_mode = 2
 text = "Game name"
 horizontal_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="Host/Name"]
+[node name="TextEdit" type="LineEdit" parent="Host/Name"]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 placeholder_text = "game name"
@@ -106,44 +108,51 @@ layout_mode = 2
 [node name="Types" type="HBoxContainer" parent="Host/GameType"]
 layout_mode = 2
 
-[node name="LAN" type="CheckBox" parent="Host/GameType/Types"]
+[node name="Lan" type="CheckBox" parent="Host/GameType/Types"]
 custom_minimum_size = Vector2(70, 30)
 layout_mode = 2
+button_pressed = true
 button_group = ExtResource("4_f40x6")
-text = "LAN"
+text = "Local"
 
-[node name="PRIVATE" type="CheckBox" parent="Host/GameType/Types"]
+[node name="Private" type="CheckBox" parent="Host/GameType/Types"]
 custom_minimum_size = Vector2(70, 30)
 layout_mode = 2
 button_group = ExtResource("4_f40x6")
-text = "PRIVATE"
+text = "Private"
 
-[node name="PUBLIC" type="CheckBox" parent="Host/GameType/Types"]
+[node name="Public" type="CheckBox" parent="Host/GameType/Types"]
 custom_minimum_size = Vector2(70, 30)
 layout_mode = 2
 button_group = ExtResource("4_f40x6")
-text = "PUBLIC"
+text = "Public"
 
 [node name="ExtraSettings" type="VBoxContainer" parent="Host"]
 layout_mode = 2
 
 [node name="Settings" type="OptionButton" parent="Host/ExtraSettings"]
 layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "Extra settings (out of order)"
+popup/item_0/id = 0
 
 [node name="Create" type="Button" parent="Host"]
 layout_mode = 2
-text = "Create the game"
+text = "Create"
 
 [node name="BackToSelectAction" type="Button" parent="Host"]
 layout_mode = 2
 text = "BACK"
 
 [node name="PlayersList" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Join" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -157,7 +166,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="pressed" from="MultiType/HOST" to="MultiType" method="OnHostPressed"]
-[connection signal="pressed" from="MultiType/JOIN" to="MultiType" method="OnJoinPressed"]
+[connection signal="pressed" from="MultiType/Host" to="MultiType" method="OnHostPressed"]
+[connection signal="pressed" from="MultiType/Join" to="MultiType" method="OnJoinPressed"]
 [connection signal="pressed" from="Host/Create" to="MultiType" method="OnCreatePressed"]
 [connection signal="pressed" from="Host/BackToSelectAction" to="MultiType" method="OnBackPressed"]

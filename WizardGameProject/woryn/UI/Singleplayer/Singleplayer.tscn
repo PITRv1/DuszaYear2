@@ -31,19 +31,6 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="Name" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="GameNameText" type="Label" parent="CenterContainer/VBoxContainer/Name"]
-layout_mode = 2
-text = "Game name"
-horizontal_alignment = 1
-
-[node name="TextEdit" type="TextEdit" parent="CenterContainer/VBoxContainer/Name"]
-custom_minimum_size = Vector2(100, 40)
-layout_mode = 2
-placeholder_text = "game name"
-
 [node name="NPC" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 
