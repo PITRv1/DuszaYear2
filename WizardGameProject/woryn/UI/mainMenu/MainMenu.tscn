@@ -1,16 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://cegma4u4cusqc"]
+[gd_scene load_steps=13 format=3 uid="uid://cegma4u4cusqc"]
 
-[ext_resource type="Script" uid="uid://bejvkqsrkeapr" path="res://UI/MainMenu/Buttons.cs" id="1_8fkdr"]
-[ext_resource type="Theme" uid="uid://bt07x5jrqiv30" path="res://Assets/UI/Themes/CardButtonRed.tres" id="2_xnnuh"]
+[ext_resource type="Script" uid="uid://cq2t244ktorto" path="res://UI/MainMenu/MainMenu.cs" id="1_jhcbk"]
+[ext_resource type="Theme" uid="uid://bt07x5jrqiv30" path="res://Assets/UI/Themes/CardButton/CardButtonRed.tres" id="2_xnnuh"]
 [ext_resource type="Texture2D" uid="uid://d28lkhbn4fuv5" path="res://Assets/UI/Icons/Quit.png" id="3_8x0bb"]
 [ext_resource type="Texture2D" uid="uid://5abyhfdohxmw" path="res://Assets/UI/Icons/SinglePlayer.png" id="3_a712v"]
 [ext_resource type="Texture2D" uid="uid://dw16x8qpwq13f" path="res://Assets/UI/Icons/Multiplayer.png" id="4_1dhmk"]
-[ext_resource type="Theme" uid="uid://dvdmwt6fgnxqg" path="res://Assets/UI/Themes/CardButtonGreen.tres" id="4_bhcae"]
-[ext_resource type="Theme" uid="uid://dmklwetq8ngsw" path="res://Assets/UI/Themes/CardButtonBlue.tres" id="4_djmc4"]
+[ext_resource type="Theme" uid="uid://dvdmwt6fgnxqg" path="res://Assets/UI/Themes/CardButton/CardButtonGreen.tres" id="4_bhcae"]
+[ext_resource type="Theme" uid="uid://dmklwetq8ngsw" path="res://Assets/UI/Themes/CardButton/CardButtonBlue.tres" id="4_djmc4"]
 [ext_resource type="Texture2D" uid="uid://b8tf2366a3h44" path="res://Assets/UI/Icons/Settings.png" id="5_jhcbk"]
 [ext_resource type="Texture2D" uid="uid://b2k7b065cbe3p" path="res://Assets/UI/Icons/Credits.png" id="6_32jca"]
+[ext_resource type="Texture2D" uid="uid://1lruscat13du" path="res://Assets/UI/NineRect/Background_red.png" id="10_32jca"]
+[ext_resource type="Theme" uid="uid://i7vf1nfeexfk" path="res://Assets/UI/Themes/Main/UIThemeRed.tres" id="10_eoxer"]
+[ext_resource type="Theme" uid="uid://bba3xicfwj1tj" path="res://Assets/UI/Themes/ButtonChips/ButtonChipsRed.tres" id="12_wdl18"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("quitPopUp")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -18,7 +21,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8fkdr")
+script = ExtResource("1_jhcbk")
+quitPopUp = NodePath("QuitWindow")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -27,25 +31,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("10_eoxer")
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 12
 alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 101
 bbcode_enabled = true
 text = "[wave freq=2.0]
-woryn
-(I hate this shit with passion)
+Woryn
 [/wave]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/Buttons"]
@@ -168,8 +179,60 @@ texture = ExtResource("4_1dhmk")
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Control/Quit" to="." method="OnExitPressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Control/Singleplayer" to="." method="OnSingleplayerPressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Control/Credits" to="." method="OnCreditsPressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Control/Settings" to="." method="OnSettingsPressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Control/Multiplayer" to="." method="OnMultiplayerPressed"]
+[node name="QuitWindow" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_eoxer")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="QuitWindow"]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="QuitWindow/VBoxContainer2"]
+show_behind_parent = true
+custom_minimum_size = Vector2(300, 120)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("10_32jca")
+patch_margin_left = 17
+patch_margin_top = 17
+patch_margin_right = 17
+patch_margin_bottom = 17
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuitWindow"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="QuitWindow/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Do you really want to quit?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="QuitWindow/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("12_wdl18")
+alignment = 1
+
+[node name="YesButton" type="Button" parent="QuitWindow/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="QuitWindow/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No"
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Control/Quit" to="." method="MenuSelected" binds= ["quit"]]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Control/Singleplayer" to="." method="MenuSelected" binds= ["single"]]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Control/Credits" to="." method="MenuSelected" binds= ["credits"]]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Control/Settings" to="." method="MenuSelected" binds= ["settings"]]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Buttons/Control/Multiplayer" to="." method="MenuSelected" binds= ["multi"]]
+[connection signal="pressed" from="QuitWindow/VBoxContainer/HBoxContainer/YesButton" to="." method="Quit"]
+[connection signal="pressed" from="QuitWindow/VBoxContainer/HBoxContainer/NoButton" to="." method="MenuSelected" binds= ["quit"]]

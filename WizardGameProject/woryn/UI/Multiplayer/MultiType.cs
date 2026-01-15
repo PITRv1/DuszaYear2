@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class MultiType : HBoxContainer
+public partial class MultiType : VBoxContainer
 {
 	[Export] PackedScene gameScene;
 	[Export] Button hostButton;
@@ -17,20 +17,6 @@ public partial class MultiType : HBoxContainer
     string gameName;
 	byte numberOfPlayers;
 	string gameType;
-	public override void _Ready()
-	{
-	}
-
-
-	public override void _Process(double delta)
-	{
-	}
-	private void OnBackPressed()
-	{
-        hostButton.Visible = true;
-        joinButton.Visible = true;
-		hostMenu.Visible = false;
-	}
 
 	private void OnJoinPressed()
 	{
@@ -44,6 +30,7 @@ public partial class MultiType : HBoxContainer
 		hostButton.Visible = false;
 		joinButton.Visible = false;
 		hostMenu.Visible = true;
+		Visible = false;
         GD.Print("Hosting...");
     }
 
@@ -53,24 +40,9 @@ public partial class MultiType : HBoxContainer
 		numberOfPlayers = Convert.ToByte(numberOfPlayersValue.Value);
         BaseButton selected = optionGroup.GetPressedButton();
 
-        if (selected != null && gameName != "")
-		{
-            GD.Print($"Kiválasztva: {selected.Name}");
-            gameType = selected.Name;
-			
-			GD.Print($"Game created with these parameters: Game name: {gameName} | Number of players: {numberOfPlayers} | Extra settings: --- | Game type: {gameType}");
-
-			//Change to the playerslist scene
-			GetTree().ChangeSceneToFile("res://UI/Multiplayer/PlayerSelection.tscn");
-
-
-        }
-		else
-		{
-			GD.Print("Hiányzó adatok");
-			return;
-		}
-
-
+        if (selected == null && gameName == "") return;
+		
+		gameType = selected.Name;
+		GetTree().ChangeSceneToFile("res://UI/Multiplayer/PlayerSelection.tscn");
 	}
 }

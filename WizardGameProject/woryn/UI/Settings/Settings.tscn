@@ -1,12 +1,49 @@
-[gd_scene format=3 uid="uid://d10vs074rfp2w"]
+[gd_scene load_steps=5 format=3 uid="uid://d10vs074rfp2w"]
 
-[node name="Settings" type="Control"]
+[ext_resource type="Theme" uid="uid://bv775inajfj5p" path="res://Assets/UI/Themes/Main/UIThemeBlue.tres" id="1_tgyht"]
+[ext_resource type="Texture2D" uid="uid://cdofbdbwlfext" path="res://Assets/UI/NineRect/backround_blue.png" id="2_mvx1u"]
+[ext_resource type="Script" uid="uid://cwlhwhnxceefk" path="res://UI/Settings/Settings.cs" id="2_n5ubh"]
+[ext_resource type="Theme" uid="uid://bdetdcpnnocd8" path="res://Assets/UI/Themes/ButtonChips/ButtonChipsBlue.tres" id="3_f2j7s"]
+
+[node name="Settings" type="Control" node_paths=PackedStringArray("masterVolumeSlider", "musicVolumeSlider")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_tgyht")
+script = ExtResource("2_n5ubh")
+masterVolumeSlider = NodePath("HBoxContainer/container/Sound/Master/Master")
+musicVolumeSlider = NodePath("HBoxContainer/container/Sound/Music/Music")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+texture = ExtResource("2_mvx1u")
+patch_margin_left = 17
+patch_margin_top = 17
+patch_margin_right = 17
+patch_margin_bottom = 17
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -38,16 +75,16 @@ text = "Resolution"
 layout_mode = 2
 selected = 2
 item_count = 5
-popup/item_0/text = "3480x2160"
-popup/item_0/id = 0
-popup/item_1/text = "2560x1440"
-popup/item_1/id = 1
+popup/item_0/text = "640x480"
+popup/item_0/id = 4
+popup/item_1/text = "1280x720"
+popup/item_1/id = 3
 popup/item_2/text = "1920x1080"
 popup/item_2/id = 2
-popup/item_3/text = "1280x720"
-popup/item_3/id = 3
-popup/item_4/text = "640x480"
-popup/item_4/id = 4
+popup/item_3/text = "2560x1440"
+popup/item_3/id = 1
+popup/item_4/text = "3480x2160"
+popup/item_4/id = 0
 
 [node name="Window Mode" type="VBoxContainer" parent="HBoxContainer/container/Screen"]
 layout_mode = 2
@@ -64,7 +101,7 @@ popup/item_0/text = "Fullscreen"
 popup/item_0/id = 0
 popup/item_1/text = "Windowed"
 popup/item_1/id = 1
-popup/item_2/text = "Borderless Fullscreen"
+popup/item_2/text = "Maximized"
 popup/item_2/id = 2
 
 [node name="Shaders" type="VBoxContainer" parent="HBoxContainer/container"]
@@ -95,8 +132,11 @@ text = "Main Volume"
 
 [node name="Master" type="HSlider" parent="HBoxContainer/container/Sound/Master"]
 layout_mode = 2
+min_value = -80.0
+max_value = 10.0
 
 [node name="MasterPercent" type="Label" parent="HBoxContainer/container/Sound/Master"]
+visible = false
 layout_mode = 2
 text = "100%"
 
@@ -109,8 +149,11 @@ text = "Music"
 
 [node name="Music" type="HSlider" parent="HBoxContainer/container/Sound/Music"]
 layout_mode = 2
+min_value = -80.0
+max_value = 10.0
 
 [node name="MusicPercent" type="Label" parent="HBoxContainer/container/Sound/Music"]
+visible = false
 layout_mode = 2
 text = "100%"
 
@@ -125,5 +168,17 @@ text = "SFX"
 layout_mode = 2
 
 [node name="SFXPercent" type="Label" parent="HBoxContainer/container/Sound/SFX"]
+visible = false
 layout_mode = 2
 text = "100%"
+
+[node name="BackButton" type="Button" parent="HBoxContainer/container"]
+layout_mode = 2
+theme = ExtResource("3_f2j7s")
+text = "Main Menu"
+
+[connection signal="item_selected" from="HBoxContainer/container/Screen/Resolution/Resolution" to="." method="SetViewportSize"]
+[connection signal="item_selected" from="HBoxContainer/container/Screen/Window Mode/WindowMode" to="." method="SetWindowMode"]
+[connection signal="value_changed" from="HBoxContainer/container/Sound/Master/Master" to="." method="MasterVolumeChanged"]
+[connection signal="value_changed" from="HBoxContainer/container/Sound/Music/Music" to="." method="MusicVolumeChanged"]
+[connection signal="pressed" from="HBoxContainer/container/BackButton" to="." method="Back"]

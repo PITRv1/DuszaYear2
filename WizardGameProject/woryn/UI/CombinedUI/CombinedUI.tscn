@@ -1,69 +1,59 @@
 [gd_scene load_steps=9 format=3 uid="uid://dsm13aj54ggim"]
 
-[ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/mainMenu/MainMenu.tscn" id="1_fneqp"]
-[ext_resource type="Texture2D" uid="uid://1lruscat13du" path="res://Assets/UI/NineRect/Background_red.png" id="2_sm0ek"]
+[ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/MainMenu/MainMenu.tscn" id="1_fneqp"]
+[ext_resource type="Script" uid="uid://enf42rox6fa5" path="res://UI/CombinedUI/CombinedUI.cs" id="1_sm0ek"]
 [ext_resource type="PackedScene" uid="uid://bdeg6vwo3wgd4" path="res://UI/Credits/Credits.tscn" id="2_whw3k"]
 [ext_resource type="PackedScene" uid="uid://d10vs074rfp2w" path="res://UI/Settings/Settings.tscn" id="3_sm0ek"]
 [ext_resource type="PackedScene" uid="uid://bb3padfqjdkm3" path="res://UI/Singleplayer/Singleplayer.tscn" id="4_cbguq"]
 [ext_resource type="PackedScene" uid="uid://be6l3tabm2s5j" path="res://UI/Multiplayer/Multiplayer.tscn" id="5_e8sh6"]
-[ext_resource type="Theme" uid="uid://i7vf1nfeexfk" path="res://Assets/UI/Themes/Default.tres" id="6_whw3k"]
+[ext_resource type="Theme" uid="uid://bjomj0kutkhks" path="res://Assets/UI/Themes/Main/UIThemeGreen.tres" id="7_sm0ek"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_fneqp"]
 
-[node name="CombinedUi" type="Control"]
+[node name="CombinedUI" type="Control" node_paths=PackedStringArray("mainMenu", "creditsMenu", "settingsMenu", "singpePlayerMenu", "multiplayerCombinedMenu")]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("6_whw3k")
+script = ExtResource("1_sm0ek")
+mainMenu = NodePath("MainMenu")
+creditsMenu = NodePath("Credits")
+settingsMenu = NodePath("Settings")
+singpePlayerMenu = NodePath("SinglePlayer")
+multiplayerCombinedMenu = NodePath("Multiplayer")
 
-[node name="MainMenu" parent="." instance=ExtResource("1_fneqp")]
+[node name="MainMenu" parent="." node_paths=PackedStringArray("combinedUI") instance=ExtResource("1_fneqp")]
 visible = false
 layout_mode = 1
+combinedUI = NodePath("..")
 
-[node name="Credits" parent="." instance=ExtResource("2_whw3k")]
+[node name="Credits" parent="." node_paths=PackedStringArray("combinedUI") instance=ExtResource("2_whw3k")]
 visible = false
 layout_mode = 1
+combinedUI = NodePath("..")
 
-[node name="Settings" parent="." instance=ExtResource("3_sm0ek")]
-layout_mode = 1
-theme = ExtResource("6_whw3k")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Settings"]
-show_behind_parent = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -169.0
-offset_top = -172.0
-offset_right = 169.0
-offset_bottom = 172.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_sm0ek")
-patch_margin_left = 17
-patch_margin_top = 17
-patch_margin_right = 17
-patch_margin_bottom = 17
-
-[node name="SinglePlayer" parent="." instance=ExtResource("4_cbguq")]
+[node name="Settings" parent="." node_paths=PackedStringArray("combinedUI") instance=ExtResource("3_sm0ek")]
 visible = false
 layout_mode = 1
+combinedUI = NodePath("..")
+
+[node name="SinglePlayer" parent="." node_paths=PackedStringArray("combinedUI") instance=ExtResource("4_cbguq")]
+visible = false
+layout_mode = 1
+combinedUI = NodePath("..")
 
 [node name="Multiplayer" parent="." instance=ExtResource("5_e8sh6")]
 visible = false
 layout_mode = 1
 
-[node name="MultiType" parent="Multiplayer" index="1"]
+[node name="MultiType" parent="Multiplayer" index="2"]
 optionGroup = SubResource("ButtonGroup_fneqp")
 
-[node name="Host" parent="Multiplayer" index="2"]
-theme = ExtResource("6_whw3k")
+[node name="Host" parent="Multiplayer" index="3"]
+theme = ExtResource("7_sm0ek")
 
 [node name="Lan" parent="Multiplayer/Host/GameType/Types" index="0"]
 button_group = SubResource("ButtonGroup_fneqp")
@@ -74,4 +64,5 @@ button_group = SubResource("ButtonGroup_fneqp")
 [node name="Public" parent="Multiplayer/Host/GameType/Types" index="2"]
 button_group = SubResource("ButtonGroup_fneqp")
 
+[editable path="MainMenu"]
 [editable path="Multiplayer"]
