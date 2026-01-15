@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://i7vf1nfeexfk"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://i7vf1nfeexfk"]
 
 [ext_resource type="FontFile" uid="uid://bgx48beeh6rf7" path="res://Assets/UI/Fonts/DigitalDisco.ttf" id="1_8887o"]
+[ext_resource type="Texture2D" uid="uid://1lruscat13du" path="res://Assets/UI/NineRect/Background_red.png" id="2_6sely"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8887o"]
 bg_color = Color(0, 0, 0, 0.6745098)
@@ -109,6 +110,25 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hthcy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.11764706, 0.06666667, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5rkqn"]
+texture = ExtResource("2_6sely")
+texture_margin_left = 17.0
+texture_margin_top = 17.0
+texture_margin_right = 17.0
+texture_margin_bottom = 17.0
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/colors/font_hover_color = Color(0.9490196, 1, 0.9490196, 1)
@@ -125,7 +145,14 @@ CheckBox/styles/pressed = SubResource("StyleBoxEmpty_5rkqn")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_6ljda")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_36ffy")
 HSlider/styles/slider = SubResource("StyleBoxFlat_bhpq8")
+Label/constants/outline_size = 6
 Label/fonts/font = ExtResource("1_8887o")
 LineEdit/fonts/font = ExtResource("1_8887o")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_v2vgt")
 OptionButton/styles/normal = SubResource("StyleBoxFlat_5rkqn")
+PopupMenu/constants/outline_size = 6
+PopupMenu/fonts/font = ExtResource("1_8887o")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_hthcy")
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_5rkqn")
+RichTextLabel/constants/outline_size = 6
+RichTextLabel/fonts/normal_font = ExtResource("1_8887o")

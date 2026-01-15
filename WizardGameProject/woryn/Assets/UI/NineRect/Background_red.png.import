@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxn8hk2mjf50x"
-path="res://.godot/imported/card.png-c94fffd45fdf48eb7f5753887b3fbc94.ctex"
+uid="uid://1lruscat13du"
+path="res://.godot/imported/Background_red.png-79ca5aa4eb2e8bf01a6886d4d5ed7b64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/NineRect/card.png"
-dest_files=["res://.godot/imported/card.png-c94fffd45fdf48eb7f5753887b3fbc94.ctex"]
+source_file="res://Assets/UI/NineRect/Background_red.png"
+dest_files=["res://.godot/imported/Background_red.png-79ca5aa4eb2e8bf01a6886d4d5ed7b64.ctex"]
 
 [params]
 

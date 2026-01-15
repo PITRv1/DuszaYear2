@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cegma4u4cusqc"]
+[gd_scene load_steps=10 format=3 uid="uid://cegma4u4cusqc"]
 
 [ext_resource type="Script" uid="uid://bejvkqsrkeapr" path="res://UI/MainMenu/Buttons.cs" id="1_8fkdr"]
-[ext_resource type="Theme" uid="uid://do1v63kbrbuyq" path="res://Assets/UI/Themes/NineRectButton.tres" id="2_fw0vt"]
+[ext_resource type="Theme" uid="uid://bt07x5jrqiv30" path="res://Assets/UI/Themes/CardButtonRed.tres" id="2_xnnuh"]
 [ext_resource type="Texture2D" uid="uid://d28lkhbn4fuv5" path="res://Assets/UI/Icons/Quit.png" id="3_8x0bb"]
 [ext_resource type="Texture2D" uid="uid://5abyhfdohxmw" path="res://Assets/UI/Icons/SinglePlayer.png" id="3_a712v"]
 [ext_resource type="Texture2D" uid="uid://dw16x8qpwq13f" path="res://Assets/UI/Icons/Multiplayer.png" id="4_1dhmk"]
+[ext_resource type="Theme" uid="uid://dvdmwt6fgnxqg" path="res://Assets/UI/Themes/CardButtonGreen.tres" id="4_bhcae"]
+[ext_resource type="Theme" uid="uid://dmklwetq8ngsw" path="res://Assets/UI/Themes/CardButtonBlue.tres" id="4_djmc4"]
 [ext_resource type="Texture2D" uid="uid://b8tf2366a3h44" path="res://Assets/UI/Icons/Settings.png" id="5_jhcbk"]
 [ext_resource type="Texture2D" uid="uid://b2k7b065cbe3p" path="res://Assets/UI/Icons/Credits.png" id="6_32jca"]
 
@@ -37,7 +39,7 @@ layout_mode = 2
 bbcode_enabled = true
 text = "[wave freq=2.0]
 woryn
-(I hate this shit with a passion)
+(I hate this shit with passion)
 [/wave]"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -58,7 +60,7 @@ offset_top = 101.99999
 offset_right = 228.00003
 offset_bottom = 402.0
 rotation = -0.34906584
-theme = ExtResource("2_fw0vt")
+theme = ExtResource("2_xnnuh")
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/VBoxContainer/Buttons/Control/Quit"]
 layout_mode = 1
@@ -81,7 +83,7 @@ offset_top = 32.0
 offset_right = 412.0
 offset_bottom = 332.0
 rotation = -0.17453292
-theme = ExtResource("2_fw0vt")
+theme = ExtResource("4_bhcae")
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/VBoxContainer/Buttons/Control/Singleplayer"]
 layout_mode = 1
@@ -104,7 +106,7 @@ offset_top = 28.999996
 offset_right = 972.99994
 offset_bottom = 329.0
 rotation = 0.34906584
-theme = ExtResource("2_fw0vt")
+theme = ExtResource("4_djmc4")
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/VBoxContainer/Buttons/Control/Credits"]
 layout_mode = 1
@@ -127,7 +129,7 @@ offset_top = -3.9999905
 offset_right = 789.0
 offset_bottom = 296.0
 rotation = 0.17453292
-theme = ExtResource("2_fw0vt")
+theme = ExtResource("4_djmc4")
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/VBoxContainer/Buttons/Control/Settings"]
 layout_mode = 1
@@ -148,7 +150,7 @@ layout_mode = 0
 offset_left = 400.0
 offset_right = 600.0
 offset_bottom = 300.0
-theme = ExtResource("2_fw0vt")
+theme = ExtResource("4_bhcae")
 
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/VBoxContainer/Buttons/Control/Multiplayer"]
 layout_mode = 1
