@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckplquym6441h"
-path.s3tc="res://.godot/imported/tree.png-cdc025736420c50f24936d9032a93e46.s3tc.ctex"
+uid="uid://c7ifawlapypu5"
+path.bptc="res://.godot/imported/rogland_clear_night_1k.hdr-755aa51cbdea119f7efb967263497b06.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/images/tree.png"
-dest_files=["res://.godot/imported/tree.png-cdc025736420c50f24936d9032a93e46.s3tc.ctex"]
+source_file="res://Assets/rogland_clear_night_1k.hdr"
+dest_files=["res://.godot/imported/rogland_clear_night_1k.hdr-755aa51cbdea119f7efb967263497b06.bptc.ctex"]
 
 [params]
 
