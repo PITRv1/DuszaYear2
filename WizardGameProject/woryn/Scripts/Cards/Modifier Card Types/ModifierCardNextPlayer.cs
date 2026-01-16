@@ -1,14 +1,14 @@
 using Godot;
 using System;
 
-public partial class ModifierCardMultiplier : ModifierCard
+public partial class ModifierCardNextPlayer : ModifierCard
 {
-	public MODIFIER_TYPES ModifierType => MODIFIER_TYPES.MULTIPLIER;
+	public MODIFIER_TYPES ModifierType => MODIFIER_TYPES.GIVE_DECK_AROUND;
 	public int Amount { get; set; } = 2;
 
-    public string CardName { get; } = "Multiplier";
+    public string CardName { get; } = "DeckAround";
 
-    public bool IsCardModifier { get; } = true;
+    public bool IsCardModifier { get; } = false;
 
     public int TurnsUntilActivation { get; set; } = 0;
 
@@ -24,19 +24,18 @@ public partial class ModifierCardMultiplier : ModifierCard
 
 	public void RandomizeProperties()
 	{
-		RandomNumberGenerator rng = new RandomNumberGenerator();
-		Amount = rng.RandiRange(2, 6);
-        // Amount = 1;
+		// RandomNumberGenerator rng = new RandomNumberGenerator();
+		// Amount = rng.RandiRange(2, 6);
+        // // Amount = 1;
 	}
 
 	public int Calculate(int value)
 	{
-		return value * Amount;
+		return value;
 	}
 
     public byte PacketValue()
     {
         throw new NotImplementedException();
     }
-
 }

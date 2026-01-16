@@ -30,9 +30,10 @@ public partial class PickUpCardAnswer : PacketInfo
 		foreach (ModifierCard card in ModifierCards)
 		{
 			data.Add((byte)ModifierCardTypeConverter.ClassToType(card));
-			if (card is ModifierCardMultiplier multiCard)
+			if (card is ModifierCardMultiplier or ModifierCardAddition)
 			{
-				data.AddRange(BitConverter.GetBytes(multiCard.Amount));
+				var cardModif = (dynamic)card;
+				data.AddRange(BitConverter.GetBytes(cardModif.Amount));
 			}
 		}
 
@@ -65,9 +66,10 @@ public partial class PickUpCardAnswer : PacketInfo
 			index += 1;
 
 			ModifierCard card = ModifierCardTypeConverter.TypeToClass(modifierType);
-			if (card is ModifierCardMultiplier multiCard)
+			if (card is ModifierCardMultiplier or ModifierCardAddition)
 			{
-				multiCard.Amount = BitConverter.ToInt32(data, index);
+				var cardModif = (dynamic)card;
+				cardModif.Amount = BitConverter.ToInt32(data, index);
 				index += 4;
 			}
 

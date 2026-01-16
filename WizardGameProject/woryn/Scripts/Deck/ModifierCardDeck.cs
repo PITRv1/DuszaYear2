@@ -17,13 +17,17 @@ public partial class ModifierCardDeck
     {
         modifierCards.Clear();
 
-        for (int i = 0; i < Amount; i++)
-        {
-            ModifierCardMultiplier modifierCard = new ModifierCardMultiplier();
-            modifierCard.RandomizeProperties();
+        // for (int i = 0; i < Amount; i++)
+        // {
+        //     ModifierCardMultiplier modifierCard = new ModifierCardMultiplier();
+        //     modifierCard.RandomizeProperties();
 
-            modifierCards.Add(modifierCard);
-        }
+        //     modifierCards.Add(modifierCard);
+        // }
+        modifierCards.Add(new ModifierCardMultiplier());
+        modifierCards.Add(new ModifierCardAddition());
+        modifierCards.Add(new ModifierCardSkip());
+        modifierCards.Add(new ModifierCardReversePlay());
     }
 
     public ModifierCard[] PullCards(int count)

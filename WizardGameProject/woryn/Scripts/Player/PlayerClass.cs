@@ -11,8 +11,19 @@ public class PlayerClass
     public MultiplayerPlayerClass parent;
     public int Points { get; set; } = 0;
 
-    public PointCard chosenPointCard;
-    public List<ModifierCard> chosenModifierCards = new();
+    public PointCard chosenPointCard 
+    {
+        get
+        {
+            return chosenPointCard;
+        }
+        set
+        {
+            chosenModifierCards.Clear();
+            chosenPointCard = value;
+        }
+    }
+    public readonly List<ModifierCard> chosenModifierCards = new();
 
     public string EffectStatus { get; }
     
@@ -24,6 +35,18 @@ public class PlayerClass
         modifierCardDeck = new ModifierCardDeck();
         modifierCardDeck.GenerateDeck();
     }
+
+    public bool AddToChosenModifierCards(ModifierCard card)
+    {
+        if (chosenPointCard == null)
+            return false;
+        if (chosenModifierCards.Count >= (int)chosenPointCard.CardRarity)
+            return false;
+        
+        chosenModifierCards.Add(card);
+        return true;
+    }
+
     public void DecreaseCooldown()
     {
         ChoosenClass.ActiveCooldown--;

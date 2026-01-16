@@ -11,6 +11,11 @@ public static class ModifierCardTypeConverter
 		return card switch
 		{
 			ModifierCardMultiplier => MODIFIER_TYPES.MULTIPLIER,
+			ModifierCardAddition => MODIFIER_TYPES.ADDITION,
+			ModifierCardChangeDeck => MODIFIER_TYPES.CHANGE_DECK,
+			ModifierCardNextPlayer => MODIFIER_TYPES.GIVE_DECK_AROUND,
+			ModifierCardReversePlay => MODIFIER_TYPES.REVERSE,
+			ModifierCardSkip => MODIFIER_TYPES.SKIP,
 			_ => MODIFIER_TYPES.NONE
 		};
 	}
@@ -20,6 +25,11 @@ public static class ModifierCardTypeConverter
 		return card switch
 		{
 			MODIFIER_TYPES.MULTIPLIER => new ModifierCardMultiplier(),
+			MODIFIER_TYPES.ADDITION => new ModifierCardAddition(),
+			MODIFIER_TYPES.CHANGE_DECK => new ModifierCardChangeDeck(),
+			MODIFIER_TYPES.GIVE_DECK_AROUND => new ModifierCardNextPlayer(),
+			MODIFIER_TYPES.REVERSE => new ModifierCardReversePlay(),
+			MODIFIER_TYPES.SKIP => new ModifierCardSkip(),
 			_ => null
 		};
 	}

@@ -1,14 +1,14 @@
 using Godot;
 using System;
 
-public partial class ModifierCardMultiplier : ModifierCard
+public partial class ModifierCardSkip : ModifierCard
 {
-	public MODIFIER_TYPES ModifierType => MODIFIER_TYPES.MULTIPLIER;
+	public MODIFIER_TYPES ModifierType => MODIFIER_TYPES.SKIP;
 	public int Amount { get; set; } = 2;
 
-    public string CardName { get; } = "Multiplier";
+    public string CardName { get; } = "Skip";
 
-    public bool IsCardModifier { get; } = true;
+    public bool IsCardModifier { get; } = false;
 
     public int TurnsUntilActivation { get; set; } = 0;
 
@@ -31,12 +31,11 @@ public partial class ModifierCardMultiplier : ModifierCard
 
 	public int Calculate(int value)
 	{
-		return value * Amount;
+		return value;
 	}
 
     public byte PacketValue()
     {
         throw new NotImplementedException();
     }
-
 }

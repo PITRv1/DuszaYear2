@@ -147,7 +147,22 @@ public partial class MultiplayerPlayerClass : Node
         switch (card.ModifierType)
         {
             case MODIFIER_TYPES.MULTIPLIER:
-                test.text.Text = $"{(card as ModifierCardMultiplier).Amount}";
+                test.text.Text = $"*{(card as ModifierCardMultiplier).Amount}";
+                test.modifierCard = card;
+                test.playerClass = playerClass;
+                break;
+            case MODIFIER_TYPES.ADDITION:
+                test.text.Text = $"+{(card as ModifierCardAddition).Amount}";
+                test.modifierCard = card;
+                test.playerClass = playerClass;
+                break;
+            case MODIFIER_TYPES.SKIP:
+                test.text.Text = "Skip";
+                test.modifierCard = card;
+                test.playerClass = playerClass;
+                break;
+            case MODIFIER_TYPES.REVERSE:
+                test.text.Text = "Reverse";
                 test.modifierCard = card;
                 test.playerClass = playerClass;
                 break;

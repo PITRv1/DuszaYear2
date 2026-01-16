@@ -12,11 +12,24 @@ public partial class TestModifierCardUi : Panel
 		if (playerClass.chosenModifierCards.Contains(modifierCard))
 		{
 			playerClass.chosenModifierCards.Remove(modifierCard);
-			GD.Print("Removed modifier --> ", this);
+			RemoveCard();
+			// GD.Print("Removed modifier --> ", this);
 		} else
 		{
-			playerClass.chosenModifierCards.Add(modifierCard);
-			GD.Print("Added modifier --> ", this);
+			if (playerClass.AddToChosenModifierCards(modifierCard))
+				SelectCard();
+			// GD.Print("Added modifier --> ", this);
 		}
 	}
+
+	public void RemoveCard()
+	{
+		Modulate = new Color(37, 37, 37);
+	}
+
+	public void SelectCard()
+	{
+		Modulate = new Color(55, 23, 52);
+	}
+
 }

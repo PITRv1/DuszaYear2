@@ -1,12 +1,12 @@
 using Godot;
 using System;
 
-public partial class ModifierCardMultiplier : ModifierCard
+public partial class ModifierCardAddition : ModifierCard
 {
-	public MODIFIER_TYPES ModifierType => MODIFIER_TYPES.MULTIPLIER;
+	public MODIFIER_TYPES ModifierType => MODIFIER_TYPES.ADDITION;
 	public int Amount { get; set; } = 2;
 
-    public string CardName { get; } = "Multiplier";
+    public string CardName { get; } = "Addition";
 
     public bool IsCardModifier { get; } = true;
 
@@ -31,7 +31,7 @@ public partial class ModifierCardMultiplier : ModifierCard
 
 	public int Calculate(int value)
 	{
-		return value * Amount;
+		return value + Amount;
 	}
 
     public byte PacketValue()
