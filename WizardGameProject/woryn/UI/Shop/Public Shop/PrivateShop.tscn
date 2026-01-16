@@ -1,0 +1,358 @@
+[gd_scene load_steps=7 format=3 uid="uid://rno5ugwb072s"]
+
+[sub_resource type="Theme" id="Theme_x8t4j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6bil"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color(0.32915828, 0.32915843, 0.32915837, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gubnd"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.7162962, 0.71629626, 0.7162961, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Animation" id="Animation_gubnd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -85)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NEXT:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(526, 657)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(174, -586)]
+}
+
+[sub_resource type="Animation" id="Animation_f6bil"]
+resource_name = "shopLoad"
+length = 4.0
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.70000005, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -85), Vector2(0, 18), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NEXT:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.1428573, 3.4285715, 3.7142856),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(526, 657), Vector2(526, 585), Vector2(526, 591)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(174, -586), Vector2(174, -586), Vector2(174, 73.99994)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p2nfc"]
+_data = {
+&"RESET": SubResource("Animation_gubnd"),
+&"shopLoad": SubResource("Animation_f6bil")
+}
+
+[node name="PrivateShop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -402.0
+offset_top = -910.0
+offset_right = 402.0
+offset_bottom = -410.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="CommonShopSection" type="CenterContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/CommonShopSection"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Row1" type="HBoxContainer" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Item1" type="VBoxContainer" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row1"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row1/Item1"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme = SubResource("Theme_x8t4j")
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row1/Item1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 1"
+horizontal_alignment = 1
+
+[node name="Item2" type="VBoxContainer" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row1"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row1/Item2"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row1/Item2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 2"
+horizontal_alignment = 1
+
+[node name="Row2" type="HBoxContainer" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Item1" type="VBoxContainer" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row2/Item1"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme = SubResource("Theme_x8t4j")
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row2/Item1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 1"
+horizontal_alignment = 1
+
+[node name="Item2" type="VBoxContainer" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row2/Item2"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/CommonShopSection/VBoxContainer/Row2/Item2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 2"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/HBoxContainer/CommonShopSection"]
+z_index = -1
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 2
+color = Color(0.30030516, 0.43275312, 0.7169011, 0.68235296)
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/CommonShopSection"]
+custom_minimum_size = Vector2(400, 480)
+layout_mode = 2
+text = "Common shop"
+horizontal_alignment = 1
+
+[node name="EpicShopSection" type="CenterContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer/EpicShopSection"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Row1" type="HBoxContainer" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Item1" type="VBoxContainer" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row1"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row1/Item1"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme = SubResource("Theme_x8t4j")
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row1/Item1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 1"
+horizontal_alignment = 1
+
+[node name="Item2" type="VBoxContainer" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row1"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row1/Item2"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row1/Item2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 2"
+horizontal_alignment = 1
+
+[node name="Row2" type="HBoxContainer" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Item1" type="VBoxContainer" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row2/Item1"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+theme = SubResource("Theme_x8t4j")
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row2/Item1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 1"
+horizontal_alignment = 1
+
+[node name="Item2" type="VBoxContainer" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row2"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row2/Item2"]
+custom_minimum_size = Vector2(100, 150)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/EpicShopSection/VBoxContainer/Row2/Item2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Price 2"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/HBoxContainer/EpicShopSection"]
+z_index = -1
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 2
+color = Color(0.510835, 0.28014365, 0.85462207, 0.68235296)
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/EpicShopSection"]
+custom_minimum_size = Vector2(400, 480)
+layout_mode = 2
+text = "Epic shop"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -85.0
+offset_bottom = -2.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.14272314, 0.2083157, 0.38844857, 1)
+theme_override_colors/font_outline_color = Color(0.67068946, 0.6706895, 0.6706893, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 31
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_f6bil")
+text = "PRIVATE SHOP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NEXT" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = 9.0
+offset_right = 50.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.6955033, 0.69550306, 0.6955031, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_gubnd")
+text = "NEXT"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_p2nfc")
+}
+autoplay = "shopLoad"

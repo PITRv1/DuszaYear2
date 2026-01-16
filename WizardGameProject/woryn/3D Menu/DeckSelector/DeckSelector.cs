@@ -10,6 +10,8 @@ public partial class DeckSelector : Control
 	[Export] Button mDeck4;
 
     [Export] HBoxContainer container;
+    [Export] Button startGameButton;
+    [Export] Label title;
 
     List<Button> mDecks = new List<Button>();
 
@@ -32,13 +34,20 @@ public partial class DeckSelector : Control
                 if(mDeck != selectedMDeck)
                 {
                     mDeck.QueueFree();
-                    GD.Print($"Class deleted: {mDeck.Name}");
+                    GD.Print($"Deck deleted: {mDeck.Name}");
                     selected = false;
                 }
             }
             selectedMDeck.Disabled = true;
-            GD.Print($"Class selected --> {selectedMDeck.Name}");
+            GD.Print($"Deck selected --> {selectedMDeck.Name}");
+            startGameButton.Visible = true;
+            title.Text = "DECK SELECTED";
         }
+    }
+    private void OnStartGamePressed()
+    {
+        GD.Print("Game Started");
+        this.QueueFree();
     }
 	private void OnMDeck1Pressed()
 	{
