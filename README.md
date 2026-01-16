@@ -18,3 +18,5 @@ Increment with a new line if something notable happens
 2025.09.26 - Project idea reworked, project preperations started
 
 2025.12.06 - Dani made the backend for the secound time for the műhely and he didn't sleep sh#t
+
+2026.01.16 - Day before the third workshop noone wants to work on the project anymore cause everyone has another thing they have to do. We're just trying to get it across the finishline.
