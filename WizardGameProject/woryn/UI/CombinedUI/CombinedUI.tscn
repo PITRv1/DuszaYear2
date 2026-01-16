@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsm13aj54ggim"]
+[gd_scene load_steps=10 format=3 uid="uid://dsm13aj54ggim"]
 
-[ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/MainMenu/MainMenu.tscn" id="1_fneqp"]
+[ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/mainMenu/MainMenu.tscn" id="1_fneqp"]
 [ext_resource type="Script" uid="uid://enf42rox6fa5" path="res://UI/CombinedUI/CombinedUI.cs" id="1_sm0ek"]
 [ext_resource type="PackedScene" uid="uid://bdeg6vwo3wgd4" path="res://UI/Credits/Credits.tscn" id="2_whw3k"]
 [ext_resource type="PackedScene" uid="uid://d10vs074rfp2w" path="res://UI/Settings/Settings.tscn" id="3_sm0ek"]
 [ext_resource type="PackedScene" uid="uid://bb3padfqjdkm3" path="res://UI/Singleplayer/Singleplayer.tscn" id="4_cbguq"]
 [ext_resource type="PackedScene" uid="uid://be6l3tabm2s5j" path="res://UI/Multiplayer/Multiplayer.tscn" id="5_e8sh6"]
 [ext_resource type="Theme" uid="uid://bjomj0kutkhks" path="res://Assets/UI/Themes/Main/UIThemeGreen.tres" id="7_sm0ek"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_sm0ek"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_fneqp"]
 
@@ -45,12 +47,11 @@ visible = false
 layout_mode = 1
 combinedUI = NodePath("..")
 
-[node name="Multiplayer" parent="." instance=ExtResource("5_e8sh6")]
+[node name="Multiplayer" parent="." node_paths=PackedStringArray("combinedUI") instance=ExtResource("5_e8sh6")]
 visible = false
 layout_mode = 1
-
-[node name="MultiType" parent="Multiplayer" index="2"]
-optionGroup = SubResource("ButtonGroup_fneqp")
+combinedUI = NodePath("..")
+optionGroup = SubResource("ButtonGroup_sm0ek")
 
 [node name="Host" parent="Multiplayer" index="3"]
 theme = ExtResource("7_sm0ek")

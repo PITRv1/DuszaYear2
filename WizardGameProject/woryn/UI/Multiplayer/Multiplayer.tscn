@@ -1,13 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://be6l3tabm2s5j"]
+[gd_scene load_steps=6 format=3 uid="uid://be6l3tabm2s5j"]
 
 [ext_resource type="Theme" uid="uid://bjomj0kutkhks" path="res://Assets/UI/Themes/Main/UIThemeGreen.tres" id="1_f40x6"]
-[ext_resource type="Script" uid="uid://gsf0ufqx1d78" path="res://UI/Multiplayer/MultiType.cs" id="1_sg7kr"]
 [ext_resource type="Script" uid="uid://cbmpbge5cjt4m" path="res://UI/Multiplayer/Multiplayer.cs" id="2_akir0"]
 [ext_resource type="ButtonGroup" uid="uid://c8lhp1s2lwvyu" path="res://UI/Multiplayer/MultiGameTypeButtonGroup.tres" id="4_f40x6"]
 [ext_resource type="Theme" uid="uid://dwothogalvoiq" path="res://Assets/UI/Themes/ButtonChips/ButtonChipsGreen.tres" id="4_fobpq"]
 [ext_resource type="Texture2D" uid="uid://738aakqtt7x8" path="res://Assets/UI/NineRect/Background_green.png" id="5_fobpq"]
 
-[node name="Multiplayer" type="Control" node_paths=PackedStringArray("multiTypeMenu", "multiHostMenu", "multiJoinMenu")]
+[node name="Multiplayer" type="Control" node_paths=PackedStringArray("multiTypeMenu", "multiHostMenu", "multiJoinMenu", "playerListMenu", "playerList", "gameNameText", "numberOfPlayersValue")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -20,6 +19,11 @@ script = ExtResource("2_akir0")
 multiTypeMenu = NodePath("MultiType")
 multiHostMenu = NodePath("Host")
 multiJoinMenu = NodePath("Join")
+playerListMenu = NodePath("PlayersList")
+playerList = NodePath("PlayersList/List")
+gameNameText = NodePath("Host/Name/TextEdit")
+numberOfPlayersValue = NodePath("Host/Players/Players")
+optionGroup = ExtResource("4_f40x6")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -51,7 +55,8 @@ patch_margin_top = 17
 patch_margin_right = 17
 patch_margin_bottom = 17
 
-[node name="MultiType" type="VBoxContainer" parent="." node_paths=PackedStringArray("hostButton", "joinButton", "hostMenu", "numberOfPlayersValue")]
+[node name="MultiType" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,12 +72,6 @@ grow_vertical = 2
 theme = ExtResource("4_fobpq")
 theme_override_constants/separation = 40
 alignment = 1
-script = ExtResource("1_sg7kr")
-hostButton = NodePath("VBoxContainer/Host")
-joinButton = NodePath("VBoxContainer/Join")
-hostMenu = NodePath("../Host")
-numberOfPlayersValue = NodePath("../Host/Players/Players")
-optionGroup = ExtResource("4_f40x6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MultiType"]
 layout_mode = 2
@@ -213,18 +212,37 @@ text = "Back"
 
 [node name="PlayersList" type="VBoxContainer" parent="."]
 visible = false
+custom_minimum_size = Vector2(200, 400)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PlayersList"]
+[node name="List" type="VBoxContainer" parent="PlayersList"]
 layout_mode = 2
+size_flags_vertical = 3
 alignment = 1
 
-[connection signal="pressed" from="MultiType/VBoxContainer/Host" to="MultiType" method="OnHostPressed"]
-[connection signal="pressed" from="MultiType/VBoxContainer/Join" to="MultiType" method="OnJoinPressed"]
-[connection signal="pressed" from="Host/Create" to="MultiType" method="OnCreatePressed"]
+[node name="StartButton2" type="Button" parent="PlayersList"]
+layout_mode = 2
+theme = ExtResource("4_fobpq")
+text = "Start Game"
+
+[node name="BackButton" type="Button" parent="PlayersList"]
+layout_mode = 2
+theme = ExtResource("4_fobpq")
+text = "Back"
+
+[connection signal="pressed" from="MultiType/VBoxContainer/Host" to="." method="ChangeMenu" binds= ["host"]]
+[connection signal="pressed" from="MultiType/VBoxContainer/Join" to="." method="ChangeMenu" binds= ["join"]]
+[connection signal="pressed" from="MultiType/BackButton" to="." method="ChangeMenu" binds= ["main"]]
+[connection signal="pressed" from="Host/Create" to="." method="HostGame"]
+[connection signal="pressed" from="Host/BackButton" to="." method="ChangeMenu" binds= ["select"]]
+[connection signal="pressed" from="Join/Button" to="." method="JoinGame"]
+[connection signal="pressed" from="Join/BackButton" to="." method="ChangeMenu" binds= ["select"]]
+[connection signal="pressed" from="PlayersList/BackButton" to="." method="ChangeMenu" binds= ["select"]]
