@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://d0d5pio88bn4h"]
 
-[ext_resource type="Texture2D" uid="uid://c55vommx8j3k" path="res://icon.svg" id="1_dmrxg"]
 [ext_resource type="Script" uid="uid://btql7gacqikrq" path="res://3D Menu/ClassSelection/ClassSelectorMenu.cs" id="1_tojxp"]
 [ext_resource type="Theme" uid="uid://dswpri3ya7fel" path="res://3D Menu/ClassSelection/ClassSelectorMenu.tres" id="2_gavo6"]
+[ext_resource type="Texture2D" uid="uid://d1mhrhydqv47g" path="res://cursor1.png" id="3_f1ptg"]
 
 [node name="ClassSelectorMenu" type="Control" node_paths=PackedStringArray("class1Description", "class2Description", "class3Description", "class4Description", "class1Icon", "class2Icon", "class3Icon", "class4Icon", "class1", "class2", "class3", "class4", "container")]
 layout_mode = 3
@@ -16,10 +16,10 @@ class1Description = NodePath("CenterContainer/HBoxContainer/Class1/Description")
 class2Description = NodePath("CenterContainer/HBoxContainer/Class2/Description")
 class3Description = NodePath("CenterContainer/HBoxContainer/Class3/Description")
 class4Description = NodePath("CenterContainer/HBoxContainer/Class4/Description")
-class1Icon = NodePath("CenterContainer/HBoxContainer/Class1/Image")
-class2Icon = NodePath("CenterContainer/HBoxContainer/Class2/Image")
-class3Icon = NodePath("CenterContainer/HBoxContainer/Class3/Image")
-class4Icon = NodePath("CenterContainer/HBoxContainer/Class4/Image")
+class1Icon = NodePath("CenterContainer/HBoxContainer/Class1/Icon")
+class2Icon = NodePath("CenterContainer/HBoxContainer/Class2/Icon")
+class3Icon = NodePath("CenterContainer/HBoxContainer/Class3/Icon")
+class4Icon = NodePath("CenterContainer/HBoxContainer/Class4/Icon")
 class1 = NodePath("CenterContainer/HBoxContainer/Class1")
 class2 = NodePath("CenterContainer/HBoxContainer/Class2")
 class3 = NodePath("CenterContainer/HBoxContainer/Class3")
@@ -60,7 +60,7 @@ anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
-text = "Class name"
+text = "Thief"
 horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="CenterContainer/HBoxContainer/Class1"]
@@ -73,8 +73,8 @@ offset_top = -50.5
 offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "This is the description
-of a class."
+text = "Passive:- can se the next 2 cards and chosse between them (modifier and point)
+Active:- can steal idk"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -84,12 +84,27 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -136.0
+offset_top = -59.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-toggle_mode = true
-icon = ExtResource("1_dmrxg")
+disabled = true
 icon_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/HBoxContainer/Class1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -24.0
+offset_right = 26.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_f1ptg")
 
 [node name="Class2" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 300)
@@ -103,7 +118,7 @@ anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
-text = "Class name"
+text = "Alchemist"
 horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="CenterContainer/HBoxContainer/Class2"]
@@ -116,8 +131,8 @@ offset_top = -50.5
 offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "This is the description
-of a class."
+text = "Passive:- points to gold 1:1
+Active:- Promote card to legendary"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -127,12 +142,27 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -136.0
+offset_top = -59.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-toggle_mode = true
-icon = ExtResource("1_dmrxg")
+disabled = true
 icon_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/HBoxContainer/Class2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -24.0
+offset_right = 26.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_f1ptg")
 
 [node name="Class3" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 300)
@@ -146,7 +176,7 @@ anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
-text = "Class name"
+text = "Merchant"
 horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="CenterContainer/HBoxContainer/Class3"]
@@ -159,8 +189,8 @@ offset_top = -50.5
 offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "This is the description
-of a class."
+text = "Passive:- points to gold ratio 1:2
+Active:- once game can choose earlier in public shop"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -170,12 +200,27 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -136.0
+offset_top = -59.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-toggle_mode = true
-icon = ExtResource("1_dmrxg")
+disabled = true
 icon_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/HBoxContainer/Class3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -24.0
+offset_right = 26.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_f1ptg")
 
 [node name="Class4" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 300)
@@ -189,7 +234,7 @@ anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 20
-text = "Class name"
+text = "Noble"
 horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="CenterContainer/HBoxContainer/Class4"]
@@ -202,8 +247,8 @@ offset_top = -50.5
 offset_bottom = 50.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "This is the description
-of a class."
+text = "Passive:- takes 10%(?) of every point collected (cause tax and shi)
+Active:- takes a player to prison for 3 of his turns"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -213,18 +258,37 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -136.0
+offset_top = -59.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-toggle_mode = true
-icon = ExtResource("1_dmrxg")
+disabled = true
 icon_alignment = 1
 
+[node name="Icon" type="TextureRect" parent="CenterContainer/HBoxContainer/Class4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -24.0
+offset_right = 26.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_f1ptg")
+
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Class1" to="." method="OnClass1Pressed"]
-[connection signal="toggled" from="CenterContainer/HBoxContainer/Class1/Image" to="." method="OnClass1IconToggled"]
+[connection signal="mouse_entered" from="CenterContainer/HBoxContainer/Class1/Image" to="." method="Class1MouseEntered"]
+[connection signal="mouse_exited" from="CenterContainer/HBoxContainer/Class1/Image" to="." method="Class1MouseExited"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Class2" to="." method="OnClass2Pressed"]
-[connection signal="toggled" from="CenterContainer/HBoxContainer/Class2/Image" to="." method="OnClass2IconToggled"]
+[connection signal="mouse_entered" from="CenterContainer/HBoxContainer/Class2/Image" to="." method="Class2MouseEntered"]
+[connection signal="mouse_exited" from="CenterContainer/HBoxContainer/Class2/Image" to="." method="Class2MouseExited"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Class3" to="." method="OnClass3Pressed"]
-[connection signal="toggled" from="CenterContainer/HBoxContainer/Class3/Image" to="." method="OnClass3IconToggled"]
+[connection signal="mouse_entered" from="CenterContainer/HBoxContainer/Class3/Image" to="." method="Class3MouseEntered"]
+[connection signal="mouse_exited" from="CenterContainer/HBoxContainer/Class3/Image" to="." method="Class3MouseExited"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Class4" to="." method="OnClass4Pressed"]
-[connection signal="toggled" from="CenterContainer/HBoxContainer/Class4/Image" to="." method="OnClass4IconToggled"]
+[connection signal="mouse_entered" from="CenterContainer/HBoxContainer/Class4/Image" to="." method="Class4MouseEntered"]
+[connection signal="mouse_exited" from="CenterContainer/HBoxContainer/Class4/Image" to="." method="Class4MouseExited"]
