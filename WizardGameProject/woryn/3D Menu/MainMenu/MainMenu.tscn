@@ -1,19 +1,12 @@
-[gd_scene load_steps=317 format=4 uid="uid://b56xfex8vjqku"]
+[gd_scene load_steps=311 format=4 uid="uid://b56xfex8vjqku"]
 
 [ext_resource type="PackedScene" uid="uid://c076pdwrupy0v" path="res://3D Menu/MainMenu/MainMenuEnvironment.glb" id="1_7h66l"]
 [ext_resource type="Texture2D" uid="uid://c7ifawlapypu5" path="res://Assets/rogland_clear_night_1k.hdr" id="1_7t6c6"]
-[ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/MainMenu/MainMenu.tscn" id="2_7gnwx"]
-[ext_resource type="Script" uid="uid://c62o1jhnktnw7" path="res://3D Menu/MainMenu/MainScreen.cs" id="2_fuqgq"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_mt8kt"]
-[ext_resource type="PackedScene" uid="uid://bb3padfqjdkm3" path="res://UI/Singleplayer/Singleplayer.tscn" id="3_chjf5"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_m2pmq"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="4_3bfbn"]
-[ext_resource type="PackedScene" uid="uid://be6l3tabm2s5j" path="res://UI/Multiplayer/Multiplayer.tscn" id="4_f6pqu"]
-[ext_resource type="PackedScene" uid="uid://d10vs074rfp2w" path="res://UI/Settings/Settings.tscn" id="5_fuqgq"]
 [ext_resource type="Material" uid="uid://0lm3laa88mre" path="res://Assets/textures/images/road.tres" id="5_nn02q"]
 [ext_resource type="Material" uid="uid://bur1epdus2js6" path="res://Assets/textures/test/Petha_1m x 1m Pink.tres" id="5_w5o0e"]
-[ext_resource type="PackedScene" uid="uid://bdeg6vwo3wgd4" path="res://UI/Credits/Credits.tscn" id="6_6wokr"]
-[ext_resource type="Script" uid="uid://cgv0fdv7slgxj" path="res://UI/Back.cs" id="7_f6pqu"]
 [ext_resource type="Material" uid="uid://ceffab1ldthvp" path="res://Assets/textures/test/Petha_1m x 1m Green.tres" id="7_srp1p"]
 [ext_resource type="Material" uid="uid://jubht87n3b8a" path="res://Assets/textures/world/grassFloorTile.tres" id="7_xg27o"]
 [ext_resource type="Material" uid="uid://bdgtjca2bc0j" path="res://Assets/textures/test/Petha_1m x 1m Orange.tres" id="8_2p70u"]
@@ -32,6 +25,7 @@
 [ext_resource type="Material" uid="uid://cwc3jy3hk8q1f" path="res://Assets/textures/world/barTile.tres" id="18_0m35x"]
 [ext_resource type="Material" uid="uid://wwx8uk01lykc" path="res://Assets/textures/images/shelf.tres" id="19_syikk"]
 [ext_resource type="Material" uid="uid://dvjm4wxacktt0" path="res://Assets/textures/world/blueBrick.tres" id="22_alyo5"]
+[ext_resource type="PackedScene" uid="uid://dsm13aj54ggim" path="res://UI/CombinedUI/CombinedUI.tscn" id="28_ctpc2"]
 [ext_resource type="PackedScene" uid="uid://dnj0pnuhiccu3" path="res://Assets/models/Potion.glb" id="32_uiqau"]
 [ext_resource type="Texture2D" uid="uid://ckplquym6441h" path="res://Assets/textures/images/tree.png" id="34_pia1e"]
 
@@ -1195,30 +1189,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MainMenu:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MainScreen:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_7gnwx"]
 resource_name = "intro"
@@ -1258,30 +1228,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MainMenu:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MainScreen:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3fkh0"]
@@ -2140,7 +2086,7 @@ shape = SubResource("ConvexPolygonShape3D_v1yu6")
 shape = SubResource("ConvexPolygonShape3D_gwddc")
 
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, -8.584115e-09, 0.9951676, 0.09819083, 8.7000316e-08, 0.09819083, -0.9951676, 13.353, 9.739, -30.902)
+transform = Transform3D(-1, 0, -8.742278e-08, -8.584115e-09, 0.9951676, 0.09819083, 8.7000316e-08, 0.09819083, -0.9951676, 5.4008417, 9.739, -30.902)
 curve = SubResource("Curve3D_7h66l")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
@@ -2155,81 +2101,6 @@ fov = 48.9
 libraries = {
 &"": SubResource("AnimationLibrary_3fkh0")
 }
-
-[node name="MainScreen" type="Control" parent="." node_paths=PackedStringArray("animPlayer")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_fuqgq")
-animPlayer = NodePath("../AnimationPlayer")
-
-[node name="Title" type="Label" parent="MainScreen"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 60
-text = "WORYN"
-horizontal_alignment = 1
-
-[node name="Start" type="Label" parent="MainScreen"]
-modulate = Color(0.3735591, 0.6251079, 0.6558228, 1)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "PRESS ANY KEY TO START"
-horizontal_alignment = 1
-
-[node name="MainMenu" parent="." node_paths=PackedStringArray("back", "singleplayerScene", "multiplayerScene", "settingsScene", "creditsScene", "mainMenuScene") instance=ExtResource("2_7gnwx")]
-visible = false
-back = NodePath("../Back")
-singleplayerScene = NodePath("../SinglePlayer")
-multiplayerScene = NodePath("../Multiplayer")
-settingsScene = NodePath("../Settings")
-creditsScene = NodePath("../Credits")
-mainMenuScene = NodePath(".")
-
-[node name="SinglePlayer" parent="." instance=ExtResource("3_chjf5")]
-visible = false
-
-[node name="Multiplayer" parent="." instance=ExtResource("4_f6pqu")]
-visible = false
-
-[node name="Settings" parent="." instance=ExtResource("5_fuqgq")]
-visible = false
-
-[node name="Credits" parent="." instance=ExtResource("6_6wokr")]
-visible = false
-
-[node name="Back" type="Button" parent="." node_paths=PackedStringArray("singleplayerScene", "multiplayerScene", "settingsScene", "creditsScene", "mainMenuScene", "back", "parent")]
-visible = false
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -31.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "MAIN MENU"
-script = ExtResource("7_f6pqu")
-singleplayerScene = NodePath("../SinglePlayer")
-multiplayerScene = NodePath("../Multiplayer")
-settingsScene = NodePath("../Settings")
-creditsScene = NodePath("../Credits")
-mainMenuScene = NodePath("../MainMenu")
-back = NodePath(".")
-mainMenuPacked = ExtResource("2_7gnwx")
-parent = NodePath("..")
 
 [node name="Potion" parent="." instance=ExtResource("32_uiqau")]
 transform = Transform3D(0.17822868, 0, 0, 0, 0.17822868, 0, 0, 0, 0.17822868, -8.736958, 1.6250002, -60.786953)
@@ -2406,4 +2277,4 @@ shaded = true
 texture_filter = 2
 texture = ExtResource("34_pia1e")
 
-[connection signal="pressed" from="Back" to="Back" method="OnBackPressed"]
+[node name="CombinedUI" parent="." instance=ExtResource("28_ctpc2")]
