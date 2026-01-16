@@ -1,13 +1,40 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0d5pio88bn4h"]
+[gd_scene load_steps=10 format=3 uid="uid://d0d5pio88bn4h"]
 
 [ext_resource type="Script" uid="uid://btql7gacqikrq" path="res://3D Menu/ClassSelection/ClassSelectorMenu.cs" id="1_tojxp"]
 [ext_resource type="Theme" uid="uid://bpcmtxdnr1j8c" path="res://3D Menu/ClassSelection/ClassInfo.tres" id="2_f1ptg"]
+[ext_resource type="PackedScene" uid="uid://smtqx0lfpxl7" path="res://3D Menu/DeckSelector/DeckSelector.tscn" id="2_yu6f0"]
 [ext_resource type="Texture2D" uid="uid://d1mhrhydqv47g" path="res://cursor1.png" id="3_f1ptg"]
 [ext_resource type="Theme" uid="uid://dt0m58ab3i48o" path="res://3D Menu/ClassSelection/ClassName.tres" id="3_oo0qj"]
 [ext_resource type="FontFile" uid="uid://2ie8rbcsviud" path="res://DigitalDisco.ttf" id="4_f1ptg"]
 [ext_resource type="Texture2D" uid="uid://dolie1qcf2sow" path="res://3D Menu/ClassSelection/script.png" id="4_oo0qj"]
 
-[node name="ClassSelectorMenu" type="Control" node_paths=PackedStringArray("class1Description", "class2Description", "class3Description", "class4Description", "class1Icon", "class2Icon", "class3Icon", "class4Icon", "class1", "class2", "class3", "class4", "container")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yu6f0"]
+bg_color = Color(0.3882353, 0.3882353, 0.3882353, 0.27450982)
+border_color = Color(1, 1, 1, 0)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa18c"]
+bg_color = Color(0.86898494, 0.86898494, 0.8689847, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[node name="ClassSelectorMenu" type="Control" node_paths=PackedStringArray("class1Description", "class2Description", "class3Description", "class4Description", "class1Icon", "class2Icon", "class3Icon", "class4Icon", "class1", "class2", "class3", "class4", "container", "title", "nextButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,10 +42,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tojxp")
-class1Description = NodePath("")
-class2Description = NodePath("")
-class3Description = NodePath("")
-class4Description = NodePath("")
+class1Description = NodePath("CenterContainer/HBoxContainer/Class1/Description")
+class2Description = NodePath("CenterContainer/HBoxContainer/Class2/Description")
+class3Description = NodePath("CenterContainer/HBoxContainer/Class3/Description")
+class4Description = NodePath("CenterContainer/HBoxContainer/Class4/Description")
 class1Icon = NodePath("CenterContainer/HBoxContainer/Class1/Icon")
 class2Icon = NodePath("CenterContainer/HBoxContainer/Class2/Icon")
 class3Icon = NodePath("CenterContainer/HBoxContainer/Class3/Icon")
@@ -28,6 +55,9 @@ class2 = NodePath("CenterContainer/HBoxContainer/Class2")
 class3 = NodePath("CenterContainer/HBoxContainer/Class3")
 class4 = NodePath("CenterContainer/HBoxContainer/Class4")
 container = NodePath("CenterContainer/HBoxContainer")
+title = NodePath("Title")
+nextButton = NodePath("Next")
+deckselectScene = ExtResource("2_yu6f0")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -56,7 +86,7 @@ layout_mode = 2
 theme_override_constants/separation = 50
 
 [node name="Class1" type="Button" parent="CenterContainer/HBoxContainer"]
-custom_minimum_size = Vector2(250, 350)
+custom_minimum_size = Vector2(230, 350)
 layout_mode = 2
 theme = ExtResource("2_f1ptg")
 
@@ -66,6 +96,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 50.0
 grow_horizontal = 2
+mouse_filter = 2
 theme = ExtResource("3_oo0qj")
 bbcode_enabled = true
 text = "[wave][shake]Thief[/shake][/wave]"
@@ -79,10 +110,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = -108.0
-offset_right = 125.0
-offset_bottom = 112.0
+offset_left = -114.0
+offset_top = -110.0
+offset_right = 114.0
+offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("4_f1ptg")
@@ -126,7 +157,7 @@ grow_vertical = 2
 texture = ExtResource("3_f1ptg")
 
 [node name="Class2" type="Button" parent="CenterContainer/HBoxContainer"]
-custom_minimum_size = Vector2(250, 350)
+custom_minimum_size = Vector2(230, 350)
 layout_mode = 2
 theme = ExtResource("2_f1ptg")
 
@@ -139,6 +170,7 @@ offset_left = -100.0
 offset_right = 100.0
 offset_bottom = 50.0
 grow_horizontal = 2
+mouse_filter = 2
 theme = ExtResource("3_oo0qj")
 bbcode_enabled = true
 text = "[wave][shake]Alchemist[/shake][/wave]"
@@ -196,7 +228,7 @@ grow_vertical = 2
 texture = ExtResource("3_f1ptg")
 
 [node name="Class3" type="Button" parent="CenterContainer/HBoxContainer"]
-custom_minimum_size = Vector2(250, 350)
+custom_minimum_size = Vector2(230, 350)
 layout_mode = 2
 theme = ExtResource("2_f1ptg")
 
@@ -209,6 +241,7 @@ offset_left = -100.0
 offset_right = 100.0
 offset_bottom = 50.0
 grow_horizontal = 2
+mouse_filter = 2
 theme = ExtResource("3_oo0qj")
 bbcode_enabled = true
 text = "[wave][shake]Merchant[/shake][/wave]"
@@ -221,7 +254,9 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_left = 4.0
 offset_top = -109.0
+offset_right = -4.0
 offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -266,7 +301,7 @@ grow_vertical = 2
 texture = ExtResource("3_f1ptg")
 
 [node name="Class4" type="Button" parent="CenterContainer/HBoxContainer"]
-custom_minimum_size = Vector2(250, 350)
+custom_minimum_size = Vector2(230, 350)
 layout_mode = 2
 theme = ExtResource("2_f1ptg")
 
@@ -279,6 +314,7 @@ offset_left = -100.0
 offset_right = 100.0
 offset_bottom = 50.0
 grow_horizontal = 2
+mouse_filter = 2
 theme = ExtResource("3_oo0qj")
 bbcode_enabled = true
 text = "[wave][shake]Noble[/shake][/wave]"
@@ -335,6 +371,28 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_f1ptg")
 
+[node name="Next" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_f1ptg")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_yu6f0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xa18c")
+text = "NEXT"
+
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Class1" to="." method="OnClass1Pressed"]
 [connection signal="mouse_entered" from="CenterContainer/HBoxContainer/Class1/Image" to="." method="Class1MouseEntered"]
 [connection signal="mouse_exited" from="CenterContainer/HBoxContainer/Class1/Image" to="." method="Class1MouseExited"]
@@ -347,3 +405,4 @@ texture = ExtResource("3_f1ptg")
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Class4" to="." method="OnClass4Pressed"]
 [connection signal="mouse_entered" from="CenterContainer/HBoxContainer/Class4/Image" to="." method="Class4MouseEntered"]
 [connection signal="mouse_exited" from="CenterContainer/HBoxContainer/Class4/Image" to="." method="Class4MouseExited"]
+[connection signal="pressed" from="Next" to="." method="OnNextButtonPressed"]

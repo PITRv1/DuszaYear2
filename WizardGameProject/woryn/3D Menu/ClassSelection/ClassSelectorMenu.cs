@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public partial class ClassSelectorMenu : Control
 {
-	[Export] Label class1Description;
-	[Export] Label class2Description;
-	[Export] Label class3Description;
-	[Export] Label class4Description;
+	[Export] RichTextLabel class1Description;
+	[Export] RichTextLabel class2Description;
+	[Export] RichTextLabel class3Description;
+	[Export] RichTextLabel class4Description;
 
 	[Export] TextureRect class1Icon;
 	[Export] TextureRect class2Icon;
@@ -21,6 +21,10 @@ public partial class ClassSelectorMenu : Control
 
 
     [Export] HBoxContainer container;
+    [Export] Label title;
+
+    [Export] Button nextButton;
+    [Export] PackedScene deckselectScene;
 
     List<Button> classes = new List<Button>();
 
@@ -57,12 +61,19 @@ public partial class ClassSelectorMenu : Control
             {
                 _class.QueueFree();
                 GD.Print($"Class deleted: {_class.Name}");
+                nextButton.Visible = true;
             }
         }
         selectedClass.Disabled = true;
+        title.Text = "CLASS SELECTED";
 
         
         //container.AddChild(selectedClass);
+    }
+
+    private void OnNextButtonPressed()
+    {
+        GetTree().ChangeSceneToPacked(deckselectScene);
     }
 
     //Class selection
