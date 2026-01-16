@@ -33,6 +33,8 @@ public partial class Settings : Control
 	public void Back()
 	{
 		combinedUI.CurrentMenu = combinedUI.mainMenu;
+		combinedUI.mainMenuController.GoToMainViewPoint();
+
 	}
 
 	public void SetViewportSize(int option)

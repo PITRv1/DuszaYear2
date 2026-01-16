@@ -10,6 +10,8 @@ public partial class CombinedUI : Control
 	[Export] public Control singpePlayerMenu;
 	[Export] public Control multiplayerCombinedMenu;
 
+	[Export] public MainMenuController mainMenuController;
+
 	private Control _currentMenu;
 
 	public Control CurrentMenu {

@@ -8,5 +8,6 @@ public partial class Credits : Control
 	public void Back()
 	{
 		combinedUI.CurrentMenu = combinedUI.mainMenu;
+		combinedUI.mainMenuController.GoToMainViewPoint();
 	}
 }

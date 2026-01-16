@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dsm13aj54ggim"]
 
-[ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/mainMenu/MainMenu.tscn" id="1_fneqp"]
+[ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/MainMenu/MainMenu.tscn" id="1_fneqp"]
 [ext_resource type="Script" uid="uid://enf42rox6fa5" path="res://UI/CombinedUI/CombinedUI.cs" id="1_sm0ek"]
 [ext_resource type="PackedScene" uid="uid://bdeg6vwo3wgd4" path="res://UI/Credits/Credits.tscn" id="2_whw3k"]
 [ext_resource type="PackedScene" uid="uid://d10vs074rfp2w" path="res://UI/Settings/Settings.tscn" id="3_sm0ek"]
@@ -28,9 +28,13 @@ singpePlayerMenu = NodePath("SinglePlayer")
 multiplayerCombinedMenu = NodePath("Multiplayer")
 
 [node name="MainMenu" parent="." node_paths=PackedStringArray("combinedUI") instance=ExtResource("1_fneqp")]
-visible = false
 layout_mode = 1
 combinedUI = NodePath("..")
+
+[node name="RichTextLabel" parent="MainMenu/HBoxContainer/VBoxContainer" index="0"]
+theme_override_colors/default_color = Color(0, 0.20416673, 0.35, 1)
+theme_override_colors/font_outline_color = Color(0.6991501, 0.55300003, 0.79, 1)
+theme_override_font_sizes/normal_font_size = 201
 
 [node name="Credits" parent="." node_paths=PackedStringArray("combinedUI") instance=ExtResource("2_whw3k")]
 visible = false

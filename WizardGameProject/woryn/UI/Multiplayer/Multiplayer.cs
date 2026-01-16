@@ -52,6 +52,9 @@ public partial class Multiplayer : Control
 				break;
 			case "main":
 				combinedUI.CurrentMenu = combinedUI.mainMenu;
+				
+				combinedUI.mainMenuController.GoToMainViewPoint();
+
 				CurrentMenu = multiTypeMenu;
 				break;
 			case "player":
