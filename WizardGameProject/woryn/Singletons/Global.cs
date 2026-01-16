@@ -8,4 +8,5 @@ public partial class Global : Node
     public static MultiplayerClientGlobals multiplayerClientGlobals;
     public static TurnManager turnManagerInstance;
     public static LobbyManager lobbyManagerInstance;
+    public static ShopManager shopManager;
 }

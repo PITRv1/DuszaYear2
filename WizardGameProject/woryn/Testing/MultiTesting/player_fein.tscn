@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://11y32s5wnh8n" path="res://Testing/MultiTesting/PlayerFein.cs" id="1_75s5s"]
 
 [node name="PlayerFein" type="Panel" node_paths=PackedStringArray("text")]
-custom_minimum_size = Vector2(0, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_75s5s")
 text = NodePath("VBoxContainer/Label")
 
@@ -14,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2

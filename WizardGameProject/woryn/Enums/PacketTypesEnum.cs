@@ -9,4 +9,6 @@ public enum PACKET_TYPES
     NEW_PLAYER = 6,
     START_GAME = 7,
     CLIENT_READY = 8,
+    CURSOR_UPDATE = 9,
+    SHOP_SCENE_CHANGE = 10,
 }
