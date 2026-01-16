@@ -74,11 +74,34 @@ public partial class NetworkHandler : Node
 
     public void StopServer()
     {
-        if (ServerConnection != null) ServerConnection.Destroy();
+        if (!_isServer || ServerConnection == null) return;
+
+        GD.Print("Stopping server...");
+
+        foreach (var peer in _clientPeers.Values) peer.PeerDisconnect();
+        
+
+        _clientPeers.Clear();
+        _availablePeerIds.Clear();
+
+        for (int i = 255; i >= 0; i--) _availablePeerIds.Push(i);
+
+        ServerConnection.Destroy();
+        ServerConnection = null;
+
+        _isServer = false;
+
+        GD.Print("Server stopped");
     }
 
     public void StartServer(string ip = "127.0.0.1", int port = 6767)
     {
+        if (ServerConnection != null)
+        {
+            GD.Print("Server is already running!");
+            return;
+        }
+
         ServerConnection = new ENetConnection();
         Error err = ServerConnection.CreateHostBound(ip, port);
 

@@ -34,6 +34,7 @@ public partial class Multiplayer : Control
 
 		Global.multiplayerClientGlobals.HandleLocalIdAssignment += Local;
         Global.multiplayerClientGlobals.HandleRemoteIdAssignment += Remote;
+		Global.networkHandler.OnPeerDisconnected += HandleDisconnect;
 
 		foreach (Control child in playerList.GetChildren())
 		{
@@ -71,10 +72,14 @@ public partial class Multiplayer : Control
 		}
 	}
 
+	public void HandleDisconnect(int id)
+	{
+		Node label = playerList.FindChild($"Label{id}");
+		if (label != null) label.QueueFree();
+	}
+
 	public void HostGame()
 	{
-        // BaseButton selected = optionGroup.GetPressedButton();
-
 		Global.networkHandler.StartServer();
         Global.networkHandler.StartClient();
 
@@ -102,6 +107,7 @@ public partial class Multiplayer : Control
 		Label playerLabel = new();
 		playerLabel.AddThemeFontSizeOverride("font_size", 60);
 		playerLabel.Text = $"Player:{id}";
+		playerLabel.Name = $"Label{id}";
 		playerList.AddChild(playerLabel);
 	}
 	
