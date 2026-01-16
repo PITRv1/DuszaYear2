@@ -126,6 +126,11 @@ public partial class MultiplayerPlayerClass : Node
         Global.networkHandler._serverPeer?.Send(0, packet.Encode(), (int)ENetPacketPeer.FlagReliable);
     }
 
+    public void PlayAbilityRequest()
+    {
+        
+    }
+
     public void AddPointToContainer(PointCard pointCard)
     {
         TestPointCardUi test = pointCardUI.Instantiate() as TestPointCardUi;

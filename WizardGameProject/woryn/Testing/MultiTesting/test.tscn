@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://1tvmqvajxg62"]
+[gd_scene load_steps=4 format=3 uid="uid://1tvmqvajxg62"]
 
 [ext_resource type="PackedScene" uid="uid://bxs0hn6508qbt" path="res://Testing/MultiTesting/multiplayer_player.tscn" id="1_jwek8"]
 [ext_resource type="PackedScene" uid="uid://ca8e052nny7l5" path="res://Testing/MultiTesting/TestPointCardUI.tscn" id="2_m1nd3"]
 [ext_resource type="PackedScene" uid="uid://dv8riud1qttrs" path="res://Testing/MultiTesting/TestModifierCardUI.tscn" id="3_murls"]
-[ext_resource type="PackedScene" uid="uid://c26ljvsefjnl6" path="res://Testing/ShopTestScene/PublicShopTest.tscn" id="4_0e0ea"]
 
 [node name="Test" type="Control"]
 layout_mode = 3
@@ -13,15 +12,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MultiplayerPlayer" parent="." node_paths=PackedStringArray("pointCards", "modifCards", "maxPoints", "points", "throwDeckValue") instance=ExtResource("1_jwek8")]
+[node name="MultiplayerPlayer" parent="." node_paths=PackedStringArray("pointCards", "modifCards", "maxPoints") instance=ExtResource("1_jwek8")]
 pointCards = NodePath("../VBoxContainer/CardContainers/PointCards")
 modifCards = NodePath("../VBoxContainer/CardContainers/ModifCards")
 pointCardUI = ExtResource("2_m1nd3")
 modifierCardUI = ExtResource("3_murls")
 maxPoints = NodePath("../MaxValue")
-points = NodePath("../Points")
-throwDeckValue = NodePath("../ThrowDeckValue")
-shopScene = ExtResource("4_0e0ea")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -50,10 +46,10 @@ layout_mode = 2
 theme_override_constants/separation = 200
 alignment = 1
 
-[node name="GetCards" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Ability" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Get cards"
+text = "Ability"
 
 [node name="DeckDown" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -94,5 +90,5 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/GetCards" to="MultiplayerPlayer" method="PickUpCards"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Ability" to="MultiplayerPlayer" method="PickUpCards"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/DeckDown" to="MultiplayerPlayer" method="PlayCard"]

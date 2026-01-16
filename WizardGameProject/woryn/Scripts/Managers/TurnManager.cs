@@ -118,6 +118,20 @@ public partial class TurnManager
 		}
 	}
 
+	public void PlayPlayerAbility(byte[] data)
+	{
+		PlayAbility packet = PlayAbility.CreateFromData(data);
+
+		if (packet.SenderId != currentPlayer)
+		{
+			GD.Print("NOT YOUR TURN");
+			return;
+		}
+
+		
+
+	}
+
 	public void PickUpCards(int id)
 	{
 		if (currentPlayer != id)

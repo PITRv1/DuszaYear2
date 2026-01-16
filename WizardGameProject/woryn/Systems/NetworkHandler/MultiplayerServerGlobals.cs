@@ -78,6 +78,9 @@ public partial class MultiplayerServerGlobals : Node
                     pair.Value.Send(0, data, (int)ENetPacketPeer.FlagUnsequenced);
                 }
                 break;
+            case PACKET_TYPES.PLAY_ABLITIY:
+                Global.turnManagerInstance.PlayPlayerAbility(data);
+                break;
             default:
                 GD.PushError($"Packet type with index {(PACKET_TYPES)data[0]} unhandled");
                 break;
