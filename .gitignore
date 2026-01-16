@@ -1,4 +1,5 @@
 /.vscode/
-/WizardGameProject/woryn/.vs
-/WizardGameProject/woryn/.vs/Woryn
 *.db
+*.db-shm
+*.db-wal
+*.vsidx

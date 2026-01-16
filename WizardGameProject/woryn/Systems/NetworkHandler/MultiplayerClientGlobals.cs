@@ -21,9 +21,13 @@ public partial class MultiplayerClientGlobals : Node
     public delegate void NewPlayerEventHandler(byte[] data);
     [Signal]
     public delegate void StartGameEventHandler();
+    [Signal]
+    public delegate void CursonUpdateEventHandler(byte[] data);
+    [Signal]
+    public delegate void ShopSceneEventHandler();
 
     public int _id = -1;
-    private List<int> _remoteIds = new();
+    public List<int> _remoteIds = new();
 
     public override void _Ready()
     {
@@ -52,12 +56,17 @@ public partial class MultiplayerClientGlobals : Node
                 GD.Print("so this prints");
                 EmitSignal("HandlePickUpCardAnswer", data);
                 break;
+            case PACKET_TYPES.CURSOR_UPDATE:
+                EmitSignal("CursonUpdate", data);
+                break;
+            case PACKET_TYPES.SHOP_SCENE_CHANGE:
+                EmitSignal("ShopScene");
+                break;
             default:
                 GD.PushError($"Packet type with index {(int)packetType} unhandled!");
                 break;
         }
     }
-
 
     private void ManageIds(IDAssignment idAssignment)
     {

@@ -1,27 +1,107 @@
-[gd_scene load_steps=4 format=3 uid="uid://1tvmqvajxg62"]
+[gd_scene load_steps=9 format=3 uid="uid://1tvmqvajxg62"]
 
+[ext_resource type="Theme" uid="uid://bntwtfgxeqnya" path="res://Assets/UI/Themes/Main/UIThemeSimple.tres" id="1_c8k3l"]
 [ext_resource type="PackedScene" uid="uid://bxs0hn6508qbt" path="res://Testing/MultiTesting/multiplayer_player.tscn" id="1_jwek8"]
 [ext_resource type="PackedScene" uid="uid://ca8e052nny7l5" path="res://Testing/MultiTesting/TestPointCardUI.tscn" id="2_m1nd3"]
 [ext_resource type="PackedScene" uid="uid://dv8riud1qttrs" path="res://Testing/MultiTesting/TestModifierCardUI.tscn" id="3_murls"]
+[ext_resource type="PackedScene" uid="uid://c26ljvsefjnl6" path="res://Testing/ShopTestScene/PublicShopTest.tscn" id="4_0e0ea"]
+[ext_resource type="Theme" uid="uid://bdetdcpnnocd8" path="res://Assets/UI/Themes/ButtonChips/ButtonChipsBlue.tres" id="5_vvaa5"]
+[ext_resource type="Theme" uid="uid://dwothogalvoiq" path="res://Assets/UI/Themes/ButtonChips/ButtonChipsGreen.tres" id="6_7h4jh"]
+[ext_resource type="Texture2D" uid="uid://cxn8hk2mjf50x" path="res://Assets/UI/NineRect/background_simple.png" id="8_38utj"]
 
 [node name="Test" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_c8k3l")
 
 [node name="MultiplayerPlayer" parent="." node_paths=PackedStringArray("pointCards", "modifCards", "maxPoints", "points", "throwDeckValue") instance=ExtResource("1_jwek8")]
-pointCards = NodePath("../VBoxContainer/CardContainers/PointCards")
-modifCards = NodePath("../VBoxContainer/CardContainers/ModifCards")
+pointCards = NodePath("../HandHolder/CardContainers/HBox/PointCards")
+modifCards = NodePath("../HandHolder/CardContainers/HBox/ModifCards")
 pointCardUI = ExtResource("2_m1nd3")
 modifierCardUI = ExtResource("3_murls")
-maxPoints = NodePath("../MaxValue")
-points = NodePath("../Points")
-throwDeckValue = NodePath("../ThrowDeckValue")
+maxPoints = NodePath("../HBoxContainer/MarginContainer/VBoxContainer/MaxValue")
+points = NodePath("../HBoxContainer/MarginContainer/VBoxContainer/Points")
+throwDeckValue = NodePath("../HBoxContainer/MarginContainer/VBoxContainer/ThrowDeckValue")
+shopScene = ExtResource("4_0e0ea")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 2
+texture = ExtResource("8_38utj")
+patch_margin_left = 17
+patch_margin_top = 17
+patch_margin_right = 17
+patch_margin_bottom = 17
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Your points:"
+horizontal_alignment = 1
+
+[node name="Points" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pile value:"
+horizontal_alignment = 1
+
+[node name="MaxValue" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Latest value:"
+horizontal_alignment = 1
+
+[node name="ThrowDeckValue" type="Label" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HandHolder" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,67 +110,51 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 80
 
-[node name="CardContainers" type="VBoxContainer" parent="VBoxContainer"]
+[node name="CardContainers" type="VBoxContainer" parent="HandHolder"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+
+[node name="HBox" type="HBoxContainer" parent="HandHolder/CardContainers"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="PointCards" type="HBoxContainer" parent="VBoxContainer/CardContainers"]
+[node name="PointCards" type="HBoxContainer" parent="HandHolder/CardContainers/HBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ModifCards" type="HBoxContainer" parent="VBoxContainer/CardContainers"]
+[node name="ModifCards" type="HBoxContainer" parent="HandHolder/CardContainers/HBox"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="HandHolder"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_constants/separation = 200
 alignment = 1
 
-[node name="GetCards" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="GetCardsButtonContainer" type="HBoxContainer" parent="HandHolder/Buttons"]
+layout_mode = 2
+
+[node name="GetCards" type="Button" parent="HandHolder/Buttons/GetCardsButtonContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("5_vvaa5")
 text = "Get cards"
 
-[node name="DeckDown" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="PlayCardsButtonContainer" type="HBoxContainer" parent="HandHolder/Buttons"]
+layout_mode = 2
+
+[node name="DeckDown" type="Button" parent="HandHolder/Buttons/PlayCardsButtonContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Play card(s)
+theme = ExtResource("6_7h4jh")
+text = "Play selected
 "
 
-[node name="MaxValue" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1004.0
-offset_top = 201.0
-offset_right = 1120.0
-offset_bottom = 327.0
-theme_override_font_sizes/font_size = 48
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Points" type="Label" parent="."]
-layout_mode = 0
-offset_left = 1012.0
-offset_top = 380.0
-offset_right = 1128.0
-offset_bottom = 506.0
-theme_override_font_sizes/font_size = 48
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ThrowDeckValue" type="Label" parent="."]
-layout_mode = 0
-offset_left = 517.0
-offset_top = 427.0
-offset_right = 633.0
-offset_bottom = 553.0
-theme_override_font_sizes/font_size = 48
-text = "0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/GetCards" to="MultiplayerPlayer" method="PickUpCards"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/DeckDown" to="MultiplayerPlayer" method="PlayCard"]
+[connection signal="pressed" from="HandHolder/Buttons/GetCardsButtonContainer/GetCards" to="MultiplayerPlayer" method="PickUpCards"]
+[connection signal="pressed" from="HandHolder/Buttons/PlayCardsButtonContainer/DeckDown" to="MultiplayerPlayer" method="PlayCard"]

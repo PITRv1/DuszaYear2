@@ -18,6 +18,7 @@ public partial class MultiplayerServerGlobals : Node
         network.OnPeerConnected += OnPeerConnected;
         network.OnPeerDisconnected += OnPeerDisconnected;
         network.OnServerPacket += OnServerPacket;
+        
     }
 
     private void OnPeerConnected(int peerId)
@@ -46,12 +47,12 @@ public partial class MultiplayerServerGlobals : Node
             case PACKET_TYPES.START_GAME:
                 if (peerId != 0)
                     return;
-                Global.turnManagerInstance = new TurnManager(_peerIds);
+                if (Global.turnManagerInstance == null)
+                    Global.turnManagerInstance = new TurnManager(_peerIds);
                 Global.lobbyManagerInstance.StartGameRequest(data);
                 break;
             case PACKET_TYPES.CLIENT_READY:
                 _readyPlayers.Add(peerId);
-
                 if (_readyPlayers.Count == _peerIds.Count)
                     Global.turnManagerInstance.PrepareGame();
                 break;
@@ -67,6 +68,15 @@ public partial class MultiplayerServerGlobals : Node
                 break;
             case PACKET_TYPES.END_TURN_REQUEST:
                 Global.turnManagerInstance.ProccessEndGameRequest(data);
+                break;
+            case PACKET_TYPES.CURSOR_UPDATE:
+                foreach (var pair in Global.networkHandler._clientPeers)
+                {
+                    if (pair.Key == peerId)
+                        continue;
+
+                    pair.Value.Send(0, data, (int)ENetPacketPeer.FlagUnsequenced);
+                }
                 break;
             default:
                 GD.PushError($"Packet type with index {(PACKET_TYPES)data[0]} unhandled");
