@@ -25,7 +25,7 @@ public partial class NetworkHandler : Node
     public ENetConnection ServerConnection;
     public ENetConnection ClientConnection;
 
-    private bool _isServer;
+    public bool _isServer {private set; get;}
     private bool _isClient;
 
     public override void _Ready()

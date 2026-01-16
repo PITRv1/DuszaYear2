@@ -8,7 +8,6 @@ public partial class Multiplayer : Control
 	[Export] Control multiHostMenu;
 	[Export] Control multiJoinMenu;
 	[Export] Control playerListMenu;
-	[Export] Control playerList;
 	[Export] LineEdit gameNameText;
 	[Export] HSlider numberOfPlayersValue;
     [Export] ButtonGroup optionGroup;
@@ -32,14 +31,10 @@ public partial class Multiplayer : Control
     {
         CurrentMenu = multiTypeMenu;
 
-		Global.multiplayerClientGlobals.HandleLocalIdAssignment += Local;
-        Global.multiplayerClientGlobals.HandleRemoteIdAssignment += Remote;
-		Global.networkHandler.OnPeerDisconnected += HandleDisconnect;
+		// Global.multiplayerClientGlobals.HandleLocalIdAssignment += Local;
+        // Global.multiplayerClientGlobals.HandleRemoteIdAssignment += Remote;
+		// Global.networkHandler.OnPeerDisconnected += HandleDisconnect;
 
-		foreach (Control child in playerList.GetChildren())
-		{
-			playerList.RemoveChild(child);
-		}
     }
 
 	public void ChangeMenu(string option)
@@ -64,19 +59,17 @@ public partial class Multiplayer : Control
 				break;
 			case "select&stop":
 				ChangeMenu("select");
-
-				Global.networkHandler.StopServer();
 				Global.networkHandler.DisconnectClient();
-
+				if (Global.networkHandler._isServer) Global.networkHandler.StopServer();
 				break;
 		}
 	}
 
-	public void HandleDisconnect(int id)
-	{
-		Node label = playerList.FindChild($"Label{id}");
-		if (label != null) label.QueueFree();
-	}
+	// public void HandleDisconnect(int id)
+	// {
+	// 	Node label = playerList.FindChild($"Label{id}");
+	// 	if (label != null) label.QueueFree();
+	// }
 
 	public void HostGame()
 	{
@@ -86,15 +79,15 @@ public partial class Multiplayer : Control
 		ChangeMenu("player");
 	}
 
-	public void Local(int id)
-	{
-		AddPlayer(id);
-	}
+	// public void Local(int id)
+	// {
+	// 	AddPlayer(id);
+	// }
 
-	public void Remote(int id)
-	{
-		AddPlayer(id);
-	}
+	// public void Remote(int id)
+	// {
+	// 	AddPlayer(id);
+	// }
 
 	public void JoinGame()
 	{
@@ -102,13 +95,13 @@ public partial class Multiplayer : Control
 		ChangeMenu("player");
 	}
 
-	private void AddPlayer(int id)
-	{
-		Label playerLabel = new();
-		playerLabel.AddThemeFontSizeOverride("font_size", 60);
-		playerLabel.Text = $"Player:{id}";
-		playerLabel.Name = $"Label{id}";
-		playerList.AddChild(playerLabel);
-	}
+	// private void AddPlayer(int id)
+	// {
+	// 	Label playerLabel = new();
+	// 	playerLabel.AddThemeFontSizeOverride("font_size", 60);
+	// 	playerLabel.Text = $"Player:{id}";
+	// 	playerLabel.Name = $"Label{id}";
+	// 	playerList.AddChild(playerLabel);
+	// }
 	
 }

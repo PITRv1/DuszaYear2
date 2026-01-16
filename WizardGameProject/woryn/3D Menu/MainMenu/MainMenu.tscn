@@ -2090,7 +2090,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, -8.584115e-09, 0.9951676, 0.098190
 curve = SubResource("Curve3D_7h66l")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.9988159, -0.0083253365, 0.047506947, 4.6565185e-10, 0.9849763, 0.17260604, -0.04823139, -0.17240801, 0.9838136, -0.19095516, 0.021412373, -0.3629799)
+transform = Transform3D(0.9988159, -0.008325337, 0.047506947, 4.6565185e-10, 0.9849763, 0.17260605, -0.04823139, -0.17240803, 0.9838136, -0.19095516, 0.021412373, -0.3629799)
 tilt_enabled = false
 
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D"]
