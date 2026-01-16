@@ -11,18 +11,18 @@ public class PlayerClass
     public MultiplayerPlayerClass parent;
     public int Points { get; set; } = 0;
 
-    public PointCard chosenPointCard 
-    {
-        get
-        {
-            return chosenPointCard;
-        }
-        set
-        {
-            chosenModifierCards.Clear();
-            chosenPointCard = value;
-        }
-    }
+    public PointCard chosenPointCard ;
+    // {
+    //     get
+    //     {
+    //         return chosenPointCard;
+    //     }
+    //     set
+    //     {
+    //         chosenModifierCards.Clear();
+    //         chosenPointCard = value;
+    //     }
+    // }
     public readonly List<ModifierCard> chosenModifierCards = new();
 
     public string EffectStatus { get; }

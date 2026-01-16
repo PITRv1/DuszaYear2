@@ -24,12 +24,12 @@ public partial class TestModifierCardUi : Panel
 
 	public void RemoveCard()
 	{
-		Modulate = new Color(37, 37, 37);
+		Modulate = new Color(37 / 255f, 37 / 255f, 37 / 255f);
 	}
 
 	public void SelectCard()
 	{
-		Modulate = new Color(55, 23, 52);
+		Modulate = new Color(55f / 255f, 23f / 255f, 52f / 255f);
 	}
 
 }

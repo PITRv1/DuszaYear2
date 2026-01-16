@@ -13,6 +13,7 @@ public partial class TurnManager
 	private int CurrentRound = 1;
 	private Dictionary<int, MultiplayerPlayerClass> players;
 	private int ThrowDeckValue = 0;
+	private int roundDirection = 1;
 	// private bool RoundOver
 
 	public TurnManager(List<int> playerIds)
@@ -81,10 +82,10 @@ public partial class TurnManager
 
 	private int CalculateCardValue(int value, ModifierCard[] cards)
 	{
-		foreach (ModifierCardMultiplier modifierCard in cards)
+		foreach (ModifierCard card in cards)
 		{
-			GD.Print("PLEASE SPEED: " + modifierCard.Amount);
-			value = modifierCard.Calculate(value);
+			// GD.Print("PLEASE SPEED: " + card.Amount);
+			value = card.Calculate(value);
 		}
 
 		return value;
@@ -230,7 +231,9 @@ public partial class TurnManager
 	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards, int value)
 	{
 		int lastPlayer = currentPlayer;
-		currentPlayer++;
+
+		currentPlayer += roundDirection;
+
 		if (playerCount - 1 < currentPlayer)
 			currentPlayer = 0;
 
@@ -305,11 +308,17 @@ public partial class TurnManager
 
 		List<ModifierCard> usedCards = new List<ModifierCard>();
 
+		ModifierCard tempCard;
 		for (int i = 0; i < modifierCards.Length; i++)
 		{
-			GD.Print("BUH: " + packet.ModifCardIndexes[i]);
-			if (currPlayer.ModifCardList[packet.ModifCardIndexes[i]].ModifierType != modifierCards[i].ModifierType)
+			tempCard = currPlayer.ModifCardList[packet.ModifCardIndexes[i]];
+			
+			if (tempCard.ModifierType != modifierCards[i].ModifierType)
 				return;
+
+			if (!tempCard.IsCardModifier)
+				DealWithModifiers(tempCard);
+
 			usedCards.Add(currPlayer.ModifCardList[packet.ModifCardIndexes[i]]);
 		}
 
@@ -329,9 +338,29 @@ public partial class TurnManager
 			currPlayer.ModifCardList.RemoveAt(index);			
 		}
 
+
+
 		PickUpCards(currentPlayer);
 
 		StartNewTurn(pointCard, modifierCards, turnValue);
+	}
+
+	private void DealWithModifiers(ModifierCard card)
+	{
+		switch (card.ModifierType)
+		{
+			case MODIFIER_TYPES.SKIP:
+				
+				break;
+			case MODIFIER_TYPES.REVERSE:
+				break;
+			case MODIFIER_TYPES.GIVE_DECK_AROUND:
+				break;
+			case MODIFIER_TYPES.CHANGE_DECK:
+				break;
+
+		}
+
 	}
 
 }
