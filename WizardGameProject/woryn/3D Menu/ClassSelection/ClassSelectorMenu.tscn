@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0d5pio88bn4h"]
+[gd_scene load_steps=13 format=3 uid="uid://d0d5pio88bn4h"]
 
 [ext_resource type="Script" uid="uid://btql7gacqikrq" path="res://3D Menu/ClassSelection/ClassSelectorMenu.cs" id="1_tojxp"]
 [ext_resource type="Theme" uid="uid://bpcmtxdnr1j8c" path="res://3D Menu/ClassSelection/ClassInfo.tres" id="2_f1ptg"]
 [ext_resource type="PackedScene" uid="uid://smtqx0lfpxl7" path="res://3D Menu/DeckSelector/DeckSelector.tscn" id="2_yu6f0"]
-[ext_resource type="Texture2D" uid="uid://d1mhrhydqv47g" path="res://cursor1.png" id="3_f1ptg"]
 [ext_resource type="Theme" uid="uid://dt0m58ab3i48o" path="res://3D Menu/ClassSelection/ClassName.tres" id="3_oo0qj"]
 [ext_resource type="FontFile" uid="uid://2ie8rbcsviud" path="res://DigitalDisco.ttf" id="4_f1ptg"]
 [ext_resource type="Texture2D" uid="uid://dolie1qcf2sow" path="res://3D Menu/ClassSelection/script.png" id="4_oo0qj"]
+[ext_resource type="Texture2D" uid="uid://cjhhg47ettgey" path="res://3D Menu/ClassSelection/thief.png" id="7_xa18c"]
+[ext_resource type="Texture2D" uid="uid://th4u2inc60sp" path="res://3D Menu/ClassSelection/wizard.png" id="8_n7uxt"]
+[ext_resource type="Texture2D" uid="uid://bfu4slhr8sv54" path="res://3D Menu/ClassSelection/merchant.png" id="9_pdh68"]
+[ext_resource type="Texture2D" uid="uid://dhtw0jmaae0oe" path="res://3D Menu/ClassSelection/politician.png" id="10_pdh68"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yu6f0"]
 bg_color = Color(0.3882353, 0.3882353, 0.3882353, 0.27450982)
@@ -148,13 +151,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -24.0
-offset_right = 26.0
-offset_bottom = 24.0
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_f1ptg")
+texture = ExtResource("7_xa18c")
 
 [node name="Class2" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(230, 350)
@@ -219,13 +222,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -24.0
-offset_right = 26.0
-offset_bottom = 24.0
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_f1ptg")
+texture = ExtResource("8_n7uxt")
 
 [node name="Class3" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(230, 350)
@@ -292,13 +295,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -24.0
-offset_right = 26.0
-offset_bottom = 24.0
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_f1ptg")
+texture = ExtResource("9_pdh68")
 
 [node name="Class4" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(230, 350)
@@ -363,13 +366,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = -24.0
-offset_right = 26.0
-offset_bottom = 24.0
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_f1ptg")
+texture = ExtResource("10_pdh68")
 
 [node name="Next" type="Button" parent="."]
 visible = false
