@@ -7,11 +7,7 @@ public partial class TestUIMultiPlayer : Control
 
     public async void Host()
     {
-        Global.networkHandler.StartServer();
-        // await ToSignal(GetTree().CreateTimer(0.1f), "timeout");
-        Global.networkHandler.StartClient();
         GetTree().ChangeSceneToPacked(scene);
-        // Visible = false;
     }
     
     public void Join()

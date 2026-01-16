@@ -72,6 +72,11 @@ public partial class NetworkHandler : Node
         }
     }
 
+    public void StopServer()
+    {
+        if (ServerConnection != null) ServerConnection.Destroy();
+    }
+
     public void StartServer(string ip = "127.0.0.1", int port = 6767)
     {
         ServerConnection = new ENetConnection();
@@ -155,8 +160,7 @@ public partial class NetworkHandler : Node
 
     public void DisconnectClient()
     {
-        if (!_isClient || _serverPeer == null)
-            return;
+        if (!_isClient || _serverPeer == null) return;
 
         _serverPeer.PeerDisconnect();
     }

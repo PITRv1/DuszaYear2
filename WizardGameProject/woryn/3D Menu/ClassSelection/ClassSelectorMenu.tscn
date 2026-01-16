@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0d5pio88bn4h"]
+[gd_scene load_steps=4 format=3 uid="uid://d0d5pio88bn4h"]
 
 [ext_resource type="Texture2D" uid="uid://c55vommx8j3k" path="res://icon.svg" id="1_dmrxg"]
 [ext_resource type="Script" uid="uid://btql7gacqikrq" path="res://3D Menu/ClassSelection/ClassSelectorMenu.cs" id="1_tojxp"]
+[ext_resource type="Theme" uid="uid://dswpri3ya7fel" path="res://3D Menu/ClassSelection/ClassSelectorMenu.tres" id="2_gavo6"]
 
 [node name="ClassSelectorMenu" type="Control" node_paths=PackedStringArray("class1Description", "class2Description", "class3Description", "class4Description", "class1Icon", "class2Icon", "class3Icon", "class4Icon", "class1", "class2", "class3", "class4", "container")]
 layout_mode = 3
@@ -50,6 +51,7 @@ theme_override_constants/separation = 50
 [node name="Class1" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
+theme = ExtResource("2_gavo6")
 
 [node name="Name" type="Label" parent="CenterContainer/HBoxContainer/Class1"]
 layout_mode = 1
@@ -92,6 +94,7 @@ icon_alignment = 1
 [node name="Class2" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
+theme = ExtResource("2_gavo6")
 
 [node name="Name" type="Label" parent="CenterContainer/HBoxContainer/Class2"]
 layout_mode = 1
@@ -134,6 +137,7 @@ icon_alignment = 1
 [node name="Class3" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
+theme = ExtResource("2_gavo6")
 
 [node name="Name" type="Label" parent="CenterContainer/HBoxContainer/Class3"]
 layout_mode = 1
@@ -176,6 +180,7 @@ icon_alignment = 1
 [node name="Class4" type="Button" parent="CenterContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
+theme = ExtResource("2_gavo6")
 
 [node name="Name" type="Label" parent="CenterContainer/HBoxContainer/Class4"]
 layout_mode = 1
