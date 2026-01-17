@@ -12,6 +12,7 @@ var pipeline : RID
 func _init() -> void:
 	RenderingServer.call_on_render_thread(initialize_computer_shader)
 
+
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_PREDELETE and shader.is_valid(): 
 		RenderingServer.free_rid(shader)
