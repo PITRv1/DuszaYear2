@@ -39,7 +39,7 @@ grow_vertical = 2
 [node name="Label" type="RichTextLabel" parent="CenterContainer"]
 custom_minimum_size = Vector2(200, 180)
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "[wave freq=1][rainbow freq=0.1]modif[/rainbow][/wave]"
 fit_content = true

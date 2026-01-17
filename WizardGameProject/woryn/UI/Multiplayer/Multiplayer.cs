@@ -11,7 +11,8 @@ public partial class Multiplayer : Control
 	[Export] LineEdit gameNameText;
 	[Export] HSlider numberOfPlayersValue;
     [Export] ButtonGroup optionGroup;
-	[Export] LineEdit ipAddressInput;
+	[Export] LineEdit ipAddressInputServer;
+	[Export] LineEdit ipAddressInputClient;
 
 
 	private Control _currentMenu;
@@ -77,8 +78,8 @@ public partial class Multiplayer : Control
 
 	public void HostGame()
 	{
-		Global.networkHandler.StartServer();
-        Global.networkHandler.StartClient();
+		Global.networkHandler.StartServer(ipAddressInputServer.Text);
+        Global.networkHandler.StartClient(ipAddressInputServer.Text);
 
 		ChangeMenu("player");
 	}
@@ -95,7 +96,7 @@ public partial class Multiplayer : Control
 
 	public void JoinGame()
 	{
-        Global.networkHandler.StartClient(ipAddressInput.Text);
+        Global.networkHandler.StartClient(ipAddressInputClient.Text);
 		ChangeMenu("player");
 	}
 

@@ -94,7 +94,7 @@ public partial class NetworkHandler : Node
         GD.Print("Server stopped");
     }
 
-    public void StartServer(string ip = "0.0.0.0", int port = 6767)
+    public void StartServer(string ip = "127.0.0.1", int port = 6767)
     {
         if (ServerConnection != null)
         {
@@ -163,7 +163,7 @@ public partial class NetworkHandler : Node
         }
     }
 
-    public void StartClient(string ip = "10.11.212.215", int port = 6767)
+    public void StartClient(string ip = "127.0.0.1", int port = 6767)
     {
         ClientConnection = new ENetConnection();
         Error err = ClientConnection.CreateHost(1);
