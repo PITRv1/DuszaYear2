@@ -52,6 +52,8 @@ public partial class MultiplayerServerGlobals : Node
                 Global.lobbyManagerInstance.StartGameRequest(data);
                 break;
             case PACKET_TYPES.CLIENT_READY:
+                GD.Print("Client is ready");
+                GD.Print(_readyPlayers.Count + " --- Clients --- " + _peerIds.Count);
                 _readyPlayers.Add(peerId);
                 if (_readyPlayers.Count == _peerIds.Count)
                     Global.turnManagerInstance.PrepareGame();

@@ -310,6 +310,7 @@ mesh = SubResource("PlaneMesh_vmjp8")
 
 [connection signal="pressed" from="Control/HandHolder/Buttons/GetCardsButtonContainer/GetCards" to="MultiplayerPlayer" method="PickUpCards"]
 [connection signal="pressed" from="Control/HandHolder/Buttons/PlayCardsButtonContainer/DeckDown" to="MultiplayerPlayer" method="PlayCard"]
+[connection signal="pressed" from="Deck/DeckSelector/PLAY" to="MultiplayerPlayer" method="ClientReady"]
 
 [editable path="Deck/DeckSelector"]
 [editable path="Class/ClassSelectorMenu"]
