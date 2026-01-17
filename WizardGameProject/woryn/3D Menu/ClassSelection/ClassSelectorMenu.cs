@@ -34,6 +34,9 @@ public partial class ClassSelectorMenu : Control
     bool selected = false;
 	public override void _Ready()
 	{
+        // classselectNode = GetNode<Control>("Class");
+        // deckselectNode = GetNode<Control>("Deck");
+
         classes.Add(class1);
         classes.Add(class2);
         classes.Add(class3);
