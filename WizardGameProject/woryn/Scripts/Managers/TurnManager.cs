@@ -14,6 +14,7 @@ public partial class TurnManager
 	private Dictionary<int, MultiplayerPlayerClass> players;
 	private int ThrowDeckValue = 0;
 	private int roundDirection = 1;
+	private int skipAmount = 0;
 	// private bool RoundOver
 
 	public TurnManager(List<int> playerIds)
@@ -228,14 +229,23 @@ public partial class TurnManager
 		}
 	}
 
-	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards, int value)
+	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards, List<ModifierCard> usedCards, int value)
 	{
 		int lastPlayer = currentPlayer;
 
-		currentPlayer += roundDirection;
+		foreach (ModifierCard card in usedCards)
+			if (!card.IsCardModifier)
+					DealWithModifiers(card);
+
+		currentPlayer += roundDirection + (roundDirection * skipAmount);
+
+		skipAmount = 0;
 
 		if (playerCount - 1 < currentPlayer)
 			currentPlayer = 0;
+
+		if (currentPlayer < 0)
+			currentPlayer = playerCount - 1;
 
 		if (pointCardDeck.GetCount() == 0 && !DoPlayersHaveCards())
 		{
@@ -316,9 +326,6 @@ public partial class TurnManager
 			if (tempCard.ModifierType != modifierCards[i].ModifierType)
 				return;
 
-			if (!tempCard.IsCardModifier)
-				DealWithModifiers(tempCard);
-
 			usedCards.Add(currPlayer.ModifCardList[packet.ModifCardIndexes[i]]);
 		}
 
@@ -338,11 +345,9 @@ public partial class TurnManager
 			currPlayer.ModifCardList.RemoveAt(index);			
 		}
 
-
-
 		PickUpCards(currentPlayer);
 
-		StartNewTurn(pointCard, modifierCards, turnValue);
+		StartNewTurn(pointCard, modifierCards, usedCards, turnValue);
 	}
 
 	private void DealWithModifiers(ModifierCard card)
@@ -350,9 +355,10 @@ public partial class TurnManager
 		switch (card.ModifierType)
 		{
 			case MODIFIER_TYPES.SKIP:
-				
+				skipAmount += 1;
 				break;
 			case MODIFIER_TYPES.REVERSE:
+				roundDirection *= -1;
 				break;
 			case MODIFIER_TYPES.GIVE_DECK_AROUND:
 				break;
