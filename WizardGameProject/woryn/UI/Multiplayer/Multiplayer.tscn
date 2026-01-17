@@ -97,7 +97,6 @@ theme = ExtResource("4_fobpq")
 text = "Main Menu"
 
 [node name="Host" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -123,7 +122,8 @@ horizontal_alignment = 1
 [node name="ServerIpInput" type="LineEdit" parent="Host/Ip"]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
-placeholder_text = "game name"
+text = "127.0.0.1"
+placeholder_text = "IP address"
 
 [node name="Players" type="VBoxContainer" parent="Host"]
 layout_mode = 2
@@ -203,7 +203,7 @@ grow_vertical = 2
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 size_flags_vertical = 3
-text = "localhost"
+text = "127.0.0.1"
 placeholder_text = "IP address"
 
 [node name="Button" type="Button" parent="Join"]
