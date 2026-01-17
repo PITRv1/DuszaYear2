@@ -112,6 +112,7 @@ throwDeckValue = NodePath("../Control/HBoxContainer/MarginContainer/VBoxContaine
 shopScene = ExtResource("4_0e0ea")
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
