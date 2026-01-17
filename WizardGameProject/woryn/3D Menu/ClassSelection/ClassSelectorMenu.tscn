@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://btql7gacqikrq" path="res://3D Menu/ClassSelection/ClassSelectorMenu.cs" id="1_tojxp"]
 [ext_resource type="Theme" uid="uid://bpcmtxdnr1j8c" path="res://3D Menu/ClassSelection/ClassInfo.tres" id="2_f1ptg"]
-[ext_resource type="PackedScene" uid="uid://smtqx0lfpxl7" path="res://3D Menu/DeckSelector/DeckSelector.tscn" id="2_yu6f0"]
 [ext_resource type="Theme" uid="uid://dt0m58ab3i48o" path="res://3D Menu/ClassSelection/ClassName.tres" id="3_oo0qj"]
+[ext_resource type="Theme" uid="uid://bntwtfgxeqnya" path="res://Assets/UI/Themes/Main/UIThemeSimple.tres" id="3_pdh68"]
 [ext_resource type="FontFile" uid="uid://2ie8rbcsviud" path="res://DigitalDisco.ttf" id="4_f1ptg"]
 [ext_resource type="Texture2D" uid="uid://dolie1qcf2sow" path="res://3D Menu/ClassSelection/script.png" id="4_oo0qj"]
 [ext_resource type="Texture2D" uid="uid://cjhhg47ettgey" path="res://3D Menu/ClassSelection/thief.png" id="7_xa18c"]
@@ -37,7 +37,7 @@ expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
-[node name="ClassSelectorMenu" type="Control" node_paths=PackedStringArray("class1Description", "class2Description", "class3Description", "class4Description", "class1Icon", "class2Icon", "class3Icon", "class4Icon", "class1", "class2", "class3", "class4", "container", "title", "nextButton")]
+[node name="ClassSelectorMenu" type="Control" node_paths=PackedStringArray("class1Description", "class2Description", "class3Description", "class4Description", "class1Icon", "class2Icon", "class3Icon", "class4Icon", "class1", "class2", "class3", "class4", "container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,9 +58,6 @@ class2 = NodePath("CenterContainer/HBoxContainer/Class2")
 class3 = NodePath("CenterContainer/HBoxContainer/Class3")
 class4 = NodePath("CenterContainer/HBoxContainer/Class4")
 container = NodePath("CenterContainer/HBoxContainer")
-title = NodePath("Title")
-nextButton = NodePath("Next")
-deckselectScene = ExtResource("2_yu6f0")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -83,6 +80,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_pdh68")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2

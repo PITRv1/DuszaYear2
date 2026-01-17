@@ -5,3 +5,5 @@
 [resource]
 Label/constants/outline_size = 3
 Label/fonts/font = ExtResource("1_kxpju")
+RichTextLabel/constants/outline_size = 3
+RichTextLabel/fonts/normal_font = ExtResource("1_kxpju")
