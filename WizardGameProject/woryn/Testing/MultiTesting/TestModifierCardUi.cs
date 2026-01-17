@@ -1,11 +1,13 @@
 using Godot;
 using System;
 
-public partial class TestModifierCardUi : Panel
+public partial class TestModifierCardUi : Control
 {
-	[Export] public Label text;
+	[Export] public RichTextLabel text;
 	public ModifierCard modifierCard;
 	public PlayerClass playerClass;
+	bool isClicked = false;
+
 
 	public void HandleSelection()
 	{
@@ -20,6 +22,19 @@ public partial class TestModifierCardUi : Panel
 				SelectCard();
 			// GD.Print("Added modifier --> ", this);
 		}
+		ChangeTextColor();
+	}
+
+	private void ChangeTextColor()
+	{
+		isClicked = !isClicked;
+
+		if (isClicked) {
+			text.Modulate = Colors.Purple;
+			return;
+		}
+		
+		text.Modulate = Colors.White;
 	}
 
 	public void RemoveCard()

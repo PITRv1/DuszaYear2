@@ -1,38 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://rno5ugwb072s"]
+[gd_scene load_steps=9 format=3 uid="uid://rno5ugwb072s"]
+
+[ext_resource type="Theme" uid="uid://dkls2o1iqxlc" path="res://Assets/UI/Themes/ButtonChips/ButtonChipsYellow.tres" id="1_13x6x"]
+[ext_resource type="Theme" uid="uid://bntwtfgxeqnya" path="res://Assets/UI/Themes/Main/UIThemeSimple.tres" id="1_v4e1g"]
+[ext_resource type="Theme" uid="uid://ck3ti5q1w1p77" path="res://Assets/UI/Themes/Main/UIThemeYellow.tres" id="2_uq3wd"]
+[ext_resource type="Texture2D" uid="uid://dry7q0avshvta" path="res://Assets/UI/NineRect/background_yellow.png" id="3_yg3hr"]
 
 [sub_resource type="Theme" id="Theme_x8t4j"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6bil"]
-bg_color = Color(0, 0, 0, 1)
-border_width_top = 10
-border_width_bottom = 10
-border_color = Color(0.32915828, 0.32915843, 0.32915837, 1)
-border_blend = true
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_left = 5.0
-expand_margin_top = 5.0
-expand_margin_right = 5.0
-expand_margin_bottom = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gubnd"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.7162962, 0.71629626, 0.7162961, 1)
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
 
 [sub_resource type="Animation" id="Animation_gubnd"]
 length = 0.001
@@ -127,6 +100,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_v4e1g")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 z_index = 2
@@ -136,10 +110,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -402.0
-offset_top = -910.0
-offset_right = 402.0
-offset_bottom = -410.0
+offset_left = -466.0
+offset_top = -946.0
+offset_right = 338.0
+offset_bottom = -446.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -317,18 +291,25 @@ anchor_right = 1.0
 offset_top = -85.0
 offset_bottom = -2.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.14272314, 0.2083157, 0.38844857, 1)
-theme_override_colors/font_outline_color = Color(0.67068946, 0.6706895, 0.6706893, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 6
-theme_override_constants/outline_size = 20
-theme_override_constants/shadow_outline_size = 31
+theme = ExtResource("2_uq3wd")
 theme_override_font_sizes/font_size = 45
-theme_override_styles/normal = SubResource("StyleBoxFlat_f6bil")
 text = "PRIVATE SHOP"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Title"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_yg3hr")
+patch_margin_left = 17
+patch_margin_top = 17
+patch_margin_right = 17
+patch_margin_bottom = 17
 
 [node name="NEXT" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 40)
@@ -338,18 +319,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = 9.0
-offset_right = 50.0
-offset_bottom = 54.0
+offset_left = -114.0
+offset_top = -63.0
+offset_right = -14.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.6955033, 0.69550306, 0.6955031, 1)
-theme_override_constants/outline_size = 11
+theme = ExtResource("1_13x6x")
 theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_gubnd")
-text = "NEXT"
+text = "Next"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

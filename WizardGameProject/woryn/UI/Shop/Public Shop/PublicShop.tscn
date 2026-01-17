@@ -5,25 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cxn8hk2mjf50x" path="res://Assets/UI/NineRect/background_simple.png" id="3_p2nfc"]
 [ext_resource type="Theme" uid="uid://ck3ti5q1w1p77" path="res://Assets/UI/Themes/Main/UIThemeYellow.tres" id="4_ema2q"]
 [ext_resource type="Texture2D" uid="uid://dry7q0avshvta" path="res://Assets/UI/NineRect/background_yellow.png" id="5_ema2q"]
+[ext_resource type="Theme" uid="uid://dkls2o1iqxlc" path="res://Assets/UI/Themes/ButtonChips/ButtonChipsYellow.tres" id="6_4ol5o"]
 
 [sub_resource type="Theme" id="Theme_x8t4j"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gubnd"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.7162962, 0.71629626, 0.7162961, 1)
-border_blend = true
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
 
 [sub_resource type="Animation" id="Animation_gubnd"]
 length = 0.001
@@ -525,15 +509,12 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -114.0
 offset_top = -63.0
-offset_right = -14.0
-offset_bottom = -18.0
+offset_right = 16.0
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.6955033, 0.69550306, 0.6955031, 1)
-theme_override_constants/outline_size = 11
+theme = ExtResource("6_4ol5o")
 theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_gubnd")
 text = "Next"
 
 [node name="Timer" type="Timer" parent="."]

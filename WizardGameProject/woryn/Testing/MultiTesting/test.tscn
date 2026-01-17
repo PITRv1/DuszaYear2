@@ -133,8 +133,8 @@ alignment = 2
 layout_mode = 2
 alignment = 1
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control/HBoxContainer2/VBoxContainer2"]
-custom_minimum_size = Vector2(100, 200)
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(100, 170)
 layout_mode = 2
 texture = ExtResource("8_38utj")
 patch_margin_left = 17
@@ -206,14 +206,16 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 2
 
-[node name="HBox" type="HBoxContainer" parent="Control/HandHolder/CardContainers"]
+[node name="HBox" type="HBoxContainer" parent="HandHolder/CardContainers"]
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_constants/separation = 40
 
 [node name="PointCards" type="HBoxContainer" parent="Control/HandHolder/CardContainers/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 2
 
 [node name="ModifCards" type="HBoxContainer" parent="Control/HandHolder/CardContainers/HBox"]
 layout_mode = 2

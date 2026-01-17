@@ -41,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://b2227kcfw7pq6" path="res://Assets/models/Glasses.glb" id="34_ec83f"]
 [ext_resource type="Texture2D" uid="uid://ckplquym6441h" path="res://Assets/textures/images/tree.png" id="34_pia1e"]
 [ext_resource type="PackedScene" uid="uid://c2k6nsl18gala" path="res://Assets/models/Glass.glb" id="36_0m35x"]
+[ext_resource type="Theme" uid="uid://bntwtfgxeqnya" path="res://Assets/UI/Themes/Main/UIThemeSimple.tres" id="37_fxvwu"]
 [ext_resource type="PackedScene" uid="uid://c60xgno2h8tii" path="res://Assets/models/BarChair.glb" id="37_syikk"]
 [ext_resource type="PackedScene" uid="uid://bm74p1qti2dtg" path="res://Assets/models/BarTap.glb" id="38_alyo5"]
 [ext_resource type="PackedScene" uid="uid://b6fjsdtac502n" path="res://Assets/models/Table.glb" id="39_0m35x"]
@@ -3178,6 +3179,7 @@ offset_right = 182.0
 offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("37_fxvwu")
 theme_override_constants/outline_size = 15
 theme_override_font_sizes/normal_font_size = 31
 bbcode_enabled = true
