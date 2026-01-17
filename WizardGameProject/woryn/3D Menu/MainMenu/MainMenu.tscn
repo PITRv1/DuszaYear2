@@ -2768,6 +2768,7 @@ shape = SubResource("ConvexPolygonShape3D_3fqde")
 shape = SubResource("ConvexPolygonShape3D_dagtw")
 
 [node name="AllOfTheLight" type="Node3D" parent="."]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="AllOfTheLight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9846569, 4.585215, 0.8597431)
