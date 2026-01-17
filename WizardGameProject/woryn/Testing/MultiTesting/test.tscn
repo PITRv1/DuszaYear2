@@ -256,8 +256,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DeckSelector" parent="Deck" instance=ExtResource("6_2b2c1")]
+[node name="DeckSelector" parent="Deck" node_paths=PackedStringArray("playerScene") instance=ExtResource("6_2b2c1")]
 layout_mode = 1
+playerScene = NodePath("../../Control")
 
 [node name="Class" type="Control" parent="."]
 layout_mode = 1
@@ -267,8 +268,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ClassSelectorMenu" parent="Class" instance=ExtResource("7_k7yxf")]
+[node name="ClassSelectorMenu" parent="Class" node_paths=PackedStringArray("deckselectNode", "classselectNode") instance=ExtResource("7_k7yxf")]
 layout_mode = 1
+deckselectNode = NodePath("../../Deck")
+classselectNode = NodePath("..")
 
 [node name="3DBGIG" type="Node3D" parent="."]
 
