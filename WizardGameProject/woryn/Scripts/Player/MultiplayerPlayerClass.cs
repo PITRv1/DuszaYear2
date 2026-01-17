@@ -24,6 +24,7 @@ public partial class MultiplayerPlayerClass : Node
         Global.multiplayerClientGlobals.HandleTurnInfo += playerClass.ProccessTurnInfoPacket;
         Global.multiplayerClientGlobals.HandlePickUpCardAnswer += playerClass.ProccessPickUpAnswer;
         Global.multiplayerClientGlobals.HandlePickUpCardAnswer += Burger;
+        Global.multiplayerClientGlobals.HandleDeckSwap += playerClass.HandleDeckSwap;
 
         Global.multiplayerClientGlobals.ShopScene += GoToShop;
 
@@ -126,6 +127,11 @@ public partial class MultiplayerPlayerClass : Node
         Global.networkHandler._serverPeer?.Send(0, packet.Encode(), (int)ENetPacketPeer.FlagReliable);
     }
 
+    public void PlayAbilityRequest()
+    {
+        
+    }
+
     public void AddPointToContainer(PointCard pointCard)
     {
         TestPointCardUi test = pointCardUI.Instantiate() as TestPointCardUi;
@@ -142,7 +148,22 @@ public partial class MultiplayerPlayerClass : Node
         switch (card.ModifierType)
         {
             case MODIFIER_TYPES.MULTIPLIER:
-                test.text.Text = $"{(card as ModifierCardMultiplier).Amount}";
+                test.text.Text = $"*{(card as ModifierCardMultiplier).Amount}";
+                test.modifierCard = card;
+                test.playerClass = playerClass;
+                break;
+            case MODIFIER_TYPES.ADDITION:
+                test.text.Text = $"+{(card as ModifierCardAddition).Amount}";
+                test.modifierCard = card;
+                test.playerClass = playerClass;
+                break;
+            case MODIFIER_TYPES.SKIP:
+                test.text.Text = "Skip";
+                test.modifierCard = card;
+                test.playerClass = playerClass;
+                break;
+            case MODIFIER_TYPES.REVERSE:
+                test.text.Text = "Reverse";
                 test.modifierCard = card;
                 test.playerClass = playerClass;
                 break;

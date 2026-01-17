@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 
 public partial class TurnManager
@@ -13,6 +14,8 @@ public partial class TurnManager
 	private int CurrentRound = 1;
 	private Dictionary<int, MultiplayerPlayerClass> players;
 	private int ThrowDeckValue = 0;
+	private int roundDirection = 1;
+	private int skipAmount = 0;
 	// private bool RoundOver
 
 	public TurnManager(List<int> playerIds)
@@ -81,10 +84,10 @@ public partial class TurnManager
 
 	private int CalculateCardValue(int value, ModifierCard[] cards)
 	{
-		foreach (ModifierCardMultiplier modifierCard in cards)
+		foreach (ModifierCard card in cards)
 		{
-			GD.Print("PLEASE SPEED: " + modifierCard.Amount);
-			value = modifierCard.Calculate(value);
+			// GD.Print("PLEASE SPEED: " + card.Amount);
+			value = card.Calculate(value);
 		}
 
 		return value;
@@ -116,6 +119,20 @@ public partial class TurnManager
 		{
 			packet.Send(peer);
 		}
+	}
+
+	public void PlayPlayerAbility(byte[] data)
+	{
+		PlayAbility packet = PlayAbility.CreateFromData(data);
+
+		if (packet.SenderId != currentPlayer)
+		{
+			GD.Print("NOT YOUR TURN");
+			return;
+		}
+
+		
+
 	}
 
 	public void PickUpCards(int id)
@@ -213,12 +230,23 @@ public partial class TurnManager
 		}
 	}
 
-	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards, int value)
+	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards, List<ModifierCard> usedCards, int value)
 	{
 		int lastPlayer = currentPlayer;
-		currentPlayer++;
+
+		foreach (ModifierCard card in usedCards)
+			if (!card.IsCardModifier)
+				DealWithModifiers(card);
+
+		currentPlayer += roundDirection + (roundDirection * skipAmount);
+
+		skipAmount = 0;
+
 		if (playerCount - 1 < currentPlayer)
 			currentPlayer = 0;
+
+		if (currentPlayer < 0)
+			currentPlayer = playerCount - 1;
 
 		if (pointCardDeck.GetCount() == 0 && !DoPlayersHaveCards())
 		{
@@ -266,6 +294,58 @@ public partial class TurnManager
 		}
 	}
 
+	public void SwapDeck(int playerOne, int playerTwo = -1)
+	{
+		PlayerClass plOne = players[playerOne].playerClass;
+		PlayerClass plTwo;
+		List<PointCard> tempPointCards = plOne.PointCardList;
+		List<ModifierCard> tempModifierCards = plOne.ModifCardList;
+
+		if (playerTwo == -1)
+		{
+			RandomNumberGenerator rng = new RandomNumberGenerator();
+			do
+				playerTwo = rng.RandiRange(0, playerCount - 1);
+			while (playerTwo == playerOne);
+		}
+
+		plTwo = players[playerTwo].playerClass;
+
+		plOne.PointCardList = plTwo.PointCardList;
+		plOne.ModifCardList = plTwo.ModifCardList;
+
+		plTwo.PointCardList = tempPointCards;
+		plTwo.ModifCardList = tempModifierCards;
+	}
+
+	public void SwapDeckAround()
+	{
+		int start = roundDirection == 1 ? 0 : playerCount - 1;
+		int end   = roundDirection == 1 ? playerCount - 1 : 0;
+
+		var savedPointCards = players[start].playerClass.PointCardList;
+		var savedModifierCards = players[start].playerClass.ModifCardList;
+
+		int curr = start;
+
+		while (curr != end)
+		{
+			int next = curr + roundDirection;
+
+			players[curr].playerClass.PointCardList =
+				players[next].playerClass.PointCardList;
+
+			players[curr].playerClass.ModifCardList =
+				players[next].playerClass.ModifCardList;
+
+			curr = next;
+		}
+
+		players[end].playerClass.PointCardList = savedPointCards;
+		players[end].playerClass.ModifCardList = savedModifierCards;
+	}
+
+
 	public void ProccessEndGameRequest(byte[] data)
 	{
 		GD.Print("EDDIG");
@@ -291,11 +371,14 @@ public partial class TurnManager
 
 		List<ModifierCard> usedCards = new List<ModifierCard>();
 
+		ModifierCard tempCard;
 		for (int i = 0; i < modifierCards.Length; i++)
 		{
-			GD.Print("BUH: " + packet.ModifCardIndexes[i]);
-			if (currPlayer.ModifCardList[packet.ModifCardIndexes[i]].ModifierType != modifierCards[i].ModifierType)
+			tempCard = currPlayer.ModifCardList[packet.ModifCardIndexes[i]];
+			
+			if (tempCard.ModifierType != modifierCards[i].ModifierType)
 				return;
+
 			usedCards.Add(currPlayer.ModifCardList[packet.ModifCardIndexes[i]]);
 		}
 
@@ -317,7 +400,28 @@ public partial class TurnManager
 
 		PickUpCards(currentPlayer);
 
-		StartNewTurn(pointCard, modifierCards, turnValue);
+		StartNewTurn(pointCard, modifierCards, usedCards, turnValue);
+	}
+
+	private void DealWithModifiers(ModifierCard card)
+	{
+		switch (card.ModifierType)
+		{
+			case MODIFIER_TYPES.SKIP:
+				skipAmount += 1;
+				break;
+			case MODIFIER_TYPES.REVERSE:
+				roundDirection *= -1;
+				break;
+			case MODIFIER_TYPES.GIVE_DECK_AROUND:
+				SwapDeckAround();
+				break;
+			case MODIFIER_TYPES.CHANGE_DECK:
+				SwapDeck(currentPlayer);
+				break;
+
+		}
+
 	}
 
 }

@@ -1,18 +1,30 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 public class PlayerClass
 {
-    public List<PointCard> PointCardList { get; }
-    public List<ModifierCard> ModifCardList { get; }
+    public List<PointCard> PointCardList { get; set; }
+    public List<ModifierCard> ModifCardList { get; set; }
     public PlayerClassInterface ChoosenClass { get; }
     public ModifierCardDeck modifierCardDeck { get; }
     public MultiplayerPlayerClass parent;
     public int Points { get; set; } = 0;
 
-    public PointCard chosenPointCard;
-    public List<ModifierCard> chosenModifierCards = new();
+    public PointCard chosenPointCard ;
+    // {
+    //     get
+    //     {
+    //         return chosenPointCard;
+    //     }
+    //     set
+    //     {
+    //         chosenModifierCards.Clear();
+    //         chosenPointCard = value;
+    //     }
+    // }
+    public readonly List<ModifierCard> chosenModifierCards = new();
 
     public string EffectStatus { get; }
     
@@ -24,6 +36,64 @@ public class PlayerClass
         modifierCardDeck = new ModifierCardDeck();
         modifierCardDeck.GenerateDeck();
     }
+
+    public void HandleDeckSwap(byte[] data)
+    {
+        DeckSwap packet = DeckSwap.CreateFromData(data);
+
+        SetPointCardDeck(packet.PointCards);
+        SetModifierCards(packet.ModifierCards);
+    }
+
+    public void HandleDeckSwap(List<PointCard> pointCards, List<ModifierCard> modifierCards)
+    {
+        SetPointCardDeck(pointCards);
+        SetModifierCards(modifierCards);
+    }
+
+    public void SetPointCardDeck(PointCard[] cards)
+    {
+        PointCardList.Clear();
+
+        foreach (PointCard pointCard in cards)
+            PointCardList.Add(pointCard);
+    }
+
+    public void SetModifierCards(ModifierCard[] cards)
+    {
+        ModifCardList.Clear();
+
+        foreach (ModifierCard modifierCard in cards)
+            ModifCardList.Add(modifierCard);
+    }
+
+    public void SetPointCardDeck(List<PointCard> cards)
+    {
+        PointCardList.Clear();
+
+        foreach (PointCard pointCard in cards)
+            PointCardList.Add(pointCard);
+    }
+
+    public void SetModifierCards(List<ModifierCard> cards)
+    {
+        ModifCardList.Clear();
+
+        foreach (ModifierCard modifierCard in cards)
+            ModifCardList.Add(modifierCard);
+    }
+
+    public bool AddToChosenModifierCards(ModifierCard card)
+    {
+        if (chosenPointCard == null)
+            return false;
+        if (chosenModifierCards.Count >= (int)chosenPointCard.CardRarity)
+            return false;
+        
+        chosenModifierCards.Add(card);
+        return true;
+    }
+
     public void DecreaseCooldown()
     {
         ChoosenClass.ActiveCooldown--;

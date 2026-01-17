@@ -11,4 +11,6 @@ public enum PACKET_TYPES
     CLIENT_READY = 8,
     CURSOR_UPDATE = 9,
     SHOP_SCENE_CHANGE = 10,
+    PLAY_ABLITIY = 11,
+    DECK_SWAP = 12,
 }

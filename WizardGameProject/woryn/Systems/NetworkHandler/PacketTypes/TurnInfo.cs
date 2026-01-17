@@ -10,7 +10,6 @@ public partial class TurnInfoPacket : PacketInfo
 	public int MaxValue;
 	public int ThrowDeckValue;
 	public int CurrentPointValue;
-
 	public TurnInfoPacket()
 	{
 		PacketType = PACKET_TYPES.TURN_INFO;

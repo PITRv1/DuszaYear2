@@ -2,14 +2,14 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class PickUpCardAnswer : PacketInfo
+public partial class DeckSwap : PacketInfo
 {
 	public PointCard[] PointCards;
 	public ModifierCard[] ModifierCards;
 	
-	public PickUpCardAnswer()
+	public DeckSwap()
 	{
-		PacketType = PACKET_TYPES.PICK_UP_CARD_ANSWER;
+		PacketType = PACKET_TYPES.DECK_SWAP;
 	}
 
 	public override byte[] Encode()
@@ -39,9 +39,9 @@ public partial class PickUpCardAnswer : PacketInfo
 		return data.ToArray();
     }
 
-	public static PickUpCardAnswer CreateFromData(byte[] data)
+	public static DeckSwap CreateFromData(byte[] data)
 	{
-		PickUpCardAnswer packet = new PickUpCardAnswer();
+		DeckSwap packet = new DeckSwap();
 		int index = 1;
 
 		int PointCardsLength = data[index];
