@@ -54,6 +54,7 @@ public partial class ClassSelectorMenu : Control
             GD.Print($"Class selected --> {selectedClass.Name}");
             selected = false;
         }
+
 	}
     private void ClassSelected(Button selectedClass)
     {
