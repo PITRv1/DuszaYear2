@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://1tvmqvajxg62"]
+[gd_scene load_steps=26 format=3 uid="uid://1tvmqvajxg62"]
 
 [ext_resource type="Theme" uid="uid://bntwtfgxeqnya" path="res://Assets/UI/Themes/Main/UIThemeSimple.tres" id="1_c8k3l"]
 [ext_resource type="PackedScene" uid="uid://bxs0hn6508qbt" path="res://Testing/MultiTesting/multiplayer_player.tscn" id="1_jwek8"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://c7ifawlapypu5" path="res://Assets/rogland_clear_night_1k.hdr" id="11_gv0l0"]
 [ext_resource type="Script" uid="uid://ca0pr2up27plw" path="res://Assets/compEffeckt/pixelization_shader.gd" id="12_12dsr"]
 [ext_resource type="Script" uid="uid://dqlwg2rtn14oa" path="res://Assets/compEffeckt/quantization_shader.gd" id="13_kcwk8"]
-[ext_resource type="PackedScene" uid="uid://c076pdwrupy0v" path="res://3D Menu/MainMenu/MainMenuEnvironment.glb" id="14_sdsio"]
 [ext_resource type="PackedScene" uid="uid://ccf0q8umdew7p" path="res://Assets/models/aztal.glb" id="15_kcwk8"]
 [ext_resource type="PackedScene" uid="uid://813a71lqqufe" path="res://Assets/models/Chair.glb" id="16_sdsio"]
 
@@ -257,9 +256,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DeckSelector" parent="Deck" node_paths=PackedStringArray("playerScene") instance=ExtResource("6_2b2c1")]
+[node name="DeckSelector" parent="Deck" instance=ExtResource("6_2b2c1")]
 layout_mode = 1
-playerScene = NodePath("../../Control")
 
 [node name="Class" type="Control" parent="."]
 layout_mode = 1
@@ -269,19 +267,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ClassSelectorMenu" parent="Class" node_paths=PackedStringArray("deckselectNode", "classselectNode") instance=ExtResource("7_k7yxf")]
+[node name="ClassSelectorMenu" parent="Class" instance=ExtResource("7_k7yxf")]
 layout_mode = 1
-deckselectNode = NodePath("../../Deck")
-classselectNode = NodePath("..")
 
 [node name="3DBGIG" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DBGIG"]
 environment = SubResource("Environment_eh8se")
 compositor = SubResource("Compositor_261r0")
-
-[node name="MainMenuEnvironment" parent="3DBGIG" instance=ExtResource("14_sdsio")]
-visible = false
 
 [node name="Camera3D" type="Camera3D" parent="3DBGIG"]
 transform = Transform3D(0.32195166, -0.86433256, 0.3863631, -1.2731212e-08, 0.40809146, 0.91294104, -0.9467561, -0.29392287, 0.1313857, 29.597992, 34.3471, 95.71052)
