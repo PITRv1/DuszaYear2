@@ -13,6 +13,7 @@ public partial class DeckSelector : Control
     [Export] Button startGameButton;
     [Export] Label title;
     [Export] Control playerScene;
+    [Export] Control deckselectScene;
 
     List<Button> mDecks = new List<Button>();
 
@@ -48,7 +49,7 @@ public partial class DeckSelector : Control
     private void OnStartGamePressed()
     {
         GD.Print("Game Started");
-        this.Visible = false;
+        deckselectScene.Visible = false;
         playerScene.Visible = true;
     }
 	private void OnMDeck1Pressed()

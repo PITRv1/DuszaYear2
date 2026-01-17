@@ -258,9 +258,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DeckSelector" parent="Deck" node_paths=PackedStringArray("playerScene") instance=ExtResource("6_2b2c1")]
+[node name="DeckSelector" parent="Deck" node_paths=PackedStringArray("playerScene", "deckselectScene") instance=ExtResource("6_2b2c1")]
 layout_mode = 1
 playerScene = NodePath("../../Control")
+deckselectScene = NodePath("..")
 
 [node name="Class" type="Control" parent="."]
 layout_mode = 1
