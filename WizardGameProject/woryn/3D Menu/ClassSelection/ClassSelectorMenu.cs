@@ -24,7 +24,9 @@ public partial class ClassSelectorMenu : Control
     [Export] Label title;
 
     [Export] Button nextButton;
-    [Export] PackedScene deckselectScene;
+    [Export] Control deckselectNode;
+    [Export] Control classselectNode;
+    
 
     List<Button> classes = new List<Button>();
 
@@ -73,7 +75,9 @@ public partial class ClassSelectorMenu : Control
 
     private void OnNextButtonPressed()
     {
-        GetTree().ChangeSceneToPacked(deckselectScene);
+        // GetTree().ChangeSceneToPacked(deckselectScene);
+        classselectNode.Visible = false;
+        deckselectNode.Visible = true;
     }
 
     //Class selection

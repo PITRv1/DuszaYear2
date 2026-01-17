@@ -12,6 +12,7 @@ public partial class DeckSelector : Control
     [Export] HBoxContainer container;
     [Export] Button startGameButton;
     [Export] Label title;
+    [Export] Control playerScene;
 
     List<Button> mDecks = new List<Button>();
 
@@ -47,7 +48,8 @@ public partial class DeckSelector : Control
     private void OnStartGamePressed()
     {
         GD.Print("Game Started");
-        this.QueueFree();
+        this.Visible = false;
+        playerScene.Visible = true;
     }
 	private void OnMDeck1Pressed()
 	{
