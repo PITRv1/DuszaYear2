@@ -9,11 +9,15 @@ public class CAlchemist : PlayerClassInterface
     public PlayerClass Parent { get; set; }
     public void UseActive()
     {
+        //ki kéne választani a handbol egy kartyat ami lega lessz;
+
+
         if (Parent.chosenPointCard!=null)
             Parent.chosenPointCard.CardRarity = CardRaritiesEnum.LEGENDARY;
     }
     public void UsePassive()
     {
         //még nincs passive countdown 
+        
     }
 }

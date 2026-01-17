@@ -13,6 +13,7 @@ public partial class TurnManager
 	private int CurrentRound = 1;
 	private Dictionary<int, MultiplayerPlayerClass> players;
 	private int ThrowDeckValue = 0;
+	public bool throwDeckPulled = false;
 
 	public TurnManager(List<int> playerIds)
 	{
@@ -211,7 +212,7 @@ public partial class TurnManager
 			currentMaxValue = 0;
 			return;
 		}
-
+		
 		if (CalculateCardValue(GetCardListValues(players[currentPlayer].playerClass.PointCardList).Max(), players[currentPlayer].playerClass.ModifCardList.ToArray()) <= value)
 		{
 			GD.Print("It's over");
@@ -219,9 +220,11 @@ public partial class TurnManager
 			players[lastPlayer].playerClass.Points += ThrowDeckValue;
 			ThrowDeckValue = 0;
 			currentMaxValue = 0;
+			throwDeckPulled=true;
 		}
 		else
 		{
+			throwDeckPulled=false;
 			ThrowDeckValue += value;
 			currentMaxValue = value;
 		}
