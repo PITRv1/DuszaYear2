@@ -37,10 +37,10 @@ public partial class LobbyPlayer : Node
 	{
 		NewPlayer packet = NewPlayer.CreateFromData(data);
 
-		// for (int i = lobbyBackground.GetChildCount() - 1; i >= 0; i--)
-		// {
-		// 	lobbyBackground.RemoveChild(lobbyBackground.GetChild(i));
-		// }
+		for (int i = lobbyBackground.GetChildCount() - 1; i >= 0; i--)
+		{
+			lobbyBackground.RemoveChild(lobbyBackground.GetChild(i));
+		}
 
 		foreach (byte player in packet.playerArray)
 		{
