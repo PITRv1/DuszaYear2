@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://55v7sb1b3h2s"]
+[gd_scene load_steps=0 format=3 uid="uid://55v7sb1b3h2s"]
 
 [node name="Cursor" type="Panel"]
 offset_left = 500.0

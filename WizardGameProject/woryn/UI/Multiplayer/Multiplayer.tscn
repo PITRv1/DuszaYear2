@@ -1,31 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://be6l3tabm2s5j"]
+[gd_scene load_steps=9 format=3 uid="uid://be6l3tabm2s5j"]
 
-[ext_resource type="Script" uid="uid://gsf0ufqx1d78" path="res://UI/Multiplayer/MultiType.cs" id="1_sg7kr"]
+[ext_resource type="Theme" uid="uid://bjomj0kutkhks" path="res://Assets/UI/Themes/Main/UIThemeGreen.tres" id="1_f40x6"]
+[ext_resource type="Script" uid="uid://cbmpbge5cjt4m" path="res://UI/Multiplayer/Multiplayer.cs" id="2_akir0"]
 [ext_resource type="ButtonGroup" uid="uid://c8lhp1s2lwvyu" path="res://UI/Multiplayer/MultiGameTypeButtonGroup.tres" id="4_f40x6"]
+[ext_resource type="Theme" uid="uid://dwothogalvoiq" path="res://Assets/UI/Themes/ButtonChips/ButtonChipsGreen.tres" id="4_fobpq"]
+[ext_resource type="Texture2D" uid="uid://738aakqtt7x8" path="res://Assets/UI/NineRect/Background_green.png" id="5_fobpq"]
+[ext_resource type="Script" uid="uid://iy4wp1ypdx84" path="res://Testing/MultiTesting/LobbyPlayer.cs" id="6_akir0"]
+[ext_resource type="PackedScene" uid="uid://dcvukxwbsb0xg" path="res://Testing/MultiTesting/player_fein.tscn" id="7_amu5d"]
+[ext_resource type="PackedScene" uid="uid://1tvmqvajxg62" path="res://Testing/MultiTesting/test.tscn" id="8_61xkh"]
 
-[node name="Multiplayer" type="Control"]
+[node name="Multiplayer" type="Control" node_paths=PackedStringArray("multiTypeMenu", "multiHostMenu", "multiJoinMenu", "playerListMenu", "gameNameText", "numberOfPlayersValue")]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_f40x6")
+script = ExtResource("2_akir0")
+multiTypeMenu = NodePath("MultiType")
+multiHostMenu = NodePath("Host")
+multiJoinMenu = NodePath("Join")
+playerListMenu = NodePath("PlayersList")
+gameNameText = NodePath("Host/Name/TextEdit")
+numberOfPlayersValue = NodePath("Host/Players/Players")
+optionGroup = ExtResource("4_f40x6")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -31.0
-offset_right = 31.0
-offset_bottom = 23.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
 grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 80
 text = "Multiplayer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MultiType" type="HBoxContainer" parent="." node_paths=PackedStringArray("hostButton", "joinButton", "hostMenu", "gameNameText", "numberOfPlayersValue")]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(339.38, 500)
+layout_mode = 2
+texture = ExtResource("5_fobpq")
+patch_margin_left = 17
+patch_margin_top = 17
+patch_margin_right = 17
+patch_margin_bottom = 17
+
+[node name="MultiType" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,27 +68,30 @@ anchor_bottom = 0.5
 offset_left = -152.0
 offset_top = -121.0
 offset_right = 152.0
-offset_bottom = -81.0
+offset_bottom = -77.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_fobpq")
+theme_override_constants/separation = 40
 alignment = 1
-script = ExtResource("1_sg7kr")
-hostButton = NodePath("HOST")
-joinButton = NodePath("JOIN")
-hostMenu = NodePath("../Host")
-gameNameText = NodePath("../Host/Name/TextEdit")
-numberOfPlayersValue = NodePath("../Host/Players/Players")
-optionGroup = ExtResource("4_f40x6")
 
-[node name="HOST" type="Button" parent="MultiType"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MultiType"]
+layout_mode = 2
+
+[node name="Host" type="Button" parent="MultiType/VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Host"
 
-[node name="JOIN" type="Button" parent="MultiType"]
+[node name="Join" type="Button" parent="MultiType/VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Join"
+
+[node name="BackButton" type="Button" parent="MultiType"]
+layout_mode = 2
+theme = ExtResource("4_fobpq")
+text = "Main Menu"
 
 [node name="Host" type="VBoxContainer" parent="."]
 visible = false
@@ -81,7 +117,7 @@ layout_mode = 2
 text = "Game name"
 horizontal_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="Host/Name"]
+[node name="TextEdit" type="LineEdit" parent="Host/Name"]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 placeholder_text = "game name"
@@ -106,44 +142,47 @@ layout_mode = 2
 [node name="Types" type="HBoxContainer" parent="Host/GameType"]
 layout_mode = 2
 
-[node name="LAN" type="CheckBox" parent="Host/GameType/Types"]
+[node name="Lan" type="CheckBox" parent="Host/GameType/Types"]
 custom_minimum_size = Vector2(70, 30)
 layout_mode = 2
+button_pressed = true
 button_group = ExtResource("4_f40x6")
-text = "LAN"
+text = "Local"
 
-[node name="PRIVATE" type="CheckBox" parent="Host/GameType/Types"]
+[node name="Private" type="CheckBox" parent="Host/GameType/Types"]
 custom_minimum_size = Vector2(70, 30)
 layout_mode = 2
 button_group = ExtResource("4_f40x6")
-text = "PRIVATE"
+text = "Private"
 
-[node name="PUBLIC" type="CheckBox" parent="Host/GameType/Types"]
+[node name="Public" type="CheckBox" parent="Host/GameType/Types"]
 custom_minimum_size = Vector2(70, 30)
 layout_mode = 2
 button_group = ExtResource("4_f40x6")
-text = "PUBLIC"
+text = "Public"
 
 [node name="ExtraSettings" type="VBoxContainer" parent="Host"]
 layout_mode = 2
 
 [node name="Settings" type="OptionButton" parent="Host/ExtraSettings"]
 layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "Extra settings (not implemented)"
+popup/item_0/id = 0
 
 [node name="Create" type="Button" parent="Host"]
 layout_mode = 2
-text = "Create the game"
+theme = ExtResource("4_fobpq")
+text = "Create"
 
-[node name="BackToSelectAction" type="Button" parent="Host"]
+[node name="BackButton" type="Button" parent="Host"]
 layout_mode = 2
-text = "BACK"
+theme = ExtResource("4_fobpq")
+text = "Back"
 
-[node name="PlayersList" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Join" type="HBoxContainer" parent="."]
+[node name="Join" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -157,7 +196,62 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="pressed" from="MultiType/HOST" to="MultiType" method="OnHostPressed"]
-[connection signal="pressed" from="MultiType/JOIN" to="MultiType" method="OnJoinPressed"]
-[connection signal="pressed" from="Host/Create" to="MultiType" method="OnCreatePressed"]
-[connection signal="pressed" from="Host/BackToSelectAction" to="MultiType" method="OnBackPressed"]
+[node name="LineEdit" type="LineEdit" parent="Join"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "IP address"
+
+[node name="Button" type="Button" parent="Join"]
+layout_mode = 2
+theme = ExtResource("4_fobpq")
+text = "Join"
+
+[node name="BackButton" type="Button" parent="Join"]
+layout_mode = 2
+theme = ExtResource("4_fobpq")
+text = "Back"
+
+[node name="PlayersList" type="VBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="List" type="VBoxContainer" parent="PlayersList"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="StartButton" type="Button" parent="PlayersList"]
+layout_mode = 2
+theme = ExtResource("4_fobpq")
+text = "Start Game"
+
+[node name="BackButton" type="Button" parent="PlayersList"]
+layout_mode = 2
+theme = ExtResource("4_fobpq")
+text = "Back"
+
+[node name="LobbyPlayer" type="Node" parent="PlayersList" node_paths=PackedStringArray("lobbyBackground")]
+script = ExtResource("6_akir0")
+lobbyPlayer = ExtResource("7_amu5d")
+scene = ExtResource("8_61xkh")
+lobbyBackground = NodePath("../List")
+
+[connection signal="pressed" from="MultiType/VBoxContainer/Host" to="." method="ChangeMenu" binds= ["host"]]
+[connection signal="pressed" from="MultiType/VBoxContainer/Join" to="." method="ChangeMenu" binds= ["join"]]
+[connection signal="pressed" from="MultiType/BackButton" to="." method="ChangeMenu" binds= ["main"]]
+[connection signal="pressed" from="Host/Create" to="." method="HostGame"]
+[connection signal="pressed" from="Host/BackButton" to="." method="ChangeMenu" binds= ["select"]]
+[connection signal="pressed" from="Join/Button" to="." method="JoinGame"]
+[connection signal="pressed" from="Join/BackButton" to="." method="ChangeMenu" binds= ["select"]]
+[connection signal="pressed" from="PlayersList/StartButton" to="PlayersList/LobbyPlayer" method="StartGameRequest"]
+[connection signal="pressed" from="PlayersList/BackButton" to="." method="ChangeMenu" binds= ["select"]]

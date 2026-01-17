@@ -25,7 +25,7 @@ public partial class NetworkHandler : Node
     public ENetConnection ServerConnection;
     public ENetConnection ClientConnection;
 
-    private bool _isServer;
+    public bool _isServer {private set; get;}
     private bool _isClient;
 
     public override void _Ready()
@@ -72,8 +72,36 @@ public partial class NetworkHandler : Node
         }
     }
 
+    public void StopServer()
+    {
+        if (!_isServer || ServerConnection == null) return;
+
+        GD.Print("Stopping server...");
+
+        foreach (var peer in _clientPeers.Values) peer.PeerDisconnect();
+        
+
+        _clientPeers.Clear();
+        _availablePeerIds.Clear();
+
+        for (int i = 255; i >= 0; i--) _availablePeerIds.Push(i);
+
+        ServerConnection.Destroy();
+        ServerConnection = null;
+
+        _isServer = false;
+
+        GD.Print("Server stopped");
+    }
+
     public void StartServer(string ip = "127.0.0.1", int port = 6767)
     {
+        if (ServerConnection != null)
+        {
+            GD.Print("Server is already running!");
+            return;
+        }
+
         ServerConnection = new ENetConnection();
         Error err = ServerConnection.CreateHostBound(ip, port);
 
@@ -155,8 +183,7 @@ public partial class NetworkHandler : Node
 
     public void DisconnectClient()
     {
-        if (!_isClient || _serverPeer == null)
-            return;
+        if (!_isClient || _serverPeer == null) return;
 
         _serverPeer.PeerDisconnect();
     }

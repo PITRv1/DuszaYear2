@@ -1,0 +1,231 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpq8h3uh20740"]
+
+[ext_resource type="Script" uid="uid://db52mufcfk785" path="res://UI/Shop/Public Shop/PublicShopEnd.cs" id="1_gw7n2"]
+[ext_resource type="Texture2D" uid="uid://c55vommx8j3k" path="res://icon.svg" id="1_nh3o7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pec0q"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 10
+border_width_bottom = 10
+border_color = Color(0.32915828, 0.32915843, 0.32915837, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nh3o7"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.7162962, 0.71629626, 0.7162961, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="PublicShopEnd" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gw7n2")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer"]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 2
+color = Color(0.06666667, 0.101960786, 0.16470589, 0.68235296)
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/ColorRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25565878, 0.25565878, 0.25565878, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/ColorRect/ColorRect"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 5.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 129.0
+grow_horizontal = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.14272314, 0.2083157, 0.38844857, 1)
+theme_override_colors/font_outline_color = Color(0.67068946, 0.6706895, 0.6706893, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 31
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_pec0q")
+text = "PUBLIC SHOP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="End" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.47397572, 0.47397572, 0.47397572, 0.72156864)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/paragraph_spacing = -9
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/outline_size = 19
+theme_override_constants/shadow_outline_size = 25
+theme_override_font_sizes/font_size = 30
+text = "SHOPTIME ENDED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 0
+offset_left = 420.5
+offset_top = 177.0
+offset_right = 739.5
+offset_bottom = 527.0
+size_flags_horizontal = 4
+horizontal_scroll_mode = 0
+
+[node name="PlayerLeaderboard" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="PlayerData" type="HBoxContainer" parent="ScrollContainer/PlayerLeaderboard"]
+layout_mode = 2
+alignment = 1
+
+[node name="Placement" type="Label" parent="ScrollContainer/PlayerLeaderboard/PlayerData"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 26
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "1."
+
+[node name="Name" type="Label" parent="ScrollContainer/PlayerLeaderboard/PlayerData"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 26
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "Player 001"
+
+[node name="Reward" type="TextureRect" parent="ScrollContainer/PlayerLeaderboard/PlayerData"]
+layout_mode = 2
+texture = ExtResource("1_nh3o7")
+
+[node name="PlayerData2" type="HBoxContainer" parent="ScrollContainer/PlayerLeaderboard"]
+layout_mode = 2
+alignment = 1
+
+[node name="Placement" type="Label" parent="ScrollContainer/PlayerLeaderboard/PlayerData2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 26
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "2."
+
+[node name="Name" type="Label" parent="ScrollContainer/PlayerLeaderboard/PlayerData2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 26
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "Player 121"
+
+[node name="Reward" type="TextureRect" parent="ScrollContainer/PlayerLeaderboard/PlayerData2"]
+layout_mode = 2
+texture = ExtResource("1_nh3o7")
+
+[node name="PlayerData3" type="HBoxContainer" parent="ScrollContainer/PlayerLeaderboard"]
+layout_mode = 2
+alignment = 1
+
+[node name="Placement" type="Label" parent="ScrollContainer/PlayerLeaderboard/PlayerData3"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 26
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "3."
+
+[node name="Name" type="Label" parent="ScrollContainer/PlayerLeaderboard/PlayerData3"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 26
+theme_override_constants/shadow_outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "Player 010"
+
+[node name="Reward" type="TextureRect" parent="ScrollContainer/PlayerLeaderboard/PlayerData3"]
+layout_mode = 2
+texture = ExtResource("1_nh3o7")
+
+[node name="PrivateShop" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_top = -54.0
+offset_right = 134.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.6955033, 0.69550306, 0.6955031, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_nh3o7")
+text = "GO TO PRIVATE SHOP"
+
+[connection signal="pressed" from="PrivateShop" to="." method="OnGoToPrivateShopPressed"]

@@ -4,22 +4,29 @@ using System.Collections.Generic;
 
 public partial class ClassSelectorMenu : Control
 {
-	[Export] Label class1Description;
-	[Export] Label class2Description;
-	[Export] Label class3Description;
-	[Export] Label class4Description;
+	[Export] RichTextLabel class1Description;
+	[Export] RichTextLabel class2Description;
+	[Export] RichTextLabel class3Description;
+	[Export] RichTextLabel class4Description;
 
-	[Export] Button class1Icon;
-	[Export] Button class2Icon;
-	[Export] Button class3Icon;
-	[Export] Button class4Icon;
+	[Export] TextureRect class1Icon;
+	[Export] TextureRect class2Icon;
+	[Export] TextureRect class3Icon;
+	[Export] TextureRect class4Icon;
 
     [Export] Button class1;
     [Export] Button class2;
     [Export] Button class3;
     [Export] Button class4;
 
+
     [Export] HBoxContainer container;
+    [Export] Label title;
+
+    [Export] Button nextButton;
+    [Export] Control deckselectNode;
+    [Export] Control classselectNode;
+    
 
     List<Button> classes = new List<Button>();
 
@@ -56,12 +63,21 @@ public partial class ClassSelectorMenu : Control
             {
                 _class.QueueFree();
                 GD.Print($"Class deleted: {_class.Name}");
+                nextButton.Visible = true;
             }
         }
         selectedClass.Disabled = true;
+        title.Text = "CLASS SELECTED";
 
         
         //container.AddChild(selectedClass);
+    }
+
+    private void OnNextButtonPressed()
+    {
+        // GetTree().ChangeSceneToPacked(deckselectScene);
+        classselectNode.Visible = false;
+        deckselectNode.Visible = true;
     }
 
     //Class selection
@@ -87,49 +103,56 @@ public partial class ClassSelectorMenu : Control
     }
 
     //Show description
-    private void OnClass1IconToggled(bool toggled)
-	{
-		if (toggled)
-		{
-			class1Description.Visible = true;
-		}
-		else
-		{
-			class1Description.Visible = false;
-		}
+    
+    //Class1
+    private void Class1MouseEntered()
+    {
+        class1Description.Visible = true;
+        class1Icon.Visible = false;
+    }
 
-	}
-    private void OnClass2IconToggled(bool toggled)
+    private void Class1MouseExited()
     {
-        if (toggled)
-        {
-            class2Description.Visible = true;
-        }
-        else
-        {
-            class2Description.Visible = false;
-        }
+        class1Description.Visible = false;
+        class1Icon.Visible = true;
     }
-    private void OnClass3IconToggled(bool toggled)
+
+    //Class2
+    private void Class2MouseEntered()
     {
-        if (toggled)
-        {
-            class3Description.Visible = true;
-        }
-        else
-        {
-            class3Description.Visible = false;
-        }
+        class2Description.Visible = true;
+        class2Icon.Visible = false;
     }
-    private void OnClass4IconToggled(bool toggled)
+
+    private void Class2MouseExited()
     {
-        if (toggled)
-        {
-            class4Description.Visible = true;
-        }
-        else
-        {
-            class4Description.Visible = false;
-        }
+        class2Description.Visible = false;
+        class2Icon.Visible = true;
+    }
+
+    //Class3
+    private void Class3MouseEntered()
+    {
+        class3Description.Visible = true;
+        class3Icon.Visible = false;
+    }
+
+    private void Class3MouseExited()
+    {
+        class3Description.Visible = false;
+        class3Icon.Visible = true;
+    }
+
+    //Class4
+    private void Class4MouseEntered()
+    {
+        class4Description.Visible = true;
+        class4Icon.Visible = false;
+    }
+
+    private void Class4MouseExited()
+    {
+        class4Description.Visible = false;
+        class4Icon.Visible = true;
     }
 }
