@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bxs0hn6508qbt" path="res://Testing/MultiTesting/multiplayer_player.tscn" id="1_jwek8"]
 [ext_resource type="PackedScene" uid="uid://ca8e052nny7l5" path="res://Testing/MultiTesting/TestPointCardUI.tscn" id="2_m1nd3"]
 [ext_resource type="PackedScene" uid="uid://dv8riud1qttrs" path="res://Testing/MultiTesting/TestModifierCardUI.tscn" id="3_murls"]
-[ext_resource type="PackedScene" uid="uid://c26ljvsefjnl6" path="res://Testing/ShopTestScene/PublicShopTest.tscn" id="4_0e0ea"]
+[ext_resource type="PackedScene" uid="uid://b7u8guxg4td0b" path="res://UI/Shop/Public Shop/PublicShop.tscn" id="5_12dsr"]
 [ext_resource type="Theme" uid="uid://bdetdcpnnocd8" path="res://Assets/UI/Themes/ButtonChips/ButtonChipsBlue.tres" id="5_vvaa5"]
 [ext_resource type="PackedScene" uid="uid://smtqx0lfpxl7" path="res://3D Menu/DeckSelector/DeckSelector.tscn" id="6_2b2c1"]
 [ext_resource type="Theme" uid="uid://dwothogalvoiq" path="res://Assets/UI/Themes/ButtonChips/ButtonChipsGreen.tres" id="6_7h4jh"]
@@ -109,7 +109,7 @@ modifierCardUI = ExtResource("3_murls")
 maxPoints = NodePath("../Control/HBoxContainer/MarginContainer/VBoxContainer/MaxValue")
 points = NodePath("../Control/HBoxContainer/MarginContainer/VBoxContainer/Points")
 throwDeckValue = NodePath("../Control/HBoxContainer/MarginContainer/VBoxContainer/ThrowDeckValue")
-shopScene = ExtResource("4_0e0ea")
+shopScene = ExtResource("5_12dsr")
 
 [node name="Control" type="Control" parent="."]
 visible = false
