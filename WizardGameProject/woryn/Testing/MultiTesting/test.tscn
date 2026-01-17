@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://1tvmqvajxg62"]
+[gd_scene load_steps=21 format=3 uid="uid://1tvmqvajxg62"]
 
 [ext_resource type="Theme" uid="uid://bntwtfgxeqnya" path="res://Assets/UI/Themes/Main/UIThemeSimple.tres" id="1_c8k3l"]
 [ext_resource type="PackedScene" uid="uid://bxs0hn6508qbt" path="res://Testing/MultiTesting/multiplayer_player.tscn" id="1_jwek8"]
@@ -10,6 +10,72 @@
 [ext_resource type="Theme" uid="uid://dwothogalvoiq" path="res://Assets/UI/Themes/ButtonChips/ButtonChipsGreen.tres" id="6_7h4jh"]
 [ext_resource type="PackedScene" uid="uid://d0d5pio88bn4h" path="res://3D Menu/ClassSelection/ClassSelectorMenu.tscn" id="7_k7yxf"]
 [ext_resource type="Texture2D" uid="uid://cxn8hk2mjf50x" path="res://Assets/UI/NineRect/background_simple.png" id="8_38utj"]
+[ext_resource type="Texture2D" uid="uid://c7ifawlapypu5" path="res://Assets/rogland_clear_night_1k.hdr" id="11_gv0l0"]
+[ext_resource type="Script" uid="uid://ca0pr2up27plw" path="res://Assets/compEffeckt/pixelization_shader.gd" id="12_12dsr"]
+[ext_resource type="Script" uid="uid://dqlwg2rtn14oa" path="res://Assets/compEffeckt/quantization_shader.gd" id="13_kcwk8"]
+[ext_resource type="PackedScene" uid="uid://c076pdwrupy0v" path="res://3D Menu/MainMenu/MainMenuEnvironment.glb" id="14_sdsio"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5toyo"]
+panorama = ExtResource("11_gv0l0")
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_7gnwx"]
+sky_material = SubResource("PanoramaSkyMaterial_5toyo")
+
+[sub_resource type="Environment" id="Environment_eh8se"]
+background_mode = 2
+background_energy_multiplier = 0.1
+sky = SubResource("Sky_7gnwx")
+ambient_light_source = 2
+ambient_light_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
+tonemap_mode = 2
+tonemap_exposure = 0.73
+ssao_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.23137255, 0.20392157, 0.17254902, 1)
+fog_light_energy = 0.38
+fog_density = 0.5108
+fog_aerial_perspective = 0.289
+fog_height = 12.0
+fog_height_density = 0.1777
+fog_depth_curve = 1.7411025
+fog_depth_end = 50.0
+volumetric_fog_density = 0.0714
+volumetric_fog_albedo = Color(0.556953, 0.556953, 0.556953, 1)
+volumetric_fog_gi_inject = 11.25
+volumetric_fog_detail_spread = 6.0
+volumetric_fog_sky_affect = 0.271
+adjustment_enabled = true
+adjustment_brightness = 1.22
+adjustment_saturation = 1.13
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_fxvwu"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("12_12dsr")
+down_scaling = 2.0
+metadata/_custom_type_script = "uid://ca0pr2up27plw"
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_ef0mh"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("13_kcwk8")
+color_depth = 128.0
+metadata/_custom_type_script = "uid://dqlwg2rtn14oa"
+
+[sub_resource type="Compositor" id="Compositor_261r0"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_fxvwu"), SubResource("CompositorEffect_ef0mh")])
 
 [node name="Test" type="Control"]
 texture_filter = 1
@@ -176,9 +242,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DeckSelector" parent="Deck" node_paths=PackedStringArray("playerScene") instance=ExtResource("6_2b2c1")]
+[node name="DeckSelector" parent="Deck" instance=ExtResource("6_2b2c1")]
 layout_mode = 1
-playerScene = NodePath("../../Control")
 
 [node name="Class" type="Control" parent="."]
 layout_mode = 1
@@ -188,10 +253,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ClassSelectorMenu" parent="Class" node_paths=PackedStringArray("deckselectNode", "classselectNode") instance=ExtResource("7_k7yxf")]
+[node name="ClassSelectorMenu" parent="Class" instance=ExtResource("7_k7yxf")]
 layout_mode = 1
-deckselectNode = NodePath("../../Deck")
-classselectNode = NodePath("..")
+
+[node name="3DBGIG" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="3DBGIG"]
+environment = SubResource("Environment_eh8se")
+compositor = SubResource("Compositor_261r0")
+
+[node name="MainMenuEnvironment" parent="3DBGIG" instance=ExtResource("14_sdsio")]
+
+[node name="Camera3D" type="Camera3D" parent="3DBGIG"]
+transform = Transform3D(0.5196533, -0.7799961, 0.34866402, 0, 0.4080914, 0.91294116, -0.8543773, -0.47441286, 0.21206605, 6.08103, 28.784306, 130.31401)
+fov = 54.3
+
+[node name="SpotLight3D" type="SpotLight3D" parent="3DBGIG"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.15001631, 24.375767, 125.15899)
+light_color = Color(1, 0.82, 0.82, 1)
+light_energy = 1.737
+shadow_enabled = true
+spot_range = 40.31407
+spot_angle = 73.2
+spot_angle_attenuation = 1.071774
 
 [connection signal="pressed" from="Control/HandHolder/Buttons/GetCardsButtonContainer/GetCards" to="MultiplayerPlayer" method="PickUpCards"]
 [connection signal="pressed" from="Control/HandHolder/Buttons/PlayCardsButtonContainer/DeckDown" to="MultiplayerPlayer" method="PlayCard"]
