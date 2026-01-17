@@ -112,7 +112,6 @@ throwDeckValue = NodePath("../Control/HBoxContainer/MarginContainer/VBoxContaine
 shopScene = ExtResource("4_0e0ea")
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -133,7 +132,7 @@ alignment = 2
 layout_mode = 2
 alignment = 1
 
-[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer2/VBoxContainer2"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/HBoxContainer2/VBoxContainer2"]
 custom_minimum_size = Vector2(100, 170)
 layout_mode = 2
 texture = ExtResource("8_38utj")
@@ -206,7 +205,7 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 2
 
-[node name="HBox" type="HBoxContainer" parent="HandHolder/CardContainers"]
+[node name="HBox" type="HBoxContainer" parent="Control/HandHolder/CardContainers"]
 custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 theme_override_constants/separation = 40
