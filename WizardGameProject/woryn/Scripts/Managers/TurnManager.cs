@@ -403,6 +403,25 @@ public partial class TurnManager
 		StartNewTurn(pointCard, modifierCards, usedCards, turnValue);
 	}
 
+	private void SendOutNewDecks()
+	{
+		foreach (int player in players.Keys)
+		{
+
+			DeckSwap packet = new DeckSwap
+			{
+				PointCards = players[player].playerClass.PointCardList.ToArray(),
+				ModifierCards = players[player].playerClass.ModifCardList.ToArray()
+			};
+
+			Global.networkHandler._clientPeers.TryGetValue(player, out var peer);
+			if (peer != null)
+			{
+				packet.Send(peer);
+			}
+		}
+	}
+
 	private void DealWithModifiers(ModifierCard card)
 	{
 		switch (card.ModifierType)
@@ -415,9 +434,11 @@ public partial class TurnManager
 				break;
 			case MODIFIER_TYPES.GIVE_DECK_AROUND:
 				SwapDeckAround();
+				SendOutNewDecks();
 				break;
 			case MODIFIER_TYPES.CHANGE_DECK:
 				SwapDeck(currentPlayer);
+				SendOutNewDecks();
 				break;
 
 		}
