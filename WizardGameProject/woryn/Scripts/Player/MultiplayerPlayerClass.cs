@@ -27,7 +27,10 @@ public partial class MultiplayerPlayerClass : Node
         Global.multiplayerClientGlobals.HandleDeckSwap += playerClass.HandleDeckSwap;
 
         Global.multiplayerClientGlobals.ShopScene += GoToShop;
+    }
 
+    public void ClientReady()
+    {
         ClientReady packet = new ClientReady();
 
         Global.networkHandler._serverPeer?.Send(0, packet.Encode(), (int)ENetPacketPeer.FlagReliable);
