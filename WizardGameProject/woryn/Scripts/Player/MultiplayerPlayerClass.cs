@@ -24,6 +24,7 @@ public partial class MultiplayerPlayerClass : Node
         Global.multiplayerClientGlobals.HandleTurnInfo += playerClass.ProccessTurnInfoPacket;
         Global.multiplayerClientGlobals.HandlePickUpCardAnswer += playerClass.ProccessPickUpAnswer;
         Global.multiplayerClientGlobals.HandlePickUpCardAnswer += Burger;
+        Global.multiplayerClientGlobals.HandleDeckSwap += playerClass.HandleDeckSwap;
 
         Global.multiplayerClientGlobals.ShopScene += GoToShop;
 

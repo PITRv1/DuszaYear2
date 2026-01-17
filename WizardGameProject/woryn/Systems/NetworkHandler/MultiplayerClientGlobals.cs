@@ -18,6 +18,8 @@ public partial class MultiplayerClientGlobals : Node
     [Signal]
     public delegate void HandlePickUpCardAnswerEventHandler(byte[] data);
     [Signal]
+    public delegate void HandleDeckSwapEventHandler(byte[] data);
+    [Signal]
     public delegate void NewPlayerEventHandler(byte[] data);
     [Signal]
     public delegate void StartGameEventHandler();
@@ -61,6 +63,9 @@ public partial class MultiplayerClientGlobals : Node
                 break;
             case PACKET_TYPES.SHOP_SCENE_CHANGE:
                 EmitSignal("ShopScene");
+                break;
+            case PACKET_TYPES.DECK_SWAP:
+                EmitSignal("DeckSwap");
                 break;
             default:
                 GD.PushError($"Packet type with index {(int)packetType} unhandled!");

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 
 public partial class TurnManager
@@ -235,7 +236,7 @@ public partial class TurnManager
 
 		foreach (ModifierCard card in usedCards)
 			if (!card.IsCardModifier)
-					DealWithModifiers(card);
+				DealWithModifiers(card);
 
 		currentPlayer += roundDirection + (roundDirection * skipAmount);
 
@@ -292,6 +293,58 @@ public partial class TurnManager
 			}
 		}
 	}
+
+	public void SwapDeck(int playerOne, int playerTwo = -1)
+	{
+		PlayerClass plOne = players[playerOne].playerClass;
+		PlayerClass plTwo;
+		List<PointCard> tempPointCards = plOne.PointCardList;
+		List<ModifierCard> tempModifierCards = plOne.ModifCardList;
+
+		if (playerTwo == -1)
+		{
+			RandomNumberGenerator rng = new RandomNumberGenerator();
+			do
+				playerTwo = rng.RandiRange(0, playerCount - 1);
+			while (playerTwo == playerOne);
+		}
+
+		plTwo = players[playerTwo].playerClass;
+
+		plOne.PointCardList = plTwo.PointCardList;
+		plOne.ModifCardList = plTwo.ModifCardList;
+
+		plTwo.PointCardList = tempPointCards;
+		plTwo.ModifCardList = tempModifierCards;
+	}
+
+	public void SwapDeckAround()
+	{
+		int start = roundDirection == 1 ? 0 : playerCount - 1;
+		int end   = roundDirection == 1 ? playerCount - 1 : 0;
+
+		var savedPointCards = players[start].playerClass.PointCardList;
+		var savedModifierCards = players[start].playerClass.ModifCardList;
+
+		int curr = start;
+
+		while (curr != end)
+		{
+			int next = curr + roundDirection;
+
+			players[curr].playerClass.PointCardList =
+				players[next].playerClass.PointCardList;
+
+			players[curr].playerClass.ModifCardList =
+				players[next].playerClass.ModifCardList;
+
+			curr = next;
+		}
+
+		players[end].playerClass.PointCardList = savedPointCards;
+		players[end].playerClass.ModifCardList = savedModifierCards;
+	}
+
 
 	public void ProccessEndGameRequest(byte[] data)
 	{
@@ -361,8 +414,10 @@ public partial class TurnManager
 				roundDirection *= -1;
 				break;
 			case MODIFIER_TYPES.GIVE_DECK_AROUND:
+				SwapDeckAround();
 				break;
 			case MODIFIER_TYPES.CHANGE_DECK:
+				SwapDeck(currentPlayer);
 				break;
 
 		}

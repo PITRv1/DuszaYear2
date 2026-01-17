@@ -1,11 +1,12 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 public class PlayerClass
 {
-    public List<PointCard> PointCardList { get; }
-    public List<ModifierCard> ModifCardList { get; }
+    public List<PointCard> PointCardList { get; set; }
+    public List<ModifierCard> ModifCardList { get; set; }
     public PlayerClassInterface ChoosenClass { get; }
     public ModifierCardDeck modifierCardDeck { get; }
     public MultiplayerPlayerClass parent;
@@ -34,6 +35,52 @@ public class PlayerClass
 
         modifierCardDeck = new ModifierCardDeck();
         modifierCardDeck.GenerateDeck();
+    }
+
+    public void HandleDeckSwap(byte[] data)
+    {
+        DeckSwap packet = DeckSwap.CreateFromData(data);
+
+        SetPointCardDeck(packet.PointCards);
+        SetModifierCards(packet.ModifierCards);
+    }
+
+    public void HandleDeckSwap(List<PointCard> pointCards, List<ModifierCard> modifierCards)
+    {
+        SetPointCardDeck(pointCards);
+        SetModifierCards(modifierCards);
+    }
+
+    public void SetPointCardDeck(PointCard[] cards)
+    {
+        PointCardList.Clear();
+
+        foreach (PointCard pointCard in cards)
+            PointCardList.Add(pointCard);
+    }
+
+    public void SetModifierCards(ModifierCard[] cards)
+    {
+        ModifCardList.Clear();
+
+        foreach (ModifierCard modifierCard in cards)
+            ModifCardList.Add(modifierCard);
+    }
+
+    public void SetPointCardDeck(List<PointCard> cards)
+    {
+        PointCardList.Clear();
+
+        foreach (PointCard pointCard in cards)
+            PointCardList.Add(pointCard);
+    }
+
+    public void SetModifierCards(List<ModifierCard> cards)
+    {
+        ModifCardList.Clear();
+
+        foreach (ModifierCard modifierCard in cards)
+            ModifCardList.Add(modifierCard);
     }
 
     public bool AddToChosenModifierCards(ModifierCard card)
