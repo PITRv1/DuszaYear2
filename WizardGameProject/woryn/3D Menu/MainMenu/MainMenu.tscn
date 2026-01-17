@@ -1,4 +1,4 @@
-[gd_scene load_steps=375 format=4 uid="uid://b56xfex8vjqku"]
+[gd_scene load_steps=376 format=4 uid="uid://b56xfex8vjqku"]
 
 [ext_resource type="PackedScene" uid="uid://c076pdwrupy0v" path="res://3D Menu/MainMenu/MainMenuEnvironment.glb" id="1_7h66l"]
 [ext_resource type="Texture2D" uid="uid://c7ifawlapypu5" path="res://Assets/rogland_clear_night_1k.hdr" id="1_7t6c6"]
@@ -49,18 +49,19 @@
 [ext_resource type="Texture2D" uid="uid://6k1myktink0n" path="res://Assets/textures/images/hangingLamp.png" id="44_u6m4i"]
 [ext_resource type="Texture2D" uid="uid://crgud1qwkgq6q" path="res://Assets/textures/images/chandelier.png" id="45_xspun"]
 [ext_resource type="LightmapGIData" uid="uid://k2iec0qcuhr1" path="res://3D Menu/MainMenu/MainMenu.lmbake" id="46_u6m4i"]
+[ext_resource type="PackedScene" uid="uid://ccf0q8umdew7p" path="res://Assets/models/aztal.glb" id="49_fxvwu"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_jn0tk"]
 panorama = ExtResource("1_7t6c6")
 energy_multiplier = 0.1
 
-[sub_resource type="Sky" id="Sky_7gnwx"]
+[sub_resource type="Sky" id="Sky_ef0mh"]
 sky_material = SubResource("PanoramaSkyMaterial_jn0tk")
 
 [sub_resource type="Environment" id="Environment_g7crl"]
 background_mode = 2
 background_energy_multiplier = 0.1
-sky = SubResource("Sky_7gnwx")
+sky = SubResource("Sky_ef0mh")
 ambient_light_source = 2
 ambient_light_color = Color(0.18717614, 0.18717614, 0.18717614, 1)
 tonemap_mode = 2
@@ -2767,7 +2768,6 @@ shape = SubResource("ConvexPolygonShape3D_3fqde")
 shape = SubResource("ConvexPolygonShape3D_dagtw")
 
 [node name="AllOfTheLight" type="Node3D" parent="."]
-visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="AllOfTheLight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9846569, 4.585215, 0.8597431)
@@ -3272,24 +3272,31 @@ transform = Transform3D(-1.4835043, 0, -1.2969207e-07, 0, 2.0568905, 0, 1.296920
 
 [node name="Table" parent="DecoStuff" instance=ExtResource("39_0m35x")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 4.59596, 1.659456, -52.176548)
+visible = false
 
 [node name="Table2" parent="DecoStuff" instance=ExtResource("39_0m35x")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -10.210345, 1.659456, -52.176548)
+visible = false
 
 [node name="Table3" parent="DecoStuff" instance=ExtResource("39_0m35x")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -5.319679, 1.659456, -55.43885)
+visible = false
 
 [node name="Table4" parent="DecoStuff" instance=ExtResource("39_0m35x")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -3.7263432, 1.659456, -71.87172)
+visible = false
 
 [node name="Table5" parent="DecoStuff" instance=ExtResource("39_0m35x")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -9.0013, 1.659456, -71.72966)
+visible = false
 
 [node name="Table6" parent="DecoStuff" instance=ExtResource("39_0m35x")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 1.0117581, 1.7928643, -67.55963)
+visible = false
 
 [node name="Table7" parent="DecoStuff" instance=ExtResource("39_0m35x")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -0.39770818, 1.7928643, -62.718224)
+visible = false
 
 [node name="Chair" parent="DecoStuff" instance=ExtResource("40_syikk")]
 transform = Transform3D(0.115, 0, 0, 0, 0.115, 0, 0, 0, 0.115, -0.14337718, 1.4855192, -62.84875)
@@ -3384,6 +3391,29 @@ billboard = 2
 texture_filter = 0
 texture = ExtResource("45_xspun")
 
+[node name="aztal" parent="DecoStuff" instance=ExtResource("49_fxvwu")]
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -0.32168233, 1.7982845, -62.726418)
+
+[node name="aztal2" parent="DecoStuff" instance=ExtResource("49_fxvwu")]
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 1.0182143, 1.7982845, -67.57003)
+
+[node name="aztal3" parent="DecoStuff" instance=ExtResource("49_fxvwu")]
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -3.9284906, 1.7037659, -71.825226)
+
+[node name="aztal4" parent="DecoStuff" instance=ExtResource("49_fxvwu")]
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -8.924152, 1.7037659, -71.825226)
+
+[node name="aztal5" parent="DecoStuff" instance=ExtResource("49_fxvwu")]
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, 4.67943, 1.7037659, -52.085056)
+
+[node name="aztal6" parent="DecoStuff" instance=ExtResource("49_fxvwu")]
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -5.400469, 1.7037659, -55.58304)
+
+[node name="aztal7" parent="DecoStuff" instance=ExtResource("49_fxvwu")]
+transform = Transform3D(0.41, 0, 0, 0, 0.41, 0, 0, 0, 0.41, -10.219088, 1.7037659, -52.223312)
+
 [node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 0
+bounces = 0
 interior = true
 light_data = ExtResource("46_u6m4i")
