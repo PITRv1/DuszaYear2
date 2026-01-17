@@ -22,7 +22,6 @@ public partial class TestModifierCardUi : Control
 				SelectCard();
 			// GD.Print("Added modifier --> ", this);
 		}
-		ChangeTextColor();
 	}
 
 	private void ChangeTextColor()

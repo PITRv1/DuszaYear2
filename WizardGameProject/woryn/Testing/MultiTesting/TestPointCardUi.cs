@@ -12,7 +12,6 @@ public partial class TestPointCardUi : Control
 	{
 		playerClass.chosenPointCard = pointCard;
 		GD.Print(playerClass.chosenPointCard);
-		ChangeTextColor();
 	}
 
 	private void ChangeTextColor()
