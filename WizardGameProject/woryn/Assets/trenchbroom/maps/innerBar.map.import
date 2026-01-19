@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cw1j80tjwbwhp"
+path="res://.godot/imported/innerBar.map-181f2cb86ee54c3d82c2fa5f9eca7f78.tres"
+
+[deps]
+
+source_file="res://Assets/trenchbroom/maps/innerBar.map"
+dest_files=["res://.godot/imported/innerBar.map-181f2cb86ee54c3d82c2fa5f9eca7f78.tres"]
+
+[params]
+
