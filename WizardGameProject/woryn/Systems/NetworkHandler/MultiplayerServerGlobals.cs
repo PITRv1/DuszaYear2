@@ -83,6 +83,9 @@ public partial class MultiplayerServerGlobals : Node
             case PACKET_TYPES.PLAY_ABLITIY:
                 Global.turnManagerInstance.PlayPlayerAbility(data);
                 break;
+            case PACKET_TYPES.FOLD:
+                Global.turnManagerInstance.CheckFoldRequest(data);
+                break;
             default:
                 GD.PushError($"Packet type with index {(PACKET_TYPES)data[0]} unhandled");
                 break;

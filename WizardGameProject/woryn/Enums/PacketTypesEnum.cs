@@ -13,4 +13,5 @@ public enum PACKET_TYPES
     SHOP_SCENE_CHANGE = 10,
     PLAY_ABLITIY = 11,
     DECK_SWAP = 12,
+    FOLD = 13,
 }

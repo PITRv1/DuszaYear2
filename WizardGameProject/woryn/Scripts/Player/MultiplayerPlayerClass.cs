@@ -135,6 +135,16 @@ public partial class MultiplayerPlayerClass : Node
 		
 	}
 
+	public void SendFoldRequest()
+	{
+		Fold packet = new Fold
+		{
+			SenderId = ID	
+		};
+
+		Global.networkHandler._serverPeer?.Send(0, packet.Encode(), (int)ENetPacketPeer.FlagReliable);
+	}
+
 	public void AddPointToContainer(PointCard pointCard)
 	{
 		TestPointCardUi test = pointCardUI.Instantiate() as TestPointCardUi;

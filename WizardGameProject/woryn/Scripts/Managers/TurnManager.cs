@@ -121,6 +121,34 @@ public partial class TurnManager
 		}
 	}
 
+	public void CheckFoldRequest(byte[] data)
+	{
+		Fold packet = Fold.CreateFromData(data);
+
+		if (packet.SenderId != currentPlayer)
+			return;
+
+		foreach (int player in players.Keys)
+		{
+
+			TurnInfoPacket turnInfoPacket = new TurnInfoPacket
+			{
+				LastPlayer = 0,
+				CurrentPlayerId = currentPlayer,
+				CurrentRound = CurrentRound,
+				MaxValue = currentMaxValue,
+				CurrentPointValue = players[player].playerClass.Points,
+				ThrowDeckValue = ThrowDeckValue
+			};
+
+			Global.networkHandler._clientPeers.TryGetValue(player, out var peer);
+			if (peer != null)
+			{
+				turnInfoPacket.Send(peer);
+			}
+		}
+	}
+
 	public void PlayPlayerAbility(byte[] data)
 	{
 		PlayAbility packet = PlayAbility.CreateFromData(data);
@@ -230,7 +258,7 @@ public partial class TurnManager
 		}
 	}
 
-	private void StartNewTurn(PointCard pointCard, ModifierCard[] modifierCards, List<ModifierCard> usedCards, int value)
+	private void StartNewTurn(List<ModifierCard> usedCards, int value, bool fold)
 	{
 		int lastPlayer = currentPlayer;
 
@@ -257,9 +285,9 @@ public partial class TurnManager
 			currentMaxValue = 0;
 			GoToShopScene();
 			return;
-		}
+		}	
 
-		if (CalculateCardValue(GetCardListValues(players[currentPlayer].playerClass.PointCardList).Max(), players[currentPlayer].playerClass.ModifCardList.ToArray()) <= value)
+		if (fold)
 		{
 			GD.Print("It's over");
 			ThrowDeckValue += value;
@@ -400,7 +428,7 @@ public partial class TurnManager
 
 		PickUpCards(currentPlayer);
 
-		StartNewTurn(pointCard, modifierCards, usedCards, turnValue);
+		StartNewTurn(usedCards, turnValue, false);
 	}
 
 	private void SendOutNewDecks()
