@@ -13,6 +13,6 @@ public class CMerchant : PlayerClassInterface
     }
     public void UsePassive()
     {
-        //még nincs passive countdown 
+        Parent.pointsToGoldRatio = 2;
     }
 }

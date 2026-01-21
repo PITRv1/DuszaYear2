@@ -17,7 +17,6 @@ public class CAlchemist : PlayerClassInterface
     }
     public void UsePassive()
     {
-        //még nincs passive countdown 
-        
+        Parent.pointsToGoldRatio = 1;
     }
 }
