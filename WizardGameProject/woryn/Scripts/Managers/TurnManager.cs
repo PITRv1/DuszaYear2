@@ -17,6 +17,7 @@ public partial class TurnManager
 	private int roundDirection = 1;
 	private int skipAmount = 0;
 	// private bool RoundOver
+	public bool throwDeckPulled = false;
 
 	public TurnManager(List<int> playerIds)
 	{
@@ -258,7 +259,7 @@ public partial class TurnManager
 			GoToShopScene();
 			return;
 		}
-
+		
 		if (CalculateCardValue(GetCardListValues(players[currentPlayer].playerClass.PointCardList).Max(), players[currentPlayer].playerClass.ModifCardList.ToArray()) <= value)
 		{
 			GD.Print("It's over");
@@ -266,9 +267,11 @@ public partial class TurnManager
 			players[lastPlayer].playerClass.Points += ThrowDeckValue;
 			ThrowDeckValue = 0;
 			currentMaxValue = 0;
+			throwDeckPulled=true;
 		}
 		else
 		{
+			throwDeckPulled=false;
 			ThrowDeckValue += value;
 			currentMaxValue = value;
 		}
