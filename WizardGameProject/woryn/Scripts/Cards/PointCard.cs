@@ -7,7 +7,7 @@ public partial class PointCard : Node, CardInterface
 {
 	public string CardName { get; private set; }
 	public int PointValue { get; private set; }
-	public CardRaritiesEnum CardRarity { get; private set; }
+	public CardRaritiesEnum CardRarity { get; set; }
 	public List<ModifierCard> ModifierList;
 	public PointCard(string cardName, int pointValue, CardRaritiesEnum cardRarity)
 	{
