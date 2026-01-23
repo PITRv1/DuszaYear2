@@ -92,13 +92,8 @@ public partial class MultiplayerPlayerClass : Node
 		if (lastPlayer != ID)
 			return;
 
-		GD.Print("ID: " + ID);
-
-		GD.Print("Size: " + selectedPointCard.Length);
-
 		foreach (int index in selectedPointCard)
 		{
-			GD.Print("BRO: " + index);
 			pointCards.RemoveChild(pointCards.GetChild(index));
 			playerClass.PointCardList.RemoveAt(index);
 		}

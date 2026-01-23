@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
-public partial class TurnManager
+public partial class TurnManager : Node
 {
 	private int currentMaxValue = 0;
 	// private List<ModifierCard> modifierCardsPlayed;
@@ -19,9 +19,24 @@ public partial class TurnManager
 	private int skipAmount = 0;
 	// private bool RoundOver
 	public bool throwDeckPulled = false;
+	private Timer foldTimer;
 
-	public TurnManager(List<int> playerIds)
+    public override void _Ready()
+    {
+		foldTimer = new Timer
+		{
+			WaitTime = 30,
+			OneShot = true
+		};
+
+		foldTimer.Timeout += () => FoldTurn();
+		AddChild(foldTimer);
+
+        Global.turnManagerInstance = this;
+    }
+	public void Setup(List<int> playerIds)
 	{
+		GD.Print("GUH");
 		foreach (int id in playerIds)
 		{
 			AddToMultiplayerList(id);
@@ -32,8 +47,6 @@ public partial class TurnManager
 		pointCardDeck = new PointCardDeck();
 		
 		pointCardDeck.GenerateDeck();
-		
-		Global.turnManagerInstance = this;
 	}
 
 	public int[] GetPlayerIds()
@@ -127,6 +140,13 @@ public partial class TurnManager
 
 		if (packet.SenderId != currentPlayer)
 			return;
+
+		FoldTurn();
+	}
+
+	public void FoldTurn()
+	{
+		GD.Print("FOLDING");
 
 		players[lastPlayer].playerClass.Points += ThrowDeckValue;
 		ThrowDeckValue = 0;
@@ -315,6 +335,8 @@ public partial class TurnManager
 				packet.Send(peer);
 			}
 		}
+
+		foldTimer.Start();
 	}
 
 	public void SwapDeck(int playerOne, int playerTwo = -1)

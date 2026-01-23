@@ -47,8 +47,7 @@ public partial class MultiplayerServerGlobals : Node
             case PACKET_TYPES.START_GAME:
                 if (peerId != 0)
                     return;
-                if (Global.turnManagerInstance == null)
-                    Global.turnManagerInstance = new TurnManager(_peerIds);
+                Global.turnManagerInstance.Setup(_peerIds);
                 Global.lobbyManagerInstance.StartGameRequest(data);
                 break;
             case PACKET_TYPES.CLIENT_READY:
