@@ -9,7 +9,7 @@ public class CAlchemist : PlayerClassInterface
     public PlayerClass Parent { get; set; }
     public void UseActive()
     {
-        //ki kéne választani a handbol egy kartyat ami lega lessz;
+        //ki kéne választani a handbol egy kartyat ami lega lessz (I need UI Ábel plsss);
 
 
         if (Parent.chosenPointCard!=null)

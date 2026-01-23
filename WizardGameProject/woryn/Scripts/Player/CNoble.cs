@@ -13,7 +13,7 @@ public class CNoble : PlayerClassInterface
     }
     public void UsePassive()
     {
-        //this shi isnt fine yet cause it seems to remain empty despite me looking at it 
+        
 
     }
 }
