@@ -42,7 +42,6 @@ public partial class ModifierCardDeck
         count = modifierCards.Count < count ? modifierCards.Count : count;
 
         ModifierCard[] cards = new ModifierCard[count];
-        GD.Print("IM SO COFNXUSED: " + modifierCards.Count);
         for (int i = 0; i < count; i++)
         {
             cards[i] = modifierCards[0];
@@ -51,12 +50,4 @@ public partial class ModifierCardDeck
 
         return cards;
     }
-
-    // public void PrintCards()
-    // {
-    //     foreach (ModifierCard pointCard in modifierCards)
-    //     {
-    //         GD.PrintRaw(pointCard.Name + " ");
-    //     }
-    // }
 }

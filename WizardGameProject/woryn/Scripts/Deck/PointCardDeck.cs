@@ -8,7 +8,7 @@ public partial class PointCardDeck
 
     // private int MaxNumber = 9; For later use
     // private int NumberOfCards = 36;
-    private int NumberOfCards = 12;
+    private int NumberOfCards = 10;
     
     public PointCardDeck()
     {
@@ -71,6 +71,5 @@ public partial class PointCardDeck
             points += pointCard.PointValue + " ";
             buh++;
         }
-        GD.Print(points + " " + buh);
     }
 }

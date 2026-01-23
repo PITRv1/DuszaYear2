@@ -55,7 +55,6 @@ public partial class MultiplayerClientGlobals : Node
                 EmitSignal("HandleTurnInfo", data);
                 break;
             case PACKET_TYPES.PICK_UP_CARD_ANSWER:
-                GD.Print("so this prints");
                 EmitSignal("HandlePickUpCardAnswer", data);
                 break;
             case PACKET_TYPES.CURSOR_UPDATE:

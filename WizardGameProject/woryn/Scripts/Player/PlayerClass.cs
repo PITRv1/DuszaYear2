@@ -140,12 +140,11 @@ public class PlayerClass
         TurnInfoPacket packet = TurnInfoPacket.CreateFromData(data);
         Points = packet.CurrentPointValue;
         parent.SetUI(packet.MaxValue, packet.CurrentPointValue, packet.ThrowDeckValue);
-        parent.RemoveSelectedCards(packet.LastPlayer);
+        parent.RemoveSelectedCards(packet.LastPlayer, packet.DeletePointCards, packet.DeleteModifierCards);
     }
 
     public void ProccessPickUpAnswer(byte[] data)
     {
-        GD.Print("why");
         PickUpCardAnswer packet = PickUpCardAnswer.CreateFromData(data);
         // if (packet.PointCards.Length == 0) return;
 
@@ -159,11 +158,9 @@ public class PlayerClass
 
         foreach (ModifierCard card in packet.ModifierCards)
         {
-            GD.Print("MEDEWDEDEDVE");
             parent.AddModifierToContainer(card);
         }
 
-        GD.Print("BRIHER");
     }
 
     public bool CanEndTurn()

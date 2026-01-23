@@ -10,6 +10,7 @@ public partial class TurnManager
 	// private List<ModifierCard> modifierCardsPlayed;
 	private PointCardDeck pointCardDeck;
 	private int currentPlayer = 0;
+	private int lastPlayer = 0;
 	private int playerCount = 3;
 	private int CurrentRound = 1;
 	private Dictionary<int, MultiplayerPlayerClass> players;
@@ -45,7 +46,6 @@ public partial class TurnManager
 
 		foreach (int player in players.Keys)
 		{
-			GD.Print("bruhererr " + player);
 			DealCards(player);
 		}
 	}
@@ -86,7 +86,6 @@ public partial class TurnManager
 	{
 		foreach (ModifierCard card in cards)
 		{
-			// GD.Print("PLEASE SPEED: " + card.Amount);
 			value = card.Calculate(value);
 		}
 
@@ -128,17 +127,23 @@ public partial class TurnManager
 		if (packet.SenderId != currentPlayer)
 			return;
 
+		players[lastPlayer].playerClass.Points += ThrowDeckValue;
+		ThrowDeckValue = 0;
+		currentMaxValue = 0;
+
 		foreach (int player in players.Keys)
 		{
 
 			TurnInfoPacket turnInfoPacket = new TurnInfoPacket
 			{
-				LastPlayer = 0,
+				LastPlayer = lastPlayer,
 				CurrentPlayerId = currentPlayer,
 				CurrentRound = CurrentRound,
 				MaxValue = currentMaxValue,
 				CurrentPointValue = players[player].playerClass.Points,
-				ThrowDeckValue = ThrowDeckValue
+				ThrowDeckValue = ThrowDeckValue,
+				DeletePointCards = [],
+				DeleteModifierCards = [],
 			};
 
 			Global.networkHandler._clientPeers.TryGetValue(player, out var peer);
@@ -195,20 +200,6 @@ public partial class TurnManager
 			packet.Send(peer);
 	}
 
-	// public void EndRound()
-	// {
-	// 	if (currentMaxValue < CalculateCardValue())
-	// 	{
-	// 		currentMaxValue = CalculateCardValue();
-	// 		GD.Print("LMAOO");
-	// 	}
-	// 	else
-	// 	{
-	// 		GD.Print("KILL YOURSELF");
-	// 		currentMaxValue = 0;
-	// 	}
-	// }
-
 	private bool DoesPlayerOwnModifiers(ModifierCard[] cards)
 	{
 		List<MODIFIER_TYPES> types = ModifierCardTypeConverter.ClassListToTypeList(players[currentPlayer].playerClass.ModifCardList);
@@ -258,27 +249,30 @@ public partial class TurnManager
 		}
 	}
 
-	private void StartNewTurn(List<ModifierCard> usedCards, int value, bool fold)
+	private void StartNewTurn(int pointCardIndex, byte[] modifierCardIndexes, List<ModifierCard> usedCards, int value, bool fold)
 	{
-		int lastPlayer = currentPlayer;
+		lastPlayer = currentPlayer;
 
 		foreach (ModifierCard card in usedCards)
 			if (!card.IsCardModifier)
 				DealWithModifiers(card);
 
-		currentPlayer += roundDirection + (roundDirection * skipAmount);
-
-		skipAmount = 0;
-
-		if (playerCount - 1 < currentPlayer)
-			currentPlayer = 0;
-
-		if (currentPlayer < 0)
-			currentPlayer = playerCount - 1;
-
-		if (pointCardDeck.GetCount() == 0 && !DoPlayersHaveCards())
+		do
 		{
-			GD.Print("Super over");
+			currentPlayer += roundDirection + (roundDirection * skipAmount);
+
+			skipAmount = 0;
+
+			if (playerCount - 1 < currentPlayer)
+				currentPlayer = 0;
+
+			if (currentPlayer < 0)
+				currentPlayer = playerCount - 1;
+
+		} while(players[currentPlayer].playerClass.PointCardList.Count == 0 && DoPlayersHaveCards());
+
+		if (!DoPlayersHaveCards())
+		{
 			ThrowDeckValue += value;
 			players[lastPlayer].playerClass.Points += ThrowDeckValue;
 			ThrowDeckValue = 0;
@@ -289,17 +283,14 @@ public partial class TurnManager
 
 		if (fold)
 		{
-			GD.Print("It's over");
-			ThrowDeckValue += value;
-			players[lastPlayer].playerClass.Points += ThrowDeckValue;
-			ThrowDeckValue = 0;
-			currentMaxValue = 0;
 		}
 		else
 		{
 			ThrowDeckValue += value;
 			currentMaxValue = value;
 		}
+
+		GD.Print("Point Card Index: " + pointCardIndex);
 
 		foreach (int player in players.Keys)
 		{
@@ -311,7 +302,9 @@ public partial class TurnManager
 				CurrentRound = CurrentRound,
 				MaxValue = currentMaxValue,
 				CurrentPointValue = players[player].playerClass.Points,
-				ThrowDeckValue = ThrowDeckValue
+				ThrowDeckValue = ThrowDeckValue,
+				DeletePointCards = new int [] { pointCardIndex },
+				DeleteModifierCards = modifierCardIndexes
 			};
 
 			Global.networkHandler._clientPeers.TryGetValue(player, out var peer);
@@ -376,7 +369,6 @@ public partial class TurnManager
 
 	public void ProccessEndGameRequest(byte[] data)
 	{
-		GD.Print("EDDIG");
 		EndTurnRequest packet = EndTurnRequest.CreateFromData(data);
 
 		GD.Print(currentPlayer + " --- " + packet.SenderId);
@@ -389,13 +381,8 @@ public partial class TurnManager
 		PointCard pointCard = packet.PointCard;
 		ModifierCard[] modifierCards = packet.ModifierCards;
 
-		GD.Print(packet.PointCardIndex + " " + currPlayer.PointCardList.Count);
 		if (currPlayer.PointCardList[packet.PointCardIndex].PointValue != pointCard.PointValue)
 			return;
-
-		GD.Print("MODIF CARD INDEXES: " + packet.ModifCardIndexes.Length);
-		GD.Print("MODIF CARDs: " + modifierCards.Length);
-		GD.Print("PLAYER MODIF CARDs: " + currPlayer.ModifCardList.Count);
 
 		List<ModifierCard> usedCards = new List<ModifierCard>();
 
@@ -428,7 +415,7 @@ public partial class TurnManager
 
 		PickUpCards(currentPlayer);
 
-		StartNewTurn(usedCards, turnValue, false);
+		StartNewTurn(packet.PointCardIndex, packet.ModifCardIndexes, usedCards, turnValue, false);
 	}
 
 	private void SendOutNewDecks()

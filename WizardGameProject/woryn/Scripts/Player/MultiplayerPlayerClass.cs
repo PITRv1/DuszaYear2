@@ -23,7 +23,6 @@ public partial class MultiplayerPlayerClass : Node
 		ID = Global.multiplayerClientGlobals._id;
 		Global.multiplayerClientGlobals.HandleTurnInfo += playerClass.ProccessTurnInfoPacket;
 		Global.multiplayerClientGlobals.HandlePickUpCardAnswer += playerClass.ProccessPickUpAnswer;
-		Global.multiplayerClientGlobals.HandlePickUpCardAnswer += Burger;
 		Global.multiplayerClientGlobals.HandleDeckSwap += playerClass.HandleDeckSwap;
 
 		Global.multiplayerClientGlobals.ShopScene += GoToShop;
@@ -57,11 +56,6 @@ public partial class MultiplayerPlayerClass : Node
 	//     ids.Add(id);
 	// }
 
-	private void Burger(byte[] data)
-	{
-		GD.Print("i hate");
-	}
-
 	public void SetUI(int mPoints, int plrPoints, int throwValue)
 	{
 		maxPoints.Text = mPoints.ToString();
@@ -93,19 +87,28 @@ public partial class MultiplayerPlayerClass : Node
 		Global.networkHandler._serverPeer?.Send(0, packet.Encode(), (int)ENetPacketPeer.FlagReliable);
 	}
 
-	public void RemoveSelectedCards(int lastPlayer)
+	public void RemoveSelectedCards(int lastPlayer, int[] selectedPointCard, byte[] selectedModifiers)
 	{
 		if (lastPlayer != ID)
 			return;
-		pointCards.RemoveChild(pointCards.GetChild(playerClass.PointCardList.IndexOf(playerClass.chosenPointCard)));
-		playerClass.PointCardList.Remove(playerClass.chosenPointCard);
+
+		GD.Print("ID: " + ID);
+
+		GD.Print("Size: " + selectedPointCard.Length);
+
+		foreach (int index in selectedPointCard)
+		{
+			GD.Print("BRO: " + index);
+			pointCards.RemoveChild(pointCards.GetChild(index));
+			playerClass.PointCardList.RemoveAt(index);
+		}
 
 		List<int> modifIndexes = new List<int>();
 
-		foreach (ModifierCard card in playerClass.chosenModifierCards)
+		foreach (byte card in selectedModifiers)
 		{
-			modifIndexes.Add(playerClass.ModifCardList.IndexOf(card));
-			playerClass.ModifCardList.Remove(card);
+			modifIndexes.Add(card);
+			playerClass.ModifCardList.RemoveAt(card);
 		}
 
 		modifIndexes.Sort();
