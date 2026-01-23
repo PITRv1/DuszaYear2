@@ -18,6 +18,7 @@ public partial class TurnManager
 	private int roundDirection = 1;
 	private int skipAmount = 0;
 	// private bool RoundOver
+	public bool throwDeckPulled = false;
 
 	public TurnManager(List<int> playerIds)
 	{
@@ -286,6 +287,7 @@ public partial class TurnManager
 		}
 		else
 		{
+			throwDeckPulled=false;
 			ThrowDeckValue += value;
 			currentMaxValue = value;
 		}
