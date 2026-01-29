@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2gbw4x2y4gfx"
-path.s3tc="res://.godot/imported/Chair_wood_texture.png-19fcf9b51d7bd36a55d0a31d89484828.s3tc.ctex"
+path.s3tc="res://.godot/imported/Chair_wood_texture.png-2bdd9806d9395b32af9ca79ca3e0c1d0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/models/Chair_wood_texture.png"
-dest_files=["res://.godot/imported/Chair_wood_texture.png-19fcf9b51d7bd36a55d0a31d89484828.s3tc.ctex"]
+source_file="res://Assets/Models/Chair_wood_texture.png"
+dest_files=["res://.godot/imported/Chair_wood_texture.png-2bdd9806d9395b32af9ca79ca3e0c1d0.s3tc.ctex"]
 
 [params]
 

@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://d0d5pio88bn4h" path="res://3D Menu/ClassSelection/ClassSelectorMenu.tscn" id="7_k7yxf"]
 [ext_resource type="Texture2D" uid="uid://cxn8hk2mjf50x" path="res://Assets/UI/NineRect/background_simple.png" id="8_38utj"]
 [ext_resource type="Texture2D" uid="uid://c7ifawlapypu5" path="res://Assets/rogland_clear_night_1k.hdr" id="11_gv0l0"]
-[ext_resource type="Script" uid="uid://ca0pr2up27plw" path="res://Assets/compEffeckt/pixelization_shader.gd" id="12_12dsr"]
-[ext_resource type="Script" uid="uid://dqlwg2rtn14oa" path="res://Assets/compEffeckt/quantization_shader.gd" id="13_kcwk8"]
-[ext_resource type="PackedScene" uid="uid://ccf0q8umdew7p" path="res://Assets/models/aztal.glb" id="15_kcwk8"]
-[ext_resource type="PackedScene" uid="uid://813a71lqqufe" path="res://Assets/models/Chair.glb" id="16_sdsio"]
+[ext_resource type="Script" uid="uid://ca0pr2up27plw" path="res://Assets/Shaders/pixelization_shader.gd" id="12_12dsr"]
+[ext_resource type="Script" uid="uid://dqlwg2rtn14oa" path="res://Assets/Shaders/quantization_shader.gd" id="13_kcwk8"]
+[ext_resource type="PackedScene" uid="uid://ccf0q8umdew7p" path="res://Assets/Models/aztal.glb" id="15_kcwk8"]
+[ext_resource type="PackedScene" uid="uid://813a71lqqufe" path="res://Assets/Models/Chair.glb" id="16_sdsio"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_5toyo"]
 panorama = ExtResource("11_gv0l0")

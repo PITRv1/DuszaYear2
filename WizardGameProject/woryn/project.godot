@@ -54,3 +54,7 @@ folder_colors={
 "res://Testing/": "teal",
 "res://UI/": "blue"
 }
+
+[physics]
+
+3d/physics_engine="Jolt Physics"

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce7fbf0aahkpy"
-path.s3tc="res://.godot/imported/MainMenuEnvironment_tiled_floor_albedo.png-9fc06f7bf10d9c89116505781455ef9c.s3tc.ctex"
+uid="uid://cw7pxbx4v7frr"
+path.s3tc="res://.godot/imported/TEXTURETEST_brick.png-8bde923d4d737cd2bdd2d172fdf10af3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ef5954e4558be9c279ea1e9824ee1181"
+"md5": "86590ba1eb3d1b0340795556137b9058"
 }
 
 [deps]
 
-source_file="res://3D Menu/MainMenu/MainMenuEnvironment_tiled_floor_albedo.png"
-dest_files=["res://.godot/imported/MainMenuEnvironment_tiled_floor_albedo.png-9fc06f7bf10d9c89116505781455ef9c.s3tc.ctex"]
+source_file="res://Assets/TEST_Assets/TEXTURETEST_brick.png"
+dest_files=["res://.godot/imported/TEXTURETEST_brick.png-8bde923d4d737cd2bdd2d172fdf10af3.s3tc.ctex"]
 
 [params]
 

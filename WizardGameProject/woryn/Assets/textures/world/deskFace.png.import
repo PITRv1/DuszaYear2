@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3minr8roovo4"
-path.s3tc="res://.godot/imported/deskFace.png-8006779893673f0b280b748fbb6b6af8.s3tc.ctex"
+path.s3tc="res://.godot/imported/deskFace.png-b135e6b783dbb0d9351eafb1693c3cfc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/world/deskFace.png"
-dest_files=["res://.godot/imported/deskFace.png-8006779893673f0b280b748fbb6b6af8.s3tc.ctex"]
+source_file="res://Assets/Textures/world/deskFace.png"
+dest_files=["res://.godot/imported/deskFace.png-b135e6b783dbb0d9351eafb1693c3cfc.s3tc.ctex"]
 
 [params]
 

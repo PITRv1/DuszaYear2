@@ -4,13 +4,13 @@ using System.Reflection.Metadata.Ecma335;
 
 public partial class CombinedUI : Control
 {
+	[Signal] public delegate void MenuChangedEventHandler(Control newMenu);
+
 	[Export] public Control mainMenu;
 	[Export] public Control creditsMenu;
 	[Export] public Control settingsMenu;
 	[Export] public Control singpePlayerMenu;
 	[Export] public Control multiplayerCombinedMenu;
-
-	[Export] public MainMenuController mainMenuController;
 
 	private Control _currentMenu;
 
@@ -23,6 +23,7 @@ public partial class CombinedUI : Control
 			if (_currentMenu != null) _currentMenu.Visible = false;
 			_currentMenu = value;
 			_currentMenu.Visible = true;
+			EmitSignal(SignalName.MenuChanged, _currentMenu);
 		}
 	}
 

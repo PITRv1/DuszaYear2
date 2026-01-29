@@ -8,7 +8,6 @@ public partial class Singleplayer : Control
 	public void Back()
 	{
 		combinedUI.CurrentMenu = combinedUI.mainMenu;
-		combinedUI.mainMenuController.GoToMainViewPoint();
 
 	}
 }

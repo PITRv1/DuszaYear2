@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqep2u5tdimnl"
-path.s3tc="res://.godot/imported/Petha_1m x 1m Magenta.png-540e2c73a84a1420512ecd4f67c5e11c.s3tc.ctex"
+path.s3tc="res://.godot/imported/Petha_1m x 1m Magenta.png-0ab18b81ef82a13e50da5f5c0c560c08.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/test/Petha_1m x 1m Magenta.png"
-dest_files=["res://.godot/imported/Petha_1m x 1m Magenta.png-540e2c73a84a1420512ecd4f67c5e11c.s3tc.ctex"]
+source_file="res://Assets/Textures/test/Petha_1m x 1m Magenta.png"
+dest_files=["res://.godot/imported/Petha_1m x 1m Magenta.png-0ab18b81ef82a13e50da5f5c0c560c08.s3tc.ctex"]
 
 [params]
 
