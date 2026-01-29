@@ -1,4 +1,4 @@
-[gd_scene load_steps=595 format=4 uid="uid://b56xfex8vjqku"]
+[gd_scene load_steps=598 format=4 uid="uid://b56xfex8vjqku"]
 
 [ext_resource type="Script" uid="uid://bold5lwxqw4a2" path="res://3D Menu/MainMenu/MainMenuController.cs" id="1_8oofd"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_mt8kt"]
@@ -110,12 +110,12 @@ adjustment_saturation = 1.13
 [sub_resource type="CompositorEffect" id="CompositorEffect_fxvwu"]
 resource_local_to_scene = false
 resource_name = ""
-enabled = false
+enabled = true
 effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
 script = ExtResource("3_ef0mh")
-down_scaling = 4.0
+down_scaling = 2.0
 metadata/_custom_type_script = "uid://ca0pr2up27plw"
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_ef0mh"]
@@ -2072,8 +2072,19 @@ points = PackedVector3Array(154, 1.75, -47.25, 154, 0.5, -47.25, 153, 1.75, -47.
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sqjey"]
 points = PackedVector3Array(154, 5, -46.5, 154, 0.5, -46.5, 153, 5, -46.5, 153, 0.5, -46.5, 154, 5, -47.25, 154, 0.5, -47.25, 153, 5, -47.25, 153, 0.5, -47.25)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_674dm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xspun"]
+noise = SubResource("FastNoiseLite_674dm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6m4i"]
+albedo_color = Color(1, 0.26999998, 0.26999998, 1)
+normal_enabled = true
+normal_scale = 0.3
+normal_texture = SubResource("NoiseTexture2D_xspun")
+
 [sub_resource type="QuadMesh" id="QuadMesh_eymm1"]
-material = ExtResource("19_0m35x")
+material = SubResource("StandardMaterial3D_u6m4i")
 size = Vector2(4.14, 4.965)
 subdivide_width = 10
 subdivide_depth = 10
