@@ -15,7 +15,12 @@ public partial class CameraController : Node
     {
         mainMenuUi.MenuChanged += _OnMenuChanged;
     }
-
+    
+    /// <summary>
+    /// Tweens camera to one of its focus points;
+    /// To create a focus point make a marker3D in Godot, set its position and rotation and then link it to this node's focus point list.
+    /// </summary>
+    /// <param name="focusPointIndex"></param>
     public void FocusOnPoint(int focusPointIndex)
     {
         Marker3D focusPoint = focusPoints[focusPointIndex];        
@@ -28,6 +33,12 @@ public partial class CameraController : Node
         _tween.TweenProperty(animatedCamera,"global_rotation", focusPoint.GlobalRotation, 1.0f);
     }
 
+    /// <summary>
+    /// Connects to a signal from the main menu fired when the menu changes.
+    /// The signal is loaded with the new menu.
+    /// To add a new case (linked focus point) follow the patter defined below.
+    /// </summary>
+    /// <param name="newMenu"></param>
     private void _OnMenuChanged(Control newMenu)
     {
         switch (newMenu)
@@ -39,8 +50,6 @@ public partial class CameraController : Node
             case var value when value == mainMenuUi.settingsMenu:
                 FocusOnPoint(1);
             break;
-
-
         }
     }
 
