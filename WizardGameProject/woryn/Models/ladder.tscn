@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://3ubedt1gpvu1"]
+
+[ext_resource type="PackedScene" uid="uid://ba1ynkdedymi1" path="res://Models/ladder.glb" id="1_wt3k6"]
+
+[node name="ladder" instance=ExtResource("1_wt3k6")]

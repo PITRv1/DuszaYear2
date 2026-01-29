@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmmv6eenv57ct"]
+
+[ext_resource type="PackedScene" uid="uid://shlpw0ydq7o0" path="res://Models/Woryn_Label.glb" id="1_7mnnp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2ocq0"]
+noise_type = 3
+frequency = 0.0134
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tn04j"]
+noise = SubResource("FastNoiseLite_2ocq0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ha7k6"]
+albedo_color = Color(0.29989827, 0.45639342, 0.849874, 1)
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_tn04j")
+
+[node name="Woryn_Label" instance=ExtResource("1_7mnnp")]
+
+[node name="Text" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ha7k6")
