@@ -65,7 +65,8 @@ texture_margin_bottom = 13.0
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2yst2"]
 
 [resource]
-Button/constants/outline_size = 3
+Button/colors/font_outline_color = Color(1, 0, 0, 1)
+Button/constants/outline_size = 8
 Button/font_sizes/font_size = 20
 Button/fonts/font = ExtResource("1_2yl4d")
 Button/styles/hover = SubResource("StyleBoxTexture_a8oje")

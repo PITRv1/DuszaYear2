@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c16woc7kty6ss"
-path="res://.godot/imported/basicHangingLamp.glb-44910e7ed5c265b2b20ec426acebde27.scn"
+path="res://.godot/imported/basicHangingLamp.glb-d0242e1b4d1a8b604e86fef512204276.scn"
 
 [deps]
 
-source_file="res://Assets/Models/MainMenuNewCollection/basicHangingLamp.glb"
-dest_files=["res://.godot/imported/basicHangingLamp.glb-44910e7ed5c265b2b20ec426acebde27.scn"]
+source_file="res://Assets/models/MainMenuNewCollection/basicHangingLamp.glb"
+dest_files=["res://.godot/imported/basicHangingLamp.glb-d0242e1b4d1a8b604e86fef512204276.scn"]
 
 [params]
 

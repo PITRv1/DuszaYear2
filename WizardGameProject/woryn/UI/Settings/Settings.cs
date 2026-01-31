@@ -4,7 +4,7 @@ using System.Collections;
 
 public partial class Settings : Control
 {
-	[Export] CombinedUI combinedUI;
+	[Export] MainUI mainUI;
 
 	[Export] HSlider masterVolumeSlider;
 	[Export] HSlider musicVolumeSlider;
@@ -32,8 +32,7 @@ public partial class Settings : Control
 
 	public void Back()
 	{
-		combinedUI.CurrentMenu = combinedUI.mainMenu;
-
+		mainUI.ResetToMainMenu();
 	}
 
 	public void SetViewportSize(int option)

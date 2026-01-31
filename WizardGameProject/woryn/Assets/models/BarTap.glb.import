@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bm74p1qti2dtg"
-path="res://.godot/imported/BarTap.glb-a84ada65013cf4e5817b7e05939f9e25.scn"
+path="res://.godot/imported/BarTap.glb-86a1d9d0673717e7d6c2b30d9058ecf1.scn"
 
 [deps]
 
-source_file="res://Assets/Models/BarTap.glb"
-dest_files=["res://.godot/imported/BarTap.glb-a84ada65013cf4e5817b7e05939f9e25.scn"]
+source_file="res://Assets/models/BarTap.glb"
+dest_files=["res://.godot/imported/BarTap.glb-86a1d9d0673717e7d6c2b30d9058ecf1.scn"]
 
 [params]
 

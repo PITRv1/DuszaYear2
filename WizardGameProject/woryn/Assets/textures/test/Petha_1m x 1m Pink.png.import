@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://50ndtlojfy3o"
-path.s3tc="res://.godot/imported/Petha_1m x 1m Pink.png-701ae6d3ac8e1d92c95893e21293f530.s3tc.ctex"
+path.s3tc="res://.godot/imported/Petha_1m x 1m Pink.png-daf5383473f2744dc29b868b8d6ffdc9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/test/Petha_1m x 1m Pink.png"
-dest_files=["res://.godot/imported/Petha_1m x 1m Pink.png-701ae6d3ac8e1d92c95893e21293f530.s3tc.ctex"]
+source_file="res://Assets/textures/test/Petha_1m x 1m Pink.png"
+dest_files=["res://.godot/imported/Petha_1m x 1m Pink.png-daf5383473f2744dc29b868b8d6ffdc9.s3tc.ctex"]
 
 [params]
 

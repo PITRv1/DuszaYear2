@@ -1,4 +1,4 @@
-[gd_scene load_steps=598 format=4 uid="uid://b56xfex8vjqku"]
+[gd_scene load_steps=624 format=4 uid="uid://b56xfex8vjqku"]
 
 [ext_resource type="Script" uid="uid://bold5lwxqw4a2" path="res://3D Menu/MainMenu/MainMenuController.cs" id="1_8oofd"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_mt8kt"]
@@ -6,45 +6,52 @@
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_m2pmq"]
 [ext_resource type="Script" uid="uid://dqlwg2rtn14oa" path="res://Assets/Shaders/quantization_shader.gd" id="3_ym0o4"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="4_3bfbn"]
-[ext_resource type="Material" uid="uid://0lm3laa88mre" path="res://Assets/Textures/images/road.tres" id="5_nn02q"]
-[ext_resource type="Material" uid="uid://bur1epdus2js6" path="res://Assets/Textures/test/Petha_1m x 1m Pink.tres" id="5_w5o0e"]
-[ext_resource type="Material" uid="uid://ceffab1ldthvp" path="res://Assets/Textures/test/Petha_1m x 1m Green.tres" id="7_srp1p"]
-[ext_resource type="Material" uid="uid://jubht87n3b8a" path="res://Assets/Textures/world/grassFloorTile.tres" id="7_xg27o"]
-[ext_resource type="Material" uid="uid://bdgtjca2bc0j" path="res://Assets/Textures/test/Petha_1m x 1m Orange.tres" id="8_2p70u"]
-[ext_resource type="Material" uid="uid://dsu8dmh3ivncb" path="res://Assets/Textures/images/faced.tres" id="8_7t6c6"]
-[ext_resource type="Material" uid="uid://c0njgtlwg4xlm" path="res://Assets/Textures/test/Petha_1m x 1m Gray.tres" id="9_7uqga"]
-[ext_resource type="Material" uid="uid://c5ygdh78g82cg" path="res://Assets/Textures/test/Petha_1m x 1m Red.tres" id="10_hqkfp"]
-[ext_resource type="Material" uid="uid://o4xaicc786k4" path="res://Assets/Textures/world/dirtDarkTile.tres" id="10_pia1e"]
-[ext_resource type="Material" uid="uid://bke2mlwg4xdc0" path="res://Assets/Textures/test/Petha_1m x 1m Cyan.tres" id="11_6dmpw"]
-[ext_resource type="Material" uid="uid://cff54jbxpxbba" path="res://Assets/Textures/test/Petha_1m x 1m Magenta.tres" id="12_ctpc2"]
-[ext_resource type="Material" uid="uid://b5girwavy68pg" path="res://Assets/Textures/images/Wood.tres" id="12_jn0tk"]
-[ext_resource type="Material" uid="uid://d0pyyba21pafc" path="res://Assets/Textures/test/Petha_1m x 1m Purple.tres" id="13_8oofd"]
-[ext_resource type="Material" uid="uid://dpnd8s4upd01p" path="res://Assets/Textures/test/Petha_1m x 1m Blue.tres" id="14_saho3"]
-[ext_resource type="Material" uid="uid://d4j5s7sw33t7v" path="res://Assets/Textures/world/brick.tres" id="15_ctpc2"]
-[ext_resource type="Material" uid="uid://wfkec16ns440" path="res://Assets/Textures/world/wallBottomTile.tres" id="15_pkg1t"]
-[ext_resource type="Material" uid="uid://k61snhsjistj" path="res://Assets/Textures/world/floorBoardTile.tres" id="16_g08l2"]
-[ext_resource type="Material" uid="uid://bsrpolgqyl72p" path="res://Assets/Textures/world/wallOrnate.tres" id="17_ec83f"]
-[ext_resource type="Material" uid="uid://dep28g1mlgv5a" path="res://Assets/Textures/world/deskFace.tres" id="17_jn0tk"]
-[ext_resource type="Material" uid="uid://cwc3jy3hk8q1f" path="res://Assets/Textures/world/barTile.tres" id="18_0m35x"]
-[ext_resource type="Material" uid="uid://c87l8wnlf0k07" path="res://Assets/Textures/world/carpetTile.tres" id="19_0m35x"]
-[ext_resource type="Material" uid="uid://wwx8uk01lykc" path="res://Assets/Textures/images/shelf.tres" id="19_syikk"]
-[ext_resource type="Material" uid="uid://dtkyuuh2yiq8c" path="res://Assets/Textures/world/redCarpetTile.tres" id="20_syikk"]
-[ext_resource type="Material" uid="uid://bix1vsif6u6fg" path="res://Assets/Textures/world/wallOrnateType2.tres" id="21_syikk"]
-[ext_resource type="Material" uid="uid://dvjm4wxacktt0" path="res://Assets/Textures/world/blueBrick.tres" id="22_alyo5"]
-[ext_resource type="Material" uid="uid://cl5whx545lklw" path="res://Assets/Textures/world/barkEmissive.tres" id="22_uiqau"]
-[ext_resource type="Material" uid="uid://cp8mkw4tijyla" path="res://Assets/Textures/world/rockTile.tres" id="23_g8nf3"]
-[ext_resource type="Material" uid="uid://ct8wyel46pvxo" path="res://Assets/Textures/world/column.tres" id="24_674dm"]
-[ext_resource type="Material" uid="uid://bfura055dud30" path="res://Assets/Textures/images/bookshlef.tres" id="25_g8nf3"]
-[ext_resource type="Material" uid="uid://cq8j7owruuxtf" path="res://Assets/Textures/images/bookshlef2.tres" id="26_674dm"]
-[ext_resource type="PackedScene" uid="uid://dsm13aj54ggim" path="res://UI/CombinedUI/CombinedUI.tscn" id="28_ctpc2"]
-[ext_resource type="Texture2D" uid="uid://b7tjrg22o7ic1" path="res://Assets/Textures/images/HaveAnother.png" id="33_u6m4i"]
-[ext_resource type="Texture2D" uid="uid://ckplquym6441h" path="res://Assets/Textures/images/tree.png" id="34_pia1e"]
+[ext_resource type="Material" uid="uid://0lm3laa88mre" path="res://Assets/textures/images/road.tres" id="5_nn02q"]
+[ext_resource type="Material" uid="uid://bur1epdus2js6" path="res://Assets/textures/test/Petha_1m x 1m Pink.tres" id="5_w5o0e"]
+[ext_resource type="Material" uid="uid://ceffab1ldthvp" path="res://Assets/textures/test/Petha_1m x 1m Green.tres" id="7_srp1p"]
+[ext_resource type="Material" uid="uid://jubht87n3b8a" path="res://Assets/textures/world/grassFloorTile.tres" id="7_xg27o"]
+[ext_resource type="Material" uid="uid://bdgtjca2bc0j" path="res://Assets/textures/test/Petha_1m x 1m Orange.tres" id="8_2p70u"]
+[ext_resource type="Material" uid="uid://dsu8dmh3ivncb" path="res://Assets/textures/images/faced.tres" id="8_7t6c6"]
+[ext_resource type="Material" uid="uid://c0njgtlwg4xlm" path="res://Assets/textures/test/Petha_1m x 1m Gray.tres" id="9_7uqga"]
+[ext_resource type="Material" uid="uid://c5ygdh78g82cg" path="res://Assets/textures/test/Petha_1m x 1m Red.tres" id="10_hqkfp"]
+[ext_resource type="Material" uid="uid://o4xaicc786k4" path="res://Assets/textures/world/dirtDarkTile.tres" id="10_pia1e"]
+[ext_resource type="Material" uid="uid://bke2mlwg4xdc0" path="res://Assets/textures/test/Petha_1m x 1m Cyan.tres" id="11_6dmpw"]
+[ext_resource type="Material" uid="uid://cff54jbxpxbba" path="res://Assets/textures/test/Petha_1m x 1m Magenta.tres" id="12_ctpc2"]
+[ext_resource type="Material" uid="uid://b5girwavy68pg" path="res://Assets/textures/images/Wood.tres" id="12_jn0tk"]
+[ext_resource type="Material" uid="uid://d0pyyba21pafc" path="res://Assets/textures/test/Petha_1m x 1m Purple.tres" id="13_8oofd"]
+[ext_resource type="Material" uid="uid://dpnd8s4upd01p" path="res://Assets/textures/test/Petha_1m x 1m Blue.tres" id="14_saho3"]
+[ext_resource type="Material" uid="uid://d4j5s7sw33t7v" path="res://Assets/textures/world/brick.tres" id="15_ctpc2"]
+[ext_resource type="Material" uid="uid://wfkec16ns440" path="res://Assets/textures/world/wallBottomTile.tres" id="15_pkg1t"]
+[ext_resource type="Material" uid="uid://k61snhsjistj" path="res://Assets/textures/world/floorBoardTile.tres" id="16_g08l2"]
+[ext_resource type="Material" uid="uid://bsrpolgqyl72p" path="res://Assets/textures/world/wallOrnate.tres" id="17_ec83f"]
+[ext_resource type="Material" uid="uid://dep28g1mlgv5a" path="res://Assets/textures/world/deskFace.tres" id="17_jn0tk"]
+[ext_resource type="Material" uid="uid://cwc3jy3hk8q1f" path="res://Assets/textures/world/barTile.tres" id="18_0m35x"]
+[ext_resource type="Material" uid="uid://c87l8wnlf0k07" path="res://Assets/textures/world/carpetTile.tres" id="19_0m35x"]
+[ext_resource type="Material" uid="uid://wwx8uk01lykc" path="res://Assets/textures/images/shelf.tres" id="19_syikk"]
+[ext_resource type="Material" uid="uid://dtkyuuh2yiq8c" path="res://Assets/textures/world/redCarpetTile.tres" id="20_syikk"]
+[ext_resource type="Material" uid="uid://bix1vsif6u6fg" path="res://Assets/textures/world/wallOrnateType2.tres" id="21_syikk"]
+[ext_resource type="Material" uid="uid://dvjm4wxacktt0" path="res://Assets/textures/world/blueBrick.tres" id="22_alyo5"]
+[ext_resource type="Material" uid="uid://cl5whx545lklw" path="res://Assets/textures/world/barkEmissive.tres" id="22_uiqau"]
+[ext_resource type="Material" uid="uid://cp8mkw4tijyla" path="res://Assets/textures/world/rockTile.tres" id="23_g8nf3"]
+[ext_resource type="Material" uid="uid://ct8wyel46pvxo" path="res://Assets/textures/world/column.tres" id="24_674dm"]
+[ext_resource type="Material" uid="uid://bfura055dud30" path="res://Assets/textures/images/bookshlef.tres" id="25_g8nf3"]
+[ext_resource type="Material" uid="uid://cq8j7owruuxtf" path="res://Assets/textures/images/bookshlef2.tres" id="26_674dm"]
+[ext_resource type="PackedScene" uid="uid://dsm13aj54ggim" path="res://UI/MainUI/MainUI.tscn" id="28_ctpc2"]
+[ext_resource type="Texture2D" uid="uid://b7tjrg22o7ic1" path="res://Assets/textures/images/HaveAnother.png" id="33_u6m4i"]
+[ext_resource type="Texture2D" uid="uid://ckplquym6441h" path="res://Assets/textures/images/tree.png" id="34_pia1e"]
 [ext_resource type="Script" uid="uid://bym6fkta1he1n" path="res://3D Menu/MainMenu/CameraController.cs" id="34_pkg1t"]
 [ext_resource type="PackedScene" uid="uid://c0v5ty8ha4cpa" path="res://Assets/TEST_Assets/bookShelfHalf.glb" id="36_jn0tk"]
 [ext_resource type="Theme" uid="uid://bntwtfgxeqnya" path="res://Assets/UI/Themes/Main/UIThemeSimple.tres" id="37_fxvwu"]
-[ext_resource type="PackedScene" uid="uid://dovfimrngf8o4" path="res://Assets/Models/MainMenuNewCollection/hangingLampAsset.tscn" id="40_g8nf3"]
-[ext_resource type="PackedScene" uid="uid://dncmddvl1lk2j" path="res://Assets/Models/MainMenuNewCollection/lamp.glb" id="41_674dm"]
+[ext_resource type="PackedScene" uid="uid://dovfimrngf8o4" path="res://Assets/models/MainMenuNewCollection/hangingLampAsset.tscn" id="40_g8nf3"]
+[ext_resource type="PackedScene" uid="uid://dncmddvl1lk2j" path="res://Assets/models/MainMenuNewCollection/lamp.glb" id="41_674dm"]
+[ext_resource type="PackedScene" uid="uid://dktxx8mws2pq1" path="res://UI/3DUI/DiegeticUI.tscn" id="43_xspun"]
+[ext_resource type="PackedScene" uid="uid://cegma4u4cusqc" path="res://UI/MainMenu/MainMenu.tscn" id="44_u6m4i"]
 [ext_resource type="LightmapGIData" uid="uid://k2iec0qcuhr1" path="res://3D Menu/MainMenu/MainMenu.lmbake" id="46_u6m4i"]
+[ext_resource type="PackedScene" uid="uid://d10vs074rfp2w" path="res://UI/Settings/Settings.tscn" id="46_ym0o4"]
+[ext_resource type="PackedScene" uid="uid://ccrlb1xrwrm1f" path="res://UI/Quit/QuitMenu.tscn" id="47_ef0mh"]
+[ext_resource type="PackedScene" uid="uid://bb3padfqjdkm3" path="res://UI/Singleplayer/Singleplayer.tscn" id="48_fxvwu"]
+[ext_resource type="PackedScene" uid="uid://bdeg6vwo3wgd4" path="res://UI/Credits/Credits.tscn" id="49_bv4a5"]
+[ext_resource type="PackedScene" uid="uid://be6l3tabm2s5j" path="res://UI/Multiplayer/Multiplayer.tscn" id="50_u4fps"]
 
 [sub_resource type="Gradient" id="Gradient_pia1e"]
 interpolation_mode = 2
@@ -2089,6 +2096,18 @@ size = Vector2(4.14, 4.965)
 subdivide_width = 10
 subdivide_depth = 10
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_u6m4i"]
+viewport_path = NodePath("MovingElements/Cameras/CameraController/CameraFocusPoints/MainPoint/MainMenu3DUI/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ym0o4"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_u6m4i")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ef0mh"]
+size = Vector3(2, 1, 0.08)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxej8"]
 transparency = 1
 shading_mode = 0
@@ -2096,6 +2115,68 @@ albedo_color = Color(0, 0, 0, 0)
 
 [sub_resource type="QuadMesh" id="QuadMesh_wjjlg"]
 material = SubResource("StandardMaterial3D_mxej8")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ym0o4"]
+viewport_path = NodePath("MovingElements/Cameras/CameraController/CameraFocusPoints/SettingsPoint/DiegeticUI/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ef0mh"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_ym0o4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ym0o4"]
+size = Vector2(0.875, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fxvwu"]
+size = Vector3(2, 1, 0.08)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ef0mh"]
+viewport_path = NodePath("MovingElements/Cameras/CameraController/CameraFocusPoints/QuitPoint/DiegeticUI/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxvwu"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_ef0mh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ef0mh"]
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bv4a5"]
+size = Vector3(2, 1, 0.08)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u4fps"]
+viewport_path = NodePath("MovingElements/Cameras/CameraController/CameraFocusPoints/SinglePoint/DiegeticUI/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3caok"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_u4fps")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fxvwu"]
+size = Vector2(1.085, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bv4a5"]
+viewport_path = NodePath("MovingElements/Cameras/CameraController/CameraFocusPoints/CreditsPoint/DiegeticUI/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bv4a5"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_bv4a5")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3caok"]
+viewport_path = NodePath("MovingElements/Cameras/CameraController/CameraFocusPoints/MultiPoint/DiegeticUI/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yhysv"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_3caok")
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_3caok"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ctpc2"]
 transparency = 1
@@ -2179,7 +2260,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("CombinedUI:modulate")
+tracks/6/path = NodePath("MainUI:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -2215,7 +2296,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("CombinedUI:visible")
+tracks/9/path = NodePath("MainUI:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -2324,7 +2405,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("CombinedUI:visible")
+tracks/8/path = NodePath("MainUI:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -2336,7 +2417,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("CombinedUI:modulate")
+tracks/9/path = NodePath("MainUI:modulate")
 tracks/9/interp = 2
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -4364,6 +4445,12 @@ light_bake_mode = 1
 omni_range = 16.206
 omni_attenuation = 1.971
 
+[node name="bookShelfHalf" parent="EnvironmentDetails" instance=ExtResource("36_jn0tk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 149.98465, 0.5, -43.01742)
+
+[node name="bookShelfHalf2" parent="EnvironmentDetails" instance=ExtResource("36_jn0tk")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 149.98465, 0.5, -39.32026)
+
 [node name="MovingElements" type="Node3D" parent="."]
 
 [node name="Cameras" type="Node3D" parent="MovingElements"]
@@ -4371,14 +4458,30 @@ omni_attenuation = 1.971
 [node name="CameraController" type="Node" parent="MovingElements/Cameras" node_paths=PackedStringArray("animatedCamera", "mainMenuUi", "focusPoints")]
 script = ExtResource("34_pkg1t")
 animatedCamera = NodePath("CameraFocusPoints/MainPoint/MainMenuCam")
-mainMenuUi = NodePath("../../../CombinedUI")
-focusPoints = [NodePath("CameraFocusPoints/MainPoint"), NodePath("CameraFocusPoints/SettingsPoint")]
+mainMenuUi = NodePath("../../../MainUI")
+focusPoints = [NodePath("CameraFocusPoints/MainPoint"), NodePath("CameraFocusPoints/SettingsPoint"), NodePath("CameraFocusPoints/QuitPoint"), NodePath("CameraFocusPoints/SinglePoint"), NodePath("CameraFocusPoints/CreditsPoint"), NodePath("CameraFocusPoints/MultiPoint")]
 
 [node name="CameraFocusPoints" type="Node3D" parent="MovingElements/Cameras/CameraController"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.26405, 2.6648974, -30.045973)
 
 [node name="MainPoint" type="Marker3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints"]
-transform = Transform3D(1, 0, 0, 0, 0.98388505, -0.17880222, 0, 0.17880222, 0.98388505, 0, -0.285, 0)
+transform = Transform3D(1, 0, 0, 0, 0.98388505, -0.17880222, 0, 0.17880222, 0.98388505, 0, -0.2850001, -4.2586)
+
+[node name="MainMenu3DUI" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/MainPoint" instance=ExtResource("43_xspun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3624115, -1.9942207)
+
+[node name="Mesh" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/MainPoint/MainMenu3DUI" index="0"]
+material_override = SubResource("StandardMaterial3D_ym0o4")
+
+[node name="CollisionShape3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/MainPoint/MainMenu3DUI/Area" index="0"]
+shape = SubResource("BoxShape3D_ef0mh")
+
+[node name="SubViewport" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/MainPoint/MainMenu3DUI" index="2"]
+size = Vector2i(1050, 512)
+size_2d_override = Vector2i(1055, 375)
+
+[node name="MainMenu" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/MainPoint/MainMenu3DUI/SubViewport" index="0" node_paths=PackedStringArray("mainUI") instance=ExtResource("44_u6m4i")]
+mainUI = NodePath("../../../../../../../../MainUI")
 
 [node name="MainMenuCam" type="Camera3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/MainPoint"]
 fov = 65.0
@@ -4388,7 +4491,85 @@ transform = Transform3D(1, -5.1781496e-16, 0, 1.2585419e-15, 1, 2.7755576e-17, 0
 mesh = SubResource("QuadMesh_wjjlg")
 
 [node name="SettingsPoint" type="Marker3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints"]
-transform = Transform3D(-4.371139e-08, -0.8890412, 0.4578274, 0, 0.4578274, 0.8890412, -1, 3.886122e-08, -2.001227e-08, -4.17708, 0.63711464, -10.136965)
+transform = Transform3D(-4.371139e-08, -0.8890412, 0.4578274, 0, 0.4578274, 0.8890412, -1, 3.886122e-08, -2.001227e-08, -4.3485565, 0.22076988, -10.136965)
+
+[node name="DiegeticUI" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/SettingsPoint" instance=ExtResource("43_xspun")]
+transform = Transform3D(1, 4.8470703e-09, 2.0532553e-08, -1.3899484e-08, 0.8835286, 0.4683769, -1.5870835e-08, -0.4683769, 0.8835286, 0, -0.044273376, -0.87615585)
+
+[node name="Mesh" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/SettingsPoint/DiegeticUI" index="0"]
+material_override = SubResource("StandardMaterial3D_ef0mh")
+mesh = SubResource("PlaneMesh_ym0o4")
+
+[node name="CollisionShape3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/SettingsPoint/DiegeticUI/Area" index="0"]
+shape = SubResource("BoxShape3D_fxvwu")
+
+[node name="Settings" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/SettingsPoint/DiegeticUI/SubViewport" index="0" node_paths=PackedStringArray("mainUI") instance=ExtResource("46_ym0o4")]
+mainUI = NodePath("../../../../../../../../MainUI")
+
+[node name="QuitPoint" type="Marker3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -1.6479931)
+
+[node name="DiegeticUI" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/QuitPoint" instance=ExtResource("43_xspun")]
+transform = Transform3D(0.9994048, 0, 0.03449811, 0, 1, 0, -0.03449811, 0, 0.9994048, 0, -0.2034285, -0.8959389)
+
+[node name="Mesh" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/QuitPoint/DiegeticUI" index="0"]
+material_override = SubResource("StandardMaterial3D_fxvwu")
+mesh = SubResource("PlaneMesh_ef0mh")
+
+[node name="CollisionShape3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/QuitPoint/DiegeticUI/Area" index="0"]
+shape = SubResource("BoxShape3D_bv4a5")
+
+[node name="SubViewport" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/QuitPoint/DiegeticUI" index="2"]
+size = Vector2i(312, 267)
+
+[node name="QuitWindow" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/QuitPoint/DiegeticUI/SubViewport" index="0" node_paths=PackedStringArray("mainUI") instance=ExtResource("47_ef0mh")]
+mainUI = NodePath("../../../../../../../../MainUI")
+
+[node name="SinglePoint" type="Marker3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.981674, 0, -10.661562)
+
+[node name="DiegeticUI" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/SinglePoint" instance=ExtResource("43_xspun")]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 0, 0, -0.76130676)
+
+[node name="Mesh" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/SinglePoint/DiegeticUI" index="0"]
+transform = Transform3D(-1, 8.742278e-08, -3.821371e-15, 0, -4.371139e-08, -1, -8.742278e-08, -1, 4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_3caok")
+mesh = SubResource("PlaneMesh_fxvwu")
+
+[node name="SinglePlayer" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/SinglePoint/DiegeticUI/SubViewport" index="0" node_paths=PackedStringArray("mainUI") instance=ExtResource("48_fxvwu")]
+mainUI = NodePath("../../../../../../../../MainUI")
+
+[node name="CreditsPoint" type="Marker3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.289459, 5.1801805, -7.9596653)
+
+[node name="DiegeticUI" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/CreditsPoint" instance=ExtResource("43_xspun")]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 0, 0, -0.76130676)
+
+[node name="Mesh" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/CreditsPoint/DiegeticUI" index="0"]
+transform = Transform3D(-1, 8.742278e-08, -3.821371e-15, 0, -4.371139e-08, -1, -8.742278e-08, -1, 4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_bv4a5")
+mesh = SubResource("PlaneMesh_fxvwu")
+
+[node name="SubViewport" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/CreditsPoint/DiegeticUI" index="2"]
+size = Vector2i(822, 637)
+
+[node name="Credits" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/CreditsPoint/DiegeticUI/SubViewport" index="0" node_paths=PackedStringArray("mainUI") instance=ExtResource("49_bv4a5")]
+mainUI = NodePath("../../../../../../../../MainUI")
+
+[node name="MultiPoint" type="Marker3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.618872)
+
+[node name="DiegeticUI" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/MultiPoint" instance=ExtResource("43_xspun")]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 0, 0, -1.2378502)
+
+[node name="Mesh" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/MultiPoint/DiegeticUI" index="0"]
+transform = Transform3D(-1, 8.742278e-08, -3.821371e-15, 0, -4.371139e-08, -1, -8.742278e-08, -1, 4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_yhysv")
+mesh = SubResource("PlaneMesh_fxvwu")
+
+[node name="Multiplayer" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/MultiPoint/DiegeticUI/SubViewport" index="0" node_paths=PackedStringArray("mainUI") instance=ExtResource("50_u4fps")]
+mainUI = NodePath("../../../../../../../../MainUI")
+optionGroup = SubResource("ButtonGroup_3caok")
 
 [node name="IntroCam" type="Camera3D" parent="MovingElements/Cameras"]
 transform = Transform3D(-1, -2.4683073e-08, -8.386589e-08, 0, 0.959314, -0.28234145, 8.742278e-08, -0.28234145, -0.959314, -0.315, 1.1, -18.965)
@@ -4405,7 +4586,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_3fkh0")
 }
 
-[node name="CombinedUI" parent="." instance=ExtResource("28_ctpc2")]
+[node name="MainUI" parent="." instance=ExtResource("28_ctpc2")]
 visible = false
 
 [node name="GameStartHint" type="RichTextLabel" parent="."]
@@ -4430,8 +4611,9 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="bookShelfHalf" parent="." instance=ExtResource("36_jn0tk")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 149.98465, 0.5, -43.01742)
-
-[node name="bookShelfHalf2" parent="." instance=ExtResource("36_jn0tk")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 149.98465, 0.5, -39.32026)
+[editable path="MovingElements/Cameras/CameraController/CameraFocusPoints/MainPoint/MainMenu3DUI"]
+[editable path="MovingElements/Cameras/CameraController/CameraFocusPoints/SettingsPoint/DiegeticUI"]
+[editable path="MovingElements/Cameras/CameraController/CameraFocusPoints/QuitPoint/DiegeticUI"]
+[editable path="MovingElements/Cameras/CameraController/CameraFocusPoints/SinglePoint/DiegeticUI"]
+[editable path="MovingElements/Cameras/CameraController/CameraFocusPoints/CreditsPoint/DiegeticUI"]
+[editable path="MovingElements/Cameras/CameraController/CameraFocusPoints/MultiPoint/DiegeticUI"]

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c2k6nsl18gala"
-path="res://.godot/imported/Glass.glb-ef2a5424ac6ee00dad3cb99b79a774ce.scn"
+path="res://.godot/imported/Glass.glb-24cd34bcd6a83ba064e17d776f073ac1.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Glass.glb"
-dest_files=["res://.godot/imported/Glass.glb-ef2a5424ac6ee00dad3cb99b79a774ce.scn"]
+source_file="res://Assets/models/Glass.glb"
+dest_files=["res://.godot/imported/Glass.glb-24cd34bcd6a83ba064e17d776f073ac1.scn"]
 
 [params]
 

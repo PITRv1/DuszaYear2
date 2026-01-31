@@ -27,8 +27,8 @@ TurnManager="*res://Scripts/Managers/TurnManager.cs"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
@@ -38,7 +38,7 @@ project/assembly_name="Woryn"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
+enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/func_godot/plugin.cfg")
 
 [file_customization]
 

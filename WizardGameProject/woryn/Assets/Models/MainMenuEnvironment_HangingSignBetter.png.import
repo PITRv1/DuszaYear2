@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhtiyv7u2bxto"
-path.s3tc="res://.godot/imported/MainMenuEnvironment_HangingSignBetter.png-9844d71f8d59fc828cc7a47ed88948ac.s3tc.ctex"
+path.s3tc="res://.godot/imported/MainMenuEnvironment_HangingSignBetter.png-b6310eaabb9bdfc940069f97b38834d1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Models/MainMenuEnvironment_HangingSignBetter.png"
-dest_files=["res://.godot/imported/MainMenuEnvironment_HangingSignBetter.png-9844d71f8d59fc828cc7a47ed88948ac.s3tc.ctex"]
+source_file="res://Assets/models/MainMenuEnvironment_HangingSignBetter.png"
+dest_files=["res://.godot/imported/MainMenuEnvironment_HangingSignBetter.png-b6310eaabb9bdfc940069f97b38834d1.s3tc.ctex"]
 
 [params]
 

@@ -30,6 +30,7 @@ ipAddressInputServer = NodePath("Host/Ip/ServerIpInput")
 ipAddressInputClient = NodePath("Join/LineEdit")
 
 [node name="Title" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -61,7 +62,6 @@ patch_margin_right = 17
 patch_margin_bottom = 17
 
 [node name="MultiType" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c0ld63adexcmc"
-path.s3tc="res://.godot/imported/floorBoardTile.png-b7bf260aeff4627cf802cc2a6e889e7d.s3tc.ctex"
+path.s3tc="res://.godot/imported/floorBoardTile.png-05cb356fe027f04d51e4e6e5d64ae7e5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/world/floorBoardTile.png"
-dest_files=["res://.godot/imported/floorBoardTile.png-b7bf260aeff4627cf802cc2a6e889e7d.s3tc.ctex"]
+source_file="res://Assets/textures/world/floorBoardTile.png"
+dest_files=["res://.godot/imported/floorBoardTile.png-05cb356fe027f04d51e4e6e5d64ae7e5.s3tc.ctex"]
 
 [params]
 

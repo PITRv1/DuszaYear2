@@ -16,6 +16,7 @@ theme = ExtResource("1_7j8m0")
 script = ExtResource("2_tiv78")
 
 [node name="Title" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0

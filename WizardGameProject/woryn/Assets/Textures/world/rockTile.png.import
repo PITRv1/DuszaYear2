@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2vdpwdmasrwk"
-path.s3tc="res://.godot/imported/rockTile.png-c97736ab85b6cdf6215d7949e2b1fe8a.s3tc.ctex"
+path.s3tc="res://.godot/imported/rockTile.png-1bf0abfb493c30fe9bf14bdd53784dd8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/world/rockTile.png"
-dest_files=["res://.godot/imported/rockTile.png-c97736ab85b6cdf6215d7949e2b1fe8a.s3tc.ctex"]
+source_file="res://Assets/textures/world/rockTile.png"
+dest_files=["res://.godot/imported/rockTile.png-1bf0abfb493c30fe9bf14bdd53784dd8.s3tc.ctex"]
 
 [params]
 

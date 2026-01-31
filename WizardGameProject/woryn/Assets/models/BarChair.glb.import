@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c60xgno2h8tii"
-path="res://.godot/imported/BarChair.glb-8149d8f544e979949e4e0c6988b4c129.scn"
+path="res://.godot/imported/BarChair.glb-2e25556390eb3a3a9859c850d720afc9.scn"
 
 [deps]
 
-source_file="res://Assets/Models/BarChair.glb"
-dest_files=["res://.godot/imported/BarChair.glb-8149d8f544e979949e4e0c6988b4c129.scn"]
+source_file="res://Assets/models/BarChair.glb"
+dest_files=["res://.godot/imported/BarChair.glb-2e25556390eb3a3a9859c850d720afc9.scn"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhg382owmn7f3"
-path.s3tc="res://.godot/imported/wallBottomTile.png-633208bbfe29526cc21106ec409fb002.s3tc.ctex"
+path.s3tc="res://.godot/imported/wallBottomTile.png-40f7aaded515336f666052a979016d1a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/world/wallBottomTile.png"
-dest_files=["res://.godot/imported/wallBottomTile.png-633208bbfe29526cc21106ec409fb002.s3tc.ctex"]
+source_file="res://Assets/textures/world/wallBottomTile.png"
+dest_files=["res://.godot/imported/wallBottomTile.png-40f7aaded515336f666052a979016d1a.s3tc.ctex"]
 
 [params]
 

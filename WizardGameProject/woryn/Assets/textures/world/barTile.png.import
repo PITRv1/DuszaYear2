@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxhhlpjjrij2x"
-path.s3tc="res://.godot/imported/barTile.png-b026b7582eea060c37f0411d01bc5597.s3tc.ctex"
+path.s3tc="res://.godot/imported/barTile.png-c904a4204d53e35a6d5a567052ef9f6f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/world/barTile.png"
-dest_files=["res://.godot/imported/barTile.png-b026b7582eea060c37f0411d01bc5597.s3tc.ctex"]
+source_file="res://Assets/textures/world/barTile.png"
+dest_files=["res://.godot/imported/barTile.png-c904a4204d53e35a6d5a567052ef9f6f.s3tc.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkf6vshq15eiy"
-path="res://.godot/imported/barkEmission.png-ff094a15c1c03bd81fa6542eaeb04530.ctex"
+path="res://.godot/imported/barkEmission.png-430ce9cefa06b180b6fa83b3c2eea5ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/world/barkEmission.png"
-dest_files=["res://.godot/imported/barkEmission.png-ff094a15c1c03bd81fa6542eaeb04530.ctex"]
+source_file="res://Assets/textures/world/barkEmission.png"
+dest_files=["res://.godot/imported/barkEmission.png-430ce9cefa06b180b6fa83b3c2eea5ad.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cft3io5hg37vv"
-path.s3tc="res://.godot/imported/barkEmissive.png-4b52ea98e5befd328e553fc25bc158db.s3tc.ctex"
+path.s3tc="res://.godot/imported/barkEmissive.png-a37a278eaab94c6c07574b9fbb62bd79.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/world/barkEmissive.png"
-dest_files=["res://.godot/imported/barkEmissive.png-4b52ea98e5befd328e553fc25bc158db.s3tc.ctex"]
+source_file="res://Assets/textures/world/barkEmissive.png"
+dest_files=["res://.godot/imported/barkEmissive.png-a37a278eaab94c6c07574b9fbb62bd79.s3tc.ctex"]
 
 [params]
 

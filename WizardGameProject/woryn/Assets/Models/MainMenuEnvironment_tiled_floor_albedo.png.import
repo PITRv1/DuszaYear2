@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkg48k4fc1y53"
-path.s3tc="res://.godot/imported/MainMenuEnvironment_tiled_floor_albedo.png-5467a0ea9d5cb9ba8488f27403e62eb9.s3tc.ctex"
+path.s3tc="res://.godot/imported/MainMenuEnvironment_tiled_floor_albedo.png-089aeb6671ddaca8b2efc824bd3715e5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Models/MainMenuEnvironment_tiled_floor_albedo.png"
-dest_files=["res://.godot/imported/MainMenuEnvironment_tiled_floor_albedo.png-5467a0ea9d5cb9ba8488f27403e62eb9.s3tc.ctex"]
+source_file="res://Assets/models/MainMenuEnvironment_tiled_floor_albedo.png"
+dest_files=["res://.godot/imported/MainMenuEnvironment_tiled_floor_albedo.png-089aeb6671ddaca8b2efc824bd3715e5.s3tc.ctex"]
 
 [params]
 

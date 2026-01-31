@@ -3,7 +3,7 @@ using System;
 
 public partial class Multiplayer : Control
 {
-	[Export] CombinedUI combinedUI;
+	[Export] MainUI mainUI;
 	[Export] Control multiTypeMenu;
 	[Export] Control multiHostMenu;
 	[Export] Control multiJoinMenu;
@@ -53,7 +53,7 @@ public partial class Multiplayer : Control
 				CurrentMenu = multiTypeMenu;
 				break;
 			case "main":
-				combinedUI.CurrentMenu = combinedUI.mainMenu;
+				mainUI.CurrentMenu = MainUI.MENUS.MAIN;
 				
 				CurrentMenu = multiTypeMenu;
 				break;

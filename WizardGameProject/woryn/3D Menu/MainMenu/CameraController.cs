@@ -5,7 +5,7 @@ using System;
 public partial class CameraController : Node
 {
     [Export] private Camera3D animatedCamera {set;get;}
-    [Export] private CombinedUI mainMenuUi {set;get;}
+    [Export] private MainUI mainMenuUi {set;get;}
 
     [Export] private Godot.Collections.Array<Marker3D> focusPoints {set;get;}
 
@@ -39,18 +39,9 @@ public partial class CameraController : Node
     /// To add a new case (linked focus point) follow the patter defined below.
     /// </summary>
     /// <param name="newMenu"></param>
-    private void _OnMenuChanged(Control newMenu)
+    private void _OnMenuChanged(int newMenuID)
     {
-        switch (newMenu)
-        {
-            case var value when value == mainMenuUi.mainMenu:
-                FocusOnPoint(0);
-            break;
-
-            case var value when value == mainMenuUi.settingsMenu:
-                FocusOnPoint(1);
-            break;
-        }
+        FocusOnPoint(newMenuID);
     }
 
     private void ResetTween()

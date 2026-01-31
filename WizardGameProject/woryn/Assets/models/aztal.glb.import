@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ccf0q8umdew7p"
-path="res://.godot/imported/aztal.glb-267a6e832d5aca2189fbae6fd2758167.scn"
+path="res://.godot/imported/aztal.glb-9bc93e70eb0488d431fcc1e90e341868.scn"
 
 [deps]
 
-source_file="res://Assets/Models/aztal.glb"
-dest_files=["res://.godot/imported/aztal.glb-267a6e832d5aca2189fbae6fd2758167.scn"]
+source_file="res://Assets/models/aztal.glb"
+dest_files=["res://.godot/imported/aztal.glb-9bc93e70eb0488d431fcc1e90e341868.scn"]
 
 [params]
 

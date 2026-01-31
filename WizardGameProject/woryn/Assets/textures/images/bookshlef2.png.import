@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c52xx350kvc1m"
-path.s3tc="res://.godot/imported/bookshlef2.png-41e139fe818e73ed7a0659fe30bef2e6.s3tc.ctex"
+path.s3tc="res://.godot/imported/bookshlef2.png-8638a4c1414e345e5fe87ab037468ed1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/images/bookshlef2.png"
-dest_files=["res://.godot/imported/bookshlef2.png-41e139fe818e73ed7a0659fe30bef2e6.s3tc.ctex"]
+source_file="res://Assets/textures/images/bookshlef2.png"
+dest_files=["res://.godot/imported/bookshlef2.png-8638a4c1414e345e5fe87ab037468ed1.s3tc.ctex"]
 
 [params]
 

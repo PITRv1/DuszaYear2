@@ -3,37 +3,27 @@ using System;
 
 public partial class MainMenu : Control
 {
-	[Export] CombinedUI combinedUI;
-
-	[Export] Control quitPopUp;
+	[Export] MainUI mainUI;
 
 	public void MenuSelected(string menuName)
 	{
 		switch (menuName)
 		{
 			case "credits":
-				combinedUI.CurrentMenu = combinedUI.creditsMenu;
+				mainUI.CurrentMenu = MainUI.MENUS.CREDITS;
 				break;
 			case "settings":
-				combinedUI.CurrentMenu = combinedUI.settingsMenu;
-
+				mainUI.CurrentMenu = MainUI.MENUS.SETTINGS;
 				break;
 			case "single":
-				combinedUI.CurrentMenu = combinedUI.singpePlayerMenu;
-
+				mainUI.CurrentMenu = MainUI.MENUS.SINGLEPLAYER;
 				break;
 			case "multi":
-				combinedUI.CurrentMenu = combinedUI.multiplayerCombinedMenu;
-
+				mainUI.CurrentMenu = MainUI.MENUS.MULTIPLAYER;
 				break;
 			case "quit":
-				quitPopUp.Visible = !quitPopUp.Visible;
+				mainUI.CurrentMenu = MainUI.MENUS.QUIT;
 				break;
 		}
-	}
-
-	public void Quit()
-	{
-		GetTree().Quit();
 	}
 }

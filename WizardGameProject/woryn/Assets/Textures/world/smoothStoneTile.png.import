@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://vhj2j44my3i5"
-path.s3tc="res://.godot/imported/smoothStoneTile.png-919841ecef00ffda87d6827f05c59fa7.s3tc.ctex"
+path.s3tc="res://.godot/imported/smoothStoneTile.png-56813ccf0290c0caa0be0ee1c072b215.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/world/smoothStoneTile.png"
-dest_files=["res://.godot/imported/smoothStoneTile.png-919841ecef00ffda87d6827f05c59fa7.s3tc.ctex"]
+source_file="res://Assets/textures/world/smoothStoneTile.png"
+dest_files=["res://.godot/imported/smoothStoneTile.png-56813ccf0290c0caa0be0ee1c072b215.s3tc.ctex"]
 
 [params]
 

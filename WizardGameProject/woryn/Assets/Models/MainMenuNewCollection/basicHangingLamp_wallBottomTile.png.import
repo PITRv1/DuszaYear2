@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg0jf1q8vk56g"
-path.s3tc="res://.godot/imported/basicHangingLamp_wallBottomTile.png-f09da6f1cd9756f3188d1aa1cc819f63.s3tc.ctex"
+path.s3tc="res://.godot/imported/basicHangingLamp_wallBottomTile.png-a82123e8daeaba7aa831ea2b0309e22b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/Models/MainMenuNewCollection/basicHangingLamp_wallBottomTile.png"
-dest_files=["res://.godot/imported/basicHangingLamp_wallBottomTile.png-f09da6f1cd9756f3188d1aa1cc819f63.s3tc.ctex"]
+source_file="res://Assets/models/MainMenuNewCollection/basicHangingLamp_wallBottomTile.png"
+dest_files=["res://.godot/imported/basicHangingLamp_wallBottomTile.png-a82123e8daeaba7aa831ea2b0309e22b.s3tc.ctex"]
 
 [params]
 

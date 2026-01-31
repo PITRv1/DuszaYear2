@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxy46ktw74bkk"
-path.s3tc="res://.godot/imported/goldTile.png-fc30ac8c9237619dfd4ca5a1e579f518.s3tc.ctex"
+path.s3tc="res://.godot/imported/goldTile.png-66c372015acbd344c74dcc16e5c9169e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/world/goldTile.png"
-dest_files=["res://.godot/imported/goldTile.png-fc30ac8c9237619dfd4ca5a1e579f518.s3tc.ctex"]
+source_file="res://Assets/textures/world/goldTile.png"
+dest_files=["res://.godot/imported/goldTile.png-66c372015acbd344c74dcc16e5c9169e.s3tc.ctex"]
 
 [params]
 
