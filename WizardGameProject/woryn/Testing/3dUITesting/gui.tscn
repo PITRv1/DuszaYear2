@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dktxx8mws2pq1"]
+
+[ext_resource type="Script" uid="uid://blmwekijnhfxf" path="res://Testing/3dUITesting/Gui.cs" id="1_ep15f"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ajr7n"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajr7n"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_ajr7n")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ajr7n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajr7n"]
+size = Vector3(2.0097656, 1.9821777, 0.08569336)
+
+[node name="GUI" type="Node3D"]
+script = ExtResource("1_ep15f")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ajr7n")
+mesh = SubResource("PlaneMesh_ajr7n")
+
+[node name="Area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
+shape = SubResource("BoxShape3D_ajr7n")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="Control" type="Control" parent="SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="SubViewport/Control"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 0
+offset_left = 150.0
+offset_top = 100.0
+offset_right = 350.0
+offset_bottom = 175.0
+text = "CLICK ME"
