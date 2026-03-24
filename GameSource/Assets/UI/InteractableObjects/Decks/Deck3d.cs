@@ -5,7 +5,7 @@ public partial class Deck3d : Node3D, InteractableObjectInterface
 {
 	[Export] UiCommunicator UiCommunicator;
 	[Export] Label3D currentValue;
-	[Export] Label3D totalValue;
+	[Export] RichTextLabel totalValue;
 	[Export] ToolTipInfo toolTipInfo;
 
 	public void UseObject()
@@ -20,7 +20,7 @@ public partial class Deck3d : Node3D, InteractableObjectInterface
 
 	public void UpdateTotalValueText(int data)
 	{
-		totalValue.Text = data.ToString();
+		totalValue.Text = "[rainbow freq=0.2]" + data.ToString();
 	}
 
 	public void UpdateCurrentValueText(int data)

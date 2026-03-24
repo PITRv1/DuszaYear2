@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c2uwhfete5gis" path="res://Assets/UI/Images/ModifierIcons/Reverse.png" id="5_a1cwk"]
 [ext_resource type="Texture2D" uid="uid://sto6bfw3uoro" path="res://Assets/UI/Images/ModifierIcons/SwapAll.png" id="6_cfx1j"]
 [ext_resource type="Texture2D" uid="uid://lw5qul8qlaru" path="res://Assets/UI/Images/ModifierIcons/SwapPlayer.png" id="7_5inku"]
+[ext_resource type="FontFile" uid="uid://bgx48beeh6rf7" path="res://Assets/UI/Fonts/DigitalDisco.ttf" id="8_8gy8a"]
 [ext_resource type="PackedScene" uid="uid://chykv5bcqt0n0" path="res://UI/ToolTipMenu/ToolTipInfo.tscn" id="8_q2nsq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfkyt"]
@@ -159,13 +160,18 @@ expEffect = NodePath("Visual/GPUParticles3D")
 [node name="ValueLabel" type="Label3D" parent="." unique_id=995114807]
 transform = Transform3D(0.99999917, 0, 0, 0, 0.9999994, -7.1054244e-15, 0, -1.7763568e-14, 0.99999964, 0.0043099513, 0.47544003, 0.0657818)
 billboard = 1
-modulate = Color(0.2601054, 0.22138625, 0.54379064, 1)
+texture_filter = 0
+modulate = Color(1, 0.63529414, 1, 1)
+text = "0"
+font = ExtResource("8_8gy8a")
 
 [node name="PriceValue" type="Label3D" parent="." unique_id=422276758]
 transform = Transform3D(0.99999917, 0, 0, 0, 0.9999994, -7.1054244e-15, 0, -1.7763568e-14, 0.99999964, 0.0043099513, -0.10132575, 0.0657818)
 billboard = 1
-modulate = Color(0.7894095, 0.5421536, 0.20919314, 1)
+texture_filter = 0
+modulate = Color(0.9674935, 0.7016746, 7.70092e-07, 1)
 text = "13	"
+font = ExtResource("8_8gy8a")
 
 [node name="Visual" type="Node3D" parent="." unique_id=1149214977]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.14, 0)

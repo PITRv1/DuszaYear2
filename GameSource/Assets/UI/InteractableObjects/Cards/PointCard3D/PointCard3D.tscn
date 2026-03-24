@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://u4jov6g4a1gc"]
 
-[ext_resource type="FontFile" uid="uid://c2v6ks7c7q5ef" path="res://Assets/UI/Fonts/FantaisieArtistique.ttf" id="1_3mlda"]
 [ext_resource type="Script" uid="uid://dch8wccnu36em" path="res://Assets/UI/InteractableObjects/Cards/PointCard3D/PointCard3d.cs" id="1_5plsr"]
 [ext_resource type="PackedScene" uid="uid://chykv5bcqt0n0" path="res://UI/ToolTipMenu/ToolTipInfo.tscn" id="2_bv0c0"]
 [ext_resource type="ArrayMesh" uid="uid://dm6f1qws7y5q7" path="res://Assets/models/MainMenuNewCollection/cardMesh.tres" id="2_shad3"]
+[ext_resource type="FontFile" uid="uid://bgx48beeh6rf7" path="res://Assets/UI/Fonts/DigitalDisco.ttf" id="4_bv0c0"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_xbnts"]
 size = Vector2(0.21, 0.31)
@@ -83,9 +83,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0018751416)
 pixel_size = 0.0025
 shaded = true
 double_sided = false
-texture_filter = 2
+texture_filter = 0
 text = "1"
-font = ExtResource("1_3mlda")
+font = ExtResource("4_bv0c0")
 font_size = 63
 
 [node name="Area3D" type="Area3D" parent="Visual" unique_id=1106532692 groups=["CameraInteractable"]]

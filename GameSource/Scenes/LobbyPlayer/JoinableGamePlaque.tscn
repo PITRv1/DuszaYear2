@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://sh4ecpmjk4b8"]
 
 [ext_resource type="Script" uid="uid://cm1mhne7tgbb8" path="res://Scenes/LobbyPlayer/JoinableGamePlaque.cs" id="1_g77xf"]
+[ext_resource type="Theme" uid="uid://bntwtfgxeqnya" path="res://Assets/UI/Themes/Main/UIThemeSimple.tres" id="1_jxc6p"]
+[ext_resource type="Texture2D" uid="uid://co2h0ilvbywhv" path="res://Assets/textures/images/mainMenuCardHorizBG.png" id="3_waddq"]
 
 [sub_resource type="Theme" id="Theme_g77xf"]
 
 [node name="JoinableGamePlaque" type="Control" unique_id=1165907533 node_paths=PackedStringArray("_gameName", "_ipAddress", "_playerCount", "_joinButton")]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 3
 anchors_preset = 15
@@ -14,59 +17,65 @@ offset_right = -1152.0
 offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_jxc6p")
 script = ExtResource("1_g77xf")
-_gameName = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Game Name")
-_ipAddress = NodePath("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/IP address")
-_playerCount = NodePath("PanelContainer/MarginContainer/VBoxContainer/PlayerCount")
-_joinButton = NodePath("PanelContainer/JoinButton")
+_gameName = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Game Name")
+_ipAddress = NodePath("MarginContainer/VBoxContainer/HBoxContainer/IP address")
+_playerCount = NodePath("MarginContainer/VBoxContainer/PlayerCount")
+_joinButton = NodePath("JoinButton")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=495984731]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2014676941]
+layout_mode = 0
+offset_right = 768.0
 offset_bottom = 66.0
-grow_horizontal = 2
+texture = ExtResource("3_waddq")
+expand_mode = 1
+stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=896346299]
-layout_mode = 2
+[node name="JoinButton" type="Button" parent="." unique_id=194332008]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 66.0
+theme = SubResource("Theme_g77xf")
+text = "aaaaaaa"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=896346299]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 66.0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=138168444]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=138168444]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1628264936]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1628264936]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Game Name" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1084703592]
+[node name="Game Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1084703592]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Game Name"
 horizontal_alignment = 1
 
-[node name="Dash" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=774214559]
+[node name="Dash" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=774214559]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "-"
 horizontal_alignment = 1
 
-[node name="IP address" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=933435152]
+[node name="IP address" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=933435152]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "127.0.0.1"
 horizontal_alignment = 1
 
-[node name="PlayerCount" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=106743160]
+[node name="PlayerCount" type="Label" parent="MarginContainer/VBoxContainer" unique_id=106743160]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Players 1/4"
-
-[node name="JoinButton" type="Button" parent="PanelContainer" unique_id=194332008]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme = SubResource("Theme_g77xf")
-text = "aaaaaaa"

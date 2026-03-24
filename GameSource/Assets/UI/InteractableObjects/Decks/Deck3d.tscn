@@ -1,17 +1,103 @@
-[gd_scene format=3 uid="uid://cyyxdvmulcre5"]
+[gd_scene format=4 uid="uid://cyyxdvmulcre5"]
 
 [ext_resource type="Script" uid="uid://b0knrd1lwchxe" path="res://Assets/UI/InteractableObjects/Decks/Deck3d.cs" id="1_wcj5k"]
 [ext_resource type="PackedScene" uid="uid://u4jov6g4a1gc" path="res://Assets/UI/InteractableObjects/Cards/PointCard3D/PointCard3D.tscn" id="2_2r3fm"]
-[ext_resource type="FontFile" uid="uid://c2v6ks7c7q5ef" path="res://Assets/UI/Fonts/FantaisieArtistique.ttf" id="3_oatko"]
 [ext_resource type="PackedScene" uid="uid://chykv5bcqt0n0" path="res://UI/ToolTipMenu/ToolTipInfo.tscn" id="3_pehbx"]
+[ext_resource type="FontFile" uid="uid://bgx48beeh6rf7" path="res://Assets/UI/Fonts/DigitalDisco.ttf" id="4_q43c1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2r3fm"]
 size = Vector3(0.5175781, 0.32629395, 0.50561523)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfkyt"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_q43c1"]
+_surfaces = [{
+"aabb": AABB(-1.1324686e-08, -0.15, -0.2, 1e-05, 0.3, 0.2),
+"format": 34896613377,
+"index_count": 66,
+"index_data": PackedByteArray("EAABAAIABAACAAUABAAQAAIAEAAEAAMAAAAQAAMAAQAGAAcAAQAIAAYAAAARABAAEAASAAEACAABABIAEQASABAADgARAAAAEwAIABIAEQATABIADgANABEADQATABEADQAOAA8AEwAKAAgADQAJABMAEwALAAoADAATAAkAEwAMAAsA"),
+"lods": [1.0335656e-05, PackedByteArray("AAABAAIAAAACAAMAAgAEAAMABAACAAUAAQAGAAcAAQAIAAYACQAIAAEAAAAJAAEACQAKAAgACQALAAoACQAMAAsADQAJAAAADgANAAAADQAOAA8A")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("EADjG///AACUAP//hCsAAJQA//+Y2QAAhQBl5v//AACKAEXu//8AAJQA//9p5QAAkAC8+QAAAACUAP//ZAkAAIUAZeYAAAAAAAAAAIQrAAAQAOMbAAAAAAoAuREAAAAAAAAAAJUaAAAAAAAAmNkAAAMAQgb//wAAAAAAAJr2AACFAGXmmNkAABAA4xuY2QAAhQBl5oQrAAAQAOMbhCsAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pfmxc"]
+resource_name = "cardTemplate_Plane"
+_surfaces = [{
+"aabb": AABB(-1.1324686e-08, -0.15, -0.2, 1e-05, 0.3, 0.2),
+"attribute_data": PackedByteArray("4xv/////hCv//5jZZeb//0Xu/////2nlvPkAAP//ZAll5gAAAACEK+MbAAC5EQAAAACVGgAAmNlCBv//AACa9mXmmNnjG5jZZeaEK+MbhCs="),
+"format": 34896613399,
+"index_count": 66,
+"index_data": PackedByteArray("EAABAAIABAACAAUABAAQAAIAEAAEAAMAAAAQAAMAAQAGAAcAAQAIAAYAAAARABAAEAASAAEACAABABIAEQASABAADgARAAAAEwAIABIAEQATABIADgANABEADQATABEADQAOAA8AEwAKAAgADQAJABMAEwALAAoADAATAAkAEwAMAAsA"),
+"lods": [1.0335656e-05, PackedByteArray("AAABAAIAAAACAAMAAgAEAAMABAACAAUAAQAGAAcAAQAIAAYACQAIAAEAAAAJAAEACQAKAAgACQALAAoACQAMAAsADQAJAAAADgANAAAADQAOAA8A")],
+"material": SubResource("StandardMaterial3D_vfkyt"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("EADjG///VNWUAP//hCtU1ZQA//+Y2VTVhQBl5v//VNWKAEXu//9U1ZQA//9p5VTVkAC8+QAAVNWUAP//ZAlU1YUAZeYAAFTVAAAAAIQrVNUQAOMbAABU1QoAuREAAFTVAAAAAJUaVNUAAAAAmNlU1QMAQgb//1TVAAAAAJr2VNWFAGXmmNlU1RAA4xuY2VTVhQBl5oQrVNUQAOMbhCtU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_q43c1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q43c1"]
+shading_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wnl6a"]
+_surfaces = [{
+"aabb": AABB(-1.1324686e-08, -0.15, -0.2, 1e-05, 0.3, 0.2),
+"format": 34896613377,
+"index_count": 66,
+"index_data": PackedByteArray("EAABAAIABAACAAUABAAQAAIAEAAEAAMAAAAQAAMAAQAGAAcAAQAIAAYAAAARABAAEAASAAEACAABABIAEQASABAADgARAAAAEwAIABIAEQATABIADgANABEADQATABEADQAOAA8AEwAKAAgADQAJABMAEwALAAoADAATAAkAEwAMAAsA"),
+"lods": [1.0335656e-05, PackedByteArray("AAABAAIAAAACAAMAAgAEAAMABAACAAUAAQAGAAcAAQAIAAYACQAIAAEAAAAJAAEACQAKAAgACQALAAoACQAMAAsADQAJAAAADgANAAAADQAOAA8A")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("EADjG///AACUAP//hCsAAJQA//+Y2QAAhQBl5v//AACKAEXu//8AAJQA//9p5QAAkAC8+QAAAACUAP//ZAkAAIUAZeYAAAAAAAAAAIQrAAAQAOMbAAAAAAoAuREAAAAAAAAAAJUaAAAAAAAAmNkAAAMAQgb//wAAAAAAAJr2AACFAGXmmNkAABAA4xuY2QAAhQBl5oQrAAAQAOMbhCsAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ro2l4"]
+resource_name = "cardTemplate_Plane"
+_surfaces = [{
+"aabb": AABB(-1.1324686e-08, -0.15, -0.2, 1e-05, 0.3, 0.2),
+"attribute_data": PackedByteArray("4xv/////hCv//5jZZeb//0Xu/////2nlvPkAAP//ZAll5gAAAACEK+MbAAC5EQAAAACVGgAAmNlCBv//AACa9mXmmNnjG5jZZeaEK+MbhCs="),
+"format": 34896613399,
+"index_count": 66,
+"index_data": PackedByteArray("EAABAAIABAACAAUABAAQAAIAEAAEAAMAAAAQAAMAAQAGAAcAAQAIAAYAAAARABAAEAASAAEACAABABIAEQASABAADgARAAAAEwAIABIAEQATABIADgANABEADQATABEADQAOAA8AEwAKAAgADQAJABMAEwALAAoADAATAAkAEwAMAAsA"),
+"lods": [1.0335656e-05, PackedByteArray("AAABAAIAAAACAAMAAgAEAAMABAACAAUAAQAGAAcAAQAIAAYACQAIAAEAAAAJAAEACQAKAAgACQALAAoACQAMAAsADQAJAAAADgANAAAADQAOAA8A")],
+"material": SubResource("StandardMaterial3D_vfkyt"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("EADjG///VNWUAP//hCtU1ZQA//+Y2VTVhQBl5v//VNWKAEXu//9U1ZQA//9p5VTVkAC8+QAAVNWUAP//ZAlU1YUAZeYAAFTVAAAAAIQrVNUQAOMbAABU1QoAuREAAFTVAAAAAJUaVNUAAAAAmNlU1QMAQgb//1TVAAAAAJr2VNWFAGXmmNlU1RAA4xuY2VTVhQBl5oQrVNUQAOMbhCtU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wnl6a")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7a2n2"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.41568628, 0.4, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q43c1"]
+size = Vector2(1, 0.2)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pehbx"]
+viewport_path = NodePath("MeshInstance3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pfmxc"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_pehbx")
+
 [node name="Deck3D" type="Node3D" unique_id=75278921 node_paths=PackedStringArray("currentValue", "totalValue", "toolTipInfo")]
 script = ExtResource("1_wcj5k")
 currentValue = NodePath("CurrentValue")
-totalValue = NodePath("TotalValue")
+totalValue = NodePath("MeshInstance3D/SubViewport/Points")
 toolTipInfo = NodePath("Visual/Area3D/ToolTipInfo")
 
 [node name="Visual" type="Node3D" parent="." unique_id=656219172]
@@ -31,7 +117,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1606004, 0)
 shape = SubResource("BoxShape3D_2r3fm")
 
 [node name="CurrentValue" type="Label3D" parent="." unique_id=397330819]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7071448, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7728642, 0)
 pixel_size = 0.001
 billboard = 1
 double_sided = false
@@ -39,17 +125,47 @@ texture_filter = 0
 modulate = Color(0.3254902, 0.3137255, 1, 1)
 outline_modulate = Color(0, 0, 0, 0)
 text = "0"
-font = ExtResource("3_oatko")
+font = ExtResource("4_q43c1")
 font_size = 396
 
-[node name="TotalValue" type="Label3D" parent="." unique_id=869243162]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49140602, 0)
-pixel_size = 0.001
-billboard = 1
-double_sided = false
-texture_filter = 0
-modulate = Color(0, 0, 0, 0)
-outline_modulate = Color(1, 0, 0.8862745, 1)
-text = "0"
-font = ExtResource("3_oatko")
-font_size = 247
+[node name="PlayPileCardVisual" type="Node3D" parent="CurrentValue" unique_id=318562023]
+transform = Transform3D(-1.27, 0, 1.9176467e-07, 0, 1.27, 0, -1.9176467e-07, 0, -1.27, -0.080234475, 0.016746402, -0.11140794)
+
+[node name="Background" type="MeshInstance3D" parent="CurrentValue/PlayPileCardVisual" unique_id=1221772332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005119312, 0, 0)
+mesh = SubResource("ArrayMesh_pfmxc")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_q43c1")
+
+[node name="Outline" type="MeshInstance3D" parent="CurrentValue/PlayPileCardVisual" unique_id=251711822]
+transform = Transform3D(1.045, 0, 1.4210855e-14, 0, 1.045, 0, -1.4210855e-14, 0, 1.045, 9.313226e-10, 0, 0.0047478825)
+mesh = SubResource("ArrayMesh_ro2l4")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_7a2n2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1068924402]
+transform = Transform3D(-7.693205e-08, 1.76, -7.693205e-08, 0, -7.693205e-08, -1.76, -1.76, -7.693205e-08, 3.3628064e-15, -0.08362922, 0.45567966, 0.03965856)
+mesh = SubResource("PlaneMesh_q43c1")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_pfmxc")
+
+[node name="SubViewport" type="SubViewport" parent="MeshInstance3D" unique_id=1645503902]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(2241, 435)
+
+[node name="Points" type="RichTextLabel" parent="MeshInstance3D/SubViewport" unique_id=1071732223]
+custom_minimum_size = Vector2(400, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 0.8039216, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_q43c1")
+theme_override_font_sizes/normal_font_size = 400
+bbcode_enabled = true
+text = "[rainbow freq=0.2][wave freq=1] 0"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1

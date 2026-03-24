@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccrlb1xrwrm1f"]
 
-[ext_resource type="Theme" uid="uid://bcxy1oqhov4h6" path="res://Assets/UI/Themes/Main/MedievalCardTheme.tres" id="1_3y4na"]
+[ext_resource type="Theme" uid="uid://bntwtfgxeqnya" path="res://Assets/UI/Themes/Main/UIThemeSimple.tres" id="1_3y4na"]
 [ext_resource type="Script" uid="uid://efm4ybff5fir" path="res://UI/Quit/QuitMenu.cs" id="2_fc2hk"]
 [ext_resource type="Texture2D" uid="uid://co2h0ilvbywhv" path="res://Assets/textures/images/mainMenuCardHorizBG.png" id="3_3y4na"]
 [ext_resource type="Theme" uid="uid://b5pknxbb3rpmp" path="res://Assets/UI/Themes/Main/MedievalButtonTheme.tres" id="4_fc2hk"]
@@ -39,7 +39,7 @@ theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=559832806]
 layout_mode = 2
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 28
 text = "Do you really want to quit?"
 horizontal_alignment = 1
 vertical_alignment = 1

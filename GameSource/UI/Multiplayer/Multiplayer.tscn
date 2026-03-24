@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://be6l3tabm2s5j"]
 
-[ext_resource type="Theme" uid="uid://bcxy1oqhov4h6" path="res://Assets/UI/Themes/Main/MedievalCardTheme.tres" id="1_2emtn"]
+[ext_resource type="Theme" uid="uid://bntwtfgxeqnya" path="res://Assets/UI/Themes/Main/UIThemeSimple.tres" id="1_vmpp6"]
 [ext_resource type="Script" uid="uid://cbmpbge5cjt4m" path="res://UI/Multiplayer/Multiplayer.cs" id="2_akir0"]
 [ext_resource type="ButtonGroup" uid="uid://c8lhp1s2lwvyu" path="res://UI/Multiplayer/MultiGameTypeButtonGroup.tres" id="4_f40x6"]
 [ext_resource type="PackedScene" uid="uid://sh4ecpmjk4b8" path="res://Scenes/LobbyPlayer/JoinableGamePlaque.tscn" id="4_vmpp6"]
@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_2emtn")
+theme = ExtResource("1_vmpp6")
 script = ExtResource("2_akir0")
 multiTypeMenu = NodePath("MultiType")
 multiHostMenu = NodePath("Host")
@@ -31,20 +31,6 @@ ipAddressInputClient = NodePath("Join/LineEdit")
 _gameNameInput = NodePath("Host/GameName/LineEdit")
 _gamesContainer = NodePath("FindServer/VScrollBar/GameContainer")
 _joinableGamePlaque = ExtResource("4_vmpp6")
-
-[node name="Title" type="Label" parent="." unique_id=6155999]
-visible = false
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 80.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 6
-theme_override_font_sizes/font_size = 80
-text = "Multiplayer"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=354236103]
 show_behind_parent = true
@@ -62,6 +48,7 @@ layout_mode = 2
 texture = ExtResource("6_2emtn")
 
 [node name="MultiType" type="VBoxContainer" parent="." unique_id=998569758]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -101,7 +88,6 @@ layout_mode = 2
 text = "Main Menu"
 
 [node name="Host" type="VBoxContainer" parent="." unique_id=1179103898]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

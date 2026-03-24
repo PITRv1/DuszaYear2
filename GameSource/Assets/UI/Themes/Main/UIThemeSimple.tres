@@ -2,8 +2,19 @@
 
 [ext_resource type="FontFile" uid="uid://bgx48beeh6rf7" path="res://Assets/UI/Fonts/DigitalDisco.ttf" id="1_kxpju"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxpju"]
+content_margin_left = 3.0
+bg_color = Color(0, 0, 0, 0.32941177)
+border_width_bottom = 6
+border_color = Color(0.5019608, 0.28235295, 0.12156863, 1)
+border_blend = true
+
 [resource]
 Label/constants/outline_size = 3
 Label/fonts/font = ExtResource("1_kxpju")
+LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+LineEdit/constants/outline_size = 3
+LineEdit/fonts/font = ExtResource("1_kxpju")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_kxpju")
 RichTextLabel/constants/outline_size = 3
 RichTextLabel/fonts/normal_font = ExtResource("1_kxpju")
