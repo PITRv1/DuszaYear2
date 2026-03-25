@@ -1,7 +1,5 @@
 [gd_scene format=4 uid="uid://pelmk5an55xh"]
 
-[ext_resource type="Script" uid="uid://ca0pr2up27plw" path="res://Assets/Shaders/pixelization_shader.gd" id="1_nkcx5"]
-[ext_resource type="Script" uid="uid://dqlwg2rtn14oa" path="res://Assets/Shaders/quantization_shader.gd" id="2_k5rf2"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="4_ck38g"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="5_6mnht"]
 [ext_resource type="Material" uid="uid://c87l8wnlf0k07" path="res://Assets/textures/world/carpetTile.tres" id="6_bkq5j"]
@@ -107,30 +105,6 @@ volumetric_fog_temporal_reprojection_amount = 0.99
 adjustment_enabled = true
 adjustment_brightness = 1.22
 adjustment_saturation = 1.13
-
-[sub_resource type="CompositorEffect" id="CompositorEffect_fxvwu"]
-resource_local_to_scene = false
-resource_name = ""
-enabled = true
-effect_callback_type = 4
-needs_motion_vectors = false
-needs_normal_roughness = false
-script = ExtResource("1_nkcx5")
-down_scaling = 2.0
-metadata/_custom_type_script = "uid://ca0pr2up27plw"
-
-[sub_resource type="CompositorEffect" id="CompositorEffect_ef0mh"]
-resource_local_to_scene = false
-resource_name = ""
-enabled = true
-effect_callback_type = 4
-needs_motion_vectors = false
-needs_normal_roughness = false
-script = ExtResource("2_k5rf2")
-metadata/_custom_type_script = "uid://dqlwg2rtn14oa"
-
-[sub_resource type="Compositor" id="Compositor_k3pyj"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_fxvwu"), SubResource("CompositorEffect_ef0mh")])
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nkcx5"]
 _surfaces = [{
@@ -711,7 +685,6 @@ mouse_filter = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3DWorld" unique_id=1701279325]
 environment = SubResource("Environment_m8t1y")
-compositor = SubResource("Compositor_k3pyj")
 
 [node name="PlayerSeats" type="Node3D" parent="3DWorld" unique_id=1888387965]
 
@@ -1075,7 +1048,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78381586, 4.1443086, 6.123
 [node name="curtain" parent="3DWorld/EnvironmentDetails/Models" unique_id=152688818 instance=ExtResource("39_0tc0y")]
 transform = Transform3D(-0.10385153, 0, 0.9945928, 0, 1, 0, -0.9945928, 0, -0.10385153, -7.01008, 0.106413364, 0.33820117)
 
-[node name="Plane" parent="3DWorld/EnvironmentDetails/Models/curtain" index="0" unique_id=397132520]
+[node name="Plane" parent="3DWorld/EnvironmentDetails/Models/curtain" index="0" unique_id=1679093702]
 transform = Transform3D(1.730112, 0, 0, 0, 0, -1.730113, 0, 1.730112, 0, -1.5716673, 2.4554563, -0.16410732)
 material_override = SubResource("StandardMaterial3D_3h8vp")
 
@@ -1210,8 +1183,8 @@ font_size = 53
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 2.9010963, -0.9423759, -1.7291548e-07)
 bodyparts = []
 
-[node name="LeftHandAttachmentMod" parent="3DWorld/PlayerVisuals/templatePlayerRig/metarig/Skeleton3D" parent_id_path=PackedInt32Array(241039124, 1520022567, 107777266) index="26" unique_id=396461942]
-transform = Transform3D(-0.5674063, -0.7783942, 0.2686128, 0.1713736, 0.20743735, 0.9631201, -0.8054073, 0.5925137, 0.015694946, 0.28513908, 1.3440193, 0.3586343)
+[node name="LeftHandAttachmentMod" parent="3DWorld/PlayerVisuals/templatePlayerRig/metarig/Skeleton3D" parent_id_path=PackedInt32Array(241039124, 1520022567, 947087297) index="26" unique_id=396461942]
+transform = Transform3D(-0.5674062, -0.73948604, 0.3622307, 0.17137331, 0.32421923, 0.9303294, -0.8054074, 0.5899512, -0.05723586, 0.28519708, 1.3653979, 0.35879242)
 
 [node name="PositioningNode" type="Node3D" parent="3DWorld/PlayerVisuals/templatePlayerRig/metarig/Skeleton3D/LeftHandAttachmentMod" index="0" unique_id=943116096]
 transform = Transform3D(0.94872266, -0.30047265, -0.09819082, 0.29630694, 0.7370867, 0.6073758, -0.11012468, -0.6053258, 0.788323, 0.018, 0.003, 0.1)
