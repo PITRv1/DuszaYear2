@@ -20,14 +20,6 @@ _ipAddress = NodePath("MarginContainer/VBoxContainer/HBoxContainer/IP address")
 _playerCount = NodePath("MarginContainer/VBoxContainer/PlayerCount")
 _joinButton = NodePath("JoinButton")
 
-[node name="JoinButton" type="Button" parent="." unique_id=194332008]
-modulate = Color(1, 1, 1, 0)
-top_level = true
-layout_mode = 1
-offset_right = 224.0
-offset_bottom = 66.0
-theme = SubResource("Theme_g77xf")
-
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2014676941]
 layout_mode = 1
 anchors_preset = 15
@@ -56,10 +48,13 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Game Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1084703592]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Game Name"
 horizontal_alignment = 1
+clip_text = true
+text_overrun_behavior = 5
 
 [node name="Dash" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=774214559]
 layout_mode = 2
@@ -77,3 +72,12 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 text = "Players 1/4 "
+
+[node name="JoinButton" type="Button" parent="." unique_id=194332008]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_g77xf")

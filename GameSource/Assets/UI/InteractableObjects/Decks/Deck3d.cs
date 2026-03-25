@@ -26,5 +26,6 @@ public partial class Deck3d : Node3D, InteractableObjectInterface
 	public void UpdateCurrentValueText(int data)
 	{
 		currentValue.Text = data.ToString();
+		currentValue.FontSize = 396 / currentValue.Text.Length;
 	}
 }
