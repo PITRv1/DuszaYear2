@@ -4,34 +4,29 @@
 [ext_resource type="Script" uid="uid://11y32s5wnh8n" path="res://Scenes/LobbyPlayer/LobbyPlayerPlate.cs" id="1_idty7"]
 [ext_resource type="Texture2D" uid="uid://co2h0ilvbywhv" path="res://Assets/textures/images/mainMenuCardHorizBG.png" id="3_dcabi"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7hugq"]
+
 [node name="PlayerPlaque" type="Panel" unique_id=1493586352 node_paths=PackedStringArray("text")]
-modulate = Color(1, 1, 1, 0)
 texture_filter = 1
+custom_minimum_size = Vector2(300, 75)
+theme = ExtResource("1_7hugq")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7hugq")
+script = ExtResource("1_idty7")
+text = NodePath("Control/Label")
+
+[node name="Control" type="Control" parent="." unique_id=854372360]
+anchors_preset = 0
+offset_right = 296.0
+offset_bottom = 72.0
+
+[node name="Label" type="Label" parent="Control" unique_id=545645284]
+z_index = 1
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_7hugq")
-script = ExtResource("1_idty7")
-text = NodePath("VBoxContainer/Label")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1648136687]
-top_level = true
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -16.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=545645284]
-z_index = 1
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 32
@@ -39,18 +34,10 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1770800425]
-top_level = true
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1770800425]
 custom_minimum_size = Vector2(300, 75)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_top = -37.5
-offset_bottom = 37.5
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 75.0
 texture = ExtResource("3_dcabi")
 expand_mode = 1
