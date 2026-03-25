@@ -10,13 +10,9 @@
 texture_filter = 1
 custom_minimum_size = Vector2(0, 65)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1152.0
-offset_bottom = -648.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 225.0
+offset_bottom = 65.0
 theme = ExtResource("1_jxc6p")
 script = ExtResource("1_g77xf")
 _gameName = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Game Name")
@@ -24,27 +20,29 @@ _ipAddress = NodePath("MarginContainer/VBoxContainer/HBoxContainer/IP address")
 _playerCount = NodePath("MarginContainer/VBoxContainer/PlayerCount")
 _joinButton = NodePath("JoinButton")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2014676941]
-layout_mode = 0
-offset_right = 768.0
-offset_bottom = 66.0
-texture = ExtResource("3_waddq")
-expand_mode = 1
-stretch_mode = 6
-
 [node name="JoinButton" type="Button" parent="." unique_id=194332008]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 768.0
+top_level = true
+layout_mode = 1
+offset_right = 224.0
 offset_bottom = 66.0
 theme = SubResource("Theme_g77xf")
-text = "aaaaaaa"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2014676941]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_waddq")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=896346299]
-layout_mode = 0
-offset_right = 768.0
+layout_mode = 1
+offset_right = 211.0
 offset_bottom = 66.0
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
@@ -78,4 +76,4 @@ horizontal_alignment = 1
 [node name="PlayerCount" type="Label" parent="MarginContainer/VBoxContainer" unique_id=106743160]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Players 1/4"
+text = "Players 1/4 "
