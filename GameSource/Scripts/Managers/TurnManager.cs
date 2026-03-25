@@ -321,28 +321,26 @@ public partial class TurnManager : Node
 
 	private void SwitchToNextPlayer()
 	{
+		for (int i = 0; i < _skipAmount; i++)
+		{
+			_currentPlayer += _roundDirection;
+			if (_playerCount - 1 < _currentPlayer)
+					_currentPlayer = 0;
+			if (_currentPlayer < 0)
+				_currentPlayer = _playerCount - 1;
+
+			if (Players[_currentPlayer].PlayerClass.CanMaidenBeImmune())
+			{
+				break;
+			}
+		}
+
+		_skipAmount = 0;
 		do
 		{
 			_currentPlayer += _roundDirection;
-			// for (int i = 0; i < _skipAmount; i++)
-			// {
-			// 	if (Players[_currentPlayer].PlayerClass.CanMaidenBeImmune())
-			// 	{
-			// 		if (_playerCount - 1 < _currentPlayer)
-			// 			_currentPlayer = 0;
-
-			// 		if (_currentPlayer < 0)
-			// 			_currentPlayer = _playerCount - 1;
-			// 		break;
-			// 	}
-			// 	_currentPlayer += _roundDirection;
-			// }
-
-			_skipAmount = 0;
-
 			if (_playerCount - 1 < _currentPlayer)
-				_currentPlayer = 0;
-
+					_currentPlayer = 0;
 			if (_currentPlayer < 0)
 				_currentPlayer = _playerCount - 1;
 
