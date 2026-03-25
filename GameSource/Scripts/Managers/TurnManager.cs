@@ -323,19 +323,19 @@ public partial class TurnManager : Node
 		do
 		{
 			_currentPlayer += _roundDirection;
-			for (int i = 0; i < _skipAmount; i++)
-			{
-				if (Players[_currentPlayer].PlayerClass.CanMaidenBeImmune())
-				{
-					if (_playerCount - 1 < _currentPlayer)
-						_currentPlayer = 0;
+			// for (int i = 0; i < _skipAmount; i++)
+			// {
+			// 	if (Players[_currentPlayer].PlayerClass.CanMaidenBeImmune())
+			// 	{
+			// 		if (_playerCount - 1 < _currentPlayer)
+			// 			_currentPlayer = 0;
 
-					if (_currentPlayer < 0)
-						_currentPlayer = _playerCount - 1;
-					break;
-				}
-				_currentPlayer += _roundDirection;
-			}
+			// 		if (_currentPlayer < 0)
+			// 			_currentPlayer = _playerCount - 1;
+			// 		break;
+			// 	}
+			// 	_currentPlayer += _roundDirection;
+			// }
 
 			_skipAmount = 0;
 
