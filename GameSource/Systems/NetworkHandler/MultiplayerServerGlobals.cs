@@ -22,6 +22,11 @@ public partial class MultiplayerServerGlobals : Node
         Global.networkHandler.OnServerStopped += () => Global.lobbyManagerInstance.ResetPlayList();
     }
 
+    public void ResetPeerIds()
+    {
+        _peerIds.Clear();
+    }
+
     private void OnPeerConnected(int peerId)
     {
         _peerIds.Add(peerId);

@@ -99,7 +99,11 @@ public partial class Multiplayer : Control
 			case "select&stop":
 				ChangeMenu("select");
 				Global.networkHandler.DisconnectClient();
-				if (Global.networkHandler.IsServer) Global.networkHandler.StopServer();
+				if (Global.networkHandler.IsServer)
+				{
+					Global.networkHandler.StopServer();
+					Global.multiplayerServerGlobals.ResetPeerIds();
+				}
 				break;
 		}
 	}

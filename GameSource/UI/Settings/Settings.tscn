@@ -38,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer" unique_id=935940758]
-custom_minimum_size = Vector2(300, 300)
+custom_minimum_size = Vector2(300, 340)
 layout_mode = 2
 texture = ExtResource("3_n5ubh")
 expand_mode = 1
@@ -171,6 +171,22 @@ text = "Shaders: "
 
 [node name="Shaders" type="CheckBox" parent="HBoxContainer/container/Shaders/Shader" unique_id=1053162190]
 layout_mode = 2
+
+[node name="Name" type="VBoxContainer" parent="HBoxContainer/container" unique_id=86614611]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Name" type="HBoxContainer" parent="HBoxContainer/container/Name" unique_id=372499192]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/container/Name/Name" unique_id=293561489]
+layout_mode = 2
+text = "Name: "
+
+[node name="NameInputField" type="LineEdit" parent="HBoxContainer/container/Name/Name" unique_id=851098000]
+layout_mode = 2
+size_flags_horizontal = 3
+max_length = 16
 
 [node name="BackButton" type="Button" parent="HBoxContainer/container" unique_id=114497436]
 custom_minimum_size = Vector2(0, 40)

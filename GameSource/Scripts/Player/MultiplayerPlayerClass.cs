@@ -6,6 +6,7 @@ public partial class MultiplayerPlayerClass : Node
 {
 	public PlayerClass PlayerClass;
 	public int Id;
+	public string PlayerName;
 	// List<int> ids = new();
 
 	[Export] private CardPlacementHandler _pointCards;

@@ -162,7 +162,6 @@ transform = Transform3D(0.99999917, 0, 0, 0, 0.9999994, -7.1054244e-15, 0, -1.77
 billboard = 1
 texture_filter = 0
 modulate = Color(1, 0.63529414, 1, 1)
-text = "0"
 font = ExtResource("8_8gy8a")
 
 [node name="PriceValue" type="Label3D" parent="." unique_id=422276758]
