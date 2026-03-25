@@ -3506,7 +3506,7 @@ mesh = SubResource("QuadMesh_1h20l")
 [node name="curtain" parent="EnvironmentDetails/Models/BarDetails" unique_id=152688818 instance=ExtResource("42_4dtra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140.04108, 1.0017983, -51.2725)
 
-[node name="Plane" parent="EnvironmentDetails/Models/BarDetails/curtain" index="0" unique_id=1679093702]
+[node name="Plane" parent="EnvironmentDetails/Models/BarDetails/curtain" index="0" unique_id=397132520]
 transform = Transform3D(1.5577803, 0, 0, 0, 0, -2.370239, 0, 1.730112, 0, -1.391571, 2.4554563, -0.16410828)
 material_override = SubResource("StandardMaterial3D_tcx4x")
 
@@ -3609,7 +3609,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.1583, 1.626787, -44.43900
 [node name="Woryn_Label" parent="EnvironmentDetails/Models/BarDetails" unique_id=451814816 instance=ExtResource("12_aehye")]
 transform = Transform3D(2.47, 0, 0, 0, 2.47, 0, 0, 0, 2.47, 140.261, 5.421, -43.56)
 
-[node name="Text" parent="EnvironmentDetails/Models/BarDetails/Woryn_Label" index="0" unique_id=1010632364]
+[node name="Text" parent="EnvironmentDetails/Models/BarDetails/Woryn_Label" index="0" unique_id=681022136]
 material_overlay = SubResource("StandardMaterial3D_6kchk")
 mesh = SubResource("ArrayMesh_7blnt")
 
@@ -3652,10 +3652,10 @@ omni_attenuation = 1.971
 [node name="Sketchfab_Scene4" parent="EnvironmentDetails/Models/BarLights" unique_id=1853098258 instance=ExtResource("41_674dm")]
 transform = Transform3D(0.006735303, 0, 0, 0, 0.006735303, 0, 0, 0, 0.006735303, 140.2793, 5.5856137, -49.69245)
 
-[node name="light_base_0" parent="EnvironmentDetails/Models/BarLights/Sketchfab_Scene4/Sketchfab_model/lamp_fbx/RootNode/light" parent_id_path=PackedInt32Array(1853098258, 1704645706) index="0" unique_id=1178704095]
+[node name="light_base_0" parent="EnvironmentDetails/Models/BarLights/Sketchfab_Scene4/Sketchfab_model/lamp_fbx/RootNode/light" parent_id_path=PackedInt32Array(1853098258, 2131846275) index="0" unique_id=752346035]
 visible = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="EnvironmentDetails/Models/BarLights/Sketchfab_Scene4/Sketchfab_model/lamp_fbx/RootNode/light" parent_id_path=PackedInt32Array(1853098258, 1704645706) index="1" unique_id=17521764]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EnvironmentDetails/Models/BarLights/Sketchfab_Scene4/Sketchfab_model/lamp_fbx/RootNode/light" parent_id_path=PackedInt32Array(1853098258, 2131846275) index="1" unique_id=17521764]
 transform = Transform3D(1.0000005, 0, 0, 0, -4.3711466e-08, 1.0000005, 0, -1.0000005, -4.3711466e-08, 0, 0, 0.37521267)
 mesh = SubResource("CylinderMesh_iukcp")
 
@@ -3683,13 +3683,13 @@ omni_attenuation = 1.971
 [node name="bookShelfHalf" parent="EnvironmentDetails" unique_id=315875231 instance=ExtResource("36_jn0tk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 149.98465, 0.5, -43.01742)
 
-[node name="Cube" parent="EnvironmentDetails/bookShelfHalf" index="0" unique_id=824637533]
+[node name="Cube" parent="EnvironmentDetails/bookShelfHalf" index="0" unique_id=74740184]
 material_override = ExtResource("25_g8nf3")
 
 [node name="bookShelfHalf2" parent="EnvironmentDetails" unique_id=765104223 instance=ExtResource("36_jn0tk")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 149.98465, 0.5, -39.32026)
 
-[node name="Cube" parent="EnvironmentDetails/bookShelfHalf2" index="0" unique_id=824637533]
+[node name="Cube" parent="EnvironmentDetails/bookShelfHalf2" index="0" unique_id=74740184]
 material_override = ExtResource("25_g8nf3")
 
 [node name="TrashBin" parent="EnvironmentDetails" unique_id=43335728 instance=ExtResource("45_1h20l")]
@@ -5786,7 +5786,7 @@ size = Vector2i(936, 512)
 size_2d_override = Vector2i(951, 440)
 
 [node name="Settings" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/SettingsPoint/DiegeticUI/SettingsMeshInstance3D/SubViewport" unique_id=895228263 node_paths=PackedStringArray("_mainUI") instance=ExtResource("46_ym0o4")]
-_mainUI = NodePath("../../../../../MainPoint/MainMenu3DUI/MainMeshInstance3D/SubViewport/MainMenu")
+_mainUI = NodePath("../../../../../../../../../MainUI")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/SettingsPoint/DiegeticUI" unique_id=1435140346]
 transform = Transform3D(-1, 3.3275796e-08, -8.011014e-09, -2.8420121e-08, -0.6768633, 0.7361091, 1.907227e-08, 0.7361091, 0.6768633, 0.019424438, 0.46783447, 0.38341627)

@@ -64,7 +64,7 @@ public class PlayerStats
 	}
 	
 	// Alchemist/transmutator
-	public float PointsToGoldRatio = 0.25f;
+	public float PointsToGoldRatio = 1f;
 	private int _alchemistLevel = 0;
 	private const float AlchemistAddition = 0.25f;
 	private const float AlchemistBaseValue = 0.25f;

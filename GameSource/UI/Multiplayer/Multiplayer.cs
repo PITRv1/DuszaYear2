@@ -52,6 +52,7 @@ public partial class Multiplayer : Control
     
 	private void JoinServer(string ip)
 	{
+		GD.Print("JOINING SERVER: " + ip);
 		Global.networkHandler.LanDiscovery.StopClientDiscovery();
 		Global.networkHandler.StartClient(ip);
 		ChangeMenu("player");
