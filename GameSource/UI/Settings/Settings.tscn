@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d1tdl2opru7js" path="res://Assets/textures/images/mainMenuCardBG.png" id="3_n5ubh"]
 [ext_resource type="Theme" uid="uid://b5pknxbb3rpmp" path="res://Assets/UI/Themes/Main/MedievalButtonTheme.tres" id="4_n5ubh"]
 
-[node name="Settings" type="Control" unique_id=433371701 node_paths=PackedStringArray("masterVolumeSlider", "musicVolumeSlider")]
+[node name="Settings" type="Control" unique_id=433371701 node_paths=PackedStringArray("_masterVolumeSlider", "_musicVolumeSlider", "_sfxVolume", "_shaders", "_name")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,8 +14,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_n5ubh")
 script = ExtResource("2_n5ubh")
-masterVolumeSlider = NodePath("HBoxContainer/container/Sound/Master/Master")
-musicVolumeSlider = NodePath("HBoxContainer/container/Sound/Music/Music")
+_masterVolumeSlider = NodePath("HBoxContainer/container/Sound/Master/Master")
+_musicVolumeSlider = NodePath("HBoxContainer/container/Sound/Music/Music")
+_sfxVolume = NodePath("HBoxContainer/container/Sound/SFX/SFX")
+_shaders = NodePath("HBoxContainer/container/Shaders/Shader/Shaders")
+_name = NodePath("HBoxContainer/container/Name/Name/NameInputField")
 
 [node name="Label" type="Label" parent="." unique_id=136921031]
 visible = false
@@ -198,4 +201,7 @@ text = "Main Menu"
 [connection signal="item_selected" from="HBoxContainer/container/Screen/Window Mode/WindowMode" to="." method="SetWindowMode"]
 [connection signal="value_changed" from="HBoxContainer/container/Sound/Master/Master" to="." method="MasterVolumeChanged"]
 [connection signal="value_changed" from="HBoxContainer/container/Sound/Music/Music" to="." method="MusicVolumeChanged"]
+[connection signal="value_changed" from="HBoxContainer/container/Sound/SFX/SFX" to="." method="SFXVolumeChanged"]
+[connection signal="toggled" from="HBoxContainer/container/Shaders/Shader/Shaders" to="." method="ShadersToggled"]
+[connection signal="text_changed" from="HBoxContainer/container/Name/Name/NameInputField" to="." method="NameChanged"]
 [connection signal="pressed" from="HBoxContainer/container/BackButton" to="." method="Back"]

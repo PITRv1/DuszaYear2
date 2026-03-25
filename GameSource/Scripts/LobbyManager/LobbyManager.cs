@@ -1,28 +1,29 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class LobbyManager : Node
 {
-	private List<byte> players;
+	private Dictionary<byte, string> players;
 	public LobbyManager()
 	{
-		players = new List<byte>();
+		players = new();
 		Global.lobbyManagerInstance = this;
 	}
 
-	public void AddToMultiplayerList(int id)
+	public void AddToMultiplayerList(int id, string name)
 	{
-		players.Add((byte)id);
-		
+		players.Add((byte)id, name);
+
 		GD.Print($"Adding player bruhhhh to lobby");
 
 		var packet = new NewPlayer
 		{
-			playerArray = players.ToArray(),
+			playerArray = players.Values.ToArray(),
 		};
 		
-		foreach (int player in players)
+		foreach (int player in players.Keys)
 		{
 			GD.Print($"Adding player {player} to lobby");
 			Global.networkHandler.ClientPeers.TryGetValue(player, out var peer);
@@ -39,10 +40,10 @@ public partial class LobbyManager : Node
 		
 		var packet = new NewPlayer
 		{
-			playerArray = players.ToArray(),
+			playerArray = players.Values.ToArray(),
 		};
 		
-		foreach (int player in players)
+		foreach (int player in players.Keys)
 		{
 			GD.Print($"Adding player {player} to lobby");
 			Global.networkHandler.ClientPeers.TryGetValue(player, out var peer);
@@ -66,7 +67,7 @@ public partial class LobbyManager : Node
 			playerCount = players.Count
 		};
 
-		foreach (int player in players)
+		foreach (int player in players.Keys)
 		{
 			Global.networkHandler.ClientPeers.TryGetValue(player, out var peer);
 

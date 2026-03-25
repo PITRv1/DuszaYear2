@@ -36,8 +36,24 @@ public partial class MultiplayerServerGlobals : Node
             .Broadcast(Global.networkHandler.ServerConnection);
         
         Global.lobbyManagerInstance ??= new LobbyManager();
+        SendNameRequest(peerId);
+    }
 
-        Global.lobbyManagerInstance.AddToMultiplayerList(peerId);
+    public void OnNameAnswer(int peerId, byte[] data)
+    {
+        NamePacket packet = NamePacket.CreateFromData(data);
+        Global.lobbyManagerInstance.AddToMultiplayerList(peerId, packet.Name);
+    }
+
+    private void SendNameRequest(int id)
+    {
+        NamePacket packet = new();
+        Global.networkHandler.ClientPeers.TryGetValue(id, out var peer);
+
+		if (peer != null)
+		{
+			packet.Send(peer);
+		}
     }
 
     private void OnPeerDisconnected(int peerId)
@@ -110,6 +126,9 @@ public partial class MultiplayerServerGlobals : Node
                 break;
             case PACKET_TYPES.SHOP_ITEM_BUY:
                 Global.shopManagerInstance.HandleShopItemBuy(data);
+                break;
+            case PACKET_TYPES.NAME:
+                OnNameAnswer(peerId, data);
                 break;
             default:
                 GD.PushError($"Packet type with index {(PACKET_TYPES)data[0]} unhandled");

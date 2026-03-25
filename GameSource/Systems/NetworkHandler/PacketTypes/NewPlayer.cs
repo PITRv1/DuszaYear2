@@ -1,10 +1,11 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 public class NewPlayer : PacketInfo
 {
-	public byte[] playerArray;
+	public string[] playerArray;
 
 	public NewPlayer()
 	{
@@ -19,8 +20,20 @@ public class NewPlayer : PacketInfo
 
 		data.Add((byte)playerArray.Length);
 		
-		foreach (byte player in playerArray)
-			data.Add(player);
+		List<byte> str = new();
+
+		foreach (string name in playerArray)
+		{
+			foreach (char ch in name)
+			{
+				str.Add((byte)ch);
+			}
+			str.Add(0);
+
+			data.AddRange(str);
+
+			str.Clear();
+		}
 
 		return data.ToArray();
     }
@@ -30,15 +43,20 @@ public class NewPlayer : PacketInfo
 		NewPlayer packet = new NewPlayer();
 		int index = 1;
 
-		int size = data[index];
-		index += 1;
+		StringBuilder sb = new();
+		List<string> names = new();
 
-		packet.playerArray = new byte[size];
-		for (int i = 0; i < size; i++)
+		while (index < data.Length)
 		{
-			packet.playerArray[i] = data[index];
-			index += 1;
+			while (data[index] != 0)
+			{
+				sb.Append((char)data[index++]);
+			}
+			names.Add(sb.ToString());
+			sb.Clear();
 		}
+        
+		packet.playerArray = names.ToArray();
 
 		return packet;
 	}

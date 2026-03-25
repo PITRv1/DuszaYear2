@@ -2,9 +2,9 @@ using System;
 
 public class SettingsData
 {
-    public double MainVolume;
-    public double MusicVolume;
-    public double SFXVolume;
-    public bool Shaders;
-    public string Name;
+    public double MainVolume { get; set; }
+    public double MusicVolume { get; set; }
+    public double SFXVolume { get; set; }
+    public bool Shaders { get; set; }
+    public string Name { get; set; }
 }

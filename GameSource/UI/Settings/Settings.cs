@@ -8,7 +8,6 @@ using System.Text.Json.Serialization.Metadata;
 public partial class Settings : Control
 {
 	[Export] MainUI _mainUI;
-
 	[Export] HSlider _masterVolumeSlider;
 	[Export] HSlider _musicVolumeSlider;
 	[Export] HSlider _sfxVolume;
@@ -25,18 +24,15 @@ public partial class Settings : Control
 
     public override void _Ready()
     {
-		if (SaveExists())
-		{
-			Load();
-			return;
-		}
+		Load();
         _masterVolumeSlider.Value = AudioServer.GetBusVolumeDb(0);
         _musicVolumeSlider.Value = AudioServer.GetBusVolumeDb(1);
     }
 
 	public bool SaveExists()
 	{
-		return File.Exists(SAVE_FILE);
+		var path = ProjectSettings.GlobalizePath(SAVE_FILE);
+		return File.Exists(path);
 	}
 
 	public void MasterVolumeChanged(float value)
@@ -72,7 +68,7 @@ public partial class Settings : Control
 	{
 		GD.Print("CHANGED!");
 		Save();
-		Global.multiplayerPlayerClass.Name = value;
+		Global.multiplayerClientGlobals.ClientName = value;
 	}
 
 	public void Back()
@@ -84,19 +80,21 @@ public partial class Settings : Control
 	{
 		var save_data = new SettingsData
 		{
-			MainVolume = _masterVolumeSlider.Value,
+			MainVolume 	= _masterVolumeSlider.Value,
     		MusicVolume = _musicVolumeSlider.Value,
-    		SFXVolume = _sfxVolume.Value,
-    		Shaders = _shaders.Disabled,
-    		Name = _name.Text,
+    		SFXVolume 	= _sfxVolume.Value,
+    		Shaders 	= _shaders.Disabled,
+    		Name 		= _name.Text,
 		};
-		var contents = JsonSerializer.Serialize(save_data, options);
-		File.WriteAllText(SAVE_FILE, contents);
+		var contents = JsonSerializer.Serialize<SettingsData>(save_data, options);
+		File.WriteAllText(ProjectSettings.GlobalizePath(SAVE_FILE), contents);
 		
 	}
 	public void Load()
 	{
-		string data = File.ReadAllText(SAVE_FILE);
+		if (!SaveExists())
+			return;
+		string data = File.ReadAllText(ProjectSettings.GlobalizePath(SAVE_FILE));
 		var save_data = JsonSerializer.Deserialize<SettingsData>(data);
 		_masterVolumeSlider.Value = save_data.MainVolume;
 		_musicVolumeSlider.Value = save_data.MusicVolume;

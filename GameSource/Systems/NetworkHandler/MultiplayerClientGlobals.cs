@@ -48,6 +48,7 @@ public partial class MultiplayerClientGlobals : Node
     public delegate void StopShopEventHandler();
 
     public int Id = -1;
+    public string ClientName;
     public List<int> RemoteIds = new();
 
     public override void _Ready()
@@ -113,6 +114,13 @@ public partial class MultiplayerClientGlobals : Node
                 {
                     EmitSignal(SignalName.StopShop);
                 }
+                break;
+            case PACKET_TYPES.NAME:
+                var namePacket = new NamePacket
+                {
+                    Name = ClientName
+                };
+		        Global.networkHandler.ServerPeer?.Send(0, namePacket.Encode(), (int)ENetPacketPeer.FlagReliable);
                 break;
             default:
                 GD.PushError($"Packet type with index {(int)packetType} unhandled!");
