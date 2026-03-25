@@ -5786,7 +5786,7 @@ size = Vector2i(936, 512)
 size_2d_override = Vector2i(951, 440)
 
 [node name="Settings" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/SettingsPoint/DiegeticUI/SettingsMeshInstance3D/SubViewport" unique_id=895228263 node_paths=PackedStringArray("_mainUI") instance=ExtResource("46_ym0o4")]
-_mainUI = NodePath("../../../../../MainPoint/MainMenu3DUI/MainMeshInstance3D/SubViewport/MainMenu")
+_mainUI = NodePath("../../../../../../../../../MainUI")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="MovingElements/Cameras/CameraController/CameraFocusPoints/SettingsPoint/DiegeticUI" unique_id=1435140346]
 transform = Transform3D(-1, 3.3275796e-08, -8.011014e-09, -2.8420121e-08, -0.6768633, 0.7361091, 1.907227e-08, 0.7361091, 0.6768633, 0.019424438, 0.46783447, 0.38341627)
