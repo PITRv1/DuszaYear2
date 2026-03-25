@@ -88,7 +88,6 @@ public partial class Settings : Control
 		};
 		var contents = JsonSerializer.Serialize<SettingsData>(save_data, options);
 		File.WriteAllText(ProjectSettings.GlobalizePath(SAVE_FILE), contents);
-		
 	}
 	public void Load()
 	{
@@ -101,6 +100,8 @@ public partial class Settings : Control
 		_sfxVolume.Value = save_data.SFXVolume;
 		_shaders.Disabled = save_data.Shaders;
 		_name.Text = save_data.Name;
+		NameChanged(_name.Text);
+		Save();
 	}
 
 	public void SetViewportSize(int option)

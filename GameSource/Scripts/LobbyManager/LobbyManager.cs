@@ -5,7 +5,7 @@ using System.Linq;
 
 public partial class LobbyManager : Node
 {
-	private Dictionary<byte, string> players;
+	public Dictionary<byte, string> players;
 	public LobbyManager()
 	{
 		players = new();
@@ -16,13 +16,13 @@ public partial class LobbyManager : Node
 	{
 		players.Add((byte)id, name);
 
-		GD.Print($"Adding player bruhhhh to lobby");
+		GD.Print($"Adding player {name} to lobby");
 
 		var packet = new NewPlayer
 		{
 			playerArray = players.Values.ToArray(),
 		};
-		
+
 		foreach (int player in players.Keys)
 		{
 			GD.Print($"Adding player {player} to lobby");

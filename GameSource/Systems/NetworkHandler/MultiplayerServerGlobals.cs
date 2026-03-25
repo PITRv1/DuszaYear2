@@ -47,7 +47,10 @@ public partial class MultiplayerServerGlobals : Node
 
     private void SendNameRequest(int id)
     {
-        NamePacket packet = new();
+        NamePacket packet = new NamePacket
+        {
+            Name = ""
+        };
         Global.networkHandler.ClientPeers.TryGetValue(id, out var peer);
 
 		if (peer != null)
@@ -70,7 +73,7 @@ public partial class MultiplayerServerGlobals : Node
             case PACKET_TYPES.START_GAME:
                 if (peerId != 0)
                     return;
-                Global.turnManagerInstance.Setup(_peerIds);
+                Global.turnManagerInstance.Setup(Global.lobbyManagerInstance.players);
                 Global.lobbyManagerInstance.StartGameRequest(data);
                 break;
             case PACKET_TYPES.CLIENT_READY:

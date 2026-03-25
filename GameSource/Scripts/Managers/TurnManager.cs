@@ -33,14 +33,14 @@ public partial class TurnManager : Node
 
 		Global.turnManagerInstance = this;
 	}
-	public void Setup(List<int> playerIds)
+	public void Setup(Dictionary<byte, string> players)
 	{
-		foreach (var id in playerIds)
+		foreach (var id in players.Keys)
 		{
-			AddToMultiplayerList(id);
+			AddToMultiplayerList(id, players[id]);
 		}
 
-		_playerCount = playerIds.Count;
+		_playerCount = players.Count;
 		_pointCardDeck = new PointCardDeck();
 		_pointCardDeck.GenerateDeck();
 	}
@@ -57,10 +57,16 @@ public partial class TurnManager : Node
 		foreach (var player in Players.Keys)
 			DealCards(player);
 
+		foreach (var bruh in Players.ToDictionary(x => (byte)x.Key, x => x.Value.PlayerName))
+		{
+			GD.Print("is there name: " + bruh.Value);
+		}
+
 		var turnInfoPacket = new SetupPacket
 		{
-			PlayerCount = _playerCount,
-			StarterPlayer = _currentPlayer
+			PlayerCount 	= _playerCount,
+			StarterPlayer 	= _currentPlayer,
+			players = Players.ToDictionary(x => (byte)x.Key, x => x.Value.PlayerName),
 		};
 
 		foreach (var player in Players.Keys)
@@ -82,11 +88,12 @@ public partial class TurnManager : Node
 		_shopReady = 0;
 	}
 
-	private void AddToMultiplayerList(int id)
+	private void AddToMultiplayerList(int id, string name)
 	{
 		var newPlayer = new MultiplayerPlayerClass
 		{
 			Id = id,
+			PlayerName = name,
 		};
 		
 		newPlayer.PlayerClass = new PlayerClass();

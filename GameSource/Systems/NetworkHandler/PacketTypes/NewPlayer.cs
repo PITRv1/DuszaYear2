@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 public class NewPlayer : PacketInfo
@@ -53,6 +54,7 @@ public class NewPlayer : PacketInfo
 				sb.Append((char)data[index++]);
 			}
 			names.Add(sb.ToString());
+			index++;
 			sb.Clear();
 		}
         

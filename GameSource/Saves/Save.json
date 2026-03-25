@@ -1,7 +1,7 @@
 {
-  "MainVolume": 0,
-  "MusicVolume": -22,
+  "MainVolume": -80,
+  "MusicVolume": -80,
   "SFXVolume": 0,
   "Shaders": false,
-  "Name": ""
+  "Name": "among us"
 }

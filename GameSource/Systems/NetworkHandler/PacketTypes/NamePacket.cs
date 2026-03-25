@@ -17,6 +17,12 @@ public class NamePacket : PacketInfo
 
 		data.Add((byte)PacketType);
 
+        if (Name == null)
+        {
+            data.Add(0);
+            return data.ToArray();
+        }
+        
         List<byte> str = new();
 
         foreach (char ch in Name)

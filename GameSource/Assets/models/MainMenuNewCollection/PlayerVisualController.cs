@@ -8,6 +8,7 @@ public partial class PlayerVisualController : Node3D
     [Export] public bool PlayerControlled = true;
     [Export] public Camera3D Camera;
     [Export] public Marker3D TargetMarker;
+    [Export] public Label3D NamePlate;
 
     [ExportGroup("Bodyparts")]
     private Godot.Collections.Array<string> materials = 

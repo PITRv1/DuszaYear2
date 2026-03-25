@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Godot;
 using System.Linq;
+using System;
 
 public partial class MultiplayerPlayerClass : Node
 {
@@ -112,41 +113,41 @@ public partial class MultiplayerPlayerClass : Node
 	{
 		var packet = SetupPacket.CreateFromData(data);
 		var seats = _playerSeatsHolder.GetChildren();
-		var playerToSeat = new Dictionary<int, int>()
+		var playerCount = packet.players.Count;
+
+		// Outer key: player count. Inner key: relative offset → physical seat index.
+		var seatMappings = new Dictionary<int, Dictionary<int, int>>()
 		{
-			{ 0, 3 },
-			{ 1, 0 },
-			{ 2, 1 },
-			{ 3, 2 }
+			{ 1, new Dictionary<int, int>() },                                          // solo — no other players
+			{ 2, new Dictionary<int, int> { { 1, 2 } } },                              // one opponent, sits opposite
+			{ 3, new Dictionary<int, int> { { 1, 0 }, { 2, 2 } } },                   // two opponents, flanking
+			{ 4, new Dictionary<int, int> { { 1, 0 }, { 2, 2 }, { 3, 1 } } },        // three opponents, all sides
 		};
-		
-		for (var playerIndex = 0; playerIndex < packet.PlayerCount; playerIndex++)
+
+		var playerToSeat = seatMappings[playerCount];
+		var offset = Id;
+
+		foreach (var player in packet.players.Keys)
 		{
-			if (playerIndex == Id) continue; // Skip myself
+			if (player == Id) continue;
 
-			var index = playerIndex - Id;
-			if (index < 0)
-			{
-				index = packet.PlayerCount + index;
-			}
+			var seatOffset = ((player - offset) % playerCount + playerCount) % playerCount;
 
-			var playerSeat = playerToSeat[index];
-			
+			var playerSeat = playerToSeat[seatOffset];
 			var bud = _buddy.Instantiate() as PlayerVisualController;
+			bud.NamePlate.Text = packet.players[player] + " " + player;
 			bud.PlayerIndex = 2;
 			bud.SetColor();
 			bud.Camera.ProcessMode = ProcessModeEnum.Disabled;
 			bud.PlayerControlled = false;
-
-			_playerVisuals.Add(playerIndex, bud);
-
+			_playerVisuals.Add(player, bud);
 			seats[playerSeat].AddChild(bud);
 			bud.Position = new Vector3(0, -2f, 0);
-
 			var tableCenter = new Vector3(0, bud.GlobalPosition.Y, 0);
 			bud.LookAt(tableCenter, Vector3.Up);
 			bud.RotateY(Mathf.Pi);
 		}
+
 		if (packet.StarterPlayer == Id)
 		{
 			_playerHud.StartCountdownTimer();

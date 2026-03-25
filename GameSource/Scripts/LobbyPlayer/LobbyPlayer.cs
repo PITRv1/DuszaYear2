@@ -45,7 +45,8 @@ public partial class LobbyPlayer : Node
 		foreach (var player in packet.playerArray)
 		{
 			var newLobbyPlayer = _lobbyPlayer.Instantiate() as LobbyPlayerPlate;
-			newLobbyPlayer.SetText(player.ToString());
+			GD.Print("Lobby player: " + player);
+			newLobbyPlayer.SetText(player, false);
 			_lobbyBackground.AddChild(newLobbyPlayer);
 		}
 	}
