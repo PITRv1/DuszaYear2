@@ -1,5 +1,12 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+
+public enum PASSIVEICONS {
+	DICE,
+	MIRROR,
+	MONEY
+}
 
 public partial class PlayerHud : Control
 {
@@ -7,6 +14,25 @@ public partial class PlayerHud : Control
 	[Export] Timer timer;
 	[Export] RichTextLabel goldLabel;
 	[Export] RichTextLabel pointLabel;
+	[Export] TextureRect passiveTextureRect;
+	[Export] Godot.Collections.Array<Texture2D> passiveTextures;
+	[Export] AnimationPlayer animationPlayer;
+
+	List<PASSIVEICONS> passiveIconBuffer = new();
+
+	public void ShowPassive(PASSIVEICONS icon)
+	{
+		passiveIconBuffer.Add(icon);
+	}
+
+	private void ShowNextPassiveIcon()
+	{
+		PASSIVEICONS currentIcon = passiveIconBuffer[0];
+		passiveIconBuffer.RemoveAt(0);
+
+		passiveTextureRect.Texture = passiveTextures[(int)currentIcon];
+		animationPlayer.Play("ShowPassive");
+	}
 
 	public void StartCountdownTimer(double time = 30)
 	{
@@ -31,6 +57,7 @@ public partial class PlayerHud : Control
     public override void _Process(double delta)
     {
         timerLabel.Text = Convert.ToInt32(timer.TimeLeft).ToString();
+        if (passiveIconBuffer.Count > 0 && !animationPlayer.IsPlaying()) ShowNextPassiveIcon();
     }
 
 
