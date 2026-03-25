@@ -97,6 +97,7 @@ public partial class TurnManager : Node
 		};
 		
 		newPlayer.PlayerClass = new PlayerClass();
+		newPlayer.PlayerClass.Gold = 400000;
 		
 		Players ??= new Dictionary<int, MultiplayerPlayerClass>();
 		Players.Add(id, newPlayer);

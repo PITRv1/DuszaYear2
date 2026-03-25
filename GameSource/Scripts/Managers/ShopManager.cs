@@ -151,6 +151,7 @@ public partial class ShopManager : Node
 		Global.networkHandler.ClientPeers.TryGetValue(packet.SenderId, out var peer);
 		var returnPacket = new ShopItemBuy
 		{
+			SenderId = packet.SenderId,
 			CardIndex = packet.CardIndex,
 			GoldAmount = player.Gold
 		};
@@ -165,6 +166,8 @@ public partial class ShopManager : Node
 		var player = Global.turnManagerInstance.Players[packet.SenderId].PlayerClass;
 		var item = _currentPublicShopItems[packet.CardIndex];
 		var price = _currentPublicPrices[packet.CardIndex];
+
+		GD.Print("Sender ID: " + packet.SenderId);
 		
 		if (player.Gold < price)
 		{
@@ -179,6 +182,7 @@ public partial class ShopManager : Node
 		Global.networkHandler.ClientPeers.TryGetValue(packet.SenderId, out var peer);
 		var returnPacket = new ShopItemBuy
 		{
+			SenderId = packet.SenderId,
 			CardIndex = packet.CardIndex,
 			GoldAmount = player.Gold,
 			IsPublicShop = packet.IsPublicShop

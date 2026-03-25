@@ -74,6 +74,7 @@ size_flags_vertical = 3
 text = "Players 1/4 "
 
 [node name="JoinButton" type="Button" parent="." unique_id=194332008]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
