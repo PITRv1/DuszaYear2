@@ -544,7 +544,7 @@ bone = 14
 forward_axis = 1
 
 [node name="LeftHandAttachmentMod" type="BoneAttachment3D" parent="templatePlayerRig/metarig/Skeleton3D" parent_id_path=PackedInt32Array(1520022567, 107777266) index="26" unique_id=396461942]
-transform = Transform3D(-0.5674061, -0.74110913, 0.35889825, 0.17137298, 0.32002842, 0.93177927, -0.80540764, 0.59020275, -0.054580092, 0.2851997, 1.3663405, 0.35879955)
+transform = Transform3D(-0.5674062, -0.7834418, 0.25351477, 0.17137355, 0.18877938, 0.96695036, -0.8054074, 0.5920993, 0.027146578, 0.28513172, 1.3413217, 0.35861433)
 bone_name = "hand.L"
 bone_idx = 10
 
@@ -601,7 +601,6 @@ parameters/Add2/add_amount = 1.0
 [node name="Label3D" type="Label3D" parent="." unique_id=536519408]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 billboard = 2
-modulate = Color(0.3418891, 0.54557073, 0.11198748, 1)
 text = "adwdahdwa9uau9awd"
 
 [editable path="templatePlayerRig"]
