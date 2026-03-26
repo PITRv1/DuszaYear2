@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://cg36pujq2gpe3"]
+
+[ext_resource type="Theme" uid="uid://bntwtfgxeqnya" path="res://Assets/UI/Themes/Main/UIThemeSimple.tres" id="1_3k84v"]
+[ext_resource type="Script" uid="uid://b18i351uh504d" path="res://UI/WinScreen/WinScreen.cs" id="2_cq53s"]
+
+[node name="WinScreen" type="Control" unique_id=72977207 node_paths=PackedStringArray("labels")]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_3k84v")
+script = ExtResource("2_cq53s")
+labels = [NodePath("MarginContainer/HBoxContainer/VBoxContainer/Label"), NodePath("MarginContainer/HBoxContainer/VBoxContainer/Label2"), NodePath("MarginContainer/HBoxContainer/VBoxContainer/Label3"), NodePath("MarginContainer/HBoxContainer/VBoxContainer/Label4")]
+
+[node name="Panel" type="Panel" parent="." unique_id=1614008442]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=735146406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1065761754]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=478461505]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=883028480]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 70
+text_overrun_behavior = 5
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=908354308]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+text_overrun_behavior = 5
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=286380061]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+text_overrun_behavior = 5
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=363930037]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+text_overrun_behavior = 5
