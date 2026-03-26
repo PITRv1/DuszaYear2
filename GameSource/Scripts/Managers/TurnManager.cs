@@ -18,7 +18,7 @@ public partial class TurnManager : Node
 	private bool _throwDeckPulled;
 	private Timer _foldTimer;
 	private int _shopReady = 0;
-	private int _roundsToEnd = 1;
+	private int _roundsToEnd = 3;
 
 	public override void _Ready()
 	{
