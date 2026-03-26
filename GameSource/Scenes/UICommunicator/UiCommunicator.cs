@@ -125,6 +125,7 @@ public partial class UiCommunicator : Node
         for (int i = selectedModifierCard3Ds.Count - 1; i >= 0; i--)
         {
             selectedModifierCard3Ds[i].isSelected = false;
+            selectedModifierCard3Ds[i].UpdateMeshColor();
             selectedModifierCard3Ds.RemoveAt(i);
         }
     }
@@ -143,6 +144,7 @@ public partial class UiCommunicator : Node
     {
         modifierCard.isSelected = false;
         selectedModifierCard3Ds.Remove(modifierCard);
+        modifierCard.UpdateMeshColor();
     }
 
     public void PlayCards()

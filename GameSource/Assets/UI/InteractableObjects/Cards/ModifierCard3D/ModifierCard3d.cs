@@ -69,14 +69,14 @@ public partial class ModifierCard3d : Node3D, InteractableObjectInterface, ICard
     }
 
 
-	private void UpdateMeshColor(Color color)
+	public void UpdateMeshColor(Color color)
 	{
 		var material = (StandardMaterial3D)outlineMesh.GetSurfaceOverrideMaterial(0).DuplicateDeep().DuplicateDeep();
 		material.AlbedoColor = color;
 		outlineMesh.SetSurfaceOverrideMaterial(0, material);
 	}
 
-    private void UpdateMeshColor()
+    public void UpdateMeshColor()
 	{
 		outlineMesh.SetSurfaceOverrideMaterial(0, defaultMaterial);
 	}
