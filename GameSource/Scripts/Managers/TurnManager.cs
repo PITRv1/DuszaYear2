@@ -321,7 +321,7 @@ public partial class TurnManager : Node
 		var turnInfoPacket = new SetupPacket
 		{
 			PlayerCount = _playerCount,
-
+			StarterPlayer = _currentPlayer,
 		};
 
 		BroadCast(turnInfoPacket);

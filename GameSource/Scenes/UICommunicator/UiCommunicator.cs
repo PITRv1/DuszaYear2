@@ -199,8 +199,6 @@ public partial class UiCommunicator : Node
         {
             shopCards.RemoveCard(modifCard);
             
-
-
             await ToSignal(GetTree().CreateTimer(0.1f), SceneTreeTimer.SignalName.Timeout);
         }
 
