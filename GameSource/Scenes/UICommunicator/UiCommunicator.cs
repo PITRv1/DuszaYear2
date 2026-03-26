@@ -124,7 +124,8 @@ public partial class UiCommunicator : Node
 
         for (int i = selectedModifierCard3Ds.Count - 1; i >= 0; i--)
         {
-            RemoveModifierCard(selectedModifierCard3Ds[i]);
+            selectedModifierCard3Ds[i].isSelected = false;
+            selectedModifierCard3Ds.RemoveAt(i);
         }
     }
 
