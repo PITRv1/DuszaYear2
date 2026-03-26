@@ -103,7 +103,7 @@ fog_depth_end = 20.0
 volumetric_fog_density = 0.0
 volumetric_fog_temporal_reprojection_amount = 0.99
 adjustment_enabled = true
-adjustment_brightness = 1.22
+adjustment_brightness = 2.25
 adjustment_saturation = 1.13
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nkcx5"]
@@ -1048,7 +1048,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78381586, 4.1443086, 6.123
 [node name="curtain" parent="3DWorld/EnvironmentDetails/Models" unique_id=152688818 instance=ExtResource("39_0tc0y")]
 transform = Transform3D(-0.10385153, 0, 0.9945928, 0, 1, 0, -0.9945928, 0, -0.10385153, -7.01008, 0.106413364, 0.33820117)
 
-[node name="Plane" parent="3DWorld/EnvironmentDetails/Models/curtain" index="0" unique_id=1679093702]
+[node name="Plane" parent="3DWorld/EnvironmentDetails/Models/curtain" index="0" unique_id=1751664467]
 transform = Transform3D(1.730112, 0, 0, 0, 0, -1.730113, 0, 1.730112, 0, -1.5716673, 2.4554563, -0.16410732)
 material_override = SubResource("StandardMaterial3D_3h8vp")
 
@@ -1183,8 +1183,8 @@ font_size = 53
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 2.9010963, -0.9423759, -1.7291548e-07)
 bodyparts = []
 
-[node name="LeftHandAttachmentMod" parent="3DWorld/PlayerVisuals/templatePlayerRig/metarig/Skeleton3D" parent_id_path=PackedInt32Array(241039124, 1520022567, 947087297) index="26" unique_id=396461942]
-transform = Transform3D(-0.5674062, -0.73948604, 0.3622307, 0.17137331, 0.32421923, 0.9303294, -0.8054074, 0.5899512, -0.05723586, 0.28519708, 1.3653979, 0.35879242)
+[node name="LeftHandAttachmentMod" parent="3DWorld/PlayerVisuals/templatePlayerRig/metarig/Skeleton3D" parent_id_path=PackedInt32Array(241039124, 1520022567, 2007518589) index="26" unique_id=396461942]
+transform = Transform3D(-0.5674061, -0.73946595, 0.36227164, 0.17137378, 0.32427025, 0.93031144, -0.8054073, 0.5899482, -0.057267964, 0.285199, 1.3660727, 0.3587975)
 
 [node name="PositioningNode" type="Node3D" parent="3DWorld/PlayerVisuals/templatePlayerRig/metarig/Skeleton3D/LeftHandAttachmentMod" index="0" unique_id=943116096]
 transform = Transform3D(0.94872266, -0.30047265, -0.09819082, 0.29630694, 0.7370867, 0.6073758, -0.11012468, -0.6053258, 0.788323, 0.018, 0.003, 0.1)
