@@ -48,6 +48,8 @@ public partial class MultiplayerClientGlobals : Node
     public delegate void StopShopEventHandler();
     [Signal]
     public delegate void PassiveUsedEventHandler(byte[] data);
+    [Signal]
+    public delegate void WinnerScreenEventHandler(byte[] data);
 
     public int Id = -1;
     public string ClientName;
@@ -126,6 +128,9 @@ public partial class MultiplayerClientGlobals : Node
                 break;
             case PACKET_TYPES.PASSIVE_USED:
                 EmitSignal(SignalName.PassiveUsed, data);
+                break;
+            case PACKET_TYPES.WINNER_SCREEN:
+                EmitSignal(SignalName.WinnerScreen, data);
                 break;
             default:
                 GD.PushError($"Packet type with index {(int)packetType} unhandled!");

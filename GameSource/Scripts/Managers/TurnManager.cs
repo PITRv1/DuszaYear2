@@ -18,7 +18,7 @@ public partial class TurnManager : Node
 	private bool _throwDeckPulled;
 	private Timer _foldTimer;
 	private int _shopReady = 0;
-	private int _roundsToEnd = 3;
+	private int _roundsToEnd = 1;
 
 	public override void _Ready()
 	{
@@ -97,7 +97,7 @@ public partial class TurnManager : Node
 		};
 		
 		newPlayer.PlayerClass = new PlayerClass();
-		newPlayer.PlayerClass.Gold = 400000;
+		// newPlayer.PlayerClass.Gold = 400000;
 		
 		Players ??= new Dictionary<int, MultiplayerPlayerClass>();
 		Players.Add(id, newPlayer);
@@ -302,6 +302,11 @@ public partial class TurnManager : Node
 		}
 		else
 		{
+			var packet = new WinnerScreenPacket()
+			{
+				names = Players.Values.OrderBy(x => x.PlayerClass.Points).Select(x => x.PlayerName + " - " + x.PlayerClass.Points).ToArray(),
+			};
+			BroadCast(packet);
 			GD.Print("It's over da");
 		}
 		return true;

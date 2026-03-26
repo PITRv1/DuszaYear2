@@ -21,7 +21,7 @@ public partial class MultiplayerPlayerClass : Node
 	[Export] private Deck3d deck3D;
 	[Export] private PlayerVisualController _playerVisualController;
 	private readonly Dictionary<int, PlayerVisualController> _playerVisuals = new Dictionary<int, PlayerVisualController>();
-
+	[Export] private PackedScene _winScreenScene;
 
 	
 	public override void _Ready()
@@ -37,6 +37,7 @@ public partial class MultiplayerPlayerClass : Node
 		Global.multiplayerClientGlobals.HandleLookAt += SetTargetPosition;
 		Global.multiplayerClientGlobals.HandleGoldUpdate += SetGoldAmount;
 		Global.multiplayerClientGlobals.HandleShopBuy += ShopBuy;
+		Global.multiplayerClientGlobals.WinnerScreen += ShowWinScreen;
 		
 		Global.multiplayerPlayerClass = this;
 		ClientReady();
@@ -44,6 +45,15 @@ public partial class MultiplayerPlayerClass : Node
 
 	private const string WHITE = "#ffffff";
 	private const string GREEN = "#578b1d";
+
+	private void ShowWinScreen(byte[] data)
+	{
+		var packet = WinnerScreenPacket.CreateFromData(data);
+
+		var winScreen = _winScreenScene.Instantiate() as WinScreen;
+		AddChild(winScreen);
+		winScreen.SetPlayerNames(packet.names);
+	}
 
 	private void ShowGreen(byte[] data)
 	{
