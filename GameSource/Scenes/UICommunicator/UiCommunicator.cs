@@ -122,9 +122,9 @@ public partial class UiCommunicator : Node
         selectedPointCard3D.isSelected = false;
         selectedPointCard3D = null;
 
-        foreach (var modifierCard in selectedModifierCard3Ds)
+        for (int i = selectedModifierCard3Ds.Count - 1; i >= 0; i--)
         {
-            RemoveModifierCard(modifierCard);
+            RemoveModifierCard(selectedModifierCard3Ds[i]);
         }
     }
 

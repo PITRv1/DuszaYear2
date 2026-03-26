@@ -180,9 +180,9 @@ public partial class MultiplayerPlayerClass : Node
 		{
 			if (packet.StarterPlayer == Id)
 			{
-				ShowGreen(packet.StarterPlayer);
 				_playerHud.StartCountdownTimer();
 			}
+			ShowGreen(packet.StarterPlayer);
 			return;
 		}
 

@@ -71,20 +71,24 @@ layout_mode = 2
 [node name="Host" type="Button" parent="MultiType/VBoxContainer" unique_id=731532376]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "Host"
 
 [node name="FindServer" type="Button" parent="MultiType/VBoxContainer" unique_id=2011545475]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "Find Server"
 
 [node name="Join" type="Button" parent="MultiType/VBoxContainer" unique_id=103320775]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "Join"
 
 [node name="BackButton" type="Button" parent="MultiType" unique_id=118324802]
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 text = "Main Menu"
 
 [node name="Host" type="VBoxContainer" parent="." unique_id=1179103898]
@@ -116,6 +120,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
 placeholder_text = "Game Name"
 
 [node name="Players" type="VBoxContainer" parent="Host" unique_id=1984120845]
@@ -166,10 +171,12 @@ theme = ExtResource("6_d0hxt")
 
 [node name="Create" type="Button" parent="Host/Buttons" unique_id=54862865]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Create"
 
 [node name="BackButton" type="Button" parent="Host/Buttons" unique_id=1888152045]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="Join" type="VBoxContainer" parent="." unique_id=809176912]
@@ -192,14 +199,17 @@ theme = ExtResource("6_d0hxt")
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
 placeholder_text = "IP address"
 
 [node name="Button" type="Button" parent="Join" unique_id=1536006841]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Join"
 
 [node name="BackButton" type="Button" parent="Join" unique_id=705925737]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="FindServer" type="VBoxContainer" parent="." unique_id=1861328889]
@@ -232,11 +242,13 @@ grow_vertical = 2
 [node name="Refresh" type="Button" parent="FindServer" unique_id=2060852125]
 layout_mode = 2
 theme = ExtResource("6_d0hxt")
+theme_override_font_sizes/font_size = 30
 text = "Refresh"
 
 [node name="BackButton" type="Button" parent="FindServer" unique_id=1885225612]
 layout_mode = 2
 theme = ExtResource("6_d0hxt")
+theme_override_font_sizes/font_size = 30
 text = "Back"
 
 [node name="PlayersList" type="VBoxContainer" parent="." unique_id=1298221560]
