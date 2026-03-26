@@ -4,6 +4,7 @@ using System;
 public partial class WinScreen : Control
 {
     [Export] Godot.Collections.Array<Label> labels;
+    [Export] PackedScene mainMenuScene;
 
     public void SetPlayerNames(string[] names)
     {
@@ -11,5 +12,10 @@ public partial class WinScreen : Control
         {
             labels[i].Text = names[i];
         }
-    }   
+    }
+
+    public void GoBackToMainManu()
+    {
+        GetTree().ChangeSceneToPacked(mainMenuScene);
+    }
 }

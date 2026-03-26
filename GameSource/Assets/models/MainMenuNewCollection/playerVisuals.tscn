@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://sufxeilrpghx" path="res://Assets/models/MainMenuNewCollection/templatePlayerRig.glb" id="1_7ob1p"]
 [ext_resource type="Script" uid="uid://dqjcru3p0xbbd" path="res://Scripts/CameraProjection/CameraProjection.cs" id="3_q3p8h"]
 [ext_resource type="Material" uid="uid://74v7ndcsh607" path="res://Assets/Shaders/materials/playerMats/playerMat1.material" id="4_bfane"]
+[ext_resource type="FontFile" uid="uid://bgx48beeh6rf7" path="res://Assets/UI/Fonts/DigitalDisco.ttf" id="6_0i0q8"]
 [ext_resource type="PackedScene" uid="uid://bp7r6il82lo83" path="res://Assets/models/ring bell.glb" id="7_cjqnh"]
 
 [sub_resource type="Animation" id="Animation_5iesj"]
@@ -544,7 +545,7 @@ bone = 14
 forward_axis = 1
 
 [node name="LeftHandAttachmentMod" type="BoneAttachment3D" parent="templatePlayerRig/metarig/Skeleton3D" parent_id_path=PackedInt32Array(1520022567, 107777266) index="26" unique_id=396461942]
-transform = Transform3D(-0.5674062, -0.7834418, 0.25351477, 0.17137355, 0.18877938, 0.96695036, -0.8054074, 0.5920993, 0.027146578, 0.28513172, 1.3413217, 0.35861433)
+transform = Transform3D(-0.56740594, -0.7720127, 0.28643882, 0.17137396, 0.22952631, 0.95809627, -0.8054076, 0.5927177, 0.0020681024, 0.28514796, 1.347313, 0.35865873)
 bone_name = "hand.L"
 bone_idx = 10
 
@@ -602,5 +603,6 @@ parameters/Add2/add_amount = 1.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 billboard = 2
 text = "adwdahdwa9uau9awd"
+font = ExtResource("6_0i0q8")
 
 [editable path="templatePlayerRig"]
