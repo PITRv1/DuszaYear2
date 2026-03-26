@@ -115,7 +115,15 @@ public partial class MultiplayerPlayerClass : Node
 		var seats = _playerSeatsHolder.GetChildren();
 		var playerCount = packet.players.Count;
 
-		// Outer key: player count. Inner key: relative offset → physical seat index.
+		if (packet.players.Keys.ToArray().Length == 0)
+		{
+			if (packet.StarterPlayer == Id)
+			{
+				_playerHud.StartCountdownTimer();
+			}
+			return;
+		}
+
 		var seatMappings = new Dictionary<int, Dictionary<int, int>>()
 		{
 			{ 1, new Dictionary<int, int>() },                                          // solo — no other players

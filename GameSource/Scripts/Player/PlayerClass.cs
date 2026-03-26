@@ -49,9 +49,9 @@ public class PlayerClass
             case ItemType.MAIDEN_PASSIVE:
                 PlayerStats.UpgradeMaidenLevel();
                 break;
-            case ItemType.DRUNKARD_PASSIVE:
-                PlayerStats.UpgradeDrunkardLevel();
-                break;
+            // case ItemType.DRUNKARD_PASSIVE:
+            //     PlayerStats.UpgradeDrunkardLevel();
+            //     break;
         }
     }
 
@@ -77,10 +77,10 @@ public class PlayerClass
                 Active = new MaidenActive();
                 PlayerStats.MaxMaidenLevel();
                 break;
-            case CharacterClass.DRUNKARD:
-                Active = new DrunkardActive();
-                PlayerStats.UpgradeDrunkardLevel();
-                break;
+            // case CharacterClass.DRUNKARD:
+            //     Active = new DrunkardActive();
+            //     PlayerStats.UpgradeDrunkardLevel();
+            //     break;
         }
     }
 

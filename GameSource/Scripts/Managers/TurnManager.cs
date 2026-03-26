@@ -158,6 +158,8 @@ public partial class TurnManager : Node
 		{
 			foreach(var player in Players.Keys)
 			{
+				if (Players[player].PlayerClass.PlayerStats.PoliticanLevel == 0)
+					continue;
 				Players[player].PlayerClass.Points += (int)Math.Round(originalValue * Players[player].PlayerClass.PlayerStats.PoliticanPassive);
 				_throwDeckValue -= (int)Math.Round(_throwDeckValue * Players[player].PlayerClass.PlayerStats.PoliticanPassive);
 				var passive = new PassiveUsed
@@ -291,28 +293,7 @@ public partial class TurnManager : Node
 			return false;
 		}
 		
-		_throwDeckValue += value;
-		Players[_lastPlayer].PlayerClass.Points += _throwDeckValue;
-		_throwDeckValue = 0;
-		_currentMaxValue = 0;
-		foreach (var player in Players.Keys)
-		{
-			var packet = new TurnInfoPacket
-			{
-				LastPlayer = _lastPlayer,
-				CurrentPlayerId = _currentPlayer,
-				CurrentRound = _currentRound,
-				MaxValue = _currentMaxValue,
-				CurrentPointValue = Players[player].PlayerClass.Points,
-				ThrowDeckValue = _throwDeckValue,
-			};
-
-			Global.networkHandler.ClientPeers.TryGetValue(player, out var peer);
-			if (peer != null)
-			{
-				packet.Send(peer);
-			}
-		}
+		FoldTurn();
 
 		_foldTimer.Stop();
 		if (_currentRound < _roundsToEnd)
@@ -334,7 +315,8 @@ public partial class TurnManager : Node
 
 		var turnInfoPacket = new SetupPacket
 		{
-			PlayerCount = _playerCount
+			PlayerCount = _playerCount,
+
 		};
 
 		BroadCast(turnInfoPacket);
@@ -344,7 +326,7 @@ public partial class TurnManager : Node
 
 	private void SwitchToNextPlayer()
 	{
-		for (int i = 0; i < _skipAmount; i++)
+		for (int i = 0; i < _skipAmount + 1; i++)
 		{
 			_currentPlayer += _roundDirection;
 			if (_playerCount - 1 < _currentPlayer)
@@ -364,15 +346,15 @@ public partial class TurnManager : Node
 		}
 
 		_skipAmount = 0;
-		do
+		while (Players[_currentPlayer].PlayerClass.PointCardList.Count == 0)
 		{
 			_currentPlayer += _roundDirection;
 			if (_playerCount - 1 < _currentPlayer)
 					_currentPlayer = 0;
 			if (_currentPlayer < 0)
 				_currentPlayer = _playerCount - 1;
+		}
 
-		} while (Players[_currentPlayer].PlayerClass.PointCardList.Count == 0);
 	}
 
 	private void StartNewTurn(List<ModifierCard> usedCards, int value)
@@ -385,16 +367,16 @@ public partial class TurnManager : Node
 			DealWithModifiers(card);
 		}
 
+		_throwDeckPulled = false;
+		_throwDeckValue += value;
+		_currentMaxValue = value;
+
 		if (CheckForEndGame(value))
 		{
 			return;
 		}
 
 		SwitchToNextPlayer();
-
-		_throwDeckPulled = false;
-		_throwDeckValue += value;
-		_currentMaxValue = value;
 
 		foreach (var player in Players.Keys)
 		{

@@ -129,22 +129,22 @@ public class PlayerStats
 	}
 	
 	// Drunkard
-	public int DrunkardPassive = 0;
-	private int _drunkardLevel = 0;
-	public int DrunkardLevel
-	{
-		get => _drunkardLevel;
-	}
-	private const int DrunkardAddition = 1;
-	private const int DrunkardBaseValue = 1;
-	public void UpgradeDrunkardLevel()
-	{
-		GD.Print("Upgrade UpgradeDrunkardLevel");
-		DrunkardPassive = DrunkardBaseValue + DrunkardAddition * _drunkardLevel;
-		if (_drunkardLevel < MaxLevel || !MaxLevelCap)
-		{
-			_drunkardLevel++;
-		}
-	}
+	// public int DrunkardPassive = 0;
+	// private int _drunkardLevel = 0;
+	// public int DrunkardLevel
+	// {
+	// 	get => _drunkardLevel;
+	// }
+	// private const int DrunkardAddition = 1;
+	// private const int DrunkardBaseValue = 1;
+	// public void UpgradeDrunkardLevel()
+	// {
+	// 	GD.Print("Upgrade UpgradeDrunkardLevel");
+	// 	DrunkardPassive = DrunkardBaseValue + DrunkardAddition * _drunkardLevel;
+	// 	if (_drunkardLevel < MaxLevel || !MaxLevelCap)
+	// 	{
+	// 		_drunkardLevel++;
+	// 	}
+	// }
 
 }

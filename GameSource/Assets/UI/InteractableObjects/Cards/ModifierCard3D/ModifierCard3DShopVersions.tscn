@@ -1,11 +1,11 @@
 [gd_scene format=4 uid="uid://detq1008c6k8j"]
 
 [ext_resource type="Script" uid="uid://dmhgsfd4md7ia" path="res://Assets/UI/InteractableObjects/Cards/ModifierCard3D/ModifierCard3dShopVersion.cs" id="1_f6jy7"]
-[ext_resource type="Texture2D" uid="uid://bn76myci140xj" path="res://Assets/ClassImages/noble.jpg" id="2_tyxfn"]
+[ext_resource type="Texture2D" uid="uid://cb3uok6uc3id1" path="res://Assets/Abilities/money_icon.png" id="2_tyxfn"]
 [ext_resource type="Texture2D" uid="uid://bi240hb61iche" path="res://Assets/ClassImages/BeerImage.png" id="2_x1yq5"]
-[ext_resource type="Texture2D" uid="uid://28f3fk700sgy" path="res://Assets/ClassImages/Dice.jpg" id="3_tyxfn"]
-[ext_resource type="Texture2D" uid="uid://bs0lqlv0hxrpe" path="res://Assets/ClassImages/Potion.png" id="5_y70wb"]
-[ext_resource type="Texture2D" uid="uid://dwhyst8t2705v" path="res://Assets/ClassImages/mirror.jpg" id="6_tyxfn"]
+[ext_resource type="Texture2D" uid="uid://cokeq0gff5iqj" path="res://Assets/Abilities/dice_icon.png" id="3_4271l"]
+[ext_resource type="Texture2D" uid="uid://dn5gffu6asq8x" path="res://Assets/effects/particles/coin.png" id="4_y70wb"]
+[ext_resource type="Texture2D" uid="uid://b3ny8b3833uw5" path="res://Assets/Abilities/mirror_icon.png" id="5_tno3q"]
 [ext_resource type="PackedScene" uid="uid://chykv5bcqt0n0" path="res://UI/ToolTipMenu/ToolTipInfo.tscn" id="9_vbfk5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfkyt"]
@@ -146,7 +146,7 @@ _data = {
 [node name="ModifierCard3D" type="Node3D" unique_id=1327020224 node_paths=PackedStringArray("sprite3D", "outlineMesh", "animationPlayer", "area3D", "toolTipInfo", "PriceLabel", "expEffect")]
 script = ExtResource("1_f6jy7")
 sprite3D = NodePath("Visual/Sprite3D")
-_icons = Array[CompressedTexture2D]([ExtResource("2_tyxfn"), ExtResource("3_tyxfn"), ExtResource("5_y70wb"), ExtResource("6_tyxfn"), ExtResource("2_x1yq5")])
+_icons = Array[CompressedTexture2D]([ExtResource("2_tyxfn"), ExtResource("3_4271l"), ExtResource("4_y70wb"), ExtResource("5_tno3q")])
 outlineMesh = NodePath("Visual/Outline")
 animationPlayer = NodePath("AnimationPlayer")
 area3D = NodePath("Visual/Area3D")
