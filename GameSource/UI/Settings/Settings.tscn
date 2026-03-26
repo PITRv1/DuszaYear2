@@ -162,6 +162,7 @@ layout_mode = 2
 text = "100%"
 
 [node name="Shaders" type="VBoxContainer" parent="HBoxContainer/container" unique_id=1987236442]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
