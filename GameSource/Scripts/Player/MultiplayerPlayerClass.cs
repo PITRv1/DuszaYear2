@@ -64,6 +64,24 @@ public partial class MultiplayerPlayerClass : Node
 		}
 	}
 
+	private void ShowGreen(int CurrPlayerId)
+	{
+		_playerHud.timerLabel.Modulate = new Godot.Color(WHITE);
+		foreach (var player in _playerVisuals.Values)
+		{
+			player.NamePlate.Modulate = new Godot.Color(WHITE);
+		}
+		if (CurrPlayerId == Id)
+		{
+			_playerHud.timerLabel.Modulate = new Godot.Color(GREEN);
+		}
+		else
+		{
+			_playerVisuals[CurrPlayerId].NamePlate.Modulate = new Godot.Color(GREEN);
+
+		}
+	}
+
 	private void ShopBuy(byte[] data)
 	{
 		var packet = ShopItemBuy.CreateFromData(data);
@@ -142,6 +160,7 @@ public partial class MultiplayerPlayerClass : Node
 		{
 			if (packet.StarterPlayer == Id)
 			{
+				ShowGreen(packet.StarterPlayer);
 				_playerHud.StartCountdownTimer();
 			}
 			return;
@@ -183,6 +202,8 @@ public partial class MultiplayerPlayerClass : Node
 		{
 			_playerHud.StartCountdownTimer();
 		}
+
+		ShowGreen(packet.StarterPlayer);
 	}
 
 	private static void ClientReady()
