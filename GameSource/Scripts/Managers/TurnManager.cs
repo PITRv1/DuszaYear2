@@ -304,7 +304,7 @@ public partial class TurnManager : Node
 		{
 			var packet = new WinnerScreenPacket()
 			{
-				names = Players.Values.OrderBy(x => x.PlayerClass.Points).Select(x => x.PlayerName + " - " + x.PlayerClass.Points).ToArray(),
+				names = Players.Values.OrderByDescending(x => x.PlayerClass.Points).Select(x => x.PlayerName + " - " + x.PlayerClass.Points).ToArray(),
 			};
 			BroadCast(packet);
 			GD.Print("It's over da");
