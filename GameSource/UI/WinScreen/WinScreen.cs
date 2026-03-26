@@ -16,6 +16,6 @@ public partial class WinScreen : Control
 
     public void GoBackToMainManu()
     {
-        GetTree().ChangeSceneToPacked(mainMenuScene);
+        GetTree().ChangeSceneToFile(ProjectSettings.GlobalizePath("res://3D Menu/MainMenu/MainMenu.tscn"));
     }
 }
