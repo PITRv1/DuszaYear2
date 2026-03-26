@@ -29,6 +29,7 @@ public partial class MultiplayerPlayerClass : Node
 		Id = Global.multiplayerClientGlobals.Id;
 		Global.multiplayerClientGlobals.SetupPlace += Setup;
 		Global.multiplayerClientGlobals.HandleTurnInfo += PlayerClass.ProcessTurnInfoPacket;
+		Global.multiplayerClientGlobals.HandleTurnInfo += ShowGreen;
 		Global.multiplayerClientGlobals.HandlePickUpCardAnswer += PlayerClass.ProcessPickUpAnswer;
 		Global.multiplayerClientGlobals.HandleDeckSwap += PlayerClass.HandleDeckSwap;
 		Global.multiplayerClientGlobals.ShopScene += uiCommunicator.StartShop;
@@ -39,6 +40,28 @@ public partial class MultiplayerPlayerClass : Node
 		
 		Global.multiplayerPlayerClass = this;
 		ClientReady();
+	}
+
+	private const string WHITE = "#ffffff";
+	private const string GREEN = "#578b1d";
+
+	private void ShowGreen(byte[] data)
+	{
+		var packet = TurnInfoPacket.CreateFromData(data);
+		_playerHud.timerLabel.Modulate = new Godot.Color(WHITE);
+		foreach (var player in _playerVisuals.Values)
+		{
+			player.NamePlate.Modulate = new Godot.Color(WHITE);
+		}
+		if (packet.CurrentPlayerId == Id)
+		{
+			_playerHud.timerLabel.Modulate = new Godot.Color(GREEN);
+		}
+		else
+		{
+			_playerVisuals[packet.CurrentPlayerId].NamePlate.Modulate = new Godot.Color(GREEN);
+
+		}
 	}
 
 	private void ShopBuy(byte[] data)

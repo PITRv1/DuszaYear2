@@ -10,7 +10,7 @@ public enum PASSIVEICONS {
 
 public partial class PlayerHud : Control
 {
-	[Export] Label timerLabel;
+	[Export] public Label timerLabel;
 	[Export] Timer timer;
 	[Export] RichTextLabel goldLabel;
 	[Export] RichTextLabel pointLabel;
