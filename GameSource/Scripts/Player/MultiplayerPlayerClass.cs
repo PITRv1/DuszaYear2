@@ -33,6 +33,7 @@ public partial class MultiplayerPlayerClass : Node
 		Global.multiplayerClientGlobals.HandlePickUpCardAnswer += PlayerClass.ProcessPickUpAnswer;
 		Global.multiplayerClientGlobals.HandleDeckSwap += PlayerClass.HandleDeckSwap;
 		Global.multiplayerClientGlobals.ShopScene += uiCommunicator.StartShop;
+		Global.multiplayerClientGlobals.ShopScene += ShowGreen;
 		Global.multiplayerClientGlobals.HandleRoundSuccess += HandleRoundSuccess;
 		Global.multiplayerClientGlobals.HandleLookAt += SetTargetPosition;
 		Global.multiplayerClientGlobals.HandleGoldUpdate += SetGoldAmount;
@@ -53,6 +54,15 @@ public partial class MultiplayerPlayerClass : Node
 		var winScreen = _winScreenScene.Instantiate() as WinScreen;
 		AddChild(winScreen);
 		winScreen.SetPlayerNames(packet.names);
+	}
+
+	private void ShowGreen()
+	{
+		_playerHud.timerLabel.Modulate = new Godot.Color(WHITE);
+		foreach (var player in _playerVisuals.Values)
+		{
+			player.NamePlate.Modulate = new Godot.Color(WHITE);
+		}
 	}
 
 	private void ShowGreen(byte[] data)
