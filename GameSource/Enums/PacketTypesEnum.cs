@@ -22,5 +22,6 @@ public enum PACKET_TYPES
     SHOP_READY = 19,
     SHOP_ITEM_BUY = 20,
     PROGRESS_SHOP_PHASE = 21,
-    NAME = 22
+    NAME = 22,
+    PASSIVE_USED = 23
 }

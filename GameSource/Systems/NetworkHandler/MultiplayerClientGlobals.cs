@@ -46,6 +46,8 @@ public partial class MultiplayerClientGlobals : Node
     public delegate void ShowPrivateShopEventHandler();
     [Signal]
     public delegate void StopShopEventHandler();
+    [Signal]
+    public delegate void PassiveUsedEventHandler(byte[] data);
 
     public int Id = -1;
     public string ClientName;
@@ -121,6 +123,9 @@ public partial class MultiplayerClientGlobals : Node
                     Name = ClientName
                 };
 		        Global.networkHandler.ServerPeer?.Send(0, namePacket.Encode(), (int)ENetPacketPeer.FlagReliable);
+                break;
+            case PACKET_TYPES.PASSIVE_USED:
+                EmitSignal(SignalName.PassiveUsed, data);
                 break;
             default:
                 GD.PushError($"Packet type with index {(int)packetType} unhandled!");

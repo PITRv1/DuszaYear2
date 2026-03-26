@@ -25,6 +25,15 @@ public partial class PlayerHud : Control
 		passiveIconBuffer.Add(icon);
 	}
 
+    public override void _Ready()
+    {
+        Global.multiplayerClientGlobals.PassiveUsed += (byte[] data) =>
+		{
+			var packet = PassiveUsed.CreateFromData(data);
+			ShowPassive(packet.icon);
+		};
+    }
+
 	private void ShowNextPassiveIcon()
 	{
 		PASSIVEICONS currentIcon = passiveIconBuffer[0];

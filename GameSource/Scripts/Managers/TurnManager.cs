@@ -154,13 +154,26 @@ public partial class TurnManager : Node
 	private void FoldTurn()
 	{
 		var originalValue = _throwDeckValue;
-		if (Players[_lastPlayer].PlayerClass.CanMaidenBeImmune())
+		if (!Players[_lastPlayer].PlayerClass.CanMaidenBeImmune())
 		{
 			foreach(var player in Players.Keys)
 			{
 				Players[player].PlayerClass.Points += (int)Math.Round(originalValue * Players[player].PlayerClass.PlayerStats.PoliticanPassive);
 				_throwDeckValue -= (int)Math.Round(_throwDeckValue * Players[player].PlayerClass.PlayerStats.PoliticanPassive);
+				var passive = new PassiveUsed
+				{
+					icon = PASSIVEICONS.MONEY	
+				};
+				BroadCast(passive);
 			}
+		}
+		else
+		{
+			var passive = new PassiveUsed
+			{
+				icon = PASSIVEICONS.MIRROR	
+			};
+			BroadCast(passive);
 		}
 		Random random = new Random();
 		var chance = random.NextDouble()*-1+1;
@@ -168,6 +181,11 @@ public partial class TurnManager : Node
 		{
 			GD.Print("Gambler passive hit");
 			Players[_lastPlayer].PlayerClass.Points += _throwDeckValue*2;
+			var passive = new PassiveUsed
+			{
+				icon = PASSIVEICONS.DICE	
+			};
+			BroadCast(passive);
 		}
 		else
 		{
@@ -179,10 +197,15 @@ public partial class TurnManager : Node
 		_throwDeckValue = 0;
 		_currentMaxValue = 0;
 
-		if (Players[_currentPlayer].PlayerClass.PlayerStats.DrunkardLevel >= 1)
-		{
-			SwitchToNextPlayer();
-		}
+		// if (Players[_currentPlayer].PlayerClass.PlayerStats.DrunkardLevel >= 1)
+		// {
+		// 	var passive = new PassiveUsed
+		// 	{
+		// 		icon = PASSIVEICONS.	
+		// 	};
+		// 	BroadCast(passive);
+		// 	SwitchToNextPlayer();
+		// }
 
 		foreach (var player in Players.Keys)
 		{
@@ -329,9 +352,14 @@ public partial class TurnManager : Node
 			if (_currentPlayer < 0)
 				_currentPlayer = _playerCount - 1;
 
-			if (Players[_currentPlayer].PlayerClass.CanMaidenBeImmune())
+			if (Players[_currentPlayer].PlayerClass.CanMaidenBeImmune() && Players[_currentPlayer].PlayerClass.PointCardList.Count != 0)
 			{
-				break;
+				var passive = new PassiveUsed
+				{
+					icon = PASSIVEICONS.MIRROR	
+				};
+				BroadCast(passive);
+				return;
 			}
 		}
 
@@ -422,6 +450,7 @@ public partial class TurnManager : Node
 		plTwo.PointCardList = tempPointCards;
 		plTwo.ModifierCardList = tempModifierCards;
 	}
+
 
 	private void SwapDeckAround()
 	{
